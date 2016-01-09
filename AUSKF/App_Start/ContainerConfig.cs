@@ -1,10 +1,7 @@
-﻿using System;
-using Castle.Core;
-using Microsoft.AspNet.Identity;
-using Microsoft.Owin.Security;
-
-namespace AUSKF.Api
+﻿namespace AUSKF
 {
+    using System;
+    using Castle.Core;
     using Domain.Data;
     using Domain.Entities;
     using Domain.Entities.Identity;
@@ -16,8 +13,8 @@ namespace AUSKF.Api
     using Domain.Repositories.Interfaces;
     using Domain.Services;
     using Domain.Services.Interfaces;
-    using ApplicationSignInManager = AUSKF.ApplicationSignInManager;
-    using ApplicationUserManager = AUSKF.ApplicationUserManager;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.Owin.Security;
 
     public class ContainerConfig
     {
@@ -31,12 +28,9 @@ namespace AUSKF.Api
 
             // Data
             Ioc.Instance.AddComponentWithLifestyle("IDataContext", typeof(IDataContext), typeof(DataContext), LifestyleType.PerWebRequest);
-
             // Repositories
             RegisterRepositories();
 
-            // Identity
-            //Ioc.Instance.AddComponentWithLifestyle("GroupManager", typeof(IGroupManager), typeof(ApplicationRoleManager), LifestyleType.PerWebRequest);
             Ioc.Instance.AddComponentWithLifestyle("ApplicationSignInManager", typeof(IApplicationSignInManager), typeof(ApplicationSignInManager), LifestyleType.PerWebRequest);
             Ioc.Instance.AddComponentWithLifestyle("ApplicationUserManager", typeof(IApplicationUserManager), typeof(ApplicationUserManager), LifestyleType.PerWebRequest);
             Ioc.Instance.AddComponentWithLifestyle("AuthenticationManager", typeof(IAuthenticationManager), typeof(ApplicationAuthenticationManager), LifestyleType.PerWebRequest);

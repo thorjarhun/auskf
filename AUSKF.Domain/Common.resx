@@ -217,4 +217,37 @@
   <data name="UnableToDetermineId" xml:space="preserve">
     <value>Unable to determine userid from given parameter</value>
   </data>
+  <data name="ContactUs" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="DojoListings" xml:space="preserve">
+    <value>Dojo Listings</value>
+  </data>
+  <data name="FooterText" xml:space="preserve">
+    <value>Site Disclaimer: This website is posted as a service to the All United States Kendo Federation. Information on this website is posted from many different sources and every effort is made to post accurate information. Errors may occur and users use this site without warranties of any sort implied and at their own risk.'</value>
+  </data>
+  <data name="Hello" xml:space="preserve">
+    <value>Hello </value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="KendoFederation" xml:space="preserve">
+    <value>All United States Kendo Federation</value>
+  </data>
+  <data name="LogOff" xml:space="preserve">
+    <value>LogOff</value>
+  </data>
+  <data name="Log_In" xml:space="preserve">
+    <value>Log in</value>
+  </data>
+  <data name="NameHeaderText" xml:space="preserve">
+    <value>AUSKF</value>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
 </root>

@@ -5,6 +5,7 @@
     using System.Linq;
     using System.Threading.Tasks;
     using System.Web.Http.Dispatcher;
+    using System.Web.Mvc;
     using Castle.Core;
     using Castle.Core.Internal;
     using Castle.MicroKernel;
@@ -14,14 +15,18 @@
     using Factories.Interfaces;
     using Interfaces;
 
-    public sealed class Ioc
+    /// <summary>
+    /// An implementation of the IContainer interface using Castle Windsor as the 
+    /// container.
+    /// </summary>
+    public sealed class Ioc : IInversionOfControlContainer
     {
+        private bool initialized;
         // TODO: Ioc controller that displays information about all of the items in the container for an administration site.
 
         private static readonly object syncRoot = new object();
-        private static readonly Ioc instance = new Ioc();
         private static readonly RegisteredComponents registeredComponents = new RegisteredComponents();
-        private bool initialized;
+        private static readonly Ioc instance = new Ioc();
 
         private Ioc()
         {
@@ -31,20 +36,6 @@
             {
                 this.Initialize();
             }
-        }
-
-        /// <summary>
-        ///   Gets the instance.
-        /// </summary>
-        public static Ioc Instance { get { return instance; }}
-
-        /// <summary>
-        ///   Gets the Windsor container.
-        /// </summary>
-        public WindsorContainer WindsorContainer
-        {
-            get;
-            private set;
         }
 
         /// <summary>
@@ -71,10 +62,6 @@
                 throw new ArgumentNullException("classType");
             }
 
-#if !DEBUG
-            using (TimedLock.Lock(syncRoot))
-            {
-#endif
             this.WindsorContainer.Register(Component.For(classType).Named(key));
             registeredComponents.AddComponent(new RegisteredComponent
             {
@@ -84,9 +71,6 @@
                 ClassType = classType,
                 LifeStyle = LifestyleType.Singleton
             });
-#if !DEBUG
-            }
-#endif
         }
 
         /// <summary>
@@ -119,11 +103,6 @@
             {
                 throw new ArgumentNullException("key");
             }
-
-#if !DEBUG
-            using (TimedLock.Lock(syncRoot))
-            {
-#endif
             this.WindsorContainer.Register(Component.For(serviceType).ImplementedBy(classType).Named(key));
             registeredComponents.AddComponent(new RegisteredComponent
             {
@@ -132,9 +111,6 @@
                 ClassType = classType,
                 LifeStyle = LifestyleType.Singleton
             });
-#if !DEBUG
-            }
-#endif
         }
 
         /// <summary>
@@ -162,10 +138,6 @@
                 throw new ArgumentNullException("key");
             }
 
-#if !DEBUG
-            using (TimedLock.Lock(syncRoot))
-            {
-#endif
             this.WindsorContainer.Register(Component.For(classType).Named(key).LifeStyle.Is(lifestyle));
             registeredComponents.AddComponent(new RegisteredComponent
             {
@@ -173,9 +145,6 @@
                 ClassType = classType,
                 LifeStyle = lifestyle
             });
-#if !DEBUG
-            }
-#endif
         }
 
         /// <summary>
@@ -210,10 +179,6 @@
                 throw new ArgumentNullException("key");
             }
 
-#if !DEBUG
-            using (TimedLock.Lock(syncRoot))
-            {
-#endif
             this.WindsorContainer.Register(Component.For(serviceType).ImplementedBy(classType).Named(key).LifeStyle.Is(lifestyle));
             registeredComponents.AddComponent(new RegisteredComponent
             {
@@ -222,9 +187,6 @@
                 ClassType = classType,
                 LifeStyle = lifestyle
             });
-#if !DEBUG
-            }
-#endif
         }
 
         /// <summary>
@@ -237,10 +199,6 @@
         public void AddComponent<T>()
             where T : class
         {
-#if !DEBUG
-            using (TimedLock.Lock(syncRoot))
-            {
-#endif
             this.WindsorContainer.Register(Component.For<T>());
             registeredComponents.AddComponent(new RegisteredComponent
             {
@@ -250,9 +208,6 @@
                 ClassType = typeof(T),
                 LifeStyle = LifestyleType.Singleton
             });
-#if !DEBUG
-            }
-#endif
         }
 
         /// <summary>
@@ -272,10 +227,6 @@
                 throw new ArgumentNullException("key");
             }
 
-#if !DEBUG
-            using (TimedLock.Lock(syncRoot))
-            {
-#endif
             this.WindsorContainer.Register(Component.For<T>().Named(key));
             registeredComponents.AddComponent(new RegisteredComponent
             {
@@ -283,9 +234,6 @@
                 ClassType = typeof(T),
                 LifeStyle = LifestyleType.Singleton
             });
-#if !DEBUG
-            }
-#endif
         }
 
         /// <summary>
@@ -325,10 +273,6 @@
                 throw new ArgumentNullException("key");
             }
 
-#if !DEBUG
-            using (TimedLock.Lock(syncRoot))
-            {
-#endif
             this.WindsorContainer.Register(Component.For<T>().Named(key).LifeStyle.Is(lifestyle));
             registeredComponents.AddComponent(new RegisteredComponent
             {
@@ -338,9 +282,6 @@
                 ClassType = typeof(T),
                 LifeStyle = lifestyle
             });
-#if !DEBUG
-            }
-#endif
         }
 
         /// <summary>
@@ -355,10 +296,6 @@
             where TU : class, T
             where T : class
         {
-#if !DEBUG
-            using (TimedLock.Lock(syncRoot))
-            {
-#endif
             this.WindsorContainer.Register(Component.For<T>().ImplementedBy<TU>());
             registeredComponents.AddComponent(new RegisteredComponent
             {
@@ -367,9 +304,6 @@
                 ClassType = typeof(TU),
                 LifeStyle = LifestyleType.Singleton
             });
-#if !DEBUG
-            }
-#endif
         }
 
         /// <summary>
@@ -390,10 +324,6 @@
             {
                 throw new ArgumentNullException("key");
             }
-#if !DEBUG
-            using (TimedLock.Lock(syncRoot))
-            {
-#endif
             this.WindsorContainer.Register(Component.For<T>().ImplementedBy<TU>().Named(key));
             registeredComponents.AddComponent(new RegisteredComponent
             {
@@ -402,9 +332,6 @@
                 ClassType = typeof(TU),
                 LifeStyle = LifestyleType.Singleton
             });
-#if !DEBUG
-            }
-#endif
         }
 
         /// <summary>
@@ -420,10 +347,6 @@
             where TU : class, T
             where T : class
         {
-#if !DEBUG
-            using (TimedLock.Lock(syncRoot))
-            {
-#endif
             this.WindsorContainer.Register(Component.For<T>().ImplementedBy<TU>().LifeStyle.Is(lifestyle));
             registeredComponents.AddComponent(new RegisteredComponent
             {
@@ -432,9 +355,6 @@
                 ClassType = typeof(TU),
                 LifeStyle = lifestyle
             });
-#if !DEBUG
-            }
-#endif
         }
 
         /// <summary>
@@ -456,11 +376,6 @@
             {
                 throw new ArgumentNullException("key");
             }
-
-#if !DEBUG
-            using (TimedLock.Lock(syncRoot))
-            {
-#endif
             this.WindsorContainer.Register(Component.For<T>().ImplementedBy<TU>().Named(key).LifeStyle.Is(lifestyle));
             registeredComponents.AddComponent(new RegisteredComponent
             {
@@ -469,9 +384,6 @@
                 ClassType = typeof(TU),
                 LifeStyle = lifestyle
             });
-#if !DEBUG
-            }
-#endif
         }
 
         /// <summary>
@@ -506,10 +418,6 @@
                 throw new ArgumentNullException("key");
             }
 
-#if !DEBUG
-            using (TimedLock.Lock(syncRoot))
-            {
-#endif
             this.WindsorContainer.Register(Component.For<T>().ImplementedBy<TU>().DependsOn(
                 Dependency.OnValue(dependencyPropertyName, dependencyPropertyValue)).LifeStyle.Is(lifestyle));
 
@@ -520,9 +428,6 @@
                 ClassType = typeof(TU),
                 LifeStyle = lifestyle
             });
-#if !DEBUG
-            }
-#endif
         }
 
         /// <summary>
@@ -608,12 +513,14 @@
 
                 if (ReferenceEquals(null, item))
                 {
-                    throw new KeyNotFoundException(string.Format(key, "Could not resolve component named {0}"));
+                    throw new ComponentNotFoundException("key",
+                        string.Format("Could not resolve component named {0}", key));
                 }
 
                 return item;
             }
-            throw new KeyNotFoundException(string.Format(key,"Could not resolve component named {0}"));
+            throw new ComponentNotFoundException("key",
+                string.Format("Could not resolve component named {0}", key));
         }
 
         /// <summary>
@@ -772,15 +679,11 @@
         {
             if (!this.initialized)
             {
-#if !DEBUG
-                using (TimedLock.Lock(syncRoot))
-                {
-#endif
                 this.WindsorContainer = new WindsorContainer();
 
                 //windsorContainer.Register(
                 //    Component.For(typeof(IContainer)).Activator<ContainerActivator>()
-                //    .ImplementedBy(typeof(Ioc)).Named("Ioc").LifeStyle.Is(LifestyleType.Singleton");
+                //    .ImplementedBy(typeof(Ioc)).Named("Ioc").LifeStyle.Is(LifestyleType.Singleton));
 
                 foreach (var component in registeredComponents)
                 {
@@ -797,11 +700,21 @@
                     }
                 }
                 this.initialized = true;
-#if !DEBUG  
-                }
-#endif
             }
         }
+
+        /// <summary>
+        ///   Gets the instance.
+        /// </summary>
+        public static Ioc Instance
+        {
+            get { return instance; }
+        }
+
+        /// <summary>
+        ///   Gets the Windsor container.
+        /// </summary>
+        public WindsorContainer WindsorContainer { get; private set; }
 
         internal sealed class RegisteredComponent
         {
@@ -811,11 +724,7 @@
             /// <value>
             /// The key.
             /// </value>
-            public string Key
-            {
-                get;
-                set;
-            }
+            public string Key { get; set; }
 
             /// <summary>
             /// Gets or sets the type of the service.
@@ -823,11 +732,7 @@
             /// <value>
             /// The type of the service.
             /// </value>
-            public Type ServiceType
-            {
-                get;
-                set;
-            }
+            public Type ServiceType { get; set; }
 
             /// <summary>
             /// Gets or sets the type of the class.
@@ -835,11 +740,7 @@
             /// <value>
             /// The type of the class.
             /// </value>
-            public Type ClassType
-            {
-                get;
-                set;
-            }
+            public Type ClassType { get; set; }
 
             /// <summary>
             /// Gets or sets the life style.
@@ -847,11 +748,7 @@
             /// <value>
             /// The life style.
             /// </value>
-            public LifestyleType LifeStyle
-            {
-                get;
-                set;
-            }
+            public LifestyleType LifeStyle { get; set; }
         }
 
         internal sealed class RegisteredComponents : List<RegisteredComponent>
@@ -863,10 +760,18 @@
             {
                 this.Add(new RegisteredComponent
                 {
-                    Key = "ConfigurationService",
+                    Key = "Ioc",
+                    ServiceType = typeof(IInversionOfControlContainer),
+                    ClassType = typeof(Ioc),
+                    LifeStyle = LifestyleType.Singleton
+                });
+
+                this.Add(new RegisteredComponent
+                {
+                    Key = "ConfigurationWrapper",
                     ServiceType = typeof(IConfigurationService),
                     ClassType = typeof(ConfigurationService),
-                    LifeStyle = LifestyleType.Transient
+                    LifeStyle = LifestyleType.Singleton
                 });
 
                 this.Add(new RegisteredComponent
@@ -874,6 +779,22 @@
                     Key = "CacheItemPropertiesFactory",
                     ServiceType = typeof(ICacheItemPropertiesFactory),
                     ClassType = typeof(CacheItemPropertiesFactory),
+                    LifeStyle = LifestyleType.Singleton
+                });
+
+                this.Add(new RegisteredComponent
+                {
+                    Key = "ControllerRegistrationService",
+                    ServiceType = typeof(IControllerRegistrationService),
+                    ClassType = typeof(ControllerRegistrationService),
+                    LifeStyle = LifestyleType.Singleton
+                });
+
+                this.Add(new RegisteredComponent
+                {
+                    Key = "ControllerFactory",
+                    ServiceType = typeof(IControllerFactory),
+                    ClassType = typeof(ControllerFactory),
                     LifeStyle = LifestyleType.Singleton
                 });
 
@@ -895,15 +816,7 @@
 
                 this.Add(new RegisteredComponent
                 {
-                    Key = "ControllerRegistrationService",
-                    ServiceType = typeof(IControllerRegistrationService),
-                    ClassType = typeof(ControllerRegistrationService),
-                    LifeStyle = LifestyleType.Singleton
-                });
-
-                this.Add(new RegisteredComponent
-                {
-                    Key = "AssemblyDiscoveryService",
+                    Key = "DependencyDiscoveryService",
                     ServiceType = typeof(IAssemblyDiscoveryService),
                     ClassType = typeof(AssemblyDiscoveryService),
                     LifeStyle = LifestyleType.Singleton
@@ -921,7 +834,6 @@
                 {
                     throw new ArgumentNullException("registeredComponent");
                 }
-
 
                 // could we just set c's values here???
                 var c = (from p in this

@@ -61,6 +61,15 @@ namespace AUSKF.Domain {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Contact.
+        /// </summary>
+        public static string ContactUs {
+            get {
+                return ResourceManager.GetString("ContactUs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Could not locate the directory {0}.
         /// </summary>
         public static string DirectoryNotFound {
@@ -133,6 +142,15 @@ namespace AUSKF.Domain {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dojo Listings.
+        /// </summary>
+        public static string DojoListings {
+            get {
+                return ResourceManager.GetString("DojoListings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email.
         /// </summary>
         public static string Email {
@@ -197,6 +215,15 @@ namespace AUSKF.Domain {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Site Disclaimer: This website is posted as a service to the All United States Kendo Federation. Information on this website is posted from many different sources and every effort is made to post accurate information. Errors may occur and users use this site without warranties of any sort implied and at their own risk.&apos;.
+        /// </summary>
+        public static string FooterText {
+            get {
+                return ResourceManager.GetString("FooterText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Group color.
         /// </summary>
         public static string GroupColor {
@@ -224,6 +251,24 @@ namespace AUSKF.Domain {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hello .
+        /// </summary>
+        public static string Hello {
+            get {
+                return ResourceManager.GetString("Hello", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Home.
+        /// </summary>
+        public static string Home {
+            get {
+                return ResourceManager.GetString("Home", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Attempted reference to HttpContext.Current which was null..
         /// </summary>
         public static string HttpContextNull {
@@ -247,6 +292,51 @@ namespace AUSKF.Domain {
         public static string InvalidLoginAttempt {
             get {
                 return ResourceManager.GetString("InvalidLoginAttempt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All United States Kendo Federation.
+        /// </summary>
+        public static string KendoFederation {
+            get {
+                return ResourceManager.GetString("KendoFederation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Log in.
+        /// </summary>
+        public static string Log_In {
+            get {
+                return ResourceManager.GetString("Log_In", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LogOff.
+        /// </summary>
+        public static string LogOff {
+            get {
+                return ResourceManager.GetString("LogOff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AUSKF.
+        /// </summary>
+        public static string NameHeaderText {
+            get {
+                return ResourceManager.GetString("NameHeaderText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ok.
+        /// </summary>
+        public static string Ok {
+            get {
+                return ResourceManager.GetString("Ok", resourceCulture);
             }
         }
         
@@ -312,6 +402,15 @@ namespace AUSKF.Domain {
         public static string Password {
             get {
                 return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Register.
+        /// </summary>
+        public static string Register {
+            get {
+                return ResourceManager.GetString("Register", resourceCulture);
             }
         }
         
