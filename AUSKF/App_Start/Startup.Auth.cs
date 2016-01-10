@@ -2,7 +2,6 @@
 namespace AUSKF
 {
     using System;
-    using System.Globalization;
     using System.Security.Claims;
     using System.Security.Principal;
     using System.Web.Http;
