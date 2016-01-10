@@ -23,21 +23,21 @@
         private double cacheDuration;
         private bool cacheIsValid;
         private readonly ICacheItemPropertiesFactory cacheItemsPropertiesFactory;
-        private static readonly Logger logger = LogManager.GetCurrentClassLogger(typeof(CacheService));
+        //private static readonly //logger //logger = LogManager.GetCurrentClass//logger(typeof(CacheService));
 
-        // temp singleton until we get a container
-        private static readonly CacheService instance = new CacheService();
+        //// temp singleton until we get a container
+        //private static readonly CacheService instance = new CacheService();
 
-        /// <summary>
-        /// Temporary hack to allow us to have a "singleton" cache service
-        /// </summary>
-        /// <value>
-        /// The instance.
-        /// </value>
-        public static CacheService Instance
-        {
-            get { return instance; }
-        }
+        ///// <summary>
+        ///// Temporary hack to allow us to have a "singleton" cache service
+        ///// </summary>
+        ///// <value>
+        ///// The instance.
+        ///// </value>
+        //public static CacheService Instance
+        //{
+        //    get { return instance; }
+        //}
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CacheService" /> class.
@@ -156,7 +156,7 @@
             }
             catch (Exception e)
             {
-                logger.Error(e, e.Message);
+                ////logger.Error(e, e.Message);
                 return default(T);
             }
         }
@@ -322,7 +322,7 @@
             }
             catch (Exception e)
             {
-                logger.Error(e, e.Message);
+                //logger.Error(e, e.Message);
                 return default(T);
             }
         }
@@ -397,7 +397,7 @@
             }
             catch (Exception e)
             {
-                logger.Error(e, e.Message);
+                //logger.Error(e, e.Message);
 
                 return default(T);
             }
@@ -478,7 +478,7 @@
             }
             catch (Exception e)
             {
-                logger.Error(e, e.Message);
+                //logger.Error(e, e.Message);
 
                 return default(T);
             }
@@ -565,7 +565,7 @@
             }
             catch (Exception e)
             {
-                logger.Error(e, e.Message);
+                //logger.Error(e, e.Message);
 
                 return default(T);
             }
@@ -655,7 +655,7 @@
             }
             catch (Exception e)
             {
-                logger.Error(e, e.Message);
+                //logger.Error(e, e.Message);
 
                 return default(T);
             }
@@ -749,7 +749,7 @@
             }
             catch (Exception e)
             {
-                logger.Error(e, e.Message);
+                //logger.Error(e, e.Message);
 
                 return default(T);
             }
@@ -848,7 +848,7 @@
             }
             catch (Exception e)
             {
-                logger.Error(e, e.Message);
+                //logger.Error(e, e.Message);
 
                 return default(T);
             }
@@ -921,12 +921,12 @@
             }
             catch (ArgumentNullException ane)
             {
-                logger.Error(ane, ane.Message);
+                //logger.Error(ane, ane.Message);
                 throw;
             }
             catch (InvalidOperationException ioe)
             {
-                logger.Error(ioe, ioe.Message);
+                //logger.Error(ioe, ioe.Message);
 
                 throw;
             }
@@ -964,7 +964,7 @@
             }
             catch (Exception e)
             {
-                logger.Error(e, e.Message);
+                //logger.Error(e, e.Message);
 
                 throw;
             }

@@ -9,6 +9,13 @@ namespace AUSKF
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            // routes.MapMvcAttributeRoutes();
+            //routes.MapRoute(
+            //    name: "About",
+            //    url: "About",
+            //    defaults: new {controller = "Home", action = "About"},
+            //    namespaces: new[] { "AUSKF.Controllers" });
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

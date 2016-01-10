@@ -15,6 +15,7 @@ namespace AUSKF.Api
             httpConfiguration.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
             httpConfiguration.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
             GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+
             //json.SerializerSettings.PreserveReferencesHandling = PreserveReferencesHandling.Objects;
 
             json.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver()

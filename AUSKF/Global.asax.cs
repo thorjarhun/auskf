@@ -1,5 +1,6 @@
 ﻿namespace AUSKF
 {
+    using System;
     using System.Data.Entity;
     using System.Web;
     using System.Web.Http;
@@ -10,29 +11,33 @@
     using Api;
     using Domain.Data;
     using Domain.Services;
+    using Domain.Services.Interfaces;
 
     public class MvcApplication : HttpApplication
     {
         protected void Application_Start()
         {
-
             ContainerConfig.RegisterComponents();
-
             GlobalConfiguration.Configure(WebApiConfig.Register);
 
             IHttpControllerActivator httpControllerActivator = Ioc.Instance.Resolve<IHttpControllerActivator>();
-            GlobalConfiguration.Configuration.Services.Replace(typeof (IHttpControllerActivator), httpControllerActivator);
+            GlobalConfiguration.Configuration.Services.Replace(typeof(IHttpControllerActivator), httpControllerActivator);
 
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            // set the MVC controller builder to our custom builder
 
+            // set the MVC controller builder to our custom builder
             var controllerFactory = Ioc.Instance.Resolve<IControllerFactory>();
             ControllerBuilder.Current.SetControllerFactory(controllerFactory);
 
             Database.SetInitializer(new EntityContextInitializer());
+        }
+
+        protected void Application_BeginRequest(object sender, EventArgs e)
+        {
+            var c = Ioc.Instance.Resolve<ICacheService>();
         }
     }
 }
