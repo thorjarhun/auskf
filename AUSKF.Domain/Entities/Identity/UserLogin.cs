@@ -1,5 +1,6 @@
 ﻿namespace AUSKF.Domain.Entities.Identity
 {
+    // Can't inherit from entity base if used in aspnet identity 
     using System;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;

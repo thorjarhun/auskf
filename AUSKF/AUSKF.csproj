@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -23,6 +24,7 @@
     <TargetFrameworkProfile />
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <TypeScriptToolsVersion>1.5</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -218,6 +220,8 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\News\Controllers\HomeController.cs" />
+    <Compile Include="Areas\News\NewsAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DojoListController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -269,6 +273,10 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Areas\News\Views\web.config" />
+    <Content Include="Areas\News\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\News\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\News\Views\Home\Index.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -280,6 +288,33 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\libraries\angular-filter\0.5.4\angular-filter.js" />
+    <Content Include="Scripts\libraries\angular-filter\0.5.4\angular-filter.min.js" />
+    <Content Include="Scripts\libraries\angular\angular-animate.js" />
+    <Content Include="Scripts\libraries\angular\angular-animate.min.js" />
+    <Content Include="Scripts\libraries\angular\angular-aria.js" />
+    <Content Include="Scripts\libraries\angular\angular-aria.min.js" />
+    <Content Include="Scripts\libraries\angular\angular-cookies.js" />
+    <Content Include="Scripts\libraries\angular\angular-cookies.min.js" />
+    <Content Include="Scripts\libraries\angular\angular-csp.css" />
+    <Content Include="Scripts\libraries\angular\angular-loader.js" />
+    <Content Include="Scripts\libraries\angular\angular-loader.min.js" />
+    <Content Include="Scripts\libraries\angular\angular-message-format.js" />
+    <Content Include="Scripts\libraries\angular\angular-message-format.min.js" />
+    <Content Include="Scripts\libraries\angular\angular-messages.js" />
+    <Content Include="Scripts\libraries\angular\angular-messages.min.js" />
+    <Content Include="Scripts\libraries\angular\angular-mocks.js" />
+    <Content Include="Scripts\libraries\angular\angular-resource.js" />
+    <Content Include="Scripts\libraries\angular\angular-resource.min.js" />
+    <Content Include="Scripts\libraries\angular\angular-route.js" />
+    <Content Include="Scripts\libraries\angular\angular-route.min.js" />
+    <Content Include="Scripts\libraries\angular\angular-sanitize.js" />
+    <Content Include="Scripts\libraries\angular\angular-sanitize.min.js" />
+    <Content Include="Scripts\libraries\angular\angular-scenario.js" />
+    <Content Include="Scripts\libraries\angular\angular-touch.js" />
+    <Content Include="Scripts\libraries\angular\angular-touch.min.js" />
+    <Content Include="Scripts\libraries\angular\angular.js" />
+    <Content Include="Scripts\libraries\angular\angular.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
@@ -323,9 +358,21 @@
     <Content Include="Views\Shared\_NavPartial.cshtml" />
     <Content Include="Views\Shared\_BootstrapLogin.cshtml" />
     <Content Include="Views\DojoList\Index.cshtml" />
+    <Content Include="Scripts\libraries\angular\angular-animate.min.js.map" />
+    <Content Include="Scripts\libraries\angular\angular-aria.min.js.map" />
+    <Content Include="Scripts\libraries\angular\angular-cookies.min.js.map" />
+    <Content Include="Scripts\libraries\angular\angular-loader.min.js.map" />
+    <Content Include="Scripts\libraries\angular\angular-message-format.min.js.map" />
+    <Content Include="Scripts\libraries\angular\angular-messages.min.js.map" />
+    <Content Include="Scripts\libraries\angular\angular-resource.min.js.map" />
+    <Content Include="Scripts\libraries\angular\angular-route.min.js.map" />
+    <Content Include="Scripts\libraries\angular\angular-sanitize.min.js.map" />
+    <Content Include="Scripts\libraries\angular\angular-touch.min.js.map" />
+    <Content Include="Scripts\libraries\angular\angular.min.js.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\News\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -346,11 +393,28 @@
       <DependentUpon>201511040102245_Kendo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Areas\News\Scripts\auskf.events.controller.ts" />
+    <TypeScriptCompile Include="Scripts\auskf.core.service.ts" />
+    <TypeScriptCompile Include="Scripts\auskf.module.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular-cookies.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular-mocks.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular-resource.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular-route.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular-sanitize.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\ckeditor\ckeditor.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\jquery.validation\jquery.validation.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\lodash\lodash.d.ts" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">

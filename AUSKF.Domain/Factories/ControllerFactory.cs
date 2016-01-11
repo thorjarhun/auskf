@@ -56,7 +56,8 @@
         {
             if (controllerType == null)
             {
-                throw new ArgumentNullException("controllerType");
+                return null;
+                //throw new ArgumentNullException("controllerType");
             }
 
             if ((typeof(IHttpController)).IsAssignableFrom(controllerType))

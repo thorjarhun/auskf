@@ -34,5 +34,7 @@
         public DbSet<FederationOfficer> FederationOfficers  {get;set;}
 
         public DbSet<OfficerRole> OfficerRoles { get; set; }
+
+        public DbSet<Event> Events{ get; set; }
     }
 }

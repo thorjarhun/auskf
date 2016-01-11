@@ -332,6 +332,15 @@ namespace AUSKF.Domain {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to News and Events.
+        /// </summary>
+        public static string NewsEvents {
+            get {
+                return ResourceManager.GetString("NewsEvents", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ok.
         /// </summary>
         public static string Ok {

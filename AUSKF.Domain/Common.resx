@@ -250,4 +250,7 @@
   <data name="Register" xml:space="preserve">
     <value>Register</value>
   </data>
+  <data name="NewsEvents" xml:space="preserve">
+    <value>News and Events</value>
+  </data>
 </root>

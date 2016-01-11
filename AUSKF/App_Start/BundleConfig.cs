@@ -26,6 +26,15 @@ namespace AUSKF
                       "~/Content/bootstrap.css",
                       "~/Content/Styles/bootstrap-flatly.css",
                       "~/Content/site.css"));
+
+            // Angular 
+            bundles.Add(new ScriptBundle("~/bundles/angular").Include(
+                "~/Scripts/libraries/angular/angular.js",
+                "~/Scripts/libraries/angular/angular-route.min.js",
+                "~/Scripts/libraries/angular-filter/0.5.4/angular-filter.min.js",
+                "~/Scripts/auskf.module.js",
+                "~/Scripts/auskf.core.service.js"
+                ));
         }
     }
 }

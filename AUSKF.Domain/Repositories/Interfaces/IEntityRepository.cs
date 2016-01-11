@@ -23,6 +23,14 @@
         IDataContext Context { get; }
 
         /// <summary>
+        /// Gets the query.
+        /// </summary>
+        /// <value>
+        /// The query.
+        /// </value>
+        IQueryable<TEntity> Query { get; }
+
+        /// <summary>
         /// Generic method to get a collection of Entities
         /// </summary>
         /// <param name="filter">Filter expression for the return Entities</param>

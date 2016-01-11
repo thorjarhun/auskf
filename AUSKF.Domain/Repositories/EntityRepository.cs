@@ -43,6 +43,16 @@
             set { this.dataContext = value; }
         }
 
+        /// <summary>
+        /// Gets the query.
+        /// </summary>
+        /// <value>
+        /// The query.
+        /// </value>
+        public IQueryable<TEntity> Query
+        {
+            get { return this.dataContext.SetEntity<TEntity>(); }
+        }
 
         /// <summary>
         /// Generic method to get a collection of Entities
