@@ -126,7 +126,7 @@
         /// The rank identifier.
         /// </value>
         [ForeignKey("KendoRank")]
-        public Guid KendoRankId { get; set; }
+        public Guid? KendoRankId { get; set; }
 
         /// <summary>
         /// Gets or sets the rank.
@@ -134,7 +134,7 @@
         /// <value>
         /// The rank.
         /// </value>
-        public KendoRank KendoRank { get; set; }
+        public virtual KendoRank KendoRank { get; set; }
 
         /// <summary>
         /// Gets or sets the joined date.

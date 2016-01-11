@@ -4,13 +4,16 @@ namespace AUSKF
     using System;
     using System.Security.Claims;
     using System.Security.Principal;
-    using System.Web.Http;
     using Domain.Data;
     using Domain.Entities.Identity;
+    using Domain.Providers.Identity;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.Owin;
     using Microsoft.Owin;
     using Microsoft.Owin.Security.Cookies;
+
+    using Owin.Security.Providers.Reddit;
+    using Owin.Security.Providers.GitHub;
     using Owin;
 
     public static class IdentityExtensions
@@ -23,7 +26,7 @@ namespace AUSKF
             }
             ClaimsIdentity claimsIdentity = identity as ClaimsIdentity;
             string text = claimsIdentity.FindFirstValue("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier");
-            
+
             if (text != null)
             {
                 return Guid.Parse(text);
@@ -37,17 +40,30 @@ namespace AUSKF
     public partial class Startup
     {
         // For more information on configuring authentication, please visit http://go.microsoft.com/fwlink/?LinkId=301864
+
+        /// <summary>
+        /// Configures the authentication.
+        /// </summary>
+        /// <param name="app">The application.</param>
+        /// <exception cref="OverflowException"><paramref>
+        ///         <name>value</name>
+        ///     </paramref>
+        ///     is less than <see cref="F:System.TimeSpan.MinValue"/> 
+        /// or greater than <see cref="F:System.TimeSpan.MaxValue"/>.-or-<paramref>
+        ///         <name>value</name>
+        ///     </paramref>
+        ///     is <see cref="F:System.Double.PositiveInfinity"/>.
+        /// -or-<paramref>
+        ///         <name>value</name>
+        ///     </paramref>
+        ///     is <see cref="F:System.Double.NegativeInfinity"/>.</exception>
         public void ConfigureAuth(IAppBuilder app)
         {
-            app.UseWebApi(GlobalConfiguration.Configuration);
             // Configure the db context and user manager to use a single instance per request
             app.CreatePerOwinContext(DataContext.Create);
-
-            app.CreatePerOwinContext<Domain.Providers.Identity.ApplicationUserManager>(Domain.Providers.Identity.ApplicationUserManager.Create);
+            app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
             //app.CreatePerOwinContext<ApplicationRoleManager>(ApplicationRoleManager.Create);
-            //IAuthenticationManager authenticationManager = Ioc.Instance.Resolve<IAuthenticationManager>();
-
-            app.CreatePerOwinContext<Domain.Providers.Identity.ApplicationSignInManager>(Domain.Providers.Identity.ApplicationSignInManager.Create);
+            app.CreatePerOwinContext<ApplicationSignInManager>(ApplicationSignInManager.Create);
 
             // Enable the application to use a cookie to store information for the signed in user
             // and to use a cookie to temporarily store information about a user logging in with a third party login provider
@@ -57,11 +73,13 @@ namespace AUSKF
             {
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
                 LoginPath = new PathString("/Account/Login"),
+
                 Provider = new CookieAuthenticationProvider
                 {
-                    OnValidateIdentity = SecurityStampValidator.OnValidateIdentity<Domain.Providers.Identity.ApplicationUserManager, User, Guid>
-                        (TimeSpan.FromMinutes(30), (manager, user) => user.GenerateUserIdentityAsync(manager),
-                            ident => ident.GetUserIdAsGuid()),
+                    OnValidateIdentity = SecurityStampValidator.OnValidateIdentity<ApplicationUserManager, User, Guid>
+                        (TimeSpan.FromMinutes(30),
+                        (manager, user) => user.GenerateUserIdentityAsync(manager),
+                        ident => ident.GetUserIdAsGuid()),
 
                     //**** This what I did ***//
                     OnException = context =>
@@ -82,14 +100,17 @@ namespace AUSKF
             //app.UseTwitterAuthentication(
             //   consumerKey: "",
             //   consumerSecret: "");
-            // app.UseGitHubAuthentication("1bfcefabf8915347782a", "db683ecf2f28f09f65432e9cff972673d9d3a522");
+            app.UseGitHubAuthentication("1bfcefabf8915347782a", "db683ecf2f28f09f65432e9cff972673d9d3a522");
 
-            //app.UseRedditAuthentication("t3xal_3BqrnFEg", "FcyBUZI88TkQe_ydgvy5fU1J3a8");
+            app.UseRedditAuthentication("t3xal_3BqrnFEg", "FcyBUZI88TkQe_ydgvy5fU1J3a8");
 
             app.UseFacebookAuthentication("1627454327496577", "1423363bfda5af73029608170b7b0e34");
 
-            app.UseGoogleAuthentication("136994307495-35s7hbhm9jkn43mis7dnqnjl3ooapflu.apps.googleusercontent.com",
-                "wZvoCl-d_AQ2MpzGd-3fxmCY");
+            app.UseGoogleAuthentication("136994307495-35s7hbhm9jkn43mis7dnqnjl3ooapflu.apps.googleusercontent.com", "wZvoCl-d_AQ2MpzGd-3fxmCY");
         }
+
+
+
+
     }
 }

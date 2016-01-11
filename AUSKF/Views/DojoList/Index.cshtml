@@ -1,8 +1,8 @@
-﻿@model dynamic
+﻿@using AUSKF.Domain
+@model dynamic
 
 @{
-    ViewBag.Title = "title";
-    Layout = "_Layout";
+    ViewBag.Title = @Common.DojoListings;
 }
 
-<h2>title</h2>
+<h2>@Common.DojoListings</h2>
