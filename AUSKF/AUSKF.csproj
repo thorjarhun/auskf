@@ -220,6 +220,8 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Iaido\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Iaido\IaidoAreaRegistration.cs" />
     <Compile Include="Areas\News\Controllers\HomeController.cs" />
     <Compile Include="Areas\News\NewsAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -277,6 +279,18 @@
     <Content Include="Areas\News\Views\_ViewStart.cshtml" />
     <Content Include="Areas\News\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\News\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Iaido\Views\web.config" />
+    <Content Include="Areas\Iaido\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Iaido\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Iaido\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Iaido\Views\Home\Study.cshtml" />
+    <Content Include="Content\pdfs\2010_iaido_questions.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Iaido\Views\Home\Points.cshtml" />
+    <Content Include="Areas\Iaido\Views\Home\History.cshtml" />
+    <Content Include="Areas\Iaido\Views\Home\ChampionshipResults.cshtml" />
+    <Content Include="Areas\Iaido\Views\Home\Archives.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -372,6 +386,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Iaido\Models\" />
     <Folder Include="Areas\News\Models\" />
   </ItemGroup>
   <ItemGroup>
