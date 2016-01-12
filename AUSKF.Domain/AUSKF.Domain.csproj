@@ -149,6 +149,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Constants.cs" />
+    <Compile Include="Data\CustomSqlServerMigrationSqlGenerator.cs" />
     <Compile Include="Data\DataContext.cs" />
     <Compile Include="Data\DataContext1.cs" />
     <Compile Include="Data\EntityContextInitializer.cs" />
@@ -181,6 +182,11 @@
     <Compile Include="Interfaces\IDataContext.cs" />
     <Compile Include="Interfaces\ILifeStyle.cs" />
     <Compile Include="Interfaces\IQueryableDataContext.cs" />
+    <Compile Include="Migrations\201601120239140_M1_011116.cs" />
+    <Compile Include="Migrations\201601120239140_M1_011116.Designer.cs">
+      <DependentUpon>201601120239140_M1_011116.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account\AddExternalLoginBindingModel.cs" />
     <Compile Include="Models\Account\ChangePasswordBindingModel.cs" />
     <Compile Include="Models\Account\ExternalLoginConfirmationViewModel.cs" />
@@ -240,6 +246,9 @@
     <EmbeddedResource Include="Common.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Common.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601120239140_M1_011116.resx">
+      <DependentUpon>201601120239140_M1_011116.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -94,6 +94,32 @@
             return this.NotFound();
         }
 
+        [HttpGet]
+        [Route("usernameavailable/{username}", Name = "UsernameAvailableV1")]
+        [AllowAnonymous]
+        [ResponseType(typeof(string))]
+        public async Task<IHttpActionResult> UsernameAvailable(string username)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(username))
+                {
+                    var user = await this.userRepository.GetAsync(x => x.UserName == username);
+
+                    if (user != null && user.ToList().Count > 0)
+                    {
+                        return this.BadRequest(Common.UsernameTaken);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                logger.Error(e, e.Message);
+                return this.InternalServerError(e);
+            }
+            return this.Ok();
+        }
+
         [Route("")]
         [CheckModelForNull]
         [ValidateModelState]

@@ -8,7 +8,7 @@
     /// <summary>
     /// Users holding an office of a federation
     /// </summary>
-    public class FederationOfficer
+    public class FederationOfficer : EntityBase
     {
         /// <summary>
         /// Federation officer holder identifier

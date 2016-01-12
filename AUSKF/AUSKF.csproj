@@ -25,6 +25,7 @@
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
     <TypeScriptToolsVersion>1.5</TypeScriptToolsVersion>
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -227,6 +228,8 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CalendarController.cs" />
     <Compile Include="Controllers\DojoListController.cs" />
+    <Compile Include="Controllers\FederationListController.cs" />
+    <Compile Include="Controllers\FederationRegistrationsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -385,6 +388,8 @@
     <Content Include="Scripts\libraries\angular\angular-touch.min.js.map" />
     <Content Include="Scripts\libraries\angular\angular.min.js.map" />
     <Content Include="Views\Calendar\Index.cshtml" />
+    <Content Include="Views\FederationList\Index.cshtml" />
+    <Content Include="Views\FederationRegistrations\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

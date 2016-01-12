@@ -30,6 +30,55 @@
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public override Guid Id { get; set; }
 
+        #region Related Entities
+
+        /// <summary>
+        /// Gets or sets the rank identifier.
+        /// </summary>
+        /// <value>
+        /// The rank identifier.
+        /// </value>
+        [ForeignKey("KendoRank")]
+        public Guid? KendoRankId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the rank.
+        /// </summary>
+        /// <value>
+        /// The rank.
+        /// </value>
+        public virtual KendoRank KendoRank { get; set; }
+
+        /// <summary>
+        /// Foreign key to users current address
+        /// </summary>
+        [ForeignKey("Address")]
+        public Guid? AddressId { get; set; }
+
+        /// <summary>
+        /// Users current address
+        /// </summary>
+        public Address Address { get; set; }
+
+        /// <summary>
+        /// Gets or sets the user profile identifier.
+        /// </summary>
+        /// <value>
+        /// The user profile identifier.
+        /// </value>
+        [ForeignKey("Profile")]
+        public int UserProfileId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the profile.
+        /// </summary>
+        /// <value>
+        /// The profile.
+        /// </value>
+        public UserProfile Profile { get; set; }
+
+        #endregion
+
         /// <summary>
         /// Gets or sets the name of the user.
         /// </summary>
@@ -48,6 +97,45 @@
         /// </value>
         [StringLength(20)]
         public string DisplayName { get; set; }
+
+        /// <summary>
+        /// First Name
+        /// </summary>
+        [StringLength(20)]
+        [Required]
+        public string FirstName { get; set; }
+
+        /// <summary>
+        /// Middle Name
+        /// </summary>
+        [StringLength(20)]
+        public string MiddleName { get; set; }
+
+        /// <summary>
+        /// Last Name
+        /// </summary>
+        [StringLength(20)]
+        [Required]
+        public string LastName { get; set; }
+
+        /// <summary>
+        /// M for male. F for femail.
+        /// </summary>
+        [StringLength(1)] 
+        public string Gender { get; set; }
+
+        /// <summary>
+        /// Date of Birth
+        /// </summary>
+        [DataType(DataType.DateTime)]
+        [Required]
+        public DateTime DateOfBirth { get; set; }
+
+        /// <summary>
+        /// Unique ID number
+        /// </summary>
+        [Required]
+        public int AuskfIdNumber { get; set; }
 
         /// <summary>
         /// Gets or sets the password.
@@ -120,24 +208,7 @@
         /// </value>
         [MaxLength(256)]
         public string LastSearch { get; set; }
-
-        /// <summary>
-        /// Gets or sets the rank identifier.
-        /// </summary>
-        /// <value>
-        /// The rank identifier.
-        /// </value>
-        [ForeignKey("KendoRank")]
-        public Guid? KendoRankId { get; set; }
-
-        /// <summary>
-        /// Gets or sets the rank.
-        /// </summary>
-        /// <value>
-        /// The rank.
-        /// </value>
-        public virtual KendoRank KendoRank { get; set; }
-
+         
         /// <summary>
         /// Gets or sets the joined date.
         /// </summary>
@@ -184,24 +255,7 @@
         /// </value>
         [StringLength(512)]
         public string Notes { get; set; }
-
-        /// <summary>
-        /// Gets or sets the user profile identifier.
-        /// </summary>
-        /// <value>
-        /// The user profile identifier.
-        /// </value>
-        [ForeignKey("Profile")]
-        public int UserProfileId { get; set; }
-
-        /// <summary>
-        /// Gets or sets the profile.
-        /// </summary>
-        /// <value>
-        /// The profile.
-        /// </value>
-        public UserProfile Profile { get; set; }
-
+         
         /// <summary>
         /// Generates the user identity asynchronous.
         /// </summary>

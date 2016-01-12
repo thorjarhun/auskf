@@ -5,7 +5,7 @@
     using System.ComponentModel.DataAnnotations.Schema;
     using Identity;
 
-    public class DojoMembership
+    public class DojoMembership : EntityBase
     {
         /// <summary>
         /// Dojo membership identifier
@@ -47,6 +47,6 @@
         /// <summary>
         /// Date the user's membership ended.
         /// </summary>
-        public DateTime EffectiveEnd { get; set; }
+        public DateTime? EffectiveEnd { get; set; }
     }
 }

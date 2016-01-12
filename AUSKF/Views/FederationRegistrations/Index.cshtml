@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div class="well well-sm filter">
+    <div>
+        <label for="yearSelect">Year:</label>
+        <select name="yearSelect" id="yearSelect" ng-model="yearSelect" ng-change="getRegisteredMembers()">
+            <option ng-repeat="year in membershipYears | orderBy:'year'" value="{{year}}">{{year}}</option>
+        </select>
+    </div>
+    <div>
+        <label for="dojoSelect">Dojo:</label>
+        <select name="dojoSelect" id="dojoSelect" ng-model="dojoSelect" ng-change="getRegisteredMembers()">
+            <option value="">---Please select---</option> <!-- not selected / blank option -->
+            <option ng-repeat="dojo in dojolist | orderBy: 'dojo.dojoName'" value="{{dojo.dojoId}}">{{dojo.dojoName}}</option>
+        </select>
+    </div>
+</div>
+
+<br>
+
+<table>
+    <tr>
+        <td>AUSKF Id Number</td>
+        <td>First Name</td>
+        <td>Middle Name</td>
+        <td>Last Name</td>
+    </tr>
+    <tr ng-repeat="membership in membershipList">
+        <td ng-bind="membership.user.auskfIdNumber"></td>
+        <td ng-bind="membership.user.firstName"></td>
+        <td ng-bind="membership.user.middleName"></td>
+        <td ng-bind="membership.user.lastName"></td>
+    </tr>
+</table>

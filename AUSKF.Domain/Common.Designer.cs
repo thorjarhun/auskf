@@ -206,6 +206,15 @@ namespace AUSKF.Domain {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Federation Listings.
+        /// </summary>
+        public static string FederationListings {
+            get {
+                return ResourceManager.GetString("FederationListings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to File {0} not found. (404).
         /// </summary>
         public static string FileNotFound {
@@ -447,6 +456,15 @@ namespace AUSKF.Domain {
         public static string UnableToDetermineId {
             get {
                 return ResourceManager.GetString("UnableToDetermineId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Username &apos;{0}&apos; is taken..
+        /// </summary>
+        public static string UsernameTaken {
+            get {
+                return ResourceManager.GetString("UsernameTaken", resourceCulture);
             }
         }
         

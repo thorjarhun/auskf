@@ -253,4 +253,10 @@
   <data name="NewsEvents" xml:space="preserve">
     <value>News and Events</value>
   </data>
+  <data name="UsernameTaken" xml:space="preserve">
+    <value>Username '{0}' is taken.</value>
+  </data>
+  <data name="FederationListings" xml:space="preserve">
+    <value>Federation Listings</value>
+  </data>
 </root>

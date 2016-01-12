@@ -7,7 +7,7 @@
     /// <summary>
     /// AUSKF member federation information
     /// </summary>
-    public class Federation
+    public class Federation : EntityBase
     {
         /// <summary>
         /// Federation identifier

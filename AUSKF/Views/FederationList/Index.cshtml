@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row" ng-repeat="federation in federationlist">
+    <div>
+        <div class="well well-sm">
+            <div class="row">
+                <div class="col-sm-6 col-md-4">
+                    <img src="http://placehold.it/100x100" alt="" class="img-rounded img-responsive" />
+                </div>
+                <div class="col-sm-6 col-md-8">
+                    <h4 ng-bind="federation.name"></h4>
+                    <br />
+                    <div ng-bind="federation.contactName">{{ federation.contactName }}</div>
+                    <i class="glyphicon glyphicon-phone">{{federation.phone}}</i>
+                    <br>
+                    <i class="glyphicon glyphicon-globe"></i><a href="{{federation.websiteUrl}}">{{federation.websiteUrl}}</a>
+                    <br />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
