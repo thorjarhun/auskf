@@ -35,6 +35,13 @@ namespace AUSKF
                 "~/Scripts/auskf.module.js",
                 "~/Scripts/auskf.core.service.js"
                 ));
+
+            // News
+            bundles.Add(new ScriptBundle("~/bundles/news").Include(
+                "~/Areas/News/Scripts/auskf.news.js",
+                "~/Areas/News/Scripts/auskf.news.service.js",
+                "~/Areas/News/Scripts/auskf.news.controller.js"
+             ));
         }
     }
 }

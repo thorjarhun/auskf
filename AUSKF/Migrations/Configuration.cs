@@ -1,18 +1,16 @@
-namespace MWKF.Api.Migrations
+namespace AUSKF.Migrations
 {
-    using System;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
-    using System.Linq;
+    using Domain.Data;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<MWKF.Api.Data.DataContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<DataContext>
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            this.AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(MWKF.Api.Data.DataContext context)
+        protected override void Seed(DataContext context)
         {
             //  This method will be called after migrating to the latest version.
 

@@ -242,6 +242,15 @@ namespace AUSKF.Domain {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Forms.
+        /// </summary>
+        public static string Forms {
+            get {
+                return ResourceManager.GetString("Forms", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Group color.
         /// </summary>
         public static string GroupColor {
@@ -373,6 +382,15 @@ namespace AUSKF.Domain {
         public static string NewsLetters {
             get {
                 return ResourceManager.GetString("NewsLetters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Officers and Board Members.
+        /// </summary>
+        public static string Officers {
+            get {
+                return ResourceManager.GetString("Officers", resourceCulture);
             }
         }
         

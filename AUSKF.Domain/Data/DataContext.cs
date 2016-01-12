@@ -6,7 +6,8 @@
 
     public sealed partial class DataContext
     {
-        
+        public DbSet<Comment> Comments { get; set; }
+
         public DbSet<User> Users {get;set;}
 
         public DbSet<UserClaim> UserClaims  {get;set;}
