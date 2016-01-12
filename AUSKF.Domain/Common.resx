@@ -253,4 +253,16 @@
   <data name="NewsEvents" xml:space="preserve">
     <value>News and Events</value>
   </data>
+  <data name="Dues" xml:space="preserve">
+    <value>Member Dues Policy</value>
+  </data>
+  <data name="Liability" xml:space="preserve">
+    <value>Liability Release Form</value>
+  </data>
+  <data name="NewsLetters" xml:space="preserve">
+    <value>AUSKF Newsletters</value>
+  </data>
+  <data name="PoliciesProcedures" xml:space="preserve">
+    <value>AUSKF Policies and Procedures</value>
+  </data>
 </root>

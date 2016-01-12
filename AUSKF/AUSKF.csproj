@@ -78,6 +78,10 @@
       <HintPath>..\packages\Owin.Security.Providers.1.26\lib\net45\Owin.Security.Providers.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="RouteDebugger, Version=2.1.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\routedebugger.2.1.4.0\lib\net40\RouteDebugger.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Swashbuckle.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cd1bb07a5ac7c7bc, processorArchitecture=MSIL">
       <HintPath>..\packages\Swashbuckle.Core.5.2.2\lib\net40\Swashbuckle.Core.dll</HintPath>
       <Private>True</Private>
@@ -220,6 +224,9 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Forms\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Forms\Controllers\NewsletterController.cs" />
+    <Compile Include="Areas\Forms\FormsAreaRegistration.cs" />
     <Compile Include="Areas\Iaido\Controllers\HomeController.cs" />
     <Compile Include="Areas\Iaido\IaidoAreaRegistration.cs" />
     <Compile Include="Areas\News\Controllers\HomeController.cs" />
@@ -241,6 +248,7 @@
     <Content Include="Content\Images\banner2.jpg" />
     <Content Include="Content\Images\copyright.gif" />
     <Content Include="Content\Images\logo.gif" />
+    <Content Include="Content\Images\newsletter.jpg" />
     <Content Include="Content\Site.min.css">
       <DependentUpon>Site.css</DependentUpon>
     </Content>
@@ -292,6 +300,157 @@
     <Content Include="Areas\Iaido\Views\Home\History.cshtml" />
     <Content Include="Areas\Iaido\Views\Home\ChampionshipResults.cshtml" />
     <Content Include="Areas\Iaido\Views\Home\Archives.cshtml" />
+    <Content Include="Areas\Forms\Views\web.config" />
+    <Content Include="Areas\Forms\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Forms\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Forms\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Forms\Views\Newsletter\Index.cshtml" />
+    <Content Include="Areas\Forms\Content\correction-vol12no1.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Forms\Content\vol10no1.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Forms\Content\vol10no2.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Forms\Content\vol11no1.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Forms\Content\vol11no2.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Forms\Content\vol12no2.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Forms\Content\vol12no3.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Forms\Content\vol13no1.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Forms\Content\vol13no2.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Forms\Content\vol14no1.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Forms\Content\vol15no1.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Forms\Content\vol15no2.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Forms\Content\vol16no1.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Forms\Content\vol16no2.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Forms\Content\vol17no1.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Forms\Content\vol17no2.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Forms\Content\vol18no1.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Forms\Content\vol18no2.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Forms\Content\vol4no2.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Forms\Content\vol5no1.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Forms\Content\vol5no2.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Forms\Content\vol6no1.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Forms\Content\vol7no1.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Forms\Content\vol7no2.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Forms\Content\vol7no3.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Forms\Content\vol8no1.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Forms\Content\vol8no2.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Forms\Content\vol9no1.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Forms\Content\KendoPolicyProcedures.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Forms\Content\2014\LiabilityRelease.pdf" />
+    <Content Include="Areas\Forms\Content\dues-policy.pdf" />
+    <Content Include="Areas\Forms\Content\2012\1Kyu-DanPromotionRegulations.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Forms\Content\2012\KendoPromotionRequirements.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Forms\Content\2012\MenjoFees.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Forms\Content\2012\MenjoRequestSheet.xls">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Forms\Content\2015\BellAndersonAgencyCertificateRequestForm.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Forms\Content\2015\ExaminerRequestForm.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Forms\Content\2015\ExaminerRequestForm.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Forms\Content\2015\ForeignPromotionRequest.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Forms\Content\2015\ForeignPromotionRequest.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Forms\Content\2015\Kendo-5-7DanWrittenExamQestions.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Forms\Content\2015\Kendo-5-7DanWrittenExamQestions.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Forms\Content\2015\MenjoReplacementForm.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Forms\Content\2015\MenjoReplacementForm.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Forms\Content\2015\OtherAuskfFederationPromotionRequest.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Forms\Content\2015\OtherAuskfFederationPromotionRequest.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Forms\Content\2015\ReimbursementRequestTemplate_2015_v2.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Forms\Content\AntiDoping\auskf-adr-intro.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Forms\Content\AntiDoping\auskf-adr.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Forms\Content\KendoPolicyProceduresAppendixA.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -385,10 +544,13 @@
     <Content Include="Scripts\libraries\angular\angular-touch.min.js.map" />
     <Content Include="Scripts\libraries\angular\angular.min.js.map" />
     <Content Include="Views\Calendar\Index.cshtml" />
+    <Content Include="Views\Home\Introduction.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Iaido\Models\" />
+    <Folder Include="Areas\Forms\Models\" />
+    <Folder Include="Areas\Forms\Views\Forms\" />
+    <Folder Include="Areas\Iaido\Views\Models\" />
     <Folder Include="Areas\News\Models\" />
   </ItemGroup>
   <ItemGroup>
