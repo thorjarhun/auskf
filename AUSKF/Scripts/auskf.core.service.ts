@@ -1,4 +1,5 @@
-﻿module auskf.core {
+﻿// ReSharper disable once InconsistentNaming
+module auskf.core {
     "use strict";
 
     export interface ICoreService {
@@ -77,6 +78,6 @@ export class CoreService implements ICoreService {
 
 }
 angular
-    .module("zanshin")
+    .module("auskf")
     .service("coreService", CoreService);
 }   

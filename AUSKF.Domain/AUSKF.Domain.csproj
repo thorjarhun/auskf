@@ -153,6 +153,7 @@
     <Compile Include="Data\DataContext1.cs" />
     <Compile Include="Data\EntityContextInitializer.cs" />
     <Compile Include="Entities\Address.cs" />
+    <Compile Include="Entities\Comment.cs" />
     <Compile Include="Entities\Configurations\UserConfiguration.cs" />
     <Compile Include="Entities\Dojo.cs" />
     <Compile Include="Entities\DojoMembership.cs" />

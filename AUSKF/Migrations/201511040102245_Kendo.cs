@@ -1,8 +1,7 @@
-namespace MWKF.Api.Migrations
+namespace AUSKF.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class Kendo : DbMigration
     {
         public override void Up()

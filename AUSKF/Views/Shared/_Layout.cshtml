@@ -1,6 +1,6 @@
 ﻿@using AUSKF.Domain
 <!DOCTYPE html>
-<html>
+<html ng-app="auskf">
 <head>
     <meta charset="utf-8" />
     <meta name="description" content="">
@@ -10,7 +10,7 @@
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
-<body ng-app="mwkfApp">
+<body>
     <!--[if lte IE 8]>
     <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -40,6 +40,7 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/angular")
     @RenderSection("scripts", required: false)
 </body>
 </html>

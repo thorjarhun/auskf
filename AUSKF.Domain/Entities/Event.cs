@@ -1,6 +1,7 @@
 ﻿namespace AUSKF.Domain.Entities
 {
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using Exceptions;
@@ -9,6 +10,7 @@
     public class Event : EntityBase, IComparable<Event>
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid EventId { get; set; }
 
         [Required, DataType(DataType.DateTime)]
@@ -27,6 +29,8 @@
 
         [Required, ForeignKey("CreatedBy")]
         public Guid? Id { get; set; }
+
+        public virtual ICollection<Comment> Comments { get; set; }
 
         /// <summary>
         /// Compares the current object with another object of the same type.

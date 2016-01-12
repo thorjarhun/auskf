@@ -13,13 +13,34 @@
         private List<KendoRank> kendoRanks;
         private List<UserRole> userRoles;
         private List<Dojo> dojos;
-        
+        private User adminUser;
+
         protected override void Seed(DataContext context)
         {
             this.AddKendoRanks(context);
             this.AddRoles(context);
             this.AddAdminUser(context);
             this.AddDojos(context);
+            this.AddEvents(context);
+        }
+
+        private void AddEvents(DataContext context)
+        {
+           
+            var event1 = new Event
+            {
+                CreateDate = DateTime.Now,
+                Id = this.adminUser.Id,
+                Description = "2016 New Year’s Greeting from AUSKF President",
+                EventText =
+                    "<div class=\"entry\"><p>Happy New Year !</p><p>Reflecting on the past year, the biggest event was the 16th World Kendo Championship held in Tokyo on May 29-31. I would like to congratulate that, as a result of long preparations and hard practices, Team USA won the third place for both men’s and women’s team division. In the men’s individual division, all the four competitors won their preliminary rounds and advanced to court finals and finals against Japanese players. The crowd’s applause to our players and continued fairly long afterwards as they competed very well with a lot of spirit. As for the women’s, they advanced all the way to the semi-final after beating Germany, who they had lost to in the last championship. It was wonderful to see them show a lot of character and team work.</p><p>Going forward, I am optimistic about the future performance of Team USA as long as we do both of the followings: (1) to expand membership for young kenshi and nurture their growth, (2) to raise the overall skill levels of instructors as they strive to improve their own kendo and thereby inspire their students to follow their footsteps.</p><p>Let me briefly comment below on the activities of the AUSKF for the past year and our plans going forward.</p><p>The education committee plans to host a number of seminars. In addition to the annual events such as summer camp, the 8-dan tour, the Japanese champion tour, and the junior Team USA camp, we plan to add seminars designed specifically for mudansha, women, and instructors.</p><p>When it comes to competition, I always feel that the level of shinpan needs to be raised further. We plan to offer shinpan seminars in different geographical zones, which I strongly encourage all the eligible kenshi to attend and learn from.</p><p>As for promotion, we are working hard to coordinate with local federations and share with them the same perspectives. We will try to expedite application and delivery processes for certificates as well. Finally, we will consider incorporating “bokuto-ni-yoru-kendo-kihon-waza-keiko-ho” by holding seminars to educate and spread the method.</p><p>As for iaido, four senseis that hold the rank of 7 dan are working together with local federations to improve the skill levels and increase the membership for iaido practitioners in this country.</p><p>Finally, I will continue to work hard so that you can enjoy learning the correct kendo in the collegial and friendly environment. Let’s work together!</p><p>I hope that this year will be a good one for you.</p><p>Yoshiteru Tagawa<br>President of All United States Kendo Federation</p></div>",
+                EventDate = new DateTime(2015, 12, 29),
+                ModifyDate = new DateTime(2015, 12, 29),
+                Title = "2016 New Year’s Greeting from AUSKF President"
+            };
+
+            context.Events.Add(event1);
+            context.Commit();
         }
 
         private void AddKendoRanks(DataContext context)
@@ -85,7 +106,7 @@
 
         private void AddAdminUser(DataContext context)
         {
-            User user = new User
+            this.adminUser = new User
             {
                 Active = true,
                 DisplayName = "Webmaster",
@@ -105,8 +126,8 @@
                 Password = "P@ssword1".Sha256Hash(),
                 PasswordHash = "P@ssword1".Sha256Hash()
             };
-            this.userRoles.ForEach(ur => user.Roles.Add(ur));
-            context.Users.Add(user);
+            this.userRoles.ForEach(ur => this.adminUser.Roles.Add(ur));
+            context.Users.Add(this.adminUser);
             context.Commit();
         }
 
