@@ -151,6 +151,15 @@ namespace AUSKF.Domain {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Member Dues Policy.
+        /// </summary>
+        public static string Dues {
+            get {
+                return ResourceManager.GetString("Dues", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email.
         /// </summary>
         public static string Email {
@@ -314,6 +323,15 @@ namespace AUSKF.Domain {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Liability Release Form.
+        /// </summary>
+        public static string Liability {
+            get {
+                return ResourceManager.GetString("Liability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Log in.
         /// </summary>
         public static string Log_In {
@@ -346,6 +364,15 @@ namespace AUSKF.Domain {
         public static string NewsEvents {
             get {
                 return ResourceManager.GetString("NewsEvents", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AUSKF Newsletters.
+        /// </summary>
+        public static string NewsLetters {
+            get {
+                return ResourceManager.GetString("NewsLetters", resourceCulture);
             }
         }
         
@@ -420,6 +447,15 @@ namespace AUSKF.Domain {
         public static string Password {
             get {
                 return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AUSKF Policies and Procedures.
+        /// </summary>
+        public static string PoliciesProcedures {
+            get {
+                return ResourceManager.GetString("PoliciesProcedures", resourceCulture);
             }
         }
         

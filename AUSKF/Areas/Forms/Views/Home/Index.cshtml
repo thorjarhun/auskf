@@ -1,0 +1,161 @@
+﻿@using AUSKF.Domain
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div>
+    <ul>
+        <li>
+            @Html.ActionLink(@Common.NewsLetters, "Index", "Newsletter")
+        </li>
+        <li>
+
+
+            @Html.ActionLink(@Common.PoliciesProcedures, "Get", "Home", new { form="KendoPolicyProcedures.pdf" }, null) [pdf]
+
+        </li>
+        <li>
+            <ul>
+                <li>
+                    @Html.ActionLink(@Common.Dues, "Get", "Home", new { form = "dues-policy.pdf" }, null) [pdf]
+                </li>
+                <li>
+                    @Html.ActionLink(@Common.Liability, "Get", "Home", new { form = "2014/LiabilityRelease.pdf" }, null) [pdf]
+                </li>
+                <li>
+                    <a href="2014/InsRequestAndDueDiligence.pdf">Insurance Certificate Request Procedure</a> [pdf]
+                    and <a href="2015/BellAndersonAgencyCertificateRequestForm.docx">form</a> [docx]
+                </li>
+                <li>
+                    <a href="2015/ReimbursementRequestTemplate_2015_v2.xlsx">Reimbursement Request Form</a> [xlsx] (see form for instructions)
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="KendoPolicyProceduresAppendixA.pdf">AUSKF Regulations For Kendo/Iaido/Jodo Promotional Examinations</a> [pdf]
+        </li>
+        <li>
+            <ul>
+                <li>
+                    <a href="2012/KendoPromotionRequirements.pdf">Ranks and Eligibility for Promotion</a> [pdf]
+                </li>
+                <li>
+                    <a href="2012/1Kyu-DanPromotionRegulations.pdf">1-Kyu and Dan Promotion Required Passing Grades</a>
+                    [pdf]
+                </li>
+                <li>
+                    <a href="studyguide.htm">Kendo Promotional Exam Study Guide</a>
+                </li>
+                <li>
+                    Written Test Questions, 5-Dan to 7-Dan and Shogo
+                    [ <a href="2015/Kendo-5-7DanWrittenExamQestions.docx">docx</a> or
+                    <a href="2015/Kendo-5-7DanWrittenExamQestions.pdf">pdf</a>
+                    ]
+                </li>
+                <li>
+                    Kendo/Iaido Promotional Exam  Forms:
+                </li>
+                <li>
+                    <ul>
+
+                        <li>
+                            <a href="2014/applications/IaidoKyu-3Dan.pdf">Iaido Kyu - 3-Dan Application</a> [pdf]
+                        </li>
+                        <li>
+                            <a href="2014/applications/Iaido4-6Dan.pdf">Iaido 4-Dan - 6-Dan Application</a> [pdf]
+                        </li>
+                        <li>
+                            <a href="2014/applications/Kendo5Dan-7Dan.pdf">Kendo 5-Dan - 7-Dan Application</a> [pdf]
+                        </li>
+                        <li>
+                            <a href="2014/applications/KendoIaidoSHOGO.pdf">Kendo and Iaido Shogo Application</a> [pdf]
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            Promotional Examination Special Request Forms
+            <ul>
+                <li>
+                    Affiliate Organization Exam Request
+                    [ <a href="2015/OtherAuskfFederationPromotionRequest.docx">docx</a> or
+                    <a href="2015/OtherAuskfFederationPromotionRequest.pdf">pdf</a>
+                    ]
+                    (request to be examined by another AUSKF federation)
+                </li>
+                <li>
+                    Foreign Exam Application
+                    [ <a href="2015/ForeignPromotionRequest.docx">docx</a> or
+                    <a href="2015/ForeignPromotionRequest.pdf">pdf</a>
+                    ]
+                    (request to be examined by an FIK federation other than the AUSKF)
+
+                </li>
+
+                <li>
+                    Examiner Request Form
+                    [ <a href="2015/ExaminerRequestForm.doc">doc</a> or
+                    <a href="2015/ExaminerRequestForm.pdf">pdf</a>
+                    ]
+                    <br> (request to AUSKF to provide an examiner)
+                    <br>
+                </li>
+            </ul>
+
+            <p></p>
+        </li>
+        <li>
+            Menjo (Rank Certificate)
+            <ul>
+                <li><a href="2012/MenjoFees.pdf">Fees</a> [pdf] </li>
+                <li>
+                    Menjo Request Form
+                    [ <a href="2014/MenjoRequestForm.doc">doc</a> or
+                    <a href="2014/MenjoRequestForm.pdf">pdf</a>
+                    ]
+                </li>
+                <li>
+                    <a href="2012/MenjoRequestSheet.xls">Menjo Request Sheet</a> [xls]
+                </li>
+                <li>
+                    Menjo Replacement Form
+                    [ <a href="2015/MenjoReplacementForm.docx">docx</a> or
+                    <a href="2015/MenjoReplacementForm.pdf">pdf</a>
+                    ]
+                </li>
+            </ul> <br>
+
+        </li>
+        <li>
+            <span>
+                Anti-doping Policy
+            </span>
+            <ul>
+                <li>
+                    <a href="../forms/AntiDoping/auskf-adr-intro.pdf">Introduction</a> [pdf]
+                </li>
+                <li>
+                    <a href="../forms/AntiDoping/auskf-adr.pdf">AUSKF Rules and Member Acknowledgement/Agreement Form</a> [pdf]
+                </li>
+                <li>
+                    <a href="http://www.kendo-fik.org/english-page/phot-jif/FIK-2015-AD-rule-2014-12-17-final.pdf">FIK Anti-Doping Rules (2015)</a> [pdf]
+                </li>
+                <li>
+                    <a href="http://www.kendo-fik.org/english-page/phot-jif/Anti-doping-manual-for-kenshi.pdf">FIK Anti-Doping Manual for Kenshi</a> [pdf]
+                </li>
+                <li>
+                    <a href="http://www.wada-ama.org/en/Science-Medicine/Prohibited-List/">World Anti-Doping Agency (WADA) Prohibited Substances List </a>
+                </li>
+            </ul>
+            &nbsp;<br>
+        </li>
+
+        <li>
+            <a href="intro.htm">An Introduction to Kendo</a>
+        </li>
+    </ul>
+</div>
+

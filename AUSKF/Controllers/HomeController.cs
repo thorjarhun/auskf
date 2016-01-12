@@ -26,5 +26,11 @@ namespace AUSKF.Controllers
 
             return View();
         }
+
+        [HttpGet]
+        public ActionResult Introduction()
+        {
+            return View();
+        }
     }
 }
