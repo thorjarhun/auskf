@@ -77,9 +77,11 @@
     <Compile Include="AccountController.cs" />
     <Compile Include="DojoController.cs" />
     <Compile Include="DojoMembershipController.cs" />
+    <Compile Include="EventsController.cs" />
     <Compile Include="FederationController.cs" />
     <Compile Include="FederationMembershipController.cs" />
     <Compile Include="KendoRankController.cs" />
+    <Compile Include="LogController.cs" />
     <Compile Include="UserController.cs" />
     <Compile Include="UserRoleController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

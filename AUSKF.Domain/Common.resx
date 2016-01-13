@@ -277,4 +277,7 @@
   <data name="UsernameTaken" xml:space="preserve">
     <value>User name not available</value>
   </data>
+  <data name="UnableToFindEvent" xml:space="preserve">
+    <value>Could not find news/event with the given id.</value>
+  </data>
 </root>
