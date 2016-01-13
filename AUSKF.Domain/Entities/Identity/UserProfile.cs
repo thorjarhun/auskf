@@ -3,6 +3,7 @@
     // Can't inherit from entity base if used in aspnet identity 
     using System;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
 
     /// <summary>
     /// </summary>
@@ -103,6 +104,34 @@
         /// </value>
         [MaxLength(512)]
         public string HomePage { get; set; }
+
+        /// <summary>
+        /// Foreign key to users current address
+        /// </summary>
+        [ForeignKey("Address")]
+        public Guid? AddressId { get; set; }
+
+        /// <summary>
+        /// Users current address
+        /// </summary>
+        public Address Address { get; set; }
+
+        /// <summary>
+        /// Gets or sets the rank identifier.
+        /// </summary>
+        /// <value>
+        /// The rank identifier.
+        /// </value>
+        [ForeignKey("KendoRank")]
+        public Guid? KendoRankId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the rank.
+        /// </summary>
+        /// <value>
+        /// The rank.
+        /// </value>
+        public virtual KendoRank KendoRank { get; set; }
 
     }
 }

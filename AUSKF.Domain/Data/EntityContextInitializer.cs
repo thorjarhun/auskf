@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Data.Entity;
+    using System.Threading.Tasks;
     using Entities;
     using Entities.Identity;
     using Extensions;
@@ -16,21 +17,47 @@
         private List<Dojo> dojos;
         private User adminUser;
         private List<Federation> federations;
+        private List<Address> addresses;
 
-        protected override void Seed(DataContext context)
+        protected override async void Seed(DataContext context)
         {
-            this.AddKendoRanks(context);
-            this.AddUsers(context);
-            this.AddRoles(context);
-            this.AddAdminUser(context);
-            this.AddFederations(context);
-            this.AddDojos(context);
-            this.AddEvents(context);
+
+            await this.AddAddresses(context);
+            await this.AddKendoRanks(context);
+            await this.AddUsers(context);
+            await this.AddRoles(context);
+            await this.AddAdminUser(context);
+            await this.AddFederations(context);
+            await this.AddDojos(context);
+            await this.AddEvents(context);
         }
 
-        private void AddEvents(DataContext context)
+        private async Task AddAddresses(DataContext context)
         {
+            using (var context1 = new DataContext())
+            {
+                this.addresses = new List<Address>();
 
+                var homeAddress = new Address
+                {
+                    AddressId = Guid.NewGuid(),
+                    AddressLine1 = "123 any street",
+                    AddressLine2 = "any location",
+                    City = "Minneapolis",
+                    State = "MN",
+                    ZipCode = "55444",
+                    CreateDate = DateTime.UtcNow,
+                    ModifyDate = DateTime.UtcNow,
+                };
+
+                context1.Addresses.Add(homeAddress);
+                await context1.CommitAsync();
+                this.addresses.Add(homeAddress);
+            }
+        }
+
+        private async Task AddEvents(DataContext context)
+        {
             var event1 = new Event
             {
                 EventId = Guid.NewGuid(),
@@ -45,10 +72,10 @@
             };
 
             context.Events.Add(event1);
-            context.Commit();
+            await context.CommitAsync();
         }
 
-        private void AddKendoRanks(DataContext context)
+        private async Task AddKendoRanks(DataContext context)
         {
             this.kendoRanks = new List<KendoRank>
             {
@@ -94,10 +121,10 @@
             };
 
             this.kendoRanks.ForEach(kr => context.KendoRanks.Add(kr));
-            context.Commit();
+            await context.CommitAsync();
         }
 
-        private void AddRoles(Domain.Data.DataContext context)
+        private async Task AddRoles(DataContext context)
         {
             this.userRoles = new List<UserRole>
             {
@@ -106,26 +133,28 @@
                  new UserRole { RoleName="Member" }
             };
             this.userRoles.ForEach(ur => context.UserRoles.Add(ur));
-            context.Commit();
+            await context.CommitAsync();
         }
 
-        private void AddAdminUser(DataContext context)
+        private async Task AddAdminUser(DataContext context)
         {
             this.adminUser = new User
             {
                 Active = true,
                 DisplayName = "Webmaster",
-                Email = "Admin@mwkf.org",
+                Email = "Admin@auskf.org",
                 EmailConfirmed = true,
                 JoinedDate = DateTime.UtcNow,
-                KendoRank = this.kendoRanks.FindLast(x => x.KendoRankName != ""),
                 LastLogin = DateTime.UtcNow,
+
                 LastSearch = "na",
                 MaximumDaysBetweenPasswordChange = 180,
                 PasswordLastChangedDate = DateTime.UtcNow,
                 Profile = new UserProfile
                 {
-                    AllowHtmlSig = true
+                    AllowHtmlSig = true,
+                    KendoRank = this.kendoRanks.FindLast(x => x.KendoRankName != ""),
+                    Address = this.addresses[0]
                 },
                 UserName = "Admin",
                 Password = "P@ssword1".Sha256Hash(),
@@ -133,22 +162,16 @@
             };
             this.userRoles.ForEach(ur => this.adminUser.Roles.Add(ur));
             context.Users.Add(this.adminUser);
-            context.Commit();
+            await context.CommitAsync();
         }
 
-        public void AddUsers(DataContext context)
+        public async Task AddUsers(DataContext context)
         {
             this.users = new List<User>()
             {
                 new User()
                 {
-                    Address =  new Address()
-                    {
-                        AddressLine1 = "3226 E 53rd St",
-                        City = "Minneapolis",
-                        State = "MN",
-                        ZipCode = "55417"
-                    },
+
                     Active = true,
                     DisplayName = "Travis Stronach",
                     FirstName = "Travis",
@@ -160,15 +183,22 @@
                     Email = "travis.stronach@gmail.com",
                     EmailConfirmed = true,
                     JoinedDate = DateTime.UtcNow,
-                    KendoRank = this.kendoRanks.FindLast(x => x.KendoRankName == "Godan"),
                     LastLogin = DateTime.UtcNow,
                     LastSearch = "na",
                     MaximumDaysBetweenPasswordChange = 180,
                     PasswordLastChangedDate = DateTime.UtcNow,
                     Profile = new UserProfile
                     {
-                        AllowHtmlSig = true
-                },
+                        AllowHtmlSig = true,
+                        KendoRank = this.kendoRanks.FindLast(x => x.KendoRankName == "Godan"),
+                        Address =  new Address()
+                        {
+                            AddressLine1 = "3226 E 53rd St",
+                            City = "Minneapolis",
+                            State = "MN",
+                            ZipCode = "55417"
+                        },
+                    },
                     UserName = "tstron",
                     Password = "P@ssword1".Sha256Hash(),
                     PasswordHash = "P@ssword1".Sha256Hash()
@@ -176,10 +206,10 @@
             };
 
             this.users.ForEach(u => context.Users.Add(u));
-            context.Commit();
+            await context.CommitAsync();
         }
 
-        private void AddFederations(DataContext context)
+        private async Task AddFederations(DataContext context)
         {
             this.federations = new List<Federation>()
                     {
@@ -259,10 +289,10 @@
 
 
             this.federations.ForEach(f => context.Federations.Add(f));
-            context.Commit();
+            await context.CommitAsync();
         }
 
-        private void AddDojos(DataContext context)
+        private async Task AddDojos(DataContext context)
         {
             this.dojos = new List<Dojo>
                     {
@@ -543,7 +573,8 @@
             };
 
             this.dojos.ForEach(d => context.Dojos.Add(d));
-            context.Commit();
+            await context.CommitAsync();
         }
+
     }
 }

@@ -149,7 +149,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Constants.cs" />
-    <Compile Include="Data\CustomSqlServerMigrationSqlGenerator.cs" />
+    <Content Include="Data\CustomSqlServerMigrationSqlGenerator.cs" />
     <Compile Include="Data\DataContext.cs" />
     <Compile Include="Data\DataContext1.cs" />
     <Compile Include="Data\EntityContextInitializer.cs" />
@@ -173,6 +173,7 @@
     <Compile Include="Entities\OfficerRole.cs" />
     <Compile Include="Exceptions\ParameterNullException.cs" />
     <Compile Include="Extensions\EnumerableExtensions.cs" />
+    <Compile Include="Extensions\EventExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Factories\ApiControllerFactory.cs" />
     <Compile Include="Factories\CacheItemPropertiesFactory.cs" />
@@ -183,11 +184,14 @@
     <Compile Include="Interfaces\IDataContext.cs" />
     <Compile Include="Interfaces\ILifeStyle.cs" />
     <Compile Include="Interfaces\IQueryableDataContext.cs" />
-    <Compile Include="Migrations\201601120239140_M1_011116.cs" />
+    <Content Include="Migrations\201601120239140_M1_011116.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Compile Include="Migrations\201601120239140_M1_011116.Designer.cs">
       <DependentUpon>201601120239140_M1_011116.cs</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
+    <Content Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account\AddExternalLoginBindingModel.cs" />
     <Compile Include="Models\Account\ChangePasswordBindingModel.cs" />
     <Compile Include="Models\Account\ExternalLoginConfirmationViewModel.cs" />
@@ -250,9 +254,11 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201601120239140_M1_011116.resx">
       <DependentUpon>201601120239140_M1_011116.cs</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Migrations\Lets_not_use_migrations_until_we_really_have_to_just_drop_the_db.txt" />
     <Content Include="NLog.config" />
   </ItemGroup>
   <ItemGroup>
