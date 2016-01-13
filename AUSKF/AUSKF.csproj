@@ -290,11 +290,9 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Areas\News\Views\web.config" />
     <Content Include="Areas\News\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\News\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\News\Views\Home\Index.cshtml" />
     <Content Include="Areas\Iaido\Views\web.config" />
     <Content Include="Areas\Iaido\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Iaido\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Iaido\Views\Home\Index.cshtml" />
     <Content Include="Areas\Iaido\Views\Home\Study.cshtml" />
     <Content Include="Content\pdfs\2010_iaido_questions.pdf">
@@ -306,7 +304,6 @@
     <Content Include="Areas\Iaido\Views\Home\Archives.cshtml" />
     <Content Include="Areas\Forms\Views\web.config" />
     <Content Include="Areas\Forms\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Forms\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Forms\Views\Home\Index.cshtml" />
     <Content Include="Areas\Forms\Views\Newsletter\Index.cshtml" />
     <Content Include="Areas\Forms\Content\correction-vol12no1.pdf">
@@ -564,8 +561,11 @@
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Areas\Forms\Models\" />
     <Folder Include="Areas\Forms\Views\Forms\" />
+    <Folder Include="Areas\Forms\Views\Shared\" />
     <Folder Include="Areas\Iaido\Views\Models\" />
+    <Folder Include="Areas\Iaido\Views\Shared\" />
     <Folder Include="Areas\News\Models\" />
+    <Folder Include="Areas\News\Views\Shared\" />
     <Folder Include="Areas\Officers\Models\" />
     <Folder Include="Areas\Officers\Views\Home\" />
     <Folder Include="Areas\Officers\Views\Shared\" />
