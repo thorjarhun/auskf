@@ -271,4 +271,10 @@
   <data name="PoliciesProcedures" xml:space="preserve">
     <value>AUSKF Policies and Procedures</value>
   </data>
+  <data name="FederationListings" xml:space="preserve">
+    <value>Federation Listings</value>
+  </data>
+  <data name="UsernameTaken" xml:space="preserve">
+    <value>User name not available</value>
+  </data>
 </root>

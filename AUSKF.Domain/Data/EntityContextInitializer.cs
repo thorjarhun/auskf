@@ -15,7 +15,8 @@
         private List<UserRole> userRoles;
         private List<Dojo> dojos;
         private User adminUser;
-        
+        private List<Federation> federations;
+
         protected override void Seed(DataContext context)
         {
             this.AddKendoRanks(context);
@@ -29,9 +30,10 @@
 
         private void AddEvents(DataContext context)
         {
-           
+
             var event1 = new Event
             {
+                EventId = Guid.NewGuid(),
                 CreateDate = DateTime.Now,
                 Id = this.adminUser.Id,
                 Description = "2016 New Year’s Greeting from AUSKF President",
@@ -123,7 +125,7 @@
                 PasswordLastChangedDate = DateTime.UtcNow,
                 Profile = new UserProfile
                 {
-                     AllowHtmlSig = true
+                    AllowHtmlSig = true
                 },
                 UserName = "Admin",
                 Password = "P@ssword1".Sha256Hash(),
@@ -178,7 +180,7 @@
         }
 
         private void AddFederations(DataContext context)
-                {
+        {
             this.federations = new List<Federation>()
                     {
                 new Federation()
@@ -261,7 +263,7 @@
         }
 
         private void AddDojos(DataContext context)
-                    {
+        {
             this.dojos = new List<Dojo>
                     {
                 new Dojo

@@ -7,7 +7,7 @@ namespace AUSKF.Migrations
     {
         public Configuration()
         {
-            this.AutomaticMigrationsEnabled = false;
+            this.AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(DataContext context)
