@@ -16,7 +16,7 @@
         private List<Dojo> dojos;
         private List<Federation> federations;
         private List<Address> addresses;
-        
+
         protected override void Seed(DataContext context)
         {
 
@@ -31,7 +31,7 @@
 
         private void AddAddresses(DataContext context)
         {
-           
+
             this.addresses = new List<Address>();
 
             var homeAddress = new Address
@@ -198,7 +198,7 @@
                 new User()
                 {
 
-                Active = true,
+                    Active = true,
                     DisplayName = "Travis Stronach",
                     FirstName = "Travis",
                     MiddleName = "Lee",
@@ -207,23 +207,23 @@
                     DateOfBirth = new DateTime(1982, 2, 6),
                     AuskfIdNumber = 6035,
                     Email = "travis.stronach@gmail.com",
-                EmailConfirmed = true,
-                JoinedDate = DateTime.UtcNow,
-                LastLogin = DateTime.UtcNow,
-                LastSearch = "na",
-                MaximumDaysBetweenPasswordChange = 180,
-                PasswordLastChangedDate = DateTime.UtcNow,
-                Profile = new UserProfile
-                {
+                    EmailConfirmed = true,
+                    JoinedDate = DateTime.UtcNow,
+                    LastLogin = DateTime.UtcNow,
+                    LastSearch = "na",
+                    MaximumDaysBetweenPasswordChange = 180,
+                    PasswordLastChangedDate = DateTime.UtcNow,
+                    Profile = new UserProfile
+                    {
                         AllowHtmlSig = true,
                         Rank = this.kendoRanks.FindLast(x => x.RankName == "Godan"),
                         Address = new Address()
-        {
-                        AddressLine1 = "3226 E 53rd St",
-                        City = "Minneapolis",
-                        State = "MN",
-                        ZipCode = "55417"
-                    },
+                        {
+                            AddressLine1 = "3226 E 53rd St",
+                            City = "Minneapolis",
+                            State = "MN",
+                            ZipCode = "55417"
+                        },
                     },
                     UserName = "tstron",
                     Password = "P@ssword1".Sha256Hash(),
@@ -268,7 +268,7 @@
         }
 
         private void AddFederations(DataContext context)
-                {
+        {
             this.federations = new List<Federation>()
                     {
                 new Federation()
@@ -402,7 +402,7 @@
         }
 
         private void AddDojos(DataContext context)
-                    {
+        {
             this.dojos = new List<Dojo>
                     {
                 new Dojo

@@ -107,14 +107,14 @@
         public string HomePage { get; set; }
         
         [ForeignKey("Dojo")]
-        public int DojoId { get; set; }
+        public int? DojoId { get; set; }
 
         public Dojo Dojo { get; set; }
 
         [ForeignKey("Federation")]
-        public int FederationId { get; set; }
+        public Guid? FederationId { get; set; }
 
-        public Federation Federation { get; set; }
+        public virtual Federation Federation { get; set; }
 
         /// <summary>
         /// Foreign key to users current address
@@ -125,7 +125,7 @@
         /// <summary>
         /// Users current address
         /// </summary>
-        public Address Address { get; set; }
+        public virtual Address Address { get; set; }
 
         /// <summary>
         /// Gets or sets the rank identifier.
