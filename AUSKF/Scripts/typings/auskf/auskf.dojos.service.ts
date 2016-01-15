@@ -6,7 +6,9 @@ module auskf {
     "use strict";
 
     export interface IDojosService {
-        getDojos(): ng.IHttpPromise<Array<Event>>;
+        getDojos(page): ng.IHttpPromise<Array<Event>>;
+        getDojosByState(page, stateSelect): ng.IHttpPromise<Array<Event>>;
+        getDojosByFederation(page, federationSelect): ng.IHttpPromise<Array<Event>>;
         getDojoStates(): ng.IHttpPromise<Array<Event>>;
     }
 
@@ -17,15 +19,21 @@ module auskf {
         constructor(private $http: ng.IHttpService, private $q: ng.IQService) {
         }
 
-        getDojos(): ng.IHttpPromise<Array<Event>> {
-            return this.$http.get(this.serviceUri);
+        getDojos(page): ng.IHttpPromise<Array<Event>> {
+            return this.$http.get(this.serviceUri + "/paged/" + page);
+        } 
+
+        getDojosByState(page, stateSelect): ng.IHttpPromise<Array<Event>> {
+            return this.$http.get(this.serviceUri + "dojos/paged/" + page + "?federationId=&state=" + stateSelect);
+        }
+
+        getDojosByFederation(page, federationSelect): ng.IHttpPromise<Array<Event>> {
+            return this.$http.get(this.serviceUri + "dojos/paged/" + page + "?federationId=" + federationSelect + "&state=");
         }
 
         getDojoStates(): ng.IHttpPromise<Array<Event>> {
             return this.$http.get(this.serviceUri + "/states");
-        }
-
-       
+        }  
     }
 
     function factory($http: ng.IHttpService, $q: ng.IQService): DojoService {
@@ -36,50 +44,5 @@ module auskf {
     angular
         .module("auskf")
         .service("dojosService", DojoService);
-};
- 
-
-
-
-
-
-
-//$http.get(API_URL + 'dojos/paged/1').then(
-//    function (success) {
-//        $scope.dojolist = success.data.currentPage;
-//        $scope.federationSelect = "";
-//        $scope.stateSelect = "";
-//    }, function (error) {
-//        //alert('danger', 'Sorry   ',  error.data.message, 2000);
-//    });
-
-//$http.get(API_URL + 'federations').then(
-//    function (success) {
-//        $scope.federationlist = success.data;
-//    }, function (error) {
-//        alert(error.data.message);
-//        //alert('danger', 'Sorry   ',  error.data.message, 2000);
-//    });
-
-
-
-//$scope.selectDojosByState = function () {
-//    $scope.federationSelect = "";
-//    $http.get(API_URL + 'dojos/paged/1?federationId=&state=' + $scope.stateSelect).then(
-//        function (success) {
-//            $scope.dojolist = success.data.currentPage;
-//        }, function (error) {
-//            //alert('danger', 'Sorry   ',  error.data.message, 2000);
-//        });
-//};
-
-//$scope.selectDojoByFederation = function () {
-//    $scope.stateSelect = "";
-//    $http.get(API_URL + 'dojos/paged/1?federationId=' + $scope.federationSelect + '&state=').then(
-//        function (success) {
-//            $scope.dojolist = success.data.currentPage;
-//        }, function (error) {
-//            //alert('danger', 'Sorry   ',  error.data.message, 2000);
-//        });
-//};
+}; 
 

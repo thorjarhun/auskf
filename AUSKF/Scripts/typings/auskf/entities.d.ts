@@ -102,6 +102,26 @@ declare module AUSKF.Domain.Entities {
         modifyDate: Date;
     }
 
+    interface Dojo extends EntityBase {
+        dojoId: System.Guid;
+        federationId: System.Guid;
+        addressId: System.Guid;
+        primaryContactId: System.Guid;
+        dojoName: string;
+        phone: string;
+        websiteUrl: string;
+        emailAddress: string;
+        notes: string;
+    }
+
+    interface Federation extends EntityBase {
+        federationId: System.Guid;
+        name: string;
+        email: string;
+        phone: string;
+        websiteUrl: string;
+    }  
+
     interface Event extends EntityBase {
         eventId: System.Guid;
         eventDate: Date;

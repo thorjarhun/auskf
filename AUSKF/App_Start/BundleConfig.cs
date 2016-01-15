@@ -47,7 +47,7 @@ namespace AUSKF
             bundles.Add(new ScriptBundle("~/bundles/auskf").Include(
                 "~/Scripts/typings/auskf/auskf.dojos.js",
                 "~/Scripts/typings/auskf/auskf.dojos.service.js",
-                "~/Scripts/typings/auskf/auskf.dojos.controllers.js"
+                "~/Scripts/typings/auskf/auskf.dojos.controller.js"
                 ));
         }
     }

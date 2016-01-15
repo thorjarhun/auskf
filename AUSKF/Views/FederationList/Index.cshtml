@@ -3,6 +3,10 @@
     ViewBag.Title = "Index";
 }
 
+@section Scripts{
+    @Scripts.Render("~/bundles/auskf")
+}
+
 <div class="row" ng-repeat="federation in federationlist">
     <div>
         <div class="well well-sm">
