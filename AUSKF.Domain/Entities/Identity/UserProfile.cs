@@ -16,7 +16,8 @@
         /// The user profile identifier.
         /// </value>
         [Key]
-        public int UserProfileId { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public Guid UserProfileId { get; set; }
 
         /// <summary>
         /// Gets or sets the birth day.
@@ -122,8 +123,8 @@
         /// <value>
         /// The rank identifier.
         /// </value>
-        [ForeignKey("KendoRank")]
-        public Guid? KendoRankId { get; set; }
+        [ForeignKey("Rank")]
+        public int? RankId { get; set; }
 
         /// <summary>
         /// Gets or sets the rank.
@@ -136,5 +137,33 @@
         [DataType(DataType.Date)]
         public DateTime? RankDate { get; set; }
 
+        [MaxLength(50)]
+        [DataType(DataType.PhoneNumber)]
+        public string HomePhone { get; set; }
+
+        [MaxLength(50)]
+        [DataType(DataType.PhoneNumber)]
+        public string MobilePhone { get; set; }
+
+        [MaxLength(50)]
+        [DataType(DataType.PhoneNumber)]
+        public string BusinessPhone { get; set; }
+
+        [MaxLength(256)]
+        public string WebPage { get; set; }
+
+        [MaxLength(256)]
+        public string Notes { get; set; }
+
+        public int? OldId { get; set; }
+
+        [MaxLength(256)]
+        public string ContactName { get; set; }
+
+        [MaxLength(256)]
+        public string FileAs { get; set; }
+
+        [MaxLength(256)]
+        public string Attachements { get; set; }
     }
 }

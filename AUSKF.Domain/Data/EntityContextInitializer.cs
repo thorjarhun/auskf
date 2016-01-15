@@ -77,45 +77,102 @@
         {
             this.kendoRanks = new List<Rank>
             {
+
+
+
+                new Rank {  RankName="Sankyu", RankNumeric = 11,
+                    Eligibility ="The examination for kyu shall be determined by each organization.",
+                    ConsentingExaminersRequired = 1, MinimumRankOfExaminers = "-", NumberOfExaminers=1 , RankType = RankType.Kendo },
+
                 new Rank {  RankName="Nikyu", RankNumeric = 10,
                     Eligibility ="The examination for kyu shall be determined by each organization.",
-                    ConsentingExaminersRequired = 1, MinimumRankOfExaminers = "-", NumberOfExaminers=1  },
+                    ConsentingExaminersRequired = 1, MinimumRankOfExaminers = "-", NumberOfExaminers=1 , RankType = RankType.Kendo },
 
                 new Rank {RankName="Ikkyu", RankNumeric = 9,
                     Eligibility ="No time period stipulated. Matches, Kata 1-3, Written examination",
-                    ConsentingExaminersRequired = 1, MinimumRankOfExaminers = "-", NumberOfExaminers=1 },
+                    ConsentingExaminersRequired = 1, MinimumRankOfExaminers = "-", NumberOfExaminers=1 , RankType = RankType.Kendo},
 
                 new Rank {  RankName="Shodan", RankNumeric = 8,
                     Eligibility ="3 months or more after receipt of Ikkyu and age 14 or higher. Matches, Kata 1-5, Written examination",
-                    ConsentingExaminersRequired = 3, MinimumRankOfExaminers = "Yondan or higher", NumberOfExaminers=5 },
+                    ConsentingExaminersRequired = 3, MinimumRankOfExaminers = "Yondan or higher", NumberOfExaminers=5 , RankType = RankType.Kendo},
 
                 new Rank {  RankName="Nidan", RankNumeric = 7,
                     Eligibility ="1 year or more after receipt of Shodan. Matches, Kata 1-7, Written examination",
-                    ConsentingExaminersRequired = 3, MinimumRankOfExaminers = "Godan or higher", NumberOfExaminers=5  },
+                    ConsentingExaminersRequired = 3, MinimumRankOfExaminers = "Godan or higher", NumberOfExaminers=5 , RankType = RankType.Kendo },
 
                 new Rank {  RankName="Sandan", RankNumeric = 6,
                     Eligibility ="2 years or more after receipt of Nidan. Matches, Kata 1-7 and kodachi kata 1-3, Written examination",
-                    ConsentingExaminersRequired = 3, MinimumRankOfExaminers = "Godan or higher", NumberOfExaminers=5  },
+                    ConsentingExaminersRequired = 3, MinimumRankOfExaminers = "Godan or higher", NumberOfExaminers=5 , RankType = RankType.Kendo },
 
                 new Rank {  RankName="Yondan", RankNumeric = 5,
                     Eligibility ="3 years or more after receipt of Sandan. Matches, Kata 1-7 and kodachi kata 1-3, Written examination",
-                    ConsentingExaminersRequired = 5, MinimumRankOfExaminers = "Rokudan or higher", NumberOfExaminers=7  },
+                    ConsentingExaminersRequired = 5, MinimumRankOfExaminers = "Rokudan or higher", NumberOfExaminers=7  , RankType = RankType.Kendo},
 
                 new Rank {  RankName="Godan", RankNumeric = 4,
                     Eligibility ="4 years or more after receipt of Yondan. Kata 1-7 and kodachi kata 1-3, Written examination",
-                    ConsentingExaminersRequired = 5, MinimumRankOfExaminers = "Nanadan or higher", NumberOfExaminers=7  },
+                    ConsentingExaminersRequired = 5, MinimumRankOfExaminers = "Nanadan or higher", NumberOfExaminers=7 , RankType = RankType.Kendo },
 
                 new Rank {  RankName="Rokudan", RankNumeric = 3,
                     Eligibility ="5 years or more after receipt of Godan. Kata 1-7 and kodachi kata 1-3, Written examination & refereeing" ,
-                    ConsentingExaminersRequired = 5, MinimumRankOfExaminers = "Nanadan or higher", NumberOfExaminers=7 },
+                    ConsentingExaminersRequired = 5, MinimumRankOfExaminers = "Nanadan or higher", NumberOfExaminers=7 , RankType = RankType.Kendo},
 
                 new Rank {  RankName="Nanadan", RankNumeric = 2,
                     Eligibility ="6 years or more after receipt of Rokudan. Kata 1-7 and kodachi kata 1-3, Written examination & refereeing" ,
-                    ConsentingExaminersRequired = 5, MinimumRankOfExaminers = "Nanadan or higher", NumberOfExaminers=7 },
+                    ConsentingExaminersRequired = 5, MinimumRankOfExaminers = "Nanadan or higher", NumberOfExaminers=7, RankType = RankType.Kendo },
 
                 new Rank {  RankName="Hachi-Dan", RankNumeric = 1,
                     Eligibility ="10 years or more after receipt of Nanadan and age 46 or higher. Kata 1-7 and kodachi kata 1-3 Written examination & thesis",
-                    ConsentingExaminersRequired = 7, MinimumRankOfExaminers = "Hachi-Dan", NumberOfExaminers=7  },
+                    ConsentingExaminersRequired = 7, MinimumRankOfExaminers = "Hachi-Dan", NumberOfExaminers=7 , RankType = RankType.Kendo },
+
+                // Iaido
+
+                new Rank {  RankName="Sankyu", RankNumeric = 11,
+                    Eligibility ="The examination for kyu shall be determined by each organization.",
+                    ConsentingExaminersRequired = 1, MinimumRankOfExaminers = "-", NumberOfExaminers=1 , RankType = RankType.Iaido },
+
+                new Rank {  RankName="Nikyu", RankNumeric = 10,
+                    Eligibility ="The examination for kyu shall be determined by each organization.",
+                    ConsentingExaminersRequired = 1, MinimumRankOfExaminers = "-", NumberOfExaminers=1 , RankType = RankType.Iaido },
+
+                new Rank {RankName="Ikkyu", RankNumeric = 9,
+                    Eligibility ="No time period stipulated. Matches, Kata 1-3, Written examination",
+                    ConsentingExaminersRequired = 1, MinimumRankOfExaminers = "-", NumberOfExaminers=1 , RankType = RankType.Iaido},
+
+                new Rank {  RankName="Shodan", RankNumeric = 8,
+                    Eligibility ="3 months or more after receipt of Ikkyu and age 14 or higher. Matches, Kata 1-5, Written examination",
+                    ConsentingExaminersRequired = 3, MinimumRankOfExaminers = "Yondan or higher", NumberOfExaminers=5 , RankType = RankType.Iaido},
+
+                new Rank {  RankName="Nidan", RankNumeric = 7,
+                    Eligibility ="1 year or more after receipt of Shodan. Matches, Kata 1-7, Written examination",
+                    ConsentingExaminersRequired = 3, MinimumRankOfExaminers = "Godan or higher", NumberOfExaminers=5 , RankType = RankType.Iaido },
+
+                new Rank {  RankName="Sandan", RankNumeric = 6,
+                    Eligibility ="2 years or more after receipt of Nidan. Matches, Kata 1-7 and kodachi kata 1-3, Written examination",
+                    ConsentingExaminersRequired = 3, MinimumRankOfExaminers = "Godan or higher", NumberOfExaminers=5 , RankType = RankType.Iaido },
+
+                new Rank {  RankName="Yondan", RankNumeric = 5,
+                    Eligibility ="3 years or more after receipt of Sandan. Matches, Kata 1-7 and kodachi kata 1-3, Written examination",
+                    ConsentingExaminersRequired = 5, MinimumRankOfExaminers = "Rokudan or higher", NumberOfExaminers=7  , RankType = RankType.Iaido},
+
+                new Rank {  RankName="Godan", RankNumeric = 4,
+                    Eligibility ="4 years or more after receipt of Yondan. Kata 1-7 and kodachi kata 1-3, Written examination",
+                    ConsentingExaminersRequired = 5, MinimumRankOfExaminers = "Nanadan or higher", NumberOfExaminers=7 , RankType = RankType.Iaido },
+
+                new Rank {  RankName="Rokudan", RankNumeric = 3,
+                    Eligibility ="5 years or more after receipt of Godan. Kata 1-7 and kodachi kata 1-3, Written examination & refereeing" ,
+                    ConsentingExaminersRequired = 5, MinimumRankOfExaminers = "Nanadan or higher", NumberOfExaminers=7 , RankType = RankType.Iaido},
+
+                new Rank {  RankName="Nanadan", RankNumeric = 2,
+                    Eligibility ="6 years or more after receipt of Rokudan. Kata 1-7 and kodachi kata 1-3, Written examination & refereeing" ,
+                    ConsentingExaminersRequired = 5, MinimumRankOfExaminers = "Nanadan or higher", NumberOfExaminers=7, RankType = RankType.Iaido },
+
+                new Rank {  RankName="Hachi-Dan", RankNumeric = 1,
+                    Eligibility ="10 years or more after receipt of Nanadan and age 46 or higher. Kata 1-7 and kodachi kata 1-3 Written examination & thesis",
+                    ConsentingExaminersRequired = 7, MinimumRankOfExaminers = "Hachi-Dan", NumberOfExaminers=7 , RankType = RankType.Iaido },
+
+
+
+
             };
 
             this.kendoRanks.ForEach(kr => context.KendoRanks.Add(kr));

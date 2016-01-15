@@ -9,7 +9,7 @@
 
     public class ApplicationClaimsIdentityFactory : ClaimsIdentityFactory<User, Guid>
     {
-        private static readonly Logger logger = LogManager.GetCurrentClassLogger(typeof(ApplicationClaimsIdentityFactory));
+        private static readonly Logger logger = LogManager.GetCurrentClassLogger();
 
         /// <summary>
         /// Creates the asynchronous.

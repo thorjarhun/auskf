@@ -29,4 +29,12 @@
 
         }
     }
+
+    public class UserProfileConfiguration : EntityTypeConfiguration<UserProfile>
+    {
+        public UserProfileConfiguration()
+        {
+
+        }
+    }
 }

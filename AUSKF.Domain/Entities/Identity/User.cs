@@ -37,7 +37,7 @@
         /// The user profile identifier.
         /// </value>
         [ForeignKey("Profile")]
-        public int UserProfileId { get; set; }
+        public Guid UserProfileId { get; set; }
 
         /// <summary>
         /// Gets or sets the profile.
