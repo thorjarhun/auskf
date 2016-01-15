@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Data.Entity;
+    using System.IO;
     using Entities;
     using Entities.Identity;
     using Extensions;
@@ -23,6 +24,23 @@
             this.AddAddresses(context);
             this.AddKendoRanks(context);
             this.AddRoles(context);
+
+            // ok try this for legacy stuff
+            // hard-coding the path just to test if this will actually work.
+            var federationTableSqlFile = File.ReadAllText("C:\\dev\\AUSKF\\sql\\dbo.Federations.Table.sql");
+            context.Database.ExecuteSqlCommand(federationTableSqlFile);
+            
+            var dojoTableSqlFile = File.ReadAllText("C:\\dev\\AUSKF\\sql\\dbo.Dojos.Table.sql");
+            context.Database.ExecuteSqlCommand(dojoTableSqlFile);
+
+            var userProfileTableSqlFile = File.ReadAllText("C:\\dev\\AUSKF\\sql\\dbo.UserProfiles.Table.sql");
+            context.Database.ExecuteSqlCommand(userProfileTableSqlFile);
+
+            var userTableSqlFile = File.ReadAllText("C:\\dev\\AUSKF\\sql\\dbo.Users.Table.sql");
+            context.Database.ExecuteSqlCommand(userTableSqlFile);
+
+
+            
             this.AddUsers(context);
             this.AddFederations(context);
             this.AddDojos(context);
@@ -36,7 +54,6 @@
 
             var homeAddress = new Address
             {
-                AddressId = Guid.NewGuid(),
                 AddressLine1 = "123 any street",
                 AddressLine2 = "any location",
                 City = "Minneapolis",
@@ -193,6 +210,9 @@
 
         public void AddUsers(DataContext context)
         {
+
+
+
             this.users = new List<User>()
             {
                 new User()
@@ -265,6 +285,9 @@
             this.userRoles.ForEach(ur => this.users[1].Roles.Add(ur));
             this.users.ForEach(u => context.Users.Add(u));
             context.Commit();
+
+            // now read in legacy data
+
         }
 
         private void AddFederations(DataContext context)
@@ -403,25 +426,25 @@
 
         private void AddDojos(DataContext context)
         {
-            this.dojos = new List<Dojo>
-                    {
-                new Dojo
-                {
-                    DojoName = "Minnehaha Kendo Club",
-                    Federation = this.federations.Find(f => f.Name == "Midwest Kendo Federation"),
-                    Address = new Address
-                    {
-                        AddressLine1 = "Minnesota Sword Club",
-                        AddressLine2 = "4744 Chicago Ave.",
-                        City = "Minneapolis",
-                        State = "MN",
-                        ZipCode = "55417"
-                    },
-                    PrimaryContact = this.users.Find(u => u.LastName == "Stronach"),
-                    Phone = "612-823-6715",
-                    EmailAddress = "Rcochran_Minnehaha_at_msn_dot_com",
-                    WebsiteUrl= "http://minnehahakendo.org/" 
-                }
+            //this.dojos = new List<Dojo>
+            //        {
+            //    new Dojo
+            //    {
+            //        DojoName = "Minnehaha Kendo Club",
+            //        Federation = this.federations.Find(f => f.Name == "Midwest Kendo Federation"),
+            //        Address = new Address
+            //        {
+            //            AddressLine1 = "Minnesota Sword Club",
+            //            AddressLine2 = "4744 Chicago Ave.",
+            //            City = "Minneapolis",
+            //            State = "MN",
+            //            ZipCode = "55417"
+            //        },
+            //        PrimaryContact = this.users.Find(u => u.LastName == "Stronach"),
+            //        Phone = "612-823-6715",
+            //        EmailAddress = "Rcochran_Minnehaha_at_msn_dot_com",
+            //        WebsiteUrl= "http://minnehahakendo.org/" 
+            //    }
                 //,
                 //new Dojo
                 //{
@@ -679,10 +702,10 @@
                 //    EmailAddress = "vosssenshu_at_aol_dot_com",
                 //    WebsiteUrl = ""
                 //}
-            };
+            //};
 
-            this.dojos.ForEach(d => context.Dojos.Add(d));
-            context.Commit();
+            //this.dojos.ForEach(d => context.Dojos.Add(d));
+            //context.Commit();
         }
 
     }

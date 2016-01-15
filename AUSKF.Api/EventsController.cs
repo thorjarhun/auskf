@@ -71,8 +71,8 @@
             // Todo pass email or Eventname rather than Event id?
             try
             {
-                Guid id;
-                if (Guid.TryParse(eventId, out id))
+                int id;
+                if (int.TryParse(eventId, out id))
                 {
                     var Event = await this.eventRepository.GetAsync
                         (x => x.Id == id, includeProperties: "");

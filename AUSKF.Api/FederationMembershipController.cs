@@ -54,8 +54,8 @@
         {
             try
             {
-                Guid id;
-                if (Guid.TryParse(userId, out id))
+                int id;
+                if (int.TryParse(userId, out id))
                 {
                     var federationMembership = await this.federationMembershipRepository.GetAsync
                         (x => x.UserId == id && x.MembershipYear == DateTime.Now.Year, includeProperties: "User,Federation");
@@ -87,8 +87,8 @@
         {
             try
             {
-                Guid id;
-                if (Guid.TryParse(federationId, out id))
+                int id;
+                if (int.TryParse(federationId, out id))
                 {
                     var federationMemberships = await this.federationMembershipRepository.GetAsync(x => x.FederationId == id);
 
@@ -120,7 +120,7 @@
         [HttpGet]
         [Route("paged/{pagenumber}", Name = "FederationMembershipsV1")]
         [ResponseType(typeof(SerializablePagination<FederationMembership>))]
-        public async Task<IHttpActionResult> GetFederationMemberships(int? pagenumber, [FromUri] Guid? federationId = null,
+        public async Task<IHttpActionResult> GetFederationMemberships(int? pagenumber, [FromUri] int? federationId = null,
             [FromUri] int? dojoId = null, [FromUri] int? membershipYear = null)
         {
             // TODO this has a code smell of trying to do too much, this needs to be broken into at least three different endpoints.

@@ -22,10 +22,10 @@
     public class UserController : ApiController
     {
         private static readonly ILogger logger = LogManager.GetCurrentClassLogger();
-        private readonly IEntityRepository<User, Guid> userRepository;
+        private readonly IEntityRepository<User, int> userRepository;
         private readonly ICacheService cacheService;
 
-        public UserController(IEntityRepository<User, Guid> userRepository, ICacheService cacheService)
+        public UserController(IEntityRepository<User, int> userRepository, ICacheService cacheService)
         {
             this.userRepository = userRepository;
             this.cacheService = cacheService;
@@ -69,8 +69,8 @@
             // Todo pass email or username rather than user id?
             try
             {
-                Guid id;
-                if (Guid.TryParse(userId, out id))
+                int id;
+                if (int.TryParse(userId, out id))
                 {
                     var user = await this.userRepository.GetAsync
                         (x => x.Id == id, includeProperties: "Profile,Profile.Rank,Profile.Address");
@@ -144,8 +144,8 @@
         {
             try
             {
-                Guid id;
-                if (Guid.TryParse(userId, out id))
+                int id;
+                if (int.TryParse(userId, out id))
                 {
                     await this.userRepository.UpdateAsync(user, user.Id);
                     return this.StatusCode(HttpStatusCode.NoContent);

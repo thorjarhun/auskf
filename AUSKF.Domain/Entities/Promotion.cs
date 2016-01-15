@@ -12,7 +12,9 @@
         public Guid PromotionId { get; set; }
 
         [ForeignKey("User")]
-        public Guid UserId { get; set; }
+        public int UserId { get; set; }
+
+        public int ContactId { get; set; }
 
         public User User { get; set; }
 
@@ -29,6 +31,8 @@
 
         public bool Verified { get; set; }
 
+        public DateTime RankDate { get; set; }
+
         // this needs to be mapped still in legacy data
         [ForeignKey("Rank")]
         public int? RankId { get; set; }
@@ -37,5 +41,11 @@
 
         [MaxLength(20)]
         public string RankType { get; set; }
+
+        [MaxLength(20)]
+        public string RankListed { get; set; }
+
+        [MaxLength(255)]
+        public string TestingFederationLocation { get; set; }
     }
 }

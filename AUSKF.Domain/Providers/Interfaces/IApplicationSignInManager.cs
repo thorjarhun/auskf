@@ -30,14 +30,14 @@
         /// </summary>
         /// <param name="id">The identifier.</param>
         /// <returns></returns>
-        string ConvertIdToString(Guid id);
+        string ConvertIdToString(int id);
 
         /// <summary>
         /// Converts the identifier from string.
         /// </summary>
         /// <param name="id">The identifier.</param>
         /// <returns></returns>
-        Guid ConvertIdFromString(string id);
+        int ConvertIdFromString(string id);
 
         /// <summary>
         /// Signs the in asynchronous.
@@ -59,7 +59,7 @@
         /// Gets the verified user identifier asynchronous.
         /// </summary>
         /// <returns></returns>
-        Task<Guid> GetVerifiedUserIdAsync();
+        Task<int> GetVerifiedUserIdAsync();
 
         /// <summary>
         /// Determines whether [has been verified asynchronous].
@@ -114,7 +114,7 @@
         /// <value>
         /// The user manager.
         /// </value>
-        UserManager<User, Guid> UserManager { get; set; }
+        UserManager<User, int> UserManager { get; set; }
 
         /// <summary>
         /// Gets or sets the authentication manager.

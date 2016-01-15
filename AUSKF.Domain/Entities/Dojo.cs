@@ -1,7 +1,6 @@
 ﻿namespace AUSKF.Domain.Entities
 {
     using Identity;
-    using System;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
@@ -13,17 +12,17 @@
         public int DojoId { get; set; }
 
         [ForeignKey("Federation")]
-        public Guid FederationId { get; set; }
+        public int? FederationId { get; set; }
 
         public Federation Federation { get; set; }
 
         [ForeignKey("Address")]
-        public Guid AddressId { get; set; }
+        public int? AddressId { get; set; }
 
         public Address Address { get; set; }
 
         [ForeignKey("PrimaryContact")]
-        public Guid PrimaryContactId { get; set; }
+        public int? PrimaryContactId { get; set; }
 
         public User PrimaryContact { get; set; }
 

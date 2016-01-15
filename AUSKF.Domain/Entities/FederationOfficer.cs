@@ -15,14 +15,14 @@
         /// </summary>
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid FederationOfficerId { get; set; }
+        public int FederationOfficerId { get; set; }
 
         /// <summary>
         /// User id for the person who's holding the officer role for this federation
         /// </summary>
         [Required]
         [ForeignKey("User")]
-        public Guid UserId { get; set; }
+        public int UserId { get; set; }
 
         /// <summary>
         /// Officer role id for the office this user is holding

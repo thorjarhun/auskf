@@ -1,6 +1,5 @@
 ﻿namespace AUSKF.Domain.Entities
 {
-    using System;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
@@ -8,7 +7,7 @@
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid AddressId { get; set; }
+        public int AddressId { get; set; }
 
         [Required]
         [MaxLength(100)]

@@ -6,13 +6,13 @@
     using System.ComponentModel.DataAnnotations.Schema;
     using Microsoft.AspNet.Identity.EntityFramework;
 
-    public class UserLogin : IdentityUserLogin<Guid>
+    public class UserLogin : IdentityUserLogin<int>
     {
         [Key]
         public Guid UserLoginId { get; set; }
 
         [ForeignKey("User")]
-        public override Guid UserId { get; set; }
+        public override int UserId { get; set; }
 
         public User User { get; set; }
 

@@ -56,10 +56,10 @@ namespace AUSKF.Controllers
             var model = new IndexViewModel
             {
                 HasPassword = HasPassword(),
-                PhoneNumber = await UserManager.GetPhoneNumberAsync(User.Identity.GetUserIdAsGuid()),
-                TwoFactor = await UserManager.GetTwoFactorEnabledAsync(User.Identity.GetUserIdAsGuid()),
-                Logins = await UserManager.GetLoginsAsync(User.Identity.GetUserIdAsGuid()),
-                BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(User.Identity.GetUserIdAsGuid().ToString())
+                PhoneNumber = await UserManager.GetPhoneNumberAsync(User.Identity.GetUserIdAsInt()),
+                TwoFactor = await UserManager.GetTwoFactorEnabledAsync(User.Identity.GetUserIdAsInt()),
+                Logins = await UserManager.GetLoginsAsync(User.Identity.GetUserIdAsInt()),
+                BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(User.Identity.GetUserIdAsInt().ToString())
             };
             return View(model);
         }
@@ -68,7 +68,7 @@ namespace AUSKF.Controllers
         // GET: /Account/RemoveLogin
         public ActionResult RemoveLogin()
         {
-            var linkedAccounts = UserManager.GetLogins(User.Identity.GetUserIdAsGuid());
+            var linkedAccounts = UserManager.GetLogins(User.Identity.GetUserIdAsInt());
             ViewBag.ShowRemoveButton = HasPassword() || linkedAccounts.Count > 1;
             return View(linkedAccounts);
         }
@@ -80,10 +80,10 @@ namespace AUSKF.Controllers
         public async Task<ActionResult> RemoveLogin(string loginProvider, string providerKey)
         {
             ManageMessageId? message;
-            var result = await UserManager.RemoveLoginAsync(User.Identity.GetUserIdAsGuid(), new UserLoginInfo(loginProvider, providerKey));
+            var result = await UserManager.RemoveLoginAsync(User.Identity.GetUserIdAsInt(), new UserLoginInfo(loginProvider, providerKey));
             if (result.Succeeded)
             {
-                var user = await UserManager.FindByIdAsync(User.Identity.GetUserIdAsGuid());
+                var user = await UserManager.FindByIdAsync(User.Identity.GetUserIdAsInt());
                 if (user != null)
                 {
                     await SignInAsync(user, isPersistent: false);
@@ -115,7 +115,7 @@ namespace AUSKF.Controllers
                 return View(model);
             }
             // Generate the token and send it
-            var code = await UserManager.GenerateChangePhoneNumberTokenAsync(User.Identity.GetUserIdAsGuid(), model.Number);
+            var code = await UserManager.GenerateChangePhoneNumberTokenAsync(User.Identity.GetUserIdAsInt(), model.Number);
             if (UserManager.SmsService != null)
             {
                 var message = new IdentityMessage
@@ -133,7 +133,7 @@ namespace AUSKF.Controllers
         [HttpPost]
         public ActionResult RememberBrowser()
         {
-            var rememberBrowserIdentity = AuthenticationManager.CreateTwoFactorRememberBrowserIdentity(User.Identity.GetUserIdAsGuid().ToString());
+            var rememberBrowserIdentity = AuthenticationManager.CreateTwoFactorRememberBrowserIdentity(User.Identity.GetUserIdAsInt().ToString());
             AuthenticationManager.SignIn(new AuthenticationProperties { IsPersistent = true }, rememberBrowserIdentity);
             return RedirectToAction("Index", "Manage");
         }
@@ -152,8 +152,8 @@ namespace AUSKF.Controllers
         [HttpPost]
         public async Task<ActionResult> EnableTFA()
         {
-            await UserManager.SetTwoFactorEnabledAsync(User.Identity.GetUserIdAsGuid(), true);
-            var user = await UserManager.FindByIdAsync(User.Identity.GetUserIdAsGuid());
+            await UserManager.SetTwoFactorEnabledAsync(User.Identity.GetUserIdAsInt(), true);
+            var user = await UserManager.FindByIdAsync(User.Identity.GetUserIdAsInt());
             if (user != null)
             {
                 await SignInAsync(user, isPersistent: false);
@@ -166,8 +166,8 @@ namespace AUSKF.Controllers
         [HttpPost]
         public async Task<ActionResult> DisableTFA()
         {
-            await UserManager.SetTwoFactorEnabledAsync(User.Identity.GetUserIdAsGuid(), false);
-            var user = await UserManager.FindByIdAsync(User.Identity.GetUserIdAsGuid());
+            await UserManager.SetTwoFactorEnabledAsync(User.Identity.GetUserIdAsInt(), false);
+            var user = await UserManager.FindByIdAsync(User.Identity.GetUserIdAsInt());
             if (user != null)
             {
                 await SignInAsync(user, isPersistent: false);
@@ -181,7 +181,7 @@ namespace AUSKF.Controllers
         {
             // This code allows you exercise the flow without actually sending codes
             // For production use please register a SMS provider in IdentityConfig and generate a code here.
-            var code = await UserManager.GenerateChangePhoneNumberTokenAsync(User.Identity.GetUserIdAsGuid(), phoneNumber);
+            var code = await UserManager.GenerateChangePhoneNumberTokenAsync(User.Identity.GetUserIdAsInt(), phoneNumber);
             ViewBag.Status = "For DEMO purposes only, the current code is " + code;
             return phoneNumber == null ? View("Error") : View(new VerifyPhoneNumberViewModel { PhoneNumber = phoneNumber });
         }
@@ -196,10 +196,10 @@ namespace AUSKF.Controllers
             {
                 return View(model);
             }
-            var result = await UserManager.ChangePhoneNumberAsync(User.Identity.GetUserIdAsGuid(), model.PhoneNumber, model.Code);
+            var result = await UserManager.ChangePhoneNumberAsync(User.Identity.GetUserIdAsInt(), model.PhoneNumber, model.Code);
             if (result.Succeeded)
             {
-                var user = await UserManager.FindByIdAsync(User.Identity.GetUserIdAsGuid());
+                var user = await UserManager.FindByIdAsync(User.Identity.GetUserIdAsInt());
                 if (user != null)
                 {
                     await SignInAsync(user, isPersistent: false);
@@ -215,12 +215,12 @@ namespace AUSKF.Controllers
         // GET: /Account/RemovePhoneNumber
         public async Task<ActionResult> RemovePhoneNumber()
         {
-            var result = await UserManager.SetPhoneNumberAsync(User.Identity.GetUserIdAsGuid(), null);
+            var result = await UserManager.SetPhoneNumberAsync(User.Identity.GetUserIdAsInt(), null);
             if (!result.Succeeded)
             {
                 return RedirectToAction("Index", new { Message = ManageMessageId.Error });
             }
-            var user = await UserManager.FindByIdAsync(User.Identity.GetUserIdAsGuid());
+            var user = await UserManager.FindByIdAsync(User.Identity.GetUserIdAsInt());
             if (user != null)
             {
                 await SignInAsync(user, isPersistent: false);
@@ -245,10 +245,10 @@ namespace AUSKF.Controllers
             {
                 return View(model);
             }
-            var result = await UserManager.ChangePasswordAsync(User.Identity.GetUserIdAsGuid(), model.OldPassword, model.NewPassword);
+            var result = await UserManager.ChangePasswordAsync(User.Identity.GetUserIdAsInt(), model.OldPassword, model.NewPassword);
             if (result.Succeeded)
             {
-                var user = await UserManager.FindByIdAsync(User.Identity.GetUserIdAsGuid());
+                var user = await UserManager.FindByIdAsync(User.Identity.GetUserIdAsInt());
                 if (user != null)
                 {
                     await SignInAsync(user, isPersistent: false);
@@ -274,10 +274,10 @@ namespace AUSKF.Controllers
         {
             if (ModelState.IsValid)
             {
-                var result = await UserManager.AddPasswordAsync(User.Identity.GetUserIdAsGuid(), model.NewPassword);
+                var result = await UserManager.AddPasswordAsync(User.Identity.GetUserIdAsInt(), model.NewPassword);
                 if (result.Succeeded)
                 {
-                    var user = await UserManager.FindByIdAsync(User.Identity.GetUserIdAsGuid());
+                    var user = await UserManager.FindByIdAsync(User.Identity.GetUserIdAsInt());
                     if (user != null)
                     {
                         await SignInAsync(user, isPersistent: false);
@@ -299,12 +299,12 @@ namespace AUSKF.Controllers
                 message == ManageMessageId.RemoveLoginSuccess ? "The external login was removed."
                 : message == ManageMessageId.Error ? "An error has occurred."
                 : "";
-            var user = await UserManager.FindByIdAsync(User.Identity.GetUserIdAsGuid());
+            var user = await UserManager.FindByIdAsync(User.Identity.GetUserIdAsInt());
             if (user == null)
             {
                 return View("Error");
             }
-            var userLogins = await UserManager.GetLoginsAsync(User.Identity.GetUserIdAsGuid());
+            var userLogins = await UserManager.GetLoginsAsync(User.Identity.GetUserIdAsInt());
             var otherLogins = AuthenticationManager.GetExternalAuthenticationTypes().Where(auth => userLogins.All(ul => auth.AuthenticationType != ul.LoginProvider)).ToList();
             ViewBag.ShowRemoveButton = user.PasswordHash != null || userLogins.Count > 1;
             return View(new ManageLoginsViewModel
@@ -321,19 +321,19 @@ namespace AUSKF.Controllers
         public ActionResult LinkLogin(string provider)
         {
             // Request a redirect to the external login provider to link a login for the current user
-            return new AccountController.ChallengeResult(provider, Url.Action("LinkLoginCallback", "Manage"), User.Identity.GetUserIdAsGuid().ToString());
+            return new AccountController.ChallengeResult(provider, Url.Action("LinkLoginCallback", "Manage"), User.Identity.GetUserIdAsInt().ToString());
         }
 
         //
         // GET: /Manage/LinkLoginCallback
         public async Task<ActionResult> LinkLoginCallback()
         {
-            var loginInfo = await AuthenticationManager.GetExternalLoginInfoAsync(XsrfKey, User.Identity.GetUserIdAsGuid().ToString());
+            var loginInfo = await AuthenticationManager.GetExternalLoginInfoAsync(XsrfKey, User.Identity.GetUserIdAsInt().ToString());
             if (loginInfo == null)
             {
                 return RedirectToAction("ManageLogins", new { Message = ManageMessageId.Error });
             }
-            var result = await UserManager.AddLoginAsync(User.Identity.GetUserIdAsGuid(), loginInfo.Login);
+            var result = await UserManager.AddLoginAsync(User.Identity.GetUserIdAsInt(), loginInfo.Login);
             return result.Succeeded ? RedirectToAction("ManageLogins") : RedirectToAction("ManageLogins", new { Message = ManageMessageId.Error });
         }
 
@@ -365,7 +365,7 @@ namespace AUSKF.Controllers
 
         private bool HasPassword()
         {
-            var user = UserManager.FindById(User.Identity.GetUserIdAsGuid());
+            var user = UserManager.FindById(User.Identity.GetUserIdAsInt());
             if (user != null)
             {
                 return user.PasswordHash != null;
@@ -375,7 +375,7 @@ namespace AUSKF.Controllers
 
         private bool HasPhoneNumber()
         {
-            var user = UserManager.FindById(User.Identity.GetUserIdAsGuid());
+            var user = UserManager.FindById(User.Identity.GetUserIdAsInt());
             if (user != null)
             {
                 return user.PhoneNumber != null;

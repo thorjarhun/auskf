@@ -15,7 +15,7 @@
         public string Text { get; set; }
 
         [Required, ForeignKey("CreatedBy")]
-        public Guid UserId { get; set; }
+        public int UserId { get; set; }
 
         public User CreatedBy { get; set; }
     }

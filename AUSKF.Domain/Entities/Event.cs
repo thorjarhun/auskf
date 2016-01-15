@@ -28,7 +28,7 @@
         public User CreatedBy { get; set; }
 
         [Required, ForeignKey("CreatedBy")]
-        public Guid? Id { get; set; }
+        public int? Id { get; set; }
 
         public virtual ICollection<Comment> Comments { get; set; }
 

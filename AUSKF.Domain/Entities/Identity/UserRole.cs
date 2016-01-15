@@ -8,7 +8,7 @@
     using Microsoft.AspNet.Identity.EntityFramework;
     using Newtonsoft.Json;
 
-    public class UserRole : IdentityUserRole<Guid>
+    public class UserRole : IdentityUserRole<int>
     {
         public UserRole()
         {
@@ -18,10 +18,10 @@
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 
-        public override Guid RoleId { get; set; }
+        public override int RoleId { get; set; }
 
         [NotMapped, JsonIgnore]
-        public override Guid UserId { get; set; }
+        public override int UserId { get; set; }
 
         [MaxLength(56)]
         public string RoleName { get; set; }

@@ -7,7 +7,7 @@
     using Microsoft.AspNet.Identity;
     using NLog;
 
-    public class ApplicationClaimsIdentityFactory : ClaimsIdentityFactory<User, Guid>
+    public class ApplicationClaimsIdentityFactory : ClaimsIdentityFactory<User, int>
     {
         private static readonly Logger logger = LogManager.GetCurrentClassLogger();
 
@@ -23,7 +23,7 @@
         /// or
         /// user
         /// </exception>
-        public override Task<ClaimsIdentity> CreateAsync(UserManager<User, Guid> manager, User user, string authenticationType)
+        public override Task<ClaimsIdentity> CreateAsync(UserManager<User, int> manager, User user, string authenticationType)
         {
             if (manager == null)
             {

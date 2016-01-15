@@ -17,7 +17,7 @@
         /// </value>
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid UserProfileId { get; set; }
+        public int UserProfileId { get; set; }
 
         /// <summary>
         /// Gets or sets the birth day.
@@ -27,6 +27,9 @@
         /// </value>
         [DataType(DataType.Date)]
         public DateTime? BirthDay { get; set; }
+
+        // the old id from the access db
+        public int ContactId { get; set; }
 
         /// <summary>
         /// Gets or sets the location.
@@ -105,14 +108,24 @@
         /// </value>
         [MaxLength(512)]
         public string HomePage { get; set; }
-        
+
+        [MaxLength(256)]
+        public string SharePointEditor { get; set; }
+
+        [MaxLength(256)]
+        public string SharePointAuthor { get; set; }
+
+        public DateTime? SharePointModifiedDate { get; set; }
+
+        public DateTime? SharePointCreatedDate { get; set; }
+
         [ForeignKey("Dojo")]
         public int? DojoId { get; set; }
 
         public Dojo Dojo { get; set; }
 
         [ForeignKey("Federation")]
-        public Guid? FederationId { get; set; }
+        public int? FederationId { get; set; }
 
         public virtual Federation Federation { get; set; }
 
@@ -120,7 +133,7 @@
         /// Foreign key to users current address
         /// </summary>
         [ForeignKey("Address")]
-        public Guid? AddressId { get; set; }
+        public int? AddressId { get; set; }
 
         /// <summary>
         /// Users current address
