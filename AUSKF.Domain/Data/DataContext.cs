@@ -18,7 +18,7 @@
 
         public DbSet<UserRole> UserRoles  {get;set;}
 
-        public DbSet<KendoRank> KendoRanks {get;set;}
+        public DbSet<Rank> KendoRanks {get;set;}
 
         public DbSet<Dojo> Dojos  {get;set;}
 

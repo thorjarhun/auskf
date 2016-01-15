@@ -20,10 +20,10 @@
     public class KendoRankController : ApiController
     {
         private static readonly ILogger logger = LogManager.GetCurrentClassLogger();
-        private readonly IEntityRepository<KendoRank, Guid> kendoRankRepository;
+        private readonly IEntityRepository<Rank, Guid> kendoRankRepository;
         private readonly ICacheService cacheService;
 
-        public KendoRankController(IEntityRepository<KendoRank, Guid> kendoRankRepository, ICacheService cacheService)
+        public KendoRankController(IEntityRepository<Rank, Guid> kendoRankRepository, ICacheService cacheService)
         {
             this.kendoRankRepository = kendoRankRepository;
             this.cacheService = cacheService;
@@ -36,12 +36,12 @@
         {
             try
             {
-                var kendoRanks = this.cacheService.TryGet<Expression<Func<KendoRank, bool>>,
-                     Func<IQueryable<KendoRank>, IOrderedQueryable<KendoRank>>, string,
-                     IEnumerable<KendoRank>>("KendoRanks", (x => x != null), null,
+                var kendoRanks = this.cacheService.TryGet<Expression<Func<Rank, bool>>,
+                     Func<IQueryable<Rank>, IOrderedQueryable<Rank>>, string,
+                     IEnumerable<Rank>>("KendoRanks", (x => x != null), null,
                      null, this.kendoRankRepository.Get, null);
 
-                var kendoRanksArray = kendoRanks as KendoRank[] ?? kendoRanks.ToArray();
+                var kendoRanksArray = kendoRanks as Rank[] ?? kendoRanks.ToArray();
 
                 if (!kendoRanksArray.Any())
                 {

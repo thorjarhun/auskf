@@ -10,7 +10,7 @@
     public class Event : EntityBase, IComparable<Event>
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid EventId { get; set; }
 
         [Required, DataType(DataType.DateTime)]

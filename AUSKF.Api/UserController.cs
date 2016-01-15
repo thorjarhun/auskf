@@ -38,9 +38,9 @@
         {
             try
             {
-                var users = this.cacheService.TryGet<Expression<Func<User, bool>>,
+                var users = await this.cacheService.TryGetAsync<Expression<Func<User, bool>>,
                      Func<IQueryable<User>, IOrderedQueryable<User>>, string,
-                     IEnumerable<User>>("Users", (x => x != null), null, "Profile,KendoRank,Roles,Claims,Logins", this.userRepository.Get, null);
+                     IEnumerable<User>>("Users", (x => x != null), null, "Profile,Profile.KendoRank,Profile.Address", this.userRepository.Get, null);
 
                 var userArray = users as User[] ?? users.ToArray();
 
@@ -73,7 +73,7 @@
                 if (Guid.TryParse(userId, out id))
                 {
                     var user = await this.userRepository.GetAsync
-                        (x => x.Id == id, includeProperties: "Profile,KendoRank,Roles,Claims,Logins");
+                        (x => x.Id == id, includeProperties: "Profile,Profile.KendoRank,Profile.Address");
 
                     if (user != null)
                     {

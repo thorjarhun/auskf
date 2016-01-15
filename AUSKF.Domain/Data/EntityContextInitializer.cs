@@ -11,35 +11,61 @@
     public sealed class EntityContextInitializer : DropCreateDatabaseIfModelChanges<DataContext>, ISingletonLifestyle
     {
         private List<User> users;
-        private List<KendoRank> kendoRanks;
+        private List<Rank> kendoRanks;
         private List<UserRole> userRoles;
         private List<Dojo> dojos;
         private List<Federation> federations;
-        private User adminUser;
+        private List<Address> addresses;
         
         protected override void Seed(DataContext context)
         {
+
+            this.AddAddresses(context);
             this.AddKendoRanks(context);
-            this.AddUsers(context);
             this.AddRoles(context);
-            this.AddAdminUser(context);
+            this.AddUsers(context);
             this.AddFederations(context);
             this.AddDojos(context);
             this.AddEvents(context);
         }
 
-        private void AddEvents(DataContext context)
+        private void AddAddresses(DataContext context)
         {
            
+            this.addresses = new List<Address>();
+
+            var homeAddress = new Address
+            {
+                AddressId = Guid.NewGuid(),
+                AddressLine1 = "123 any street",
+                AddressLine2 = "any location",
+                City = "Minneapolis",
+                State = "MN",
+                ZipCode = "55444",
+                CreateDate = DateTime.UtcNow,
+                ModifyDate = DateTime.UtcNow,
+            };
+
+            context.Addresses.Add(homeAddress);
+            context.Commit();
+            this.addresses.Add(homeAddress);
+
+        }
+
+        private void AddEvents(DataContext context)
+        {
             var event1 = new Event
             {
+                EventId = Guid.NewGuid(),
+
                 CreateDate = DateTime.Now,
-                Id = this.adminUser.Id,
+                Id = this.users[0].Id,
                 Description = "2016 New Year’s Greeting from AUSKF President",
                 EventText =
                     "<div class=\"entry\"><p>Happy New Year !</p><p>Reflecting on the past year, the biggest event was the 16th World Kendo Championship held in Tokyo on May 29-31. I would like to congratulate that, as a result of long preparations and hard practices, Team USA won the third place for both men’s and women’s team division. In the men’s individual division, all the four competitors won their preliminary rounds and advanced to court finals and finals against Japanese players. The crowd’s applause to our players and continued fairly long afterwards as they competed very well with a lot of spirit. As for the women’s, they advanced all the way to the semi-final after beating Germany, who they had lost to in the last championship. It was wonderful to see them show a lot of character and team work.</p><p>Going forward, I am optimistic about the future performance of Team USA as long as we do both of the followings: (1) to expand membership for young kenshi and nurture their growth, (2) to raise the overall skill levels of instructors as they strive to improve their own kendo and thereby inspire their students to follow their footsteps.</p><p>Let me briefly comment below on the activities of the AUSKF for the past year and our plans going forward.</p><p>The education committee plans to host a number of seminars. In addition to the annual events such as summer camp, the 8-dan tour, the Japanese champion tour, and the junior Team USA camp, we plan to add seminars designed specifically for mudansha, women, and instructors.</p><p>When it comes to competition, I always feel that the level of shinpan needs to be raised further. We plan to offer shinpan seminars in different geographical zones, which I strongly encourage all the eligible kenshi to attend and learn from.</p><p>As for promotion, we are working hard to coordinate with local federations and share with them the same perspectives. We will try to expedite application and delivery processes for certificates as well. Finally, we will consider incorporating “bokuto-ni-yoru-kendo-kihon-waza-keiko-ho” by holding seminars to educate and spread the method.</p><p>As for iaido, four senseis that hold the rank of 7 dan are working together with local federations to improve the skill levels and increase the membership for iaido practitioners in this country.</p><p>Finally, I will continue to work hard so that you can enjoy learning the correct kendo in the collegial and friendly environment. Let’s work together!</p><p>I hope that this year will be a good one for you.</p><p>Yoshiteru Tagawa<br>President of All United States Kendo Federation</p></div>",
                 EventDate = new DateTime(2015, 12, 29),
                 ModifyDate = new DateTime(2015, 12, 29),
+
                 Title = "2016 New Year’s Greeting from AUSKF President"
             };
 
@@ -49,45 +75,45 @@
 
         private void AddKendoRanks(DataContext context)
         {
-            this.kendoRanks = new List<KendoRank>
+            this.kendoRanks = new List<Rank>
             {
-                new KendoRank {  KendoRankName="Nikyu", KendoRankNumeric = 10,
+                new Rank {  RankName="Nikyu", RankNumeric = 10,
                     Eligibility ="The examination for kyu shall be determined by each organization.",
                     ConsentingExaminersRequired = 1, MinimumRankOfExaminers = "-", NumberOfExaminers=1  },
 
-                new KendoRank {KendoRankName="Ikkyu", KendoRankNumeric = 9,
+                new Rank {RankName="Ikkyu", RankNumeric = 9,
                     Eligibility ="No time period stipulated. Matches, Kata 1-3, Written examination",
                     ConsentingExaminersRequired = 1, MinimumRankOfExaminers = "-", NumberOfExaminers=1 },
 
-                new KendoRank {  KendoRankName="Shodan", KendoRankNumeric = 8,
+                new Rank {  RankName="Shodan", RankNumeric = 8,
                     Eligibility ="3 months or more after receipt of Ikkyu and age 14 or higher. Matches, Kata 1-5, Written examination",
                     ConsentingExaminersRequired = 3, MinimumRankOfExaminers = "Yondan or higher", NumberOfExaminers=5 },
 
-                new KendoRank {  KendoRankName="Nidan", KendoRankNumeric = 7,
+                new Rank {  RankName="Nidan", RankNumeric = 7,
                     Eligibility ="1 year or more after receipt of Shodan. Matches, Kata 1-7, Written examination",
                     ConsentingExaminersRequired = 3, MinimumRankOfExaminers = "Godan or higher", NumberOfExaminers=5  },
 
-                new KendoRank {  KendoRankName="Sandan", KendoRankNumeric = 6,
+                new Rank {  RankName="Sandan", RankNumeric = 6,
                     Eligibility ="2 years or more after receipt of Nidan. Matches, Kata 1-7 and kodachi kata 1-3, Written examination",
                     ConsentingExaminersRequired = 3, MinimumRankOfExaminers = "Godan or higher", NumberOfExaminers=5  },
 
-                new KendoRank {  KendoRankName="Yondan", KendoRankNumeric = 5,
+                new Rank {  RankName="Yondan", RankNumeric = 5,
                     Eligibility ="3 years or more after receipt of Sandan. Matches, Kata 1-7 and kodachi kata 1-3, Written examination",
                     ConsentingExaminersRequired = 5, MinimumRankOfExaminers = "Rokudan or higher", NumberOfExaminers=7  },
 
-                new KendoRank {  KendoRankName="Godan", KendoRankNumeric = 4,
+                new Rank {  RankName="Godan", RankNumeric = 4,
                     Eligibility ="4 years or more after receipt of Yondan. Kata 1-7 and kodachi kata 1-3, Written examination",
                     ConsentingExaminersRequired = 5, MinimumRankOfExaminers = "Nanadan or higher", NumberOfExaminers=7  },
 
-                new KendoRank {  KendoRankName="Rokudan", KendoRankNumeric = 3,
+                new Rank {  RankName="Rokudan", RankNumeric = 3,
                     Eligibility ="5 years or more after receipt of Godan. Kata 1-7 and kodachi kata 1-3, Written examination & refereeing" ,
                     ConsentingExaminersRequired = 5, MinimumRankOfExaminers = "Nanadan or higher", NumberOfExaminers=7 },
 
-                new KendoRank {  KendoRankName="Nanadan", KendoRankNumeric = 2,
+                new Rank {  RankName="Nanadan", RankNumeric = 2,
                     Eligibility ="6 years or more after receipt of Rokudan. Kata 1-7 and kodachi kata 1-3, Written examination & refereeing" ,
                     ConsentingExaminersRequired = 5, MinimumRankOfExaminers = "Nanadan or higher", NumberOfExaminers=7 },
 
-                new KendoRank {  KendoRankName="Hachi-Dan", KendoRankNumeric = 1,
+                new Rank {  RankName="Hachi-Dan", RankNumeric = 1,
                     Eligibility ="10 years or more after receipt of Nanadan and age 46 or higher. Kata 1-7 and kodachi kata 1-3 Written examination & thesis",
                     ConsentingExaminersRequired = 7, MinimumRankOfExaminers = "Hachi-Dan", NumberOfExaminers=7  },
             };
@@ -96,7 +122,7 @@
             context.Commit();
         }
 
-        private void AddRoles(Domain.Data.DataContext context)
+        private void AddRoles(DataContext context)
         {
             this.userRoles = new List<UserRole>
             {
@@ -108,72 +134,78 @@
             context.Commit();
         }
 
-        private void AddAdminUser(DataContext context)
-        {
-            this.adminUser = new User
-            {
-                Active = true,
-                DisplayName = "Webmaster",
-                Email = "Admin@mwkf.org",
-                EmailConfirmed = true,
-                JoinedDate = DateTime.UtcNow,
-                KendoRank = this.kendoRanks.FindLast(x => x.KendoRankName != ""),
-                LastLogin = DateTime.UtcNow,
-                LastSearch = "na",
-                MaximumDaysBetweenPasswordChange = 180,
-                PasswordLastChangedDate = DateTime.UtcNow,
-                Profile = new UserProfile
-                {
-                     AllowHtmlSig = true
-                },
-                UserName = "Admin",
-                Password = "P@ssword1".Sha256Hash(),
-                PasswordHash = "P@ssword1".Sha256Hash()
-            };
-            this.userRoles.ForEach(ur => this.adminUser.Roles.Add(ur));
-            context.Users.Add(this.adminUser);
-            context.Commit();
-        }
-
         public void AddUsers(DataContext context)
         {
             this.users = new List<User>()
             {
                 new User()
                 {
-                    Address =  new Address()
-                    {
-                        AddressLine1 = "3226 E 53rd St",
-                        City = "Minneapolis",
-                        State = "MN",
-                        ZipCode = "55417"
-                    },
-                    Active = true,
+
+                Active = true,
                     DisplayName = "Travis Stronach",
                     FirstName = "Travis",
                     MiddleName = "Lee",
                     LastName = "Stronach",
                     Gender = "M",
-                    DateOfBirth = new DateTime(1982,2,6),
+                    DateOfBirth = new DateTime(1982, 2, 6),
                     AuskfIdNumber = 6035,
                     Email = "travis.stronach@gmail.com",
+                EmailConfirmed = true,
+                JoinedDate = DateTime.UtcNow,
+                LastLogin = DateTime.UtcNow,
+                LastSearch = "na",
+                MaximumDaysBetweenPasswordChange = 180,
+                PasswordLastChangedDate = DateTime.UtcNow,
+                Profile = new UserProfile
+                {
+                        AllowHtmlSig = true,
+                        Rank = this.kendoRanks.FindLast(x => x.RankName == "Godan"),
+                        Address = new Address()
+        {
+                        AddressLine1 = "3226 E 53rd St",
+                        City = "Minneapolis",
+                        State = "MN",
+                        ZipCode = "55417"
+                    },
+                    },
+                    UserName = "tstron",
+                    Password = "P@ssword1".Sha256Hash(),
+                    PasswordHash = "P@ssword1".Sha256Hash()
+                },
+                new User
+                {
+                    Active = true,
+                    DisplayName = "Webmaster",
+                    FirstName = "Web",
+                    LastName = "Master",
+                    Gender= "M",
+                    DateOfBirth = new DateTime(1982, 2, 6),
+                    Email = "Admin@auskf.org",
                     EmailConfirmed = true,
                     JoinedDate = DateTime.UtcNow,
-                    KendoRank = this.kendoRanks.FindLast(x => x.KendoRankName == "Godan"),
                     LastLogin = DateTime.UtcNow,
                     LastSearch = "na",
                     MaximumDaysBetweenPasswordChange = 180,
                     PasswordLastChangedDate = DateTime.UtcNow,
                     Profile = new UserProfile
                     {
-                        AllowHtmlSig = true
+                        AllowHtmlSig = true,
+                        Rank = this.kendoRanks.FindLast(x => x.RankName != ""),
+                        Address =  new Address()
+                        {
+                            AddressLine1 = "3226 E 53rd St",
+                            City = "Minneapolis",
+                            State = "MN",
+                            ZipCode = "55417"
+                        },
                 },
-                    UserName = "tstron",
+                    UserName = "Admin",
                     Password = "P@ssword1".Sha256Hash(),
                     PasswordHash = "P@ssword1".Sha256Hash()
                 }
             };
 
+            this.userRoles.ForEach(ur => this.users[1].Roles.Add(ur));
             this.users.ForEach(u => context.Users.Add(u));
             context.Commit();
         }
@@ -184,75 +216,126 @@
                     {
                 new Federation()
                 {
-                    Name = "All Eastern United States Kendo Federation"
+                    Name = "All Eastern United States Kendo Federation",
+                    Email= "Add@email.com",
+                    CreateDate = DateTime.UtcNow,
+                    ModifyDate = DateTime.UtcNow,
+                    FederationId = Guid.NewGuid(),
+                    Phone = "555-121-2121",
+                    WebsiteUrl = "google.com"
                     },
                 new Federation()
                 {
-                    Name = "Central California Kendo Federation"
+                    Name = "Central California Kendo Federation",                  
+                    Email= "Add@email.com",
+                    CreateDate = DateTime.UtcNow,
+                    ModifyDate = DateTime.UtcNow,
+                    FederationId = Guid.NewGuid(),
+                    Phone = "555-121-2121",
+                    WebsiteUrl = "google.com"
                 },
                 new Federation()
                 {
                     Name = "Eastern United States Kendo Federation",
-                    WebsiteUrl = "http://www.euskf.com/"
+                    WebsiteUrl = "http://www.euskf.com/",
+                    Email= "Add@email.com",
+                    CreateDate = DateTime.UtcNow,
+                    ModifyDate = DateTime.UtcNow,
                     },
                 new Federation()
                 {
                     Name = "East Central U.S. Kendo Federation",
-                    WebsiteUrl = "http://www.ecuskf.com"
+                    WebsiteUrl = "http://www.ecuskf.com",
+                    Email= "Add@email.com",
+                    CreateDate = DateTime.UtcNow,
+                    ModifyDate = DateTime.UtcNow,
                     },
                 new Federation()
                 {
                     Name = "Greater Northeastern United States Kendo Federation",
-                    WebsiteUrl = "http://gneuskf.com/"
+                    WebsiteUrl = "http://gneuskf.com/",
+                    Email= "Add@email.com",
+                    CreateDate = DateTime.UtcNow,
+                    ModifyDate = DateTime.UtcNow,
                     },
                 new Federation()
                 {
                     Name = "Midwest Kendo Federation",
-                    WebsiteUrl = "http://www.midwestkendofederation.com/"
+                    WebsiteUrl = "http://www.midwestkendofederation.com/",
+                    Email= "Add@email.com",
+                    CreateDate = DateTime.UtcNow,
+                    ModifyDate = DateTime.UtcNow,
                     },
                 new Federation()
                 {
                     Name = "Northern California Kendo Federation",
-                    WebsiteUrl = "http://www.nckf.org/"
+                    WebsiteUrl = "http://www.nckf.org/",
+                    Email= "Add@email.com",
+                    CreateDate = DateTime.UtcNow,
+                    ModifyDate = DateTime.UtcNow,
                     },
                 new Federation()
                 {
                     Name = "Pacific Northwest Kendo Federation",
-                    WebsiteUrl = "http://www.pnkf.org/"
+                    WebsiteUrl = "http://www.pnkf.org/",
+                    Email= "Add@email.com",
+                    CreateDate = DateTime.UtcNow,
+                    ModifyDate = DateTime.UtcNow,
                     },
                 new Federation()
                 {
                     Name = "Rocky Mountain Kendo / Iaido Federation",
-                    WebsiteUrl = "http://www.hisamurai.com/rmkif.html"
+                    WebsiteUrl = "http://www.hisamurai.com/rmkif.html",
+                    Email= "Add@email.com",
+                    CreateDate = DateTime.UtcNow,
+                    ModifyDate = DateTime.UtcNow,
                     },
                 new Federation()
                 {
                     Name = "Southern California Kendo Federation",
-                    WebsiteUrl = "http://scko.org/"
+                    WebsiteUrl = "http://scko.org/",
+                    Email= "Add@email.com",
+                    CreateDate = DateTime.UtcNow,
+                    ModifyDate = DateTime.UtcNow,
                     },
                 new Federation()
                 {
                     Name = "Southern California Kendo Organization",
-                    WebsiteUrl = "http://www.midwestkendofederation.com/"
+                    WebsiteUrl = "http://www.midwestkendofederation.com/",
+                    Email= "Add@email.com",
+                    CreateDate = DateTime.UtcNow,
+                    ModifyDate = DateTime.UtcNow,
                     },
                 new Federation()
                 {
                     Name = "Southeastern United States Kendo Federation",
-                    WebsiteUrl = "http://www.seuskf.org/"
+                    WebsiteUrl = "http://www.seuskf.org/",
+                    Email= "Add@email.com",
+                    CreateDate = DateTime.UtcNow,
+                    ModifyDate = DateTime.UtcNow,
                     },
                  new Federation()
                 {
-                    Name = "Southern United States Kendo and Iaido Federation"
+                    Name = "Southern United States Kendo and Iaido Federation",
+                    Email= "Add@email.com",
+                    CreateDate = DateTime.UtcNow,
+                    ModifyDate = DateTime.UtcNow,
                     },
                 new Federation()
                 {
                     Name = "Southwest Kendo and Iaido Federation",
-                    WebsiteUrl = "http://www.dfwkik.org/swkif/index.html"
+                    WebsiteUrl = "http://www.dfwkik.org/swkif/index.html",
+                    Email= "Add@email.com",
+                    CreateDate = DateTime.UtcNow,
+                    ModifyDate = DateTime.UtcNow,
                     },
                 new Federation()
                 {
                     Name = "Western Kendo Federation",
-                    WebsiteUrl = "http://www.westernkendofederation.org/"
+                    WebsiteUrl = "http://www.westernkendofederation.org/",
+                    Email= "Add@email.com",
+                    CreateDate = DateTime.UtcNow,
+                    ModifyDate = DateTime.UtcNow,
                 }
             };
 
@@ -544,5 +627,6 @@
             this.dojos.ForEach(d => context.Dojos.Add(d));
             context.Commit();
         }
+
     }
 }

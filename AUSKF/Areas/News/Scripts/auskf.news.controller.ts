@@ -10,7 +10,7 @@ module auskf {
     export class NewsController {
         static $inject = ["$scope", "newsService"];
 
-        constructor(private $scope: INewsScope,
+        constructor(protected $scope: INewsScope,
             private newsService: INewsService) {
             this.getNews();
         }

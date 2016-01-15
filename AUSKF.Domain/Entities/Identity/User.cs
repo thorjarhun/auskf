@@ -29,37 +29,7 @@
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public override Guid Id { get; set; }
-
-        #region Related Entities
-
-        /// <summary>
-        /// Gets or sets the rank identifier.
-        /// </summary>
-        /// <value>
-        /// The rank identifier.
-        /// </value>
-        [ForeignKey("KendoRank")]
-        public Guid? KendoRankId { get; set; }
-
-        /// <summary>
-        /// Gets or sets the rank.
-        /// </summary>
-        /// <value>
-        /// The rank.
-        /// </value>
-        public virtual KendoRank KendoRank { get; set; }
-
-        /// <summary>
-        /// Foreign key to users current address
-        /// </summary>
-        [ForeignKey("Address")]
-        public Guid? AddressId { get; set; }
-
-        /// <summary>
-        /// Users current address
-        /// </summary>
-        public Address Address { get; set; }
-
+        
         /// <summary>
         /// Gets or sets the user profile identifier.
         /// </summary>
@@ -76,8 +46,6 @@
         /// The profile.
         /// </value>
         public UserProfile Profile { get; set; }
-
-        #endregion
 
         /// <summary>
         /// Gets or sets the name of the user.
@@ -102,7 +70,7 @@
         /// First Name
         /// </summary>
         [StringLength(20)]
-        [Required]
+        // [Required] is this really required?
         public string FirstName { get; set; }
 
         /// <summary>
@@ -115,7 +83,7 @@
         /// Last Name
         /// </summary>
         [StringLength(20)]
-        [Required]
+        // [Required] is this really required?
         public string LastName { get; set; }
 
         /// <summary>
@@ -134,7 +102,7 @@
         /// <summary>
         /// Unique ID number
         /// </summary>
-        [Required]
+        // [Required] is this really required?
         public int AuskfIdNumber { get; set; }
 
         /// <summary>
@@ -164,22 +132,6 @@
         /// </value>
         [HiddenInput(DisplayValue = false)]
         public int MaximumDaysBetweenPasswordChange { get; set; }
-
-        /// <summary>
-        /// Gets or sets the post count.
-        /// </summary>
-        /// <value>
-        /// The post count.
-        /// </value>
-        public int PostCount { get; set; }
-
-        /// <summary>
-        /// Gets or sets the topic count.
-        /// </summary>
-        /// <value>
-        /// The topic count.
-        /// </value>
-        public int TopicCount { get; set; }
 
         /// <summary>
         /// Gets or sets the email.

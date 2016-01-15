@@ -72,7 +72,7 @@
                 query = query.Where(filter);
             }
 
-            if (!String.IsNullOrEmpty(includeProperties))
+            if (!string.IsNullOrEmpty(includeProperties))
             {
                 foreach (var includeProperty in includeProperties.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
                 {
@@ -80,7 +80,7 @@
                 }
             }
 
-            return orderBy.Invoke(query).ToList() ?? query.ToList();
+            return orderBy != null ? orderBy.Invoke(query).ToList() : query.ToList();
         }
 
         /// <summary>

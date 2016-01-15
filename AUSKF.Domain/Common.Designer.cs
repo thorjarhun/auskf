@@ -514,7 +514,16 @@ namespace AUSKF.Domain {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Username &apos;{0}&apos; is taken..
+        ///   Looks up a localized string similar to Could not find news/event with the given id..
+        /// </summary>
+        public static string UnableToFindEvent {
+            get {
+                return ResourceManager.GetString("UnableToFindEvent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User name not available.
         /// </summary>
         public static string UsernameTaken {
             get {
