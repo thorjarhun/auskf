@@ -229,7 +229,6 @@
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Forms\Controllers\HomeController.cs" />
     <Compile Include="Areas\Forms\Controllers\NewsletterController.cs" />
-    <Compile Include="Areas\Forms\FormsAreaRegistration.cs" />
     <Compile Include="Areas\Iaido\Controllers\HomeController.cs" />
     <Compile Include="Areas\Iaido\IaidoAreaRegistration.cs" />
     <Compile Include="Areas\News\Controllers\HomeController.cs" />
@@ -604,6 +603,9 @@
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-route.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-sanitize.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\auskf\auskf.dojos.controller.ts" />
+    <TypeScriptCompile Include="Scripts\typings\auskf\auskf.dojos.service.ts" />
+    <TypeScriptCompile Include="Scripts\typings\auskf\auskf.dojos.ts" />
     <TypeScriptCompile Include="Scripts\typings\auskf\entities.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\ckeditor\ckeditor.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery.validation\jquery.validation.d.ts" />

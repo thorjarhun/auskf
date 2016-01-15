@@ -42,6 +42,13 @@ namespace AUSKF
                 "~/Areas/News/Scripts/auskf.news.service.js",
                 "~/Areas/News/Scripts/auskf.news.controller.js"
              ));
+
+            // AUSKF 
+            bundles.Add(new ScriptBundle("~/bundles/auskf").Include(
+                "~/Scripts/typings/auskf/auskf.dojos.js",
+                "~/Scripts/typings/auskf/auskf.dojos.service.js",
+                "~/Scripts/typings/auskf/auskf.dojos.controllers.js"
+                ));
         }
     }
 }

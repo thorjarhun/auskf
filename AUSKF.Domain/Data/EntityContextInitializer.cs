@@ -14,6 +14,7 @@
         private List<KendoRank> kendoRanks;
         private List<UserRole> userRoles;
         private List<Dojo> dojos;
+        private List<Federation> federations;
         private User adminUser;
         
         protected override void Seed(DataContext context)
