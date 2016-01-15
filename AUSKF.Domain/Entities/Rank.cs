@@ -4,6 +4,13 @@
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
+    public enum RankType
+    {
+        Kendo = 1,
+        Iaido = 2,
+        Other = 3
+    }
+
     public class Rank
     {
         /// <summary>
@@ -13,8 +20,7 @@
         /// The kendo rank identifier.
         /// </value>
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid RankId  { get; set; }
+        public int RankId  { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the kendo rank.
@@ -45,5 +51,7 @@
 
         [Required]
         public int ConsentingExaminersRequired { get; set; }
+
+        public RankType RankType { get; set; }
     }
 }
