@@ -105,6 +105,16 @@
         /// </value>
         [MaxLength(512)]
         public string HomePage { get; set; }
+        
+        [ForeignKey("Dojo")]
+        public int DojoId { get; set; }
+
+        public Dojo Dojo { get; set; }
+
+        [ForeignKey("Federation")]
+        public int FederationId { get; set; }
+
+        public Federation Federation { get; set; }
 
         /// <summary>
         /// Foreign key to users current address
@@ -136,6 +146,8 @@
 
         [DataType(DataType.Date)]
         public DateTime? RankDate { get; set; }
+
+        public int? FirstYearRegistration { get; set; }
 
         [MaxLength(50)]
         [DataType(DataType.PhoneNumber)]

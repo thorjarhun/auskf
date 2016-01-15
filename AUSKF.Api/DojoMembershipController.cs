@@ -14,9 +14,9 @@
     {
         private static readonly ILogger logger = LogManager.GetCurrentClassLogger(); 
         private readonly ICacheService cacheService; 
-        private readonly IEntityRepository<DojoMembership, Guid> dojoMembershipRepository;
+        private readonly IEntityRepository<Dojo, int> dojoMembershipRepository;
          
-        public DojoMembershipController(IEntityRepository<DojoMembership, Guid> dojoMembershipRepository, ICacheService cacheService)
+        public DojoMembershipController(IEntityRepository<Dojo, int> dojoMembershipRepository, ICacheService cacheService)
         {
             this.dojoMembershipRepository = dojoMembershipRepository;
             this.cacheService = cacheService;  

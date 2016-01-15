@@ -277,7 +277,7 @@
                     Email= "Add@email.com",
                     CreateDate = DateTime.UtcNow,
                     ModifyDate = DateTime.UtcNow,
-                    FederationId = Guid.NewGuid(),
+                    //FederationId = Guid.NewGuid(),
                     Phone = "555-121-2121",
                     WebsiteUrl = "google.com"
                     },
@@ -287,7 +287,7 @@
                     Email= "Add@email.com",
                     CreateDate = DateTime.UtcNow,
                     ModifyDate = DateTime.UtcNow,
-                    FederationId = Guid.NewGuid(),
+                    //FederationId = Guid.NewGuid(),
                     Phone = "555-121-2121",
                     WebsiteUrl = "google.com"
                 },

@@ -8,25 +8,24 @@
     using System.Web.Http;
     using System.Web.Http.Cors;
     using System.Web.Http.Description;
-    using NLog;
-    using Domain.Services.Interfaces;
-    using Domain.Entities;
-    using Domain.Collections;
     using Domain;
+    using Domain.Collections;
+    using Domain.Entities;
     using Domain.Providers.Interfaces;
     using Domain.Repositories.Interfaces;
-    using Domain.Providers.Identity;
+    using Domain.Services.Interfaces;
+    using NLog;
 
     [RoutePrefix("api/v1/federationmembership")]
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
+    [EnableCors("*", "*", "*")]
     public class FederationMembershipController : ApiController
     {
-        private static readonly ILogger logger = LogManager.GetCurrentClassLogger();
         private readonly ICacheService cacheService;
+        private readonly IEntityRepository<Dojo, int> dojoMembershipRepository;
+        private readonly IEntityRepository<FederationMembership, Guid> federationMembershipRepository;
         private IApplicationSignInManager signInManager;
         private IApplicationUserManager userManager;
-        private readonly IEntityRepository<FederationMembership, Guid> federationMembershipRepository;
-        private readonly IEntityRepository<DojoMembership, Guid> dojoMembershipRepository;
+        private static readonly ILogger logger = LogManager.GetCurrentClassLogger();
 
         //public IApplicationUserManager UserManager
         //{
@@ -35,11 +34,11 @@
         //}
 
 
-        public FederationMembershipController(IEntityRepository<FederationMembership, Guid> federationMembershipRepository, 
-                                              IEntityRepository<DojoMembership, Guid> dojoMembershipRepository, 
-                                              ICacheService cacheService, 
-                                              IApplicationUserManager userManager, 
-                                              IApplicationSignInManager signInManager)
+        public FederationMembershipController(IEntityRepository<FederationMembership, Guid> federationMembershipRepository,
+            IEntityRepository<Dojo, int> dojoMembershipRepository,
+            ICacheService cacheService,
+            IApplicationUserManager userManager,
+            IApplicationSignInManager signInManager)
         {
             this.federationMembershipRepository = federationMembershipRepository;
             this.dojoMembershipRepository = dojoMembershipRepository;
@@ -47,7 +46,7 @@
             //this.UserManager = (ApplicationUserManager)userManager;
             this.signInManager = signInManager;
         }
-       
+
         [HttpGet]
         [Route("{userId}", Name = "GetUserCurrentMembershipV1")]
         [ResponseType(typeof(FederationMembership))]
@@ -80,7 +79,7 @@
             return this.NotFound();
         }
 
-        
+
         [HttpGet]
         [Route("getmembershipyears/{federationId}", Name = "GetMembershipYearsV1")]
         [ResponseType(typeof(FederationMembership))]
@@ -121,53 +120,57 @@
         [HttpGet]
         [Route("paged/{pagenumber}", Name = "FederationMembershipsV1")]
         [ResponseType(typeof(SerializablePagination<FederationMembership>))]
-        public async Task<IHttpActionResult> GetFederationMemberships(int? pagenumber, [FromUri]Guid? federationId = null, [FromUri]Guid? dojoId = null, [FromUri]int? membershipYear = null)
+        public async Task<IHttpActionResult> GetFederationMemberships(int? pagenumber, [FromUri] Guid? federationId = null,
+            [FromUri] int? dojoId = null, [FromUri] int? membershipYear = null)
         {
+            // TODO this has a code smell of trying to do too much, this needs to be broken into at least three different endpoints.
             try
             {
                 var federationMemberships = this.cacheService.TryGet<Expression<Func<FederationMembership, bool>>,
-                                                     Func<IQueryable<FederationMembership>, IOrderedQueryable<FederationMembership>>,
-                                                     string,
-                                                     IEnumerable<FederationMembership>
-                                                    >("FederationMemberships", (x => x != null), null, "User,Federation", this.federationMembershipRepository.Get, null);
-                 
-                if (federationMemberships != null)
+                    Func<IQueryable<FederationMembership>, IOrderedQueryable<FederationMembership>>, string,
+                    IEnumerable<FederationMembership>>("FederationMemberships", x => x != null, null, "User,Federation", this.federationMembershipRepository.Get, null);
+
+                // invert the if to reduce nesting
+                if (federationMemberships == null)
                 {
-                    if (federationId != null)
-                    {
-                        federationMemberships = federationMemberships.Where<FederationMembership>(f => f.FederationId == federationId);
-                    }
-                      
-                    if (dojoId != null)
-                    {
-                        var dojoMemberships = this.cacheService.TryGet<Expression<Func<DojoMembership, bool>>,
-                                                     Func<IQueryable<DojoMembership>, IOrderedQueryable<DojoMembership>>,
-                                                     string,
-                                                     IEnumerable<DojoMembership>
-                                                    >("DojoMemberships", (x => x != null), null, "", this.dojoMembershipRepository.Get, null);
-
-                        federationMemberships = federationMemberships.Where<FederationMembership>(f => dojoMemberships.Any(d => d.UserId == f.UserId && d.DojoId == dojoId));
-                    }
-
-                    if (membershipYear != null)
-                    {
-                        federationMemberships = federationMemberships.Where<FederationMembership>(f => f.MembershipYear == membershipYear);
-                    }
-
-                    var federationMembershipArray = federationMemberships as FederationMembership[] ?? federationMemberships.ToArray();
-
-                    if (!federationMembershipArray.Any())
-                    {
-                        // no memberships? Ok just return
-                        return await Task.FromResult(this.Ok());
-                    }
-
-                    pagenumber = pagenumber.HasValue ? pagenumber : 0;
-
-                    return await Task.FromResult((IHttpActionResult)
-                        this.Ok(new SerializablePagination<FederationMembership>(federationMembershipArray.ToList(), (int)pagenumber)));
+                    return await Task.FromResult((IHttpActionResult)this.NotFound());
                 }
-                return await Task.FromResult((IHttpActionResult)this.NotFound());
+
+                if (federationId != null)
+                {
+                    federationMemberships = federationMemberships.Where(f => f.FederationId == federationId);
+                }
+
+                else if (dojoId != null)
+                {
+                    var dojoMemberships = this.cacheService.TryGet<Expression<Func<Dojo, bool>>,
+                        Func<IQueryable<Dojo>, IOrderedQueryable<Dojo>>,
+                        string,
+                        IEnumerable<Dojo>>("DojoMemberships", x => x != null, null, "", this.dojoMembershipRepository.Get, null);
+
+                    federationMemberships =
+                        federationMemberships.Where(f => dojoMemberships.Any(d => d.DojoId == dojoId));
+                }
+
+                else if (membershipYear != null)
+                {
+                    federationMemberships = federationMemberships.Where(f => f.MembershipYear == membershipYear);
+                }
+
+                var federationMembershipArray = federationMemberships as FederationMembership[] ?? federationMemberships.ToArray();
+
+                if (!federationMembershipArray.Any())
+                {
+                    // no memberships? Ok just return
+                    return await Task.FromResult(this.Ok());
+                }
+
+                pagenumber = pagenumber.HasValue ? pagenumber : 0;
+
+                return await Task.FromResult((IHttpActionResult)
+                    this.Ok(new SerializablePagination<FederationMembership>(federationMembershipArray.ToList(), (int)pagenumber)));
+
+
             }
             catch (Exception e)
             {

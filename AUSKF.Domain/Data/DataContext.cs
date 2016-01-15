@@ -26,10 +26,12 @@
 
         public DbSet<Address> Addresses  {get;set;}
 
-        public DbSet<DojoMembership> DojoMemberships {get;set;}
+        // we don't need this object
+        // public DbSet<DojoMembership> DojoMemberships {get;set;}
 
         public DbSet<Federation> Federations  {get;set;}
 
+        // we really don't need this entity either
         public DbSet<FederationMembership> FederationMemberships  {get;set;}
 
         public DbSet<FederationOfficer> FederationOfficers  {get;set;}

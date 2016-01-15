@@ -96,8 +96,8 @@
         /// Date of Birth
         /// </summary>
         [DataType(DataType.DateTime)]
-        [Required]
-        public DateTime DateOfBirth { get; set; }
+        // [Required] we can't require this
+        public DateTime? DateOfBirth { get; set; }
 
         /// <summary>
         /// Unique ID number
@@ -207,7 +207,13 @@
         /// </value>
         [StringLength(512)]
         public string Notes { get; set; }
-         
+
+        [NotMapped]
+        public override string PhoneNumber { get; set; }
+
+        [NotMapped]
+        public override bool PhoneNumberConfirmed { get; set; }
+
         /// <summary>
         /// Generates the user identity asynchronous.
         /// </summary>
