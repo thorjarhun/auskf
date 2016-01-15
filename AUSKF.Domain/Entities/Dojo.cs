@@ -11,21 +11,19 @@
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int DojoId { get; set; }
-         
-        // making this nullable as we don't really know what 
-        // federation half the dojos belong too
+
         [ForeignKey("Federation")]
-        public Guid? FederationId { get; set; }
+        public Guid FederationId { get; set; }
 
         public Federation Federation { get; set; }
 
         [ForeignKey("Address")]
-        public Guid? AddressId { get; set; }
+        public Guid AddressId { get; set; }
 
         public Address Address { get; set; }
 
         [ForeignKey("PrimaryContact")]
-        public Guid? PrimaryContactId { get; set; }
+        public Guid PrimaryContactId { get; set; }
 
         public User PrimaryContact { get; set; }
 

@@ -14,7 +14,7 @@
         /// </summary>
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int FederationId { get; set; }
+        public Guid FederationId { get; set; }
 
         [Required]
         public string Name { get; set; }
