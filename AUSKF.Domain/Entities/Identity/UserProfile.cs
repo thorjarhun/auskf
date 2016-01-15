@@ -131,7 +131,10 @@
         /// <value>
         /// The rank.
         /// </value>
-        public virtual KendoRank KendoRank { get; set; }
+        public virtual Rank Rank { get; set; }
+
+        [DataType(DataType.Date)]
+        public DateTime? RankDate { get; set; }
 
     }
 }

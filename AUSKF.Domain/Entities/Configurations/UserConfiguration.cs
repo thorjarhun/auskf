@@ -19,7 +19,13 @@
                    IsUnique = true
                }));
             this.Property(u => u.Email).HasMaxLength(256);
-            this.ToTable("Users");
+
+            //this.Property(a => a.AuskfIdNumber)
+            //    .IsRequired()
+            //    .HasColumnAnnotation(
+            //    IndexAnnotation.AnnotationName,
+            //    new IndexAnnotation(new IndexAttribute("IX_FirstNameLastName", 1) { IsUnique = true }));
+            //this.ToTable("Users");
 
         }
     }

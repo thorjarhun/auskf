@@ -168,7 +168,7 @@
     <Compile Include="Entities\Identity\UserLogin.cs" />
     <Compile Include="Entities\Identity\UserProfile.cs" />
     <Compile Include="Entities\Identity\UserRole.cs" />
-    <Compile Include="Entities\KendoRank.cs" />
+    <Compile Include="Entities\Rank.cs" />
     <Compile Include="Entities\Log.cs" />
     <Compile Include="Entities\OfficerRole.cs" />
     <Compile Include="Exceptions\ParameterNullException.cs" />
