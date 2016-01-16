@@ -1,0 +1,172 @@
+﻿@model AUSKF.Domain.Collections.SerializablePagination<AUSKF.Domain.Entities.Identity.User>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Users</h2>
+@{
+    if (Model.HasPreviousPage)
+    {
+        var previous = Model.PageNumber - 1;
+        <a href="~/Admin/User/Index?page=@previous">prev</a>
+    }
+    foreach (var page in Model.PageArray)
+    {
+        if (page == Model.PageNumber.ToString())
+        {
+            @page
+        }
+        else
+        {
+            <a href="~/Admin/User/Index?page=@page">@page</a>
+        }
+    }
+    if (Model.HasNextPage)
+    {
+        var next = Model.PageNumber + 1;        
+        <a href="~/Admin/User/Index?page=@next">next</a>
+    }
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CurrentPage[0].Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CurrentPage[0].PhoneNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CurrentPage[0].PhoneNumberConfirmed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CurrentPage[0].UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CurrentPage[0].UserProfileId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CurrentPage[0].DisplayName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CurrentPage[0].FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CurrentPage[0].MiddleName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CurrentPage[0].LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CurrentPage[0].Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CurrentPage[0].DateOfBirth)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CurrentPage[0].AuskfIdNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CurrentPage[0].Password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CurrentPage[0].PasswordLastChangedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CurrentPage[0].MaximumDaysBetweenPasswordChange)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CurrentPage[0].Location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CurrentPage[0].LastSearch)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CurrentPage[0].JoinedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CurrentPage[0].LastLogin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CurrentPage[0].Active)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CurrentPage[0].Notes)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.CurrentPage) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneNumberConfirmed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserProfileId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DisplayName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MiddleName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateOfBirth)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AuskfIdNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Password)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PasswordLastChangedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaximumDaysBetweenPasswordChange)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastSearch)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JoinedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastLogin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Active)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Notes)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
