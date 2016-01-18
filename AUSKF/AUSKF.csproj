@@ -602,6 +602,9 @@
     <TypeScriptCompile Include="Scripts\typings\auskf\auskf.dojos.controller.ts" />
     <TypeScriptCompile Include="Scripts\typings\auskf\auskf.dojos.service.ts" />
     <TypeScriptCompile Include="Scripts\typings\auskf\auskf.dojos.ts" />
+    <TypeScriptCompile Include="Scripts\typings\auskf\auskf.federation-registrations.controller.ts" />
+    <TypeScriptCompile Include="Scripts\typings\auskf\auskf.federation-registrations.service.ts" />
+    <TypeScriptCompile Include="Scripts\typings\auskf\auskf.federation-registrations.ts" />
     <TypeScriptCompile Include="Scripts\typings\auskf\auskf.federations.controller.ts" />
     <TypeScriptCompile Include="Scripts\typings\auskf\auskf.federations.ts" />
     <TypeScriptCompile Include="Scripts\typings\auskf\auskt.federations.service.ts" />

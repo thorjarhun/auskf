@@ -39,7 +39,7 @@
                     Func<IQueryable<Federation>, IOrderedQueryable<Federation>>, string,
                     IEnumerable<Federation>>("Federations", (x => x != null), null,
                     null, this.federationRepository.Get, null);
-
+                  
                 var federationsArray = federations as Federation[] ?? federations.ToArray();
 
                 if (!federationsArray.Any())

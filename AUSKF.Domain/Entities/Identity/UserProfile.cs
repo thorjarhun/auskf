@@ -29,6 +29,36 @@
         public DateTime? BirthDay { get; set; }
 
         /// <summary>
+        /// First Name
+        /// </summary>
+        [StringLength(20)] 
+        public string FirstName { get; set; }
+
+        /// <summary>
+        /// Middle Name
+        /// </summary>
+        [StringLength(20)]
+        public string MiddleName { get; set; }
+
+        /// <summary>
+        /// Last Name
+        /// </summary>
+        [StringLength(20)] 
+        public string LastName { get; set; }
+
+        /// <summary>
+        /// M for male. F for femail.
+        /// </summary>
+        [StringLength(1)]
+        public string Gender { get; set; }
+          
+        /// <summary>
+        /// Unique ID number
+        /// </summary>
+        // [Required] is this really required?
+        public int AuskfIdNumber { get; set; }
+
+        /// <summary>
         /// Gets or sets the location.
         /// </summary>
         /// <value>

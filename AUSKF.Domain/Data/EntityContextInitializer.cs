@@ -199,13 +199,7 @@
                 {
 
                 Active = true,
-                    DisplayName = "Travis Stronach",
-                    FirstName = "Travis",
-                    MiddleName = "Lee",
-                    LastName = "Stronach",
-                    Gender = "M",
-                    DateOfBirth = new DateTime(1982, 2, 6),
-                    AuskfIdNumber = 6035,
+                    DisplayName = "Travis Stronach", 
                     Email = "travis.stronach@gmail.com",
                 EmailConfirmed = true,
                 JoinedDate = DateTime.UtcNow,
@@ -216,6 +210,12 @@
                 Profile = new UserProfile
                 {
                         AllowHtmlSig = true,
+                         FirstName = "Travis",
+                    MiddleName = "Lee",
+                    LastName = "Stronach",
+                    Gender = "M",
+                    BirthDay = new DateTime(1982, 2, 6),
+                    AuskfIdNumber = 6035,
                         Rank = this.kendoRanks.FindLast(x => x.RankName == "Godan"),
                         Address = new Address()
         {
@@ -232,11 +232,7 @@
                 new User
                 {
                     Active = true,
-                    DisplayName = "Webmaster",
-                    FirstName = "Web",
-                    LastName = "Master",
-                    Gender= "M",
-                    DateOfBirth = new DateTime(1982, 2, 6),
+                    DisplayName = "Webmaster", 
                     Email = "Admin@auskf.org",
                     EmailConfirmed = true,
                     JoinedDate = DateTime.UtcNow,
@@ -246,6 +242,10 @@
                     PasswordLastChangedDate = DateTime.UtcNow,
                     Profile = new UserProfile
                     {
+                        FirstName = "Web",
+                    LastName = "Master",
+                    Gender= "M",
+                    BirthDay = new DateTime(1982, 2, 6),
                         AllowHtmlSig = true,
                         Rank = this.kendoRanks.FindLast(x => x.RankName != ""),
                         Address =  new Address()
@@ -403,25 +403,34 @@
 
         private void AddDojos(DataContext context)
                     {
-            this.dojos = new List<Dojo>
-                    {
-                new Dojo
-                {
-                    DojoName = "Minnehaha Kendo Club",
-                    Federation = this.federations.Find(f => f.Name == "Midwest Kendo Federation"),
-                    Address = new Address
-                    {
-                        AddressLine1 = "Minnesota Sword Club",
-                        AddressLine2 = "4744 Chicago Ave.",
-                        City = "Minneapolis",
-                        State = "MN",
-                        ZipCode = "55417"
-                    },
-                    PrimaryContact = this.users.Find(u => u.LastName == "Stronach"),
-                    Phone = "612-823-6715",
-                    EmailAddress = "Rcochran_Minnehaha_at_msn_dot_com",
-                    WebsiteUrl= "http://minnehahakendo.org/" 
-                }
+            //this.dojos = new List<Dojo>
+            //        {
+            //    new Dojo
+            //    {
+            //        DojoName = "Minnehaha Kendo Club",
+            //        Federation = this.federations.Find(f => f.Name == "Midwest Kendo Federation"),
+            //        Address = new Address
+            //        {
+            //            AddressLine1 = "Minnesota Sword Club",
+            //            AddressLine2 = "4744 Chicago Ave.",
+            //            City = "Minneapolis",
+            //            State = "MN",
+            //            ZipCode = "55417"
+            //        },
+            //        PrimaryContact = this.users.Find(u => u.LastName == "Stronach"),
+            //        Phone = "612-823-6715",
+            //        EmailAddress = "Rcochran_Minnehaha_at_msn_dot_com",
+            //        WebsiteUrl= "http://minnehahakendo.org/" 
+            //    }
+
+
+
+
+
+
+
+
+
                 //,
                 //new Dojo
                 //{
@@ -679,10 +688,10 @@
                 //    EmailAddress = "vosssenshu_at_aol_dot_com",
                 //    WebsiteUrl = ""
                 //}
-            };
+            //};
 
-            this.dojos.ForEach(d => context.Dojos.Add(d));
-            context.Commit();
+            //this.dojos.ForEach(d => context.Dojos.Add(d));
+            //context.Commit();
         }
 
     }

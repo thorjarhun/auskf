@@ -16,9 +16,7 @@ module auskf {
 
         constructor(private $scope: IDojoScope,
             private dojosService: IDojosService) {
-            this.getDojos($scope.page);
-            this.getDojosByState($scope.page, $scope.stateSelect);
-            this.getDojosByFederation($scope.page, $scope.federationSelect);
+            this.getDojos($scope.page); 
             this.getDojoStates();
         }
 
