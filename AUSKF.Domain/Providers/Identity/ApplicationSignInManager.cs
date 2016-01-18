@@ -14,9 +14,9 @@
 
     /// <summary>
     /// </summary>
-    public sealed class ApplicationSignInManager : SignInManager<User, Guid>, IApplicationSignInManager
+    public sealed class ApplicationSignInManager : SignInManager<User, int>, IApplicationSignInManager
     {
-        private readonly IEntityRepository<User, Guid> userRepository;
+        private readonly IEntityRepository<User, int> userRepository;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ApplicationSignInManager" /> class.
@@ -25,7 +25,7 @@
         /// <param name="authenticationManager">The authentication manager.</param>
         /// <param name="userRepository">The user repository.</param>
         public ApplicationSignInManager(IApplicationUserManager userManager,
-            IAuthenticationManager authenticationManager, IEntityRepository<User, Guid> userRepository)
+            IAuthenticationManager authenticationManager, IEntityRepository<User, int> userRepository)
             : base((ApplicationUserManager)userManager, authenticationManager)
         {
             this.userRepository = userRepository;
@@ -183,7 +183,7 @@
 
             var auth = context.Authentication;
 
-            return new ApplicationSignInManager(applicationUserManager, auth, Ioc.Instance.Resolve<IEntityRepository<User, Guid>>());
+            return new ApplicationSignInManager(applicationUserManager, auth, Ioc.Instance.Resolve<IEntityRepository<User, int>>());
         }
     }
 }

@@ -51,7 +51,7 @@
         /// </summary>
         /// <param name="userId">The user identifier.</param>
         /// <returns></returns>
-        Task<User> FindByIdAsync(Guid userId);
+        Task<User> FindByIdAsync(int userId);
 
         /// <summary>
         /// Finds the by name asynchronous.
@@ -89,7 +89,7 @@
         /// </summary>
         /// <param name="userId">The user identifier.</param>
         /// <returns></returns>
-        Task<bool> HasPasswordAsync(Guid userId);
+        Task<bool> HasPasswordAsync(int userId);
 
         /// <summary>
         /// Adds the password asynchronous.
@@ -97,7 +97,7 @@
         /// <param name="userId">The user identifier.</param>
         /// <param name="password">The password.</param>
         /// <returns></returns>
-        Task<IdentityResult> AddPasswordAsync(Guid userId, string password);
+        Task<IdentityResult> AddPasswordAsync(int userId, string password);
 
         /// <summary>
         /// Changes the password asynchronous.
@@ -106,35 +106,35 @@
         /// <param name="currentPassword">The current password.</param>
         /// <param name="newPassword">The new password.</param>
         /// <returns></returns>
-        Task<IdentityResult> ChangePasswordAsync(Guid userId, string currentPassword, string newPassword);
+        Task<IdentityResult> ChangePasswordAsync(int userId, string currentPassword, string newPassword);
 
         /// <summary>
         /// Removes the password asynchronous.
         /// </summary>
         /// <param name="userId">The user identifier.</param>
         /// <returns></returns>
-        Task<IdentityResult> RemovePasswordAsync(Guid userId);
+        Task<IdentityResult> RemovePasswordAsync(int userId);
 
         /// <summary>
         /// Gets the security stamp asynchronous.
         /// </summary>
         /// <param name="userId">The user identifier.</param>
         /// <returns></returns>
-        Task<string> GetSecurityStampAsync(Guid userId);
+        Task<string> GetSecurityStampAsync(int userId);
 
         /// <summary>
         /// Updates the security stamp asynchronous.
         /// </summary>
         /// <param name="userId">The user identifier.</param>
         /// <returns></returns>
-        Task<IdentityResult> UpdateSecurityStampAsync(Guid userId);
+        Task<IdentityResult> UpdateSecurityStampAsync(int userId);
 
         /// <summary>
         /// Generates the password reset token asynchronous.
         /// </summary>
         /// <param name="userId">The user identifier.</param>
         /// <returns></returns>
-        Task<string> GeneratePasswordResetTokenAsync(Guid userId);
+        Task<string> GeneratePasswordResetTokenAsync(int userId);
 
         /// <summary>
         /// Resets the password asynchronous.
@@ -143,7 +143,7 @@
         /// <param name="token">The token.</param>
         /// <param name="newPassword">The new password.</param>
         /// <returns></returns>
-        Task<IdentityResult> ResetPasswordAsync(Guid userId, string token, string newPassword);
+        Task<IdentityResult> ResetPasswordAsync(int userId, string token, string newPassword);
 
         /// <summary>
         /// Finds the asynchronous.
@@ -158,7 +158,7 @@
         /// <param name="userId">The user identifier.</param>
         /// <param name="login">The login.</param>
         /// <returns></returns>
-        Task<IdentityResult> RemoveLoginAsync(Guid userId, UserLoginInfo login);
+        Task<IdentityResult> RemoveLoginAsync(int userId, UserLoginInfo login);
 
         /// <summary>
         /// Adds the login asynchronous.
@@ -166,14 +166,14 @@
         /// <param name="userId">The user identifier.</param>
         /// <param name="login">The login.</param>
         /// <returns></returns>
-        Task<IdentityResult> AddLoginAsync(Guid userId, UserLoginInfo login);
+        Task<IdentityResult> AddLoginAsync(int userId, UserLoginInfo login);
 
         /// <summary>
         /// Gets the logins asynchronous.
         /// </summary>
         /// <param name="userId">The user identifier.</param>
         /// <returns></returns>
-        Task<IList<UserLoginInfo>> GetLoginsAsync(Guid userId);
+        Task<IList<UserLoginInfo>> GetLoginsAsync(int userId);
 
         /// <summary>
         /// Adds the claim asynchronous.
@@ -181,7 +181,7 @@
         /// <param name="userId">The user identifier.</param>
         /// <param name="claim">The claim.</param>
         /// <returns></returns>
-        Task<IdentityResult> AddClaimAsync(Guid userId, Claim claim);
+        Task<IdentityResult> AddClaimAsync(int userId, Claim claim);
 
         /// <summary>
         /// Removes the claim asynchronous.
@@ -189,14 +189,14 @@
         /// <param name="userId">The user identifier.</param>
         /// <param name="claim">The claim.</param>
         /// <returns></returns>
-        Task<IdentityResult> RemoveClaimAsync(Guid userId, Claim claim);
+        Task<IdentityResult> RemoveClaimAsync(int userId, Claim claim);
 
         /// <summary>
         /// Gets the claims asynchronous.
         /// </summary>
         /// <param name="userId">The user identifier.</param>
         /// <returns></returns>
-        Task<IList<Claim>> GetClaimsAsync(Guid userId);
+        Task<IList<Claim>> GetClaimsAsync(int userId);
 
         /// <summary>
         /// Adds to role asynchronous.
@@ -204,7 +204,7 @@
         /// <param name="userId">The user identifier.</param>
         /// <param name="role">The role.</param>
         /// <returns></returns>
-        Task<IdentityResult> AddToRoleAsync(Guid userId, string role);
+        Task<IdentityResult> AddToRoleAsync(int userId, string role);
 
         /// <summary>
         /// Adds to roles asynchronous.
@@ -212,7 +212,7 @@
         /// <param name="userId">The user identifier.</param>
         /// <param name="roles">The roles.</param>
         /// <returns></returns>
-        Task<IdentityResult> AddToRolesAsync(Guid userId, params string[] roles);
+        Task<IdentityResult> AddToRolesAsync(int userId, params string[] roles);
 
         /// <summary>
         /// Removes from roles asynchronous.
@@ -220,7 +220,7 @@
         /// <param name="userId">The user identifier.</param>
         /// <param name="roles">The roles.</param>
         /// <returns></returns>
-        Task<IdentityResult> RemoveFromRolesAsync(Guid userId, params string[] roles);
+        Task<IdentityResult> RemoveFromRolesAsync(int userId, params string[] roles);
 
         /// <summary>
         /// Removes from role asynchronous.
@@ -228,14 +228,14 @@
         /// <param name="userId">The user identifier.</param>
         /// <param name="role">The role.</param>
         /// <returns></returns>
-        Task<IdentityResult> RemoveFromRoleAsync(Guid userId, string role);
+        Task<IdentityResult> RemoveFromRoleAsync(int userId, string role);
 
         /// <summary>
         /// Gets the roles asynchronous.
         /// </summary>
         /// <param name="userId">The user identifier.</param>
         /// <returns></returns>
-        Task<IList<string>> GetRolesAsync(Guid userId);
+        Task<IList<string>> GetRolesAsync(int userId);
 
         /// <summary>
         /// Determines whether [is in role asynchronous] [the specified user identifier].
@@ -243,14 +243,14 @@
         /// <param name="userId">The user identifier.</param>
         /// <param name="role">The role.</param>
         /// <returns></returns>
-        Task<bool> IsInRoleAsync(Guid userId, string role);
+        Task<bool> IsInRoleAsync(int userId, string role);
 
         /// <summary>
         /// Gets the email asynchronous.
         /// </summary>
         /// <param name="userId">The user identifier.</param>
         /// <returns></returns>
-        Task<string> GetEmailAsync(Guid userId);
+        Task<string> GetEmailAsync(int userId);
 
         /// <summary>
         /// Sets the email asynchronous.
@@ -258,7 +258,7 @@
         /// <param name="userId">The user identifier.</param>
         /// <param name="email">The email.</param>
         /// <returns></returns>
-        Task<IdentityResult> SetEmailAsync(Guid userId, string email);
+        Task<IdentityResult> SetEmailAsync(int userId, string email);
 
         /// <summary>
         /// Finds the by email asynchronous.
@@ -272,7 +272,7 @@
         /// </summary>
         /// <param name="userId">The user identifier.</param>
         /// <returns></returns>
-        Task<string> GenerateEmailConfirmationTokenAsync(Guid userId);
+        Task<string> GenerateEmailConfirmationTokenAsync(int userId);
 
         /// <summary>
         /// Confirms the email asynchronous.
@@ -280,21 +280,21 @@
         /// <param name="userId">The user identifier.</param>
         /// <param name="token">The token.</param>
         /// <returns></returns>
-        Task<IdentityResult> ConfirmEmailAsync(Guid userId, string token);
+        Task<IdentityResult> ConfirmEmailAsync(int userId, string token);
 
         /// <summary>
         /// Determines whether [is email confirmed asynchronous] [the specified user identifier].
         /// </summary>
         /// <param name="userId">The user identifier.</param>
         /// <returns></returns>
-        Task<bool> IsEmailConfirmedAsync(Guid userId);
+        Task<bool> IsEmailConfirmedAsync(int userId);
 
         /// <summary>
         /// Gets the phone number asynchronous.
         /// </summary>
         /// <param name="userId">The user identifier.</param>
         /// <returns></returns>
-        Task<string> GetPhoneNumberAsync(Guid userId);
+        Task<string> GetPhoneNumberAsync(int userId);
 
         /// <summary>
         /// Sets the phone number asynchronous.
@@ -302,7 +302,7 @@
         /// <param name="userId">The user identifier.</param>
         /// <param name="phoneNumber">The phone number.</param>
         /// <returns></returns>
-        Task<IdentityResult> SetPhoneNumberAsync(Guid userId, string phoneNumber);
+        Task<IdentityResult> SetPhoneNumberAsync(int userId, string phoneNumber);
 
         /// <summary>
         /// Changes the phone number asynchronous.
@@ -311,14 +311,14 @@
         /// <param name="phoneNumber">The phone number.</param>
         /// <param name="token">The token.</param>
         /// <returns></returns>
-        Task<IdentityResult> ChangePhoneNumberAsync(Guid userId, string phoneNumber, string token);
+        Task<IdentityResult> ChangePhoneNumberAsync(int userId, string phoneNumber, string token);
 
         /// <summary>
         /// Determines whether [is phone number confirmed asynchronous] [the specified user identifier].
         /// </summary>
         /// <param name="userId">The user identifier.</param>
         /// <returns></returns>
-        Task<bool> IsPhoneNumberConfirmedAsync(Guid userId);
+        Task<bool> IsPhoneNumberConfirmedAsync(int userId);
 
         /// <summary>
         /// Generates the change phone number token asynchronous.
@@ -326,7 +326,7 @@
         /// <param name="userId">The user identifier.</param>
         /// <param name="phoneNumber">The phone number.</param>
         /// <returns></returns>
-        Task<string> GenerateChangePhoneNumberTokenAsync(Guid userId, string phoneNumber);
+        Task<string> GenerateChangePhoneNumberTokenAsync(int userId, string phoneNumber);
 
         /// <summary>
         /// Verifies the change phone number token asynchronous.
@@ -335,7 +335,7 @@
         /// <param name="token">The token.</param>
         /// <param name="phoneNumber">The phone number.</param>
         /// <returns></returns>
-        Task<bool> VerifyChangePhoneNumberTokenAsync(Guid userId, string token, string phoneNumber);
+        Task<bool> VerifyChangePhoneNumberTokenAsync(int userId, string token, string phoneNumber);
 
         /// <summary>
         /// Verifies the user token asynchronous.
@@ -344,7 +344,7 @@
         /// <param name="purpose">The purpose.</param>
         /// <param name="token">The token.</param>
         /// <returns></returns>
-        Task<bool> VerifyUserTokenAsync(Guid userId, string purpose, string token);
+        Task<bool> VerifyUserTokenAsync(int userId, string purpose, string token);
 
         /// <summary>
         /// Generates the user token asynchronous.
@@ -352,21 +352,21 @@
         /// <param name="purpose">The purpose.</param>
         /// <param name="userId">The user identifier.</param>
         /// <returns></returns>
-        Task<string> GenerateUserTokenAsync(string purpose, Guid userId);
+        Task<string> GenerateUserTokenAsync(string purpose, int userId);
 
         /// <summary>
         /// Registers the two factor provider.
         /// </summary>
         /// <param name="twoFactorProvider">The two factor provider.</param>
         /// <param name="provider">The provider.</param>
-        void RegisterTwoFactorProvider(string twoFactorProvider, IUserTokenProvider<User, Guid> provider);
+        void RegisterTwoFactorProvider(string twoFactorProvider, IUserTokenProvider<User, int> provider);
 
         /// <summary>
         /// Gets the valid two factor providers asynchronous.
         /// </summary>
         /// <param name="userId">The user identifier.</param>
         /// <returns></returns>
-        Task<IList<string>> GetValidTwoFactorProvidersAsync(Guid userId);
+        Task<IList<string>> GetValidTwoFactorProvidersAsync(int userId);
 
         /// <summary>
         /// Verifies the two factor token asynchronous.
@@ -375,7 +375,7 @@
         /// <param name="twoFactorProvider">The two factor provider.</param>
         /// <param name="token">The token.</param>
         /// <returns></returns>
-        Task<bool> VerifyTwoFactorTokenAsync(Guid userId, string twoFactorProvider, string token);
+        Task<bool> VerifyTwoFactorTokenAsync(int userId, string twoFactorProvider, string token);
 
         /// <summary>
         /// Generates the two factor token asynchronous.
@@ -383,7 +383,7 @@
         /// <param name="userId">The user identifier.</param>
         /// <param name="twoFactorProvider">The two factor provider.</param>
         /// <returns></returns>
-        Task<string> GenerateTwoFactorTokenAsync(Guid userId, string twoFactorProvider);
+        Task<string> GenerateTwoFactorTokenAsync(int userId, string twoFactorProvider);
 
         /// <summary>
         /// Notifies the two factor token asynchronous.
@@ -392,14 +392,14 @@
         /// <param name="twoFactorProvider">The two factor provider.</param>
         /// <param name="token">The token.</param>
         /// <returns></returns>
-        Task<IdentityResult> NotifyTwoFactorTokenAsync(Guid userId, string twoFactorProvider, string token);
+        Task<IdentityResult> NotifyTwoFactorTokenAsync(int userId, string twoFactorProvider, string token);
 
         /// <summary>
         /// Gets the two factor enabled asynchronous.
         /// </summary>
         /// <param name="userId">The user identifier.</param>
         /// <returns></returns>
-        Task<bool> GetTwoFactorEnabledAsync(Guid userId);
+        Task<bool> GetTwoFactorEnabledAsync(int userId);
 
         /// <summary>
         /// Sets the two factor enabled asynchronous.
@@ -407,7 +407,7 @@
         /// <param name="userId">The user identifier.</param>
         /// <param name="enabled">if set to <c>true</c> [enabled].</param>
         /// <returns></returns>
-        Task<IdentityResult> SetTwoFactorEnabledAsync(Guid userId, bool enabled);
+        Task<IdentityResult> SetTwoFactorEnabledAsync(int userId, bool enabled);
 
         /// <summary>
         /// Sends the email asynchronous.
@@ -416,7 +416,7 @@
         /// <param name="subject">The subject.</param>
         /// <param name="body">The body.</param>
         /// <returns></returns>
-        Task SendEmailAsync(Guid userId, string subject, string body);
+        Task SendEmailAsync(int userId, string subject, string body);
 
         /// <summary>
         /// Sends the SMS asynchronous.
@@ -424,14 +424,14 @@
         /// <param name="userId">The user identifier.</param>
         /// <param name="message">The message.</param>
         /// <returns></returns>
-        Task SendSmsAsync(Guid userId, string message);
+        Task SendSmsAsync(int userId, string message);
 
         /// <summary>
         /// Determines whether [is locked out asynchronous] [the specified user identifier].
         /// </summary>
         /// <param name="userId">The user identifier.</param>
         /// <returns></returns>
-        Task<bool> IsLockedOutAsync(Guid userId);
+        Task<bool> IsLockedOutAsync(int userId);
 
         /// <summary>
         /// Sets the lockout enabled asynchronous.
@@ -439,21 +439,21 @@
         /// <param name="userId">The user identifier.</param>
         /// <param name="enabled">if set to <c>true</c> [enabled].</param>
         /// <returns></returns>
-        Task<IdentityResult> SetLockoutEnabledAsync(Guid userId, bool enabled);
+        Task<IdentityResult> SetLockoutEnabledAsync(int userId, bool enabled);
 
         /// <summary>
         /// Gets the lockout enabled asynchronous.
         /// </summary>
         /// <param name="userId">The user identifier.</param>
         /// <returns></returns>
-        Task<bool> GetLockoutEnabledAsync(Guid userId);
+        Task<bool> GetLockoutEnabledAsync(int userId);
 
         /// <summary>
         /// Gets the lockout end date asynchronous.
         /// </summary>
         /// <param name="userId">The user identifier.</param>
         /// <returns></returns>
-        Task<DateTimeOffset> GetLockoutEndDateAsync(Guid userId);
+        Task<DateTimeOffset> GetLockoutEndDateAsync(int userId);
 
         /// <summary>
         /// Sets the lockout end date asynchronous.
@@ -461,28 +461,28 @@
         /// <param name="userId">The user identifier.</param>
         /// <param name="lockoutEnd">The lockout end.</param>
         /// <returns></returns>
-        Task<IdentityResult> SetLockoutEndDateAsync(Guid userId, DateTimeOffset lockoutEnd);
+        Task<IdentityResult> SetLockoutEndDateAsync(int userId, DateTimeOffset lockoutEnd);
 
         /// <summary>
         /// Accesses the failed asynchronous.
         /// </summary>
         /// <param name="userId">The user identifier.</param>
         /// <returns></returns>
-        Task<IdentityResult> AccessFailedAsync(Guid userId);
+        Task<IdentityResult> AccessFailedAsync(int userId);
 
         /// <summary>
         /// Resets the access failed count asynchronous.
         /// </summary>
         /// <param name="userId">The user identifier.</param>
         /// <returns></returns>
-        Task<IdentityResult> ResetAccessFailedCountAsync(Guid userId);
+        Task<IdentityResult> ResetAccessFailedCountAsync(int userId);
 
         /// <summary>
         /// Gets the access failed count asynchronous.
         /// </summary>
         /// <param name="userId">The user identifier.</param>
         /// <returns></returns>
-        Task<int> GetAccessFailedCountAsync(Guid userId);
+        Task<int> GetAccessFailedCountAsync(int userId);
 
         /// <summary>
         /// Gets or sets the password hasher.
@@ -511,7 +511,7 @@
         /// <value>
         /// The claims identity factory.
         /// </value>
-        IClaimsIdentityFactory<User, Guid> ClaimsIdentityFactory { get; set; }
+        IClaimsIdentityFactory<User, int> ClaimsIdentityFactory { get; set; }
         /// <summary>
         /// Gets or sets the email service.
         /// </summary>
@@ -532,7 +532,7 @@
         /// <value>
         /// The user token provider.
         /// </value>
-        IUserTokenProvider<User, Guid> UserTokenProvider { get; set; }
+        IUserTokenProvider<User, int> UserTokenProvider { get; set; }
         /// <summary>
         /// Gets or sets a value indicating whether [user lockout enabled by default].
         /// </summary>
@@ -637,6 +637,6 @@
         /// <value>
         /// The two factor providers.
         /// </value>
-        IDictionary<string, IUserTokenProvider<User, Guid>> TwoFactorProviders { get; }
+        IDictionary<string, IUserTokenProvider<User, int>> TwoFactorProviders { get; }
     }
 }

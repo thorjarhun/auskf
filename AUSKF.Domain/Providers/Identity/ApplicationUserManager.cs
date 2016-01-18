@@ -14,7 +14,7 @@
     using NLog;
     using Services;
 
-    public sealed class ApplicationUserManager : UserManager<User, Guid>, IApplicationUserManager
+    public sealed class ApplicationUserManager : UserManager<User, int>, IApplicationUserManager
     {
         private static readonly Logger logger = LogManager.GetCurrentClassLogger();
 
@@ -23,7 +23,7 @@
         /// </summary>
         /// <param name="userStore">The store.</param>
         /// <param name="claimsIdentityFactory">The claims identity factory.</param>
-        public ApplicationUserManager(IUserStore<User, Guid> userStore, IClaimsIdentityFactory<User, Guid> claimsIdentityFactory)
+        public ApplicationUserManager(IUserStore<User, int> userStore, IClaimsIdentityFactory<User, int> claimsIdentityFactory)
             : base(userStore)
         {
             this.ClaimsIdentityFactory = claimsIdentityFactory;
@@ -59,11 +59,11 @@
             // IUserStore is the UserStoreProvider
             // this is a sucky hack ... but
             var manager = new ApplicationUserManager(
-                Ioc.Instance.Resolve<IUserStore<User, Guid>>(),
-                Ioc.Instance.Resolve<IClaimsIdentityFactory<User, Guid>>());
+                Ioc.Instance.Resolve<IUserStore<User, int>>(),
+                Ioc.Instance.Resolve<IClaimsIdentityFactory<User, int>>());
 
             // Configure validation logic for user names
-            manager.UserValidator = new UserValidator<User, Guid>(manager)
+            manager.UserValidator = new UserValidator<User, int>(manager)
             {
                 AllowOnlyAlphanumericUserNames = false,
                 RequireUniqueEmail = true
@@ -86,12 +86,12 @@
 
             // Register two factor authentication providers. This application uses Phone and Emails as a step of receiving a code for verifying the user
             // You can write your own provider and plug it in here.
-            manager.RegisterTwoFactorProvider("Phone Code", new PhoneNumberTokenProvider<User, Guid>
+            manager.RegisterTwoFactorProvider("Phone Code", new PhoneNumberTokenProvider<User, int>
             {
                 MessageFormat = "Your security code is {0}"
             });
 
-            manager.RegisterTwoFactorProvider("Email Code", new EmailTokenProvider<User, Guid>
+            manager.RegisterTwoFactorProvider("Email Code", new EmailTokenProvider<User, int>
             {
                 Subject = "Security Code",
                 BodyFormat = "Your security code is {0}"
@@ -103,12 +103,12 @@
             var dataProtectionProvider = options.DataProtectionProvider;
             if (dataProtectionProvider != null)
             {
-                manager.UserTokenProvider = new DataProtectorTokenProvider<User, Guid>(dataProtectionProvider.Create("ASP.NET Identity"));
+                manager.UserTokenProvider = new DataProtectorTokenProvider<User, int>(dataProtectionProvider.Create("ASP.NET Identity"));
             }
             return manager;
         }
 
-        public override Task<IdentityResult> AddLoginAsync(Guid userId, UserLoginInfo login)
+        public override Task<IdentityResult> AddLoginAsync(int userId, UserLoginInfo login)
         {
             if (login == null)
             {
@@ -118,7 +118,7 @@
             return base.AddLoginAsync(userId, login);
         }
 
-        public override Task<IdentityResult> AddClaimAsync(Guid userId, Claim claim)
+        public override Task<IdentityResult> AddClaimAsync(int userId, Claim claim)
         {
             if (claim == null)
             {
@@ -152,10 +152,10 @@
             return Task.FromResult(passwordOk);
         }
 
-        public override async Task<IdentityResult> ResetAccessFailedCountAsync(Guid userId)
+        public override async Task<IdentityResult> ResetAccessFailedCountAsync(int userId)
         {
 
-            IUserLockoutStore<User, Guid> userLockoutStore = this.Store as IUserLockoutStore<User, Guid>;
+            IUserLockoutStore<User, int> userLockoutStore = this.Store as IUserLockoutStore<User, int>;
             User user = await this.FindByIdAsync(userId).WithCurrentCulture();
             if (user == null)
             {
@@ -180,9 +180,9 @@
             return result;
         }
 
-        public override async Task<int> GetAccessFailedCountAsync(Guid userId)
+        public override async Task<int> GetAccessFailedCountAsync(int userId)
         {
-            IUserLockoutStore<User, Guid> userLockoutStore = this.Store as IUserLockoutStore<User, Guid>;
+            IUserLockoutStore<User, int> userLockoutStore = this.Store as IUserLockoutStore<User, int>;
             User user = await this.FindByIdAsync(userId).WithCurrentCulture();
             if ((user == null) || (userLockoutStore == null))
             {

@@ -18,7 +18,7 @@ namespace AUSKF
 
     public static class IdentityExtensions
     {
-        public static Guid GetUserIdAsGuid(this IIdentity identity)
+        public static int GetUserIdAsInt(this IIdentity identity)
         {
             if (identity == null)
             {
@@ -27,13 +27,7 @@ namespace AUSKF
             ClaimsIdentity claimsIdentity = identity as ClaimsIdentity;
             string text = claimsIdentity.FindFirstValue("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier");
 
-            if (text != null)
-            {
-                return Guid.Parse(text);
-                // return (TGuid)Convert.ChangeType(text, typeof(TGuid), CultureInfo.InvariantCulture);
-
-            }
-            return Guid.Empty;
+            return text != null ? int.Parse(text) : 0;
         }
     }
 
@@ -76,10 +70,10 @@ namespace AUSKF
 
                 Provider = new CookieAuthenticationProvider
                 {
-                    OnValidateIdentity = SecurityStampValidator.OnValidateIdentity<ApplicationUserManager, User, Guid>
+                    OnValidateIdentity = SecurityStampValidator.OnValidateIdentity<ApplicationUserManager, User, int>
                         (TimeSpan.FromMinutes(30),
                         (manager, user) => user.GenerateUserIdentityAsync(manager),
-                        ident => ident.GetUserIdAsGuid()),
+                        ident => ident.GetUserIdAsInt()),
 
                     //**** This what I did ***//
                     OnException = context =>

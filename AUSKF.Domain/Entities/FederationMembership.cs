@@ -15,21 +15,21 @@
         /// </summary>
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid FederationMembershipId { get; set; }
+        public int FederationMembershipId { get; set; }
          
         /// <summary>
         /// User id for who's membership to the federation is defined.
         /// </summary>
         [Required]
         [ForeignKey("User")]
-        public Guid UserId { get; set; }
+        public int UserId { get; set; }
          
         /// <summary>
         /// Federation id the user is a member of
         /// </summary>
         [Required]
         [ForeignKey("Federation")]
-        public Guid FederationId { get; set; }
+        public int FederationId { get; set; }
 
         /// <summary>
         /// User who's membership to the federation is defined.

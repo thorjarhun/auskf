@@ -20,9 +20,9 @@
     public class DojoController : ApiController
     {   
         private static readonly ILogger logger = LogManager.GetCurrentClassLogger();
-        private readonly IEntityRepository<Dojo, Guid> dojoRepository;
+        private readonly IEntityRepository<Dojo, int> dojoRepository;
         private readonly ICacheService cacheService;
-        private List<Tuple<string, string>> states = new List<Tuple<string, string>>
+        private readonly List<Tuple<string, string>> states = new List<Tuple<string, string>>
         {
             new Tuple<string, string>("Alabama", "AK"),
             new Tuple<string, string>("Alaska", "AK"),
@@ -76,7 +76,7 @@
             new Tuple<string, string>("Wyoming", "WY"), 
         };
 
-        public DojoController(IEntityRepository<Dojo, Guid> dojoRepository, ICacheService cacheService)
+        public DojoController(IEntityRepository<Dojo, int> dojoRepository, ICacheService cacheService)
         {
             this.dojoRepository = dojoRepository;
             this.cacheService = cacheService;
@@ -85,7 +85,7 @@
         [HttpGet]
         [Route("paged/{pagenumber}", Name = "DojosV1")]
         [ResponseType(typeof(SerializablePagination<User>))]
-        public async Task<IHttpActionResult> Get(int? pagenumber, [FromUri]Guid? federationId = null, [FromUri]string state = "")
+        public async Task<IHttpActionResult> Get(int? pagenumber, [FromUri]int? federationId = null, [FromUri]string state = "")
         {
             try
             {
@@ -99,7 +99,7 @@
                 {
                     if (federationId != null)
                     {
-                        dojos = dojos.Where<Dojo>(d => d.FederationId == federationId);
+                        dojos = dojos.Where(d => d.FederationId == federationId);
                     }
 
                     if (!string.IsNullOrEmpty(state))

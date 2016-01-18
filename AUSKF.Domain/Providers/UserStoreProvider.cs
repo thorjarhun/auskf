@@ -32,7 +32,7 @@
         where TUser : User, IUser<TKey>
         where TKey : IEquatable<TKey>
     {
-        private readonly IEntityRepository<User, Guid> userRepository;
+        private readonly IEntityRepository<User, int> userRepository;
         private readonly IEntityRepository<UserClaim, Guid> userClaimRepository;
         private readonly IEntityRepository<UserLogin, Guid> userLoginRepository;
 
@@ -43,7 +43,7 @@
         /// <param name="userRepository">The user store.</param>
         /// <param name="userClaimRepository">The user claim repository.</param>
         /// <param name="userLoginRepository">The user login repository.</param>
-        public UserStoreProvider(IEntityRepository<User, Guid> userRepository,
+        public UserStoreProvider(IEntityRepository<User, int> userRepository,
             IEntityRepository<UserClaim, Guid> userClaimRepository, IEntityRepository<UserLogin, Guid> userLoginRepository)
         {
             this.Context = (DataContext)userRepository.Context;
@@ -86,7 +86,7 @@
         {
 
             return await Task.Run(() => (from c in user.Claims
-                                         select new Claim(c.ClaimType, c.ClaimValue)).ToList<Claim>());
+                                         select new Claim(c.ClaimType, c.ClaimValue)).ToList());
         }
 
         /// <summary>
@@ -348,7 +348,7 @@
         {
 
             var x = userId.ToString();
-            var uid = Guid.Parse(x);
+            var uid = int.Parse(x);
             return (TUser)await this.userRepository.GetByIdAsync(uid);
         }
 
@@ -433,15 +433,12 @@
             try
             {
                 var userLogin = this.userLoginRepository.Get(l => l.LoginProvider == provider && l.ProviderKey == key).FirstOrDefault();
-
-
-                //await this.logins.FirstOrDefaultAsync(l => l.LoginProvider == provider && l.ProviderKey == key);
-
                 TUser result;
                 if (userLogin != null)
                 {
                     var x = userLogin.UserId.ToString();
-                    var uid = Guid.Parse(x);
+                    // TODO some validation here?
+                    var uid = int.Parse(x);
                     result = (TUser)await this.userRepository.GetByIdAsync(uid);
 
                 }

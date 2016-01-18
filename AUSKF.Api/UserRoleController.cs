@@ -67,8 +67,8 @@
             // Todo pass email or username rather than user id?
             try
             {
-                Guid id;
-                if (Guid.TryParse(roleId, out id))
+                int id;
+                if (int.TryParse(roleId, out id))
                 {
                     var userRole = await this.userRoleRepository.GetAsync
                         (x => x.RoleId == id, includeProperties: "Users");

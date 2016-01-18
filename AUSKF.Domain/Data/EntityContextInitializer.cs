@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Data.Entity;
+    using System.IO;
     using Entities;
     using Entities.Identity;
     using Extensions;
@@ -23,6 +24,23 @@
             this.AddAddresses(context);
             this.AddKendoRanks(context);
             this.AddRoles(context);
+
+            // ok try this for legacy stuff
+            // hard-coding the path just to test if this will actually work.
+            var federationTableSqlFile = File.ReadAllText("C:\\dev\\AUSKF\\sql\\dbo.Federations.Table.sql");
+            context.Database.ExecuteSqlCommand(federationTableSqlFile);
+            
+            var dojoTableSqlFile = File.ReadAllText("C:\\dev\\AUSKF\\sql\\dbo.Dojos.Table.sql");
+            context.Database.ExecuteSqlCommand(dojoTableSqlFile);
+
+            var userProfileTableSqlFile = File.ReadAllText("C:\\dev\\AUSKF\\sql\\dbo.UserProfiles.Table.sql");
+            context.Database.ExecuteSqlCommand(userProfileTableSqlFile);
+
+            var userTableSqlFile = File.ReadAllText("C:\\dev\\AUSKF\\sql\\dbo.Users.Table.sql");
+            context.Database.ExecuteSqlCommand(userTableSqlFile);
+
+
+            
             this.AddUsers(context);
             this.AddFederations(context);
             this.AddDojos(context);
@@ -36,7 +54,6 @@
 
             var homeAddress = new Address
             {
-                AddressId = Guid.NewGuid(),
                 AddressLine1 = "123 any street",
                 AddressLine2 = "any location",
                 City = "Minneapolis",
@@ -193,13 +210,16 @@
 
         public void AddUsers(DataContext context)
         {
+
+
+
             this.users = new List<User>()
             {
                 new User()
                 {
 
                 Active = true,
-                    DisplayName = "Travis Stronach", 
+                    DisplayName = "Travis Stronach",
                     Email = "travis.stronach@gmail.com",
                 EmailConfirmed = true,
                 JoinedDate = DateTime.UtcNow,
@@ -232,7 +252,7 @@
                 new User
                 {
                     Active = true,
-                    DisplayName = "Webmaster", 
+                    DisplayName = "Webmaster",
                     Email = "Admin@auskf.org",
                     EmailConfirmed = true,
                     JoinedDate = DateTime.UtcNow,
@@ -265,6 +285,9 @@
             this.userRoles.ForEach(ur => this.users[1].Roles.Add(ur));
             this.users.ForEach(u => context.Users.Add(u));
             context.Commit();
+
+            // now read in legacy data
+
         }
 
         private void AddFederations(DataContext context)
@@ -277,7 +300,7 @@
                     Email= "Add@email.com",
                     CreateDate = DateTime.UtcNow,
                     ModifyDate = DateTime.UtcNow,
-                    FederationId = Guid.NewGuid(),
+                    //FederationId = Guid.NewGuid(),
                     Phone = "555-121-2121",
                     WebsiteUrl = "google.com"
                     },
@@ -287,7 +310,7 @@
                     Email= "Add@email.com",
                     CreateDate = DateTime.UtcNow,
                     ModifyDate = DateTime.UtcNow,
-                    FederationId = Guid.NewGuid(),
+                    //FederationId = Guid.NewGuid(),
                     Phone = "555-121-2121",
                     WebsiteUrl = "google.com"
                 },

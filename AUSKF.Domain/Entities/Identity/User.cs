@@ -16,7 +16,7 @@
     /// </summary>
     [Table("Users")]
 
-    public class User : IdentityUser<Guid, UserLogin, UserRole, UserClaim>
+    public class User : IdentityUser<int, UserLogin, UserRole, UserClaim>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="User" /> class.
@@ -28,7 +28,7 @@
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public override Guid Id { get; set; }
+        public override int Id { get; set; }
         
         /// <summary>
         /// Gets or sets the user profile identifier.
@@ -37,7 +37,7 @@
         /// The user profile identifier.
         /// </value>
         [ForeignKey("Profile")]
-        public Guid UserProfileId { get; set; }
+        public int UserProfileId { get; set; }
 
         /// <summary>
         /// Gets or sets the profile.
@@ -53,8 +53,7 @@
         /// <value>
         /// The name of the user.
         /// </value>
-        [Required]
-        [StringLength(20)]
+        [MaxLength(20)]
         public override string UserName { get; set; }
 
         /// <summary>
@@ -63,9 +62,9 @@
         /// <value>
         /// The display name.
         /// </value>
-        [StringLength(20)]
+        [MaxLength(20)]
         public string DisplayName { get; set; }
-         
+
         /// <summary>
         /// Gets or sets the password.
         /// </summary>
@@ -100,7 +99,7 @@
         /// <value>
         /// The email.
         /// </value>
-        [Required, StringLength(256)]
+        [StringLength(256)]
         [DataType(DataType.EmailAddress)]
         public override string Email { get; set; }
 
@@ -128,7 +127,7 @@
         /// <value>
         /// The joined date.
         /// </value>
-        [Required]
+        //[Required]
         [DataType(DataType.Date)]
         public DateTime JoinedDate { get; set; }
 
@@ -138,7 +137,7 @@
         /// <value>
         /// The last login.
         /// </value>
-        [Required]
+        //[Required]
         [DataType(DataType.Date)]
         public DateTime LastLogin { get; set; }
 
@@ -169,6 +168,12 @@
         [StringLength(512)]
         public string Notes { get; set; }
          
+        [NotMapped]
+        public override string PhoneNumber { get; set; }
+
+        [NotMapped]
+        public override bool PhoneNumberConfirmed { get; set; }
+
         /// <summary>
         /// Generates the user identity asynchronous.
         /// </summary>
@@ -189,7 +194,7 @@
         /// <param name="manager">The manager.</param>
         /// <param name="authenticationType">Type of the authentication.</param>
         /// <returns></returns>
-        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User, Guid> manager, string authenticationType)
+        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User, int> manager, string authenticationType)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
             var userIdentity = await manager.CreateIdentityAsync(this, authenticationType);

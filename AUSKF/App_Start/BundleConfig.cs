@@ -27,6 +27,40 @@ namespace AUSKF
                       "~/Content/Styles/bootstrap-flatly.css",
                       "~/Content/site.css"));
 
+            bundles.Add(new StyleBundle("~/Content/css/bootstrap").Include(
+                  "~/Content/bootstrap.css"));
+
+            // admin
+            bundles.Add(new StyleBundle("~/Content/css/admin").Include(
+                      "~/Areas/Admin/Content/styles/dist/css/AdminLTE.css",
+                      "~/Areas/Admin/Content/styles/dist/css/skins/all-skins.css",
+                      "~/Areas/Admin/Content/styles/dist/css/skins/skin-black-light.css",
+                      "~/Areas/Admin/Content/styles/dist/css/skins/skin-black.css",
+                      "~/Areas/Admin/Content/styles/dist/css/skins/skin-blue-light.css",
+                      "~/Areas/Admin/Content/styles/dist/css/skins/skin-blue.css",
+                      "~/Areas/Admin/Content/styles/dist/css/skins/skin-green-light.css",
+                      "~/Areas/Admin/Content/styles/dist/css/skins/skin-green.css",
+                      "~/Areas/Admin/Content/styles/dist/css/skins/skin-purple-light.css",
+                      "~/Areas/Admin/Content/styles/dist/css/skins/skin-purple.css",
+                      "~/Areas/Admin/Content/styles/dist/css/skins/skin-red-light.css",
+                      "~/Areas/Admin/Content/styles/dist/css/skins/skin-red.css",
+                      "~/Areas/Admin/Content/styles/dist/css/skins/skin-yellow-light.css",
+                      "~/Areas/Admin/Content/styles/dist/css/skins/skin-yellow.css"));
+
+            // Admin 
+            bundles.Add(new ScriptBundle("~/bundles/admin").Include(
+                "~/Areas/Admin/Scripts/slimScroll/jquery-slimscroll.js",
+                 "~/Areas/Admin/Scripts/fastclick/fastclick.js",
+                 "~/Areas/Admin/Scripts/app.js",
+                 "~/Areas/Admin/Scripts/demo.js"
+                ));
+
+            // Admin dashboard
+            bundles.Add(new ScriptBundle("~/bundles/admin/dashboard").Include(
+                "~/Areas/Admin/Scripts/pages/dashboard.js"
+                ));
+
+
             // Angular 
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
                 "~/Scripts/libraries/angular/angular.js",

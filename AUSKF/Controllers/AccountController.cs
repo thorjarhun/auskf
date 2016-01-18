@@ -301,9 +301,9 @@
         /// The <see cref="Task"/>.
         /// </returns>
         [AllowAnonymous]
-        public async Task<ActionResult> ConfirmEmail(Guid userId, string code)
+        public async Task<ActionResult> ConfirmEmail(int userId, string code)
         {
-            if (userId != Guid.Empty || code == null)
+            if (userId != 0 || code == null)
             {
                 var result = await this.UserManager.ConfirmEmailAsync(userId, code);
                 return this.View(result.Succeeded ? "ConfirmEmail" : "Error");
@@ -490,7 +490,7 @@
         public async Task<ActionResult> SendCode(string returnUrl)
         {
             var userId = await this.SignInManager.GetVerifiedUserIdAsync();
-            if (userId != Guid.Empty)
+            if (userId != 0)
             {
                 var userFactors = await this.UserManager.GetValidTwoFactorProvidersAsync(userId);
                 var factorOptions = userFactors.Select(purpose => new SelectListItem
