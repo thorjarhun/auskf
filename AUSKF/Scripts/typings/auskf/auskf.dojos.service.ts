@@ -16,7 +16,8 @@ module auskf {
     class DojoService implements IDojosService {
         serviceUri = "/api/v1/dojos";
 
-        constructor(private $http: ng.IHttpService, private $q: ng.IQService) {
+        constructor(private $http: ng.IHttpService, private $q: ng.IQService) { 
+            this.getDojos(1);
         }
 
         getDojos(page): ng.IHttpPromise<Array<Event>> {
@@ -39,7 +40,7 @@ module auskf {
     function factory($http: ng.IHttpService, $q: ng.IQService): DojoService {
         return new DojoService($http, $q);
     }
-
+     
     factory.$inject = ["$http", "$q"];
     angular
         .module("auskf")

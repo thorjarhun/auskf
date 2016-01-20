@@ -1,4 +1,4 @@
-﻿
+﻿alert("Test abc");
 
 // ReSharper disable once InconsistentNaming
 
@@ -13,9 +13,11 @@ module auskf {
         serviceUri = "/api/v1/event";
 
         constructor(private $http: ng.IHttpService, private $q: ng.IQService) {
+            alert("Test news service constructor");
         }
 
         getNews(): ng.IHttpPromise<Array<Event>> {
+            alert("Test service getNews");
             return this.$http.get(this.serviceUri);
         }
     }

@@ -1,0 +1,159 @@
+﻿@model AUSKF.Domain.Models.MyProfileViewModel
+
+@{
+    ViewBag.Title = "My Profile";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("UpdateProfile", "MyProfile", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <h4>Update Profile Information.</h4>
+    <hr />
+
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.FirstName, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.MiddleName, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.MiddleName, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.LastName, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Gender, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.RadioButtonFor(m => m.Gender, new { @class = "form-control" })
+        </div>
+    </div> 
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.DateOfBirth, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.DateOfBirth, new { @class = "form-control", type = "date" })
+        </div>
+    </div>
+
+    <h4>Kendo Information:</h4>
+    <hr />
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.AuskfIdNumber, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Model.AuskfIdNumber 
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.DojoId, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.DojoId, new { @class = "form-control" })
+        </div>
+    </div>  
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.RankId, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            <select name="rankSelect" id="rankSelect" class="form-control" ng-model="user.kendoRankId">
+                <option value="">---Kendo Rank (optional)---</option> <!-- not selected / blank option -->
+                <option ng-repeat="rank in kendoranklist | orderBy:'kendoRankNumeric'" value="{{rank.kendoRankId}}">{{rank.kendoRankName}}</option>
+            </select>
+        </div> 
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.MyFederation, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @if (!string.IsNullOrEmpty(Model.MyFederation))
+            {
+                @Html.TextBoxFor(m => m.MyFederation, new { @class = "form-control", type = "date" })
+            }
+            else
+            {
+                //TODO: TLS - Create FederationRegistration
+                @Html.ActionLink("Register", "Register", "FederationRegistration")
+            }
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.IsAuskfRegistered, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @if (Model.IsAuskfRegistered)
+            {
+                 <span>Currently Registered</span>
+            }
+            else
+            {
+                //TODO: TLS - Create FederationRegistration
+                @Html.ActionLink("Register", "Register", "FederationRegistration")
+            }
+        </div>
+    </div>
+
+    <h4>Personal Address:</h4>
+    <hr />
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.AddressLine1, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.AddressLine1, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.AddressLine2, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.AddressLine2, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.City, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.City, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.State, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.State, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.ZipCode, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.ZipCode, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-default" value="Save" />
+        </div>
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+ 

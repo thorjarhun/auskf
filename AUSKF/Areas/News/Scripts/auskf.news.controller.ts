@@ -1,4 +1,6 @@
 ﻿// ReSharper disable once InconsistentNaming
+alert("Test xyz");
+ 
 module auskf {
     "use strict";
 
@@ -11,11 +13,13 @@ module auskf {
         static $inject = ["$scope", "newsService"];
 
         constructor(protected $scope: INewsScope,
-            private newsService: INewsService) {
+            private newsService: INewsService) { 
+            alert("Test news controller constructor");
             this.getNews();
         }
 
         getNews() {
+            alert("Test getNews controller");
             this.newsService.getNews().success(data => {
                 this.$scope.news = data;
             }).error(error => {
@@ -28,3 +32,4 @@ module auskf {
     angular.module("auskf")
         .controller("newsController", NewsController);
 } 
+ 

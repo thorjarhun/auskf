@@ -244,6 +244,7 @@
     <Compile Include="Controllers\FederationRegistrationsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MyProfileController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1428,6 +1429,7 @@
     <Content Include="Views\FederationList\Index.cshtml" />
     <Content Include="Views\FederationRegistrations\Index.cshtml" />
     <Content Include="Views\Home\Introduction.cshtml" />
+    <Content Include="Views\MyProfile\UpdateProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
