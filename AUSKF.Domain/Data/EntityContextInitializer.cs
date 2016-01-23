@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Configuration;
     using System.Data.Entity;
     using System.IO;
     using Entities;
@@ -25,18 +26,20 @@
             this.AddKendoRanks(context);
             this.AddRoles(context);
 
+            string importDirectory = ConfigurationManager.AppSettings["DataImportDirectory"];
+
             // ok try this for legacy stuff
             // hard-coding the path just to test if this will actually work.
-            var federationTableSqlFile = File.ReadAllText("C:\\dev\\AUSKF\\sql\\dbo.Federations.Table.sql");
+            var federationTableSqlFile = File.ReadAllText(importDirectory + "dbo.Federations.Table.sql");
             context.Database.ExecuteSqlCommand(federationTableSqlFile);
-            
-            var dojoTableSqlFile = File.ReadAllText("C:\\dev\\AUSKF\\sql\\dbo.Dojos.Table.sql");
+
+            var dojoTableSqlFile = File.ReadAllText(importDirectory + "dbo.Dojos.Table.sql");
             context.Database.ExecuteSqlCommand(dojoTableSqlFile);
 
-            var userProfileTableSqlFile = File.ReadAllText("C:\\dev\\AUSKF\\sql\\dbo.UserProfiles.Table.sql");
+            var userProfileTableSqlFile = File.ReadAllText(importDirectory + "dbo.UserProfiles.Table.sql");
             context.Database.ExecuteSqlCommand(userProfileTableSqlFile);
 
-            var userTableSqlFile = File.ReadAllText("C:\\dev\\AUSKF\\sql\\dbo.Users.Table.sql");
+            var userTableSqlFile = File.ReadAllText(importDirectory + "dbo.Users.Table.sql");
             context.Database.ExecuteSqlCommand(userTableSqlFile);
 
 

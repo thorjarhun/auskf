@@ -58,8 +58,12 @@
         /// <summary>
         /// Unique ID number
         /// </summary>
-        // [Required] is this really required?
-        public int AuskfIdNumber { get; set; }
+        /// <remarks>
+        /// This has to be a nullable as it is quite possible to not
+        /// have a valid auskf id number and still be tracked by the 
+        /// auskf.
+        /// </remarks>
+        public int? AuskfIdNumber { get; set; }
 
         /// <summary>
         /// Gets or sets the location.

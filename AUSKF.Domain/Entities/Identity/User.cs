@@ -29,7 +29,7 @@
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public override int Id { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the user profile identifier.
         /// </summary>
@@ -64,6 +64,46 @@
         /// </value>
         [MaxLength(20)]
         public string DisplayName { get; set; }
+
+        /// <summary>
+        /// First Name
+        /// </summary>
+        [NotMapped]
+        // [Required] is this really required?
+        public string FirstName { get; set; }
+
+        /// <summary>
+        /// Middle Name
+        /// </summary>
+        [NotMapped]
+        public string MiddleName { get; set; }
+
+        /// <summary>
+        /// Last Name
+        /// </summary>
+        [NotMapped]
+        // [Required] is this really required?
+        public string LastName { get; set; }
+
+        /// <summary>
+        /// M for male. F for femail.
+        /// </summary>
+        [MaxLength(1)]
+        public string Gender { get; set; }
+
+        /// <summary>
+        /// Date of Birth
+        /// </summary>
+        [DataType(DataType.DateTime)]
+        // [Required] we can't require this
+        public DateTime? DateOfBirth { get; set; }
+
+        /// <summary>
+        /// Unique ID number
+        /// </summary>
+        // [Required] is this really required?]
+        [NotMapped]
+        public int AuskfIdNumber { get; set; }
 
         /// <summary>
         /// Gets or sets the password.
@@ -120,7 +160,7 @@
         /// </value>
         [MaxLength(256)]
         public string LastSearch { get; set; }
-         
+
         /// <summary>
         /// Gets or sets the joined date.
         /// </summary>
@@ -167,7 +207,7 @@
         /// </value>
         [StringLength(512)]
         public string Notes { get; set; }
-         
+
         [NotMapped]
         public override string PhoneNumber { get; set; }
 

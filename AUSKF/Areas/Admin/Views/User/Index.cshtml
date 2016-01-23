@@ -49,22 +49,22 @@
             @Html.DisplayNameFor(model => model.CurrentPage[0].DisplayName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CurrentPage[0].FirstName)
+            @Html.DisplayNameFor(model => model.CurrentPage[0].Profile.FirstName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CurrentPage[0].MiddleName)
+            @Html.DisplayNameFor(model => model.CurrentPage[0].Profile.MiddleName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CurrentPage[0].LastName)
+            @Html.DisplayNameFor(model => model.CurrentPage[0].Profile.LastName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CurrentPage[0].Gender)
+            @Html.DisplayNameFor(model => model.CurrentPage[0].Profile.Gender)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CurrentPage[0].DateOfBirth)
+            @Html.DisplayNameFor(model => model.CurrentPage[0].Profile.BirthDay)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CurrentPage[0].AuskfIdNumber)
+            @Html.DisplayNameFor(model => model.CurrentPage[0].Profile.AuskfIdNumber)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.CurrentPage[0].Password)
@@ -93,7 +93,6 @@
         <th>
             @Html.DisplayNameFor(model => model.CurrentPage[0].Notes)
         </th>
-        <th></th>
     </tr>
 
 @foreach (var item in Model.CurrentPage) {
@@ -117,22 +116,22 @@
             @Html.DisplayFor(modelItem => item.DisplayName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
+            @Html.DisplayFor(modelItem => item.Profile.FirstName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.MiddleName)
+            @Html.DisplayFor(modelItem => item.Profile.MiddleName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.LastName)
+            @Html.DisplayFor(modelItem => item.Profile.LastName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Gender)
+            @Html.DisplayFor(modelItem => item.Profile.Gender)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.DateOfBirth)
+            @Html.DisplayFor(modelItem => item.Profile.BirthDay)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.AuskfIdNumber)
+            @Html.DisplayFor(modelItem => item.Profile.AuskfIdNumber)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Password)
@@ -160,11 +159,6 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Notes)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
         </td>
     </tr>
 }

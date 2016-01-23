@@ -11,12 +11,10 @@
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid PromotionId { get; set; }
 
-        [ForeignKey("User")]
+        [NotMapped]
         public int UserId { get; set; }
 
         public int ContactId { get; set; }
-
-        public User User { get; set; }
 
         // this is superfluous but we'll leave it for now
         public int AuskfId { get; set; }
