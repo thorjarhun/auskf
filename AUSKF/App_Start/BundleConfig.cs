@@ -8,10 +8,8 @@ namespace AUSKF
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
-
-            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                        "~/Scripts/jquery.validate*"));
+                        "~/Scripts/libraries/jquery/jquery-{version}.js",
+                        "~/Scripts/libraries/jquery/jquery.validate*"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
@@ -19,8 +17,8 @@ namespace AUSKF
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
+                      "~/Scripts/libraries/bootstrap/bootstrap.js",
+                      "~/Scripts/libraries/respond/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css/flatly").Include(
                       "~/Content/bootstrap.css",
@@ -32,34 +30,22 @@ namespace AUSKF
 
             // admin
             bundles.Add(new StyleBundle("~/Content/css/admin").Include(
-                      "~/Areas/Admin/Content/styles/dist/css/AdminLTE.css",
-                      "~/Areas/Admin/Content/styles/dist/css/skins/all-skins.css",
-                      "~/Areas/Admin/Content/styles/dist/css/skins/skin-black-light.css",
-                      "~/Areas/Admin/Content/styles/dist/css/skins/skin-black.css",
-                      "~/Areas/Admin/Content/styles/dist/css/skins/skin-blue-light.css",
-                      "~/Areas/Admin/Content/styles/dist/css/skins/skin-blue.css",
-                      "~/Areas/Admin/Content/styles/dist/css/skins/skin-green-light.css",
-                      "~/Areas/Admin/Content/styles/dist/css/skins/skin-green.css",
-                      "~/Areas/Admin/Content/styles/dist/css/skins/skin-purple-light.css",
-                      "~/Areas/Admin/Content/styles/dist/css/skins/skin-purple.css",
-                      "~/Areas/Admin/Content/styles/dist/css/skins/skin-red-light.css",
-                      "~/Areas/Admin/Content/styles/dist/css/skins/skin-red.css",
-                      "~/Areas/Admin/Content/styles/dist/css/skins/skin-yellow-light.css",
-                      "~/Areas/Admin/Content/styles/dist/css/skins/skin-yellow.css"));
+                "~/Areas/Admin/Content/styles/sb-admin.css",
+                "~/Areas/Admin/Content/styles/sb-admin",
+                 "~/Areas/Admin/Content/styles/plugins/morris.css",
+                 "~/Content/font-awesome/css/font-awesome.css"));
 
-            // Admin 
             bundles.Add(new ScriptBundle("~/bundles/admin").Include(
-                "~/Areas/Admin/Scripts/slimScroll/jquery-slimscroll.js",
-                 "~/Areas/Admin/Scripts/fastclick/fastclick.js",
-                 "~/Areas/Admin/Scripts/app.js",
-                 "~/Areas/Admin/Scripts/demo.js"
-                ));
-
-            // Admin dashboard
-            bundles.Add(new ScriptBundle("~/bundles/admin/dashboard").Include(
-                "~/Areas/Admin/Scripts/pages/dashboard.js"
-                ));
-
+                "~/Scripts/libraries/bootstrap/plugins/flot/excanvas.min.js",
+                "~/Scripts/libraries/bootstrap/plugins/flot/flot-data.js",
+                "~/Scripts/libraries/bootstrap/plugins/flot/jquery.flot.js",
+                "~/Scripts/libraries/bootstrap/plugins/flot/jquery.flot.pie.js",
+                "~/Scripts/libraries/bootstrap/plugins/flot/jquery.flot.resize.js",
+                "~/Scripts/libraries/bootstrap/plugins/flot/jquery.flot.tooltip.min.js",
+                "~/Scripts/libraries/bootstrap/plugins/morris/morris-data.js",
+                "~/Scripts/libraries/bootstrap/plugins/morris/morris.js",
+                "~/Scripts/libraries/bootstrap/plugins/morris/raphael.min.js"
+            ));
 
             // Angular 
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(

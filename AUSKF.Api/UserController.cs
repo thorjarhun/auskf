@@ -38,9 +38,10 @@
         {
             try
             {
+                // TODO we don't need to grab ALL users 
                 var users = await this.cacheService.TryGetAsync<Expression<Func<User, bool>>,
                      Func<IQueryable<User>, IOrderedQueryable<User>>, string,
-                     IEnumerable<User>>("Users", (x => x != null), null, "Profile,Profile.Rank,Profile.Address", this.userRepository.Get, null);
+                     IEnumerable<User>>("Users", (x => x != null), null, "Profile,Promotions,Profile.Rank,Profile.Address", this.userRepository.Get, null);
 
                 var userArray = users as User[] ?? users.ToArray();
 
@@ -100,6 +101,7 @@
         [ResponseType(typeof(string))]
         public async Task<IHttpActionResult> UsernameAvailable(string username)
         {
+            // This breaks the whole REST concept.
             try
             {
                 if (!string.IsNullOrEmpty(username))

@@ -42,7 +42,8 @@
             var userTableSqlFile = File.ReadAllText(importDirectory + "dbo.Users.Table.sql");
             context.Database.ExecuteSqlCommand(userTableSqlFile);
 
-
+            var promotionsTableSqlFile = File.ReadAllText(importDirectory + "dbo.Promotions.Table.sql");
+            context.Database.ExecuteSqlCommand(promotionsTableSqlFile);
             
             this.AddUsers(context);
             this.AddFederations(context);

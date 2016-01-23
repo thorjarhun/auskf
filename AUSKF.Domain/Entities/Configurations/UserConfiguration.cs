@@ -20,7 +20,7 @@
                }));
             this.Property(u => u.Email).HasMaxLength(256);
 
-            //this.Property(a => a.AuskfIdNumber)
+            //this.Property(a => a.AuskfId)
             //    .IsRequired()
             //    .HasColumnAnnotation(
             //    IndexAnnotation.AnnotationName,

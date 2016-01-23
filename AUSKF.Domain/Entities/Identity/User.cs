@@ -3,6 +3,7 @@
     // Can't inherit from entity base if used in aspnet identity 
 
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Security.Claims;
@@ -24,12 +25,13 @@
         public User()
         {
             this.Active = true;
+            this.Promotions = new List<Promotion>();
         }
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public override int Id { get; set; }
-
+        
         /// <summary>
         /// Gets or sets the user profile identifier.
         /// </summary>
@@ -68,42 +70,37 @@
         /// <summary>
         /// First Name
         /// </summary>
-        [NotMapped]
-        // [Required] is this really required?
+        [MaxLength(20)]
         public string FirstName { get; set; }
 
         /// <summary>
         /// Middle Name
         /// </summary>
-        [NotMapped]
+        [MaxLength(20)]
         public string MiddleName { get; set; }
 
         /// <summary>
         /// Last Name
         /// </summary>
-        [NotMapped]
-        // [Required] is this really required?
+        [MaxLength(20)]
         public string LastName { get; set; }
 
         /// <summary>
         /// M for male. F for femail.
         /// </summary>
-        [MaxLength(1)]
+        [MaxLength(1)] 
         public string Gender { get; set; }
 
         /// <summary>
         /// Date of Birth
         /// </summary>
         [DataType(DataType.DateTime)]
-        // [Required] we can't require this
         public DateTime? DateOfBirth { get; set; }
 
         /// <summary>
         /// Unique ID number
         /// </summary>
-        // [Required] is this really required?]
-        [NotMapped]
-        public int AuskfIdNumber { get; set; }
+        public int AuskfId { get; set; }
 
         /// <summary>
         /// Gets or sets the password.
@@ -160,14 +157,13 @@
         /// </value>
         [MaxLength(256)]
         public string LastSearch { get; set; }
-
+         
         /// <summary>
         /// Gets or sets the joined date.
         /// </summary>
         /// <value>
         /// The joined date.
         /// </value>
-        //[Required]
         [DataType(DataType.Date)]
         public DateTime JoinedDate { get; set; }
 
@@ -177,7 +173,6 @@
         /// <value>
         /// The last login.
         /// </value>
-        //[Required]
         [DataType(DataType.Date)]
         public DateTime LastLogin { get; set; }
 
@@ -213,6 +208,8 @@
 
         [NotMapped]
         public override bool PhoneNumberConfirmed { get; set; }
+
+        public virtual ICollection<Promotion> Promotions { get; set; }
 
         /// <summary>
         /// Generates the user identity asynchronous.

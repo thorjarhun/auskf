@@ -257,6 +257,8 @@
         [DataMember]
         public bool HasNextPage { get; set; }
 
+        public string BaseUrl { get; set; }
+
         /// <summary>
         ///   Ensures the page array.
         /// </summary>

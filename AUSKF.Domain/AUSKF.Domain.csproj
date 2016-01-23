@@ -232,6 +232,7 @@
     <Compile Include="Providers\UserStoreProvider.cs" />
     <Compile Include="Repositories\EntityRepository.cs" />
     <Compile Include="Repositories\Interfaces\IEntityRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
     <Compile Include="Services\AssemblyDiscoveryService.cs" />
     <Compile Include="Services\CacheService.cs" />
