@@ -359,6 +359,15 @@ namespace AUSKF.Domain {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to My Profile.
+        /// </summary>
+        public static string MyProfile {
+            get {
+                return ResourceManager.GetString("MyProfile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to AUSKF.
         /// </summary>
         public static string NameHeaderText {

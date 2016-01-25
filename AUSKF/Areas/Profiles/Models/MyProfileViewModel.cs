@@ -1,4 +1,4 @@
-﻿namespace AUSKF.Domain.Models
+﻿namespace AUSKF.Areas.Profiles.Models
 {
     using System;
     using System.ComponentModel.DataAnnotations;
@@ -24,8 +24,12 @@
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
+        [DataType(DataType.Date)]
         [Display(Name = "Date of Birth")]
         public DateTime? DateOfBirth { get; set; }
+
+        [Display(Name = "Gender")]
+        public string Gender { get; set; }
 
         [Display(Name = "AUSKF Id Number")]
         public string AuskfIdNumber { get; set; }
@@ -36,9 +40,18 @@
         [Display(Name = "AUSKF Registration")]
         public bool IsAuskfRegistered { get; set; }
 
-        [Display(Name = "Gender")]
-        public string Gender { get; set; }
+        [DataType(DataType.PhoneNumber)]
+        [Display(Name = "Telephone")]
+        public string Telephone { get; set; }
 
+        [DataType(DataType.EmailAddress)]
+        [Display(Name = "Email")]
+        public string Email { get; set; }
+        
+        [DataType(DataType.EmailAddress)]
+        [Display(Name = "Email Confirm")]
+        public string EmailConfirm { get; set; }
+         
         [Display(Name = "Address Line 1")]
         public string AddressLine1 { get; set; }
 
@@ -51,6 +64,7 @@
         [Display(Name = "State")]
         public string State { get; set; }
 
+        [DataType(DataType.PostalCode)]
         [Display(Name = "Zip Code")]
         public string ZipCode { get; set; }
 

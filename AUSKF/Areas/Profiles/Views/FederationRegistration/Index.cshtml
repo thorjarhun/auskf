@@ -1,0 +1,347 @@
+﻿@model AUSKF.Areas.Profiles.Models.MyProfileViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h4>Please verify your personal information:</h4>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.FirstName, new { @class = "col-md-2 control-label" })
+    <div class="col-md-10">
+        @Model.FirstName
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.MiddleName, new { @class = "col-md-2 control-label" })
+    <div class="col-md-10">
+        @Model.MiddleName 
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.LastName, new { @class = "col-md-2 control-label" })
+    <div class="col-md-10">
+        @Model.LastName 
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.Gender, new { @class = "col-md-2 control-label" })
+    <div class="col-md-10">
+        @Model.Gender 
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.DateOfBirth, new { @class = "col-md-2 control-label" })
+    <div class="col-md-10">
+        @Model.DateOfBirth 
+    </div>
+</div>
+
+<h4>Kendo Information:</h4>
+<hr />
+
+<div class="form-group">
+    @Html.LabelFor(m => m.AuskfIdNumber, new { @class = "col-md-2 control-label" })
+    <div class="col-md-10">
+        @Model.AuskfIdNumber
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.DojoId, new { @class = "col-md-2 control-label" })
+    <div class="col-md-10">
+        @Model.DojoId 
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.RankId, new { @class = "col-md-2 control-label" })
+    <div class="col-md-10">
+        <select name="rankSelect" id="rankSelect" class="form-control" ng-model="user.kendoRankId">
+            <option value="">---Kendo Rank (optional)---</option> <!-- not selected / blank option -->
+            <option ng-repeat="rank in kendoranklist | orderBy:'kendoRankNumeric'" value="{{rank.kendoRankId}}">{{rank.kendoRankName}}</option>
+        </select>
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.MyFederation, new { @class = "col-md-2 control-label" })
+    <div class="col-md-10">
+        @if (!string.IsNullOrEmpty(Model.MyFederation))
+            {
+            @Html.TextBoxFor(m => m.MyFederation, new { @class = "form-control", type = "date" })
+        }
+        else
+        {
+            //TODO: TLS - Create FederationRegistration
+            @Html.ActionLink("Register", "index", "FederationRegistration")
+        }
+    </div>
+</div>
+ 
+
+<h4>Contact</h4>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.Telephone, new { @class = "col-md-2 control-label" })
+    <div class="col-md-10">
+        @Model.Telephone 
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+    <div class="col-md-10">
+        @Model.Email 
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.EmailConfirm, new { @class = "col-md-2 control-label" })
+    <div class="col-md-10">
+        @Model.EmailConfirm 
+    </div>
+</div>
+
+<hr />
+
+<h4>Personal Address:</h4>
+<hr />
+
+<div class="form-group">
+    @Html.LabelFor(m => m.AddressLine1, new { @class = "col-md-2 control-label" })
+    <div class="col-md-10">
+        @Model.AddressLine1 
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.AddressLine2, new { @class = "col-md-2 control-label" })
+    <div class="col-md-10">
+        @Model.AddressLine2 
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.City, new { @class = "col-md-2 control-label" })
+    <div class="col-md-10">
+        @Model.City 
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.State, new { @class = "col-md-2 control-label" })
+    <div class="col-md-10">
+        @Model.State 
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.ZipCode, new { @class = "col-md-2 control-label" })
+    <div class="col-md-10">
+        @Model.ZipCode 
+    </div>
+</div>
+
+
+<span>
+    If any of the above is incorrect please update it via this @Html.ActionLink("link", "index", "MyProfile")
+</span>
+
+<hr />
+
+
+
+<li class="form-line" data-type="control_text" id="id_66">
+    <div id="cid_66" class="form-input-wide">
+        <div id="text_66" class="form-html">
+            <div class="staticcontrol">
+                <span class="wordwrap">
+                    <span class="pspan trebuchet" style="font-size:11px;">
+                        <span class="ispan">
+                            WAIVER: For and in consideration of my participation in the practice of Kendo and all other activities of the Midwest Kendo Federation, I, for myself, my executors, administrators, and assigns do hereby release and agree not to sue the Midwest Kendo Federation, its officers, instructors, and administrators; the All United States Kendo Federation, its officers, instructors, and administrators; fellow participants; other clubs or dojos; third party organizations including but not limited to sponsors, and those allowing the use of their premises for Midwest Kendo Federation activities, jointly and/or severally, and hold and save them harmless from and against any and all actions, claims, liabilities, loss, damage, expense of whatever nature, including attorney fees, which may at any time be incurred by reason of my participation or my preparation in Midwest Kendo Federation sponsored activities, or traveling to and from said activities. I attest and verify that I have full knowledge of risks involved in Kendo and am physically fit and able to participate.
+                        </span>
+                    </span>
+                </span>
+            </div>
+            <div class="null">
+
+            </div>
+        </div>
+    </div>
+</li>
+<li class="form-line" data-type="control_clear" id="id_67">
+    <div id="cid_67" class="form-input-wide">
+        <div style="clear:both">
+        </div>
+    </div>
+</li>
+<li class="form-line jf-required" data-type="control_radio" id="id_68">
+    <label class="form-label form-label-left" id="label_68" for="input_68">
+        Applicant Signature Parent/Guardian signature if under 18
+        <span class="form-required">
+            *
+        </span>
+    </label>
+    <div id="cid_68" class="form-input jf-required">
+        <div class="form-multiple-column" data-columnCount="2">
+            <span class="form-radio-item">
+                <span class="dragger-item">
+                </span>
+                <input type="radio" class="form-radio validate[required]" id="input_68_0" name="q68_applicantSignature68" value="Authorized Electronic Signature" />
+                <label id="label_input_68_0" for="input_68_0"> Authorized Electronic Signature </label>
+            </span>
+        </div>
+    </div>
+</li>
+<li class="form-line" data-type="control_clear" id="id_69">
+    <div id="cid_69" class="form-input-wide">
+        <div style="clear:both">
+        </div>
+    </div>
+</li>
+<li class="form-line jf-required" data-type="control_textbox" id="id_70">
+    <label class="form-label form-label-left" id="label_70" for="input_70">
+        Name
+        <span class="form-required">
+            *
+        </span>
+    </label>
+    <div id="cid_70" class="form-input jf-required">
+        <input type="text" class=" form-textbox validate[required]" data-type="input-textbox" id="input_70" name="q70_name70" size="20" value="" />
+    </div>
+</li>
+<li class="form-line" data-type="control_paypalexpress" id="id_87">
+    <label class="form-label form-label-left form-label-auto" id="label_87" for="input_87"> MWKF Dues </label>
+    <div id="cid_87" class="form-input jf-required">
+        <input type="hidden" name="simple_fpc" data-payment_type="paypalexpress" value="87" />
+        <input type="hidden" id="use_paypal_button" />
+        <span class="form-product-item hover-product-item">
+            <input class="form-radio" type="radio" id="input_87_1004" name="q87_mwkfDues[][id]" value="1004" checked="checked" />
+            <label for="input_87_1004" class="form-product-container">
+                <span class="form-product-name" id="product-name-input_87_1004">
+                    Adult
+                </span>
+                <span class="form-product-details">
+                    <b>
+                        $
+                        <span id="input_87_1004_price">
+                            80.00
+                        </span>
+                        USD
+                    </b>
+                </span>
+            </label>
+        </span>
+        <br />
+        <span class="form-product-item hover-product-item">
+            <input class="form-radio" type="radio" id="input_87_1005" name="q87_mwkfDues[][id]" value="1005" />
+            <label for="input_87_1005" class="form-product-container">
+                <span class="form-product-name" id="product-name-input_87_1005">
+                    17 under and 65 and over
+                </span>
+                <span class="form-product-details">
+                    <b>
+                        $
+                        <span id="input_87_1005_price">
+                            50.00
+                        </span>
+                        USD
+                    </b>
+                </span>
+            </label>
+        </span>
+        <br />
+        <span class="form-product-item hover-product-item">
+            <input class="form-radio" type="radio" id="input_87_1006" name="q87_mwkfDues[][id]" value="1006" />
+            <label for="input_87_1006" class="form-product-container">
+                <span class="form-product-name" id="product-name-input_87_1006">
+                    Iaido
+                </span>
+                <span class="form-product-details">
+                    <b>
+                        $
+                        <span id="input_87_1006_price">
+                            55.00
+                        </span>
+                        USD
+                    </b>
+                </span>
+            </label>
+        </span>
+        <br />
+        <input id="express_category" type="hidden" data-digital_goods="No" />
+    </div>
+</li>
+<li class="form-line" data-type="control_clear" id="id_71">
+    <div id="cid_71" class="form-input-wide">
+        <div style="clear:both">
+        </div>
+    </div>
+</li>
+<li class="form-line" data-type="control_text" id="id_72">
+    <div id="cid_72" class="form-input-wide">
+        <div id="text_72" class="form-html">
+            <div class="staticcontrol">
+                <span class="wordwrap">
+                    <span class="pspan trebuchet" style="font-size:11px;">
+                        <span class="ispan">
+                            An electronic signature is a certification by you that may be used in lieu of a written signature. By clicking the above button and typing your name, you are electronically certifying this document as you would if you physically signed it on paper.
+                        </span>
+                    </span>
+                </span>
+            </div>
+            <div class="null">
+            </div>
+        </div>
+    </div>
+</li>
+<li class="form-line" data-type="control_clear" id="id_73">
+    <div id="cid_73" class="form-input-wide">
+        <div style="clear:both">
+        </div>
+    </div>
+</li>
+<li class="form-line" data-type="control_text" id="id_74">
+    <div id="cid_74" class="form-input-wide">
+        <div id="text_74" class="form-html">
+            <div class="staticcontrol">
+                <span class="wordwrap">
+                    <span class="pspan trebuchet" style="font-size:11px;">
+                        <span class="ispan" style="text-decoration:underline;">
+                            Clicking
+                        </span>
+                        <span class="ispan" style="font-weight:bold;font-style:italic;text-decoration:underline;">
+                            Proceed to Checkout
+                        </span>
+                        <span class="ispan" style="text-decoration:underline;">
+                            will SUBMIT the form and you will be redirected to the Paypal website. From the website you can either pay through your paypal account or use a credit card to pay your dues.
+                        </span>
+                    </span>
+                </span>
+            </div>
+        </div>
+    </div>
+</li>
+<li class="form-line" data-type="control_clear" id="id_75">
+    <div id="cid_75" class="form-input-wide">
+        <div style="clear:both">
+        </div>
+    </div>
+</li>
+<li class="form-line" data-type="control_button" id="id_78">
+    <div id="cid_78" class="form-input-wide">
+        <div style="margin-left:156px" class="form-buttons-wrapper">
+            <div style="float:left; margin-top: 8px;">
+                <input style="display:none; outline:none;" class="paypal-button" type="image" src="https://www.paypal.com/en_US/i/btn/btn_dg_pay_w_paypal.gif">
+            </div>
+            <button id="input_78" type="submit" class="form-submit-button">
+                Submit
+            </button>
+        </div>
+    </div>
+</li>

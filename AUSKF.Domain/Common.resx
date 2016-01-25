@@ -280,4 +280,7 @@
   <data name="UnableToFindEvent" xml:space="preserve">
     <value>Could not find news/event with the given id.</value>
   </data>
+  <data name="MyProfile" xml:space="preserve">
+    <value>My Profile</value>
+  </data>
 </root>

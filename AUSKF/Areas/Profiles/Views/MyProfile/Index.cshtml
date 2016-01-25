@@ -1,4 +1,4 @@
-﻿@model AUSKF.Domain.Models.MyProfileViewModel
+﻿@model AUSKF.Areas.Profiles.Models.MyProfileViewModel
 
 @{
     ViewBag.Title = "My Profile";
@@ -86,7 +86,7 @@
             else
             {
                 //TODO: TLS - Create FederationRegistration
-                @Html.ActionLink("Register", "Register", "FederationRegistration")
+                @Html.ActionLink("Register", "index", "FederationRegistration")
             }
         </div>
     </div>
@@ -105,6 +105,31 @@
             }
         </div>
     </div>
+
+    <h4>Contact</h4>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Telephone, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Telephone, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.EmailConfirm, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.EmailConfirm, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <hr />
 
     <h4>Personal Address:</h4>
     <hr />

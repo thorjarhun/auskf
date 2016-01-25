@@ -237,6 +237,9 @@
     <Compile Include="Areas\News\NewsAreaRegistration.cs" />
     <Compile Include="Areas\Officers\Controllers\HomeController.cs" />
     <Compile Include="Areas\Officers\OfficersAreaRegistration.cs" />
+    <Compile Include="Areas\Profiles\Controllers\FederationRegistrationController.cs" />
+    <Compile Include="Areas\Profiles\Models\MyProfileViewModel.cs" />
+    <Compile Include="Areas\Profiles\ProfilesAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CalendarController.cs" />
     <Compile Include="Controllers\DojoListController.cs" />
@@ -244,7 +247,7 @@
     <Compile Include="Controllers\FederationRegistrationsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\MyProfileController.cs" />
+    <Compile Include="Areas\Profiles\Controllers\MyProfileController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -516,10 +519,20 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Areas\Profiles\Views\web.config" />
+    <Content Include="Areas\Profiles\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Profiles\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Profiles\Views\FederationRegistration\Index.cshtml" />
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Scripts\libraries\jquery\jquery-2.2.0.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\libraries\bootstrap\bootstrap.js" />
     <Content Include="Scripts\libraries\bootstrap\bootstrap.min.js" />
     <Content Include="Scripts\libraries\jquery\jquery-2.2.0.js" />
@@ -567,6 +580,7 @@
     <Content Include="Scripts\libraries\bootstrap\plugins\morris\morris.js" />
     <Content Include="Scripts\libraries\bootstrap\plugins\morris\morris.min.js" />
     <Content Include="Scripts\libraries\bootstrap\plugins\morris\raphael.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\libraries\respond\respond.js" />
     <Content Include="Scripts\libraries\respond\respond.matchmedia.addListener.js" />
@@ -625,7 +639,7 @@
     <Content Include="Views\FederationList\Index.cshtml" />
     <Content Include="Views\FederationRegistrations\Index.cshtml" />
     <Content Include="Views\Home\Introduction.cshtml" />
-    <Content Include="Views\MyProfile\UpdateProfile.cshtml" />
+    <Content Include="Areas\Profiles\Views\MyProfile\Index.cshtml" />
     <Content Include="Views\Shared\_PageLinks.cshtml" />
   </ItemGroup>
   <ItemGroup>

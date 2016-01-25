@@ -1,24 +1,15 @@
-﻿namespace AUSKF.Controllers
+﻿namespace AUSKF.Areas.Profiles.Controllers
 {
     using Domain.Entities;
-    using AUSKF.Domain.Models;
+    using Models;
     using Domain.Providers.Identity;
-    using Microsoft.AspNet.Identity.Owin;
-    using System;
-    using System.Collections.Generic;
+    using Microsoft.AspNet.Identity.Owin; 
     using System.Linq;
     using System.Threading.Tasks;
     using System.Web;
     using System.Web.Mvc;
-    using Domain.Data;
-
-
-    using System.Data.Entity;
-    using System.Threading.Tasks;
-    using System.Web.Mvc;
-    using Domain.Collections;
-    using Domain.Data;
-    using Domain.Entities.Identity;
+    using Domain.Data; 
+    using System.Data.Entity; 
 
 
     [Authorize]
@@ -52,11 +43,13 @@
               
             MyProfileViewModel model = new MyProfileViewModel()
             {
-                FirstName = user.Profile.FirstName,
-                MiddleName = user.Profile.MiddleName,
-                LastName = user.Profile.LastName,
-                DateOfBirth = user.Profile.BirthDay,
-                Gender = user.Profile.Gender,
+                FirstName = user.FirstName,
+                MiddleName = user.MiddleName,
+                LastName = user.LastName,
+                DateOfBirth = user.DateOfBirth,
+                Gender = user.Gender,
+                Telephone = user.PhoneNumber,
+                Email = user.Email,
                 DojoId = user.Profile.DojoId,
                 RankId = user.Profile.RankId,
                 AddressLine1 = user.Profile.Address != null ? user.Profile.Address.AddressLine1 : string.Empty,
@@ -98,7 +91,36 @@
         {
             if (this.ModelState.IsValid)
             {
-                
+                var userId = User.Identity.GetUserIdAsInt();
+                var user = await UserManager.FindByIdAsync(userId);
+
+                user.FirstName = model.FirstName;
+                user.MiddleName = model.MiddleName;
+                user.LastName = model.LastName;
+                user.DateOfBirth = model.DateOfBirth;
+                user.Gender = model.Gender;
+                user.PhoneNumber = model.Telephone;
+                user.Email = model.Email;
+                user.Profile.DojoId = model.DojoId;
+                user.Profile.RankId = model.RankId;
+
+                if (!string.IsNullOrEmpty(model.AddressLine1) || !string.IsNullOrEmpty(model.AddressLine2) ||
+                    !string.IsNullOrEmpty(model.City) || !string.IsNullOrEmpty(model.ZipCode) || !string.IsNullOrEmpty(model.State))
+                {
+                    if (user.Profile.Address == null)
+                    {
+                        user.Profile.Address = new Address();
+                    }
+
+                    user.Profile.Address.AddressLine1 = model.AddressLine1;
+                    user.Profile.Address.AddressLine2 = model.AddressLine2;
+                    user.Profile.Address.City = model.City;
+                    user.Profile.Address.State = model.State;
+                    user.Profile.Address.ZipCode = model.ZipCode;
+                }
+
+                await UserManager.UpdateAsync(user);
+
                 return this.View();
             }
 
