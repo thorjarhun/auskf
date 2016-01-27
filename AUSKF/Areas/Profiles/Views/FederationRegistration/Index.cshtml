@@ -52,37 +52,18 @@
 </div>
 
 <div class="form-group">
-    @Html.LabelFor(m => m.DojoId, new { @class = "col-md-2 control-label" })
+    @Html.LabelFor(m => m.Dojo, new { @class = "col-md-2 control-label" })
     <div class="col-md-10">
-        @Model.DojoId 
+        @Model.Dojo
     </div>
 </div>
 
 <div class="form-group">
-    @Html.LabelFor(m => m.RankId, new { @class = "col-md-2 control-label" })
+    @Html.LabelFor(m => m.Rank, new { @class = "col-md-2 control-label" })
     <div class="col-md-10">
-        <select name="rankSelect" id="rankSelect" class="form-control" ng-model="user.kendoRankId">
-            <option value="">---Kendo Rank (optional)---</option> <!-- not selected / blank option -->
-            <option ng-repeat="rank in kendoranklist | orderBy:'kendoRankNumeric'" value="{{rank.kendoRankId}}">{{rank.kendoRankName}}</option>
-        </select>
+        @Model.Rank
     </div>
 </div>
-
-<div class="form-group">
-    @Html.LabelFor(m => m.MyFederation, new { @class = "col-md-2 control-label" })
-    <div class="col-md-10">
-        @if (!string.IsNullOrEmpty(Model.MyFederation))
-            {
-            @Html.TextBoxFor(m => m.MyFederation, new { @class = "form-control", type = "date" })
-        }
-        else
-        {
-            //TODO: TLS - Create FederationRegistration
-            @Html.ActionLink("Register", "index", "FederationRegistration")
-        }
-    </div>
-</div>
- 
 
 <h4>Contact</h4>
 

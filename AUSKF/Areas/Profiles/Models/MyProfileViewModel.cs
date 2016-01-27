@@ -12,8 +12,14 @@
         [Display(Name = "Rank")]
         public int? RankId { get; set; }
 
+        [Display(Name = "Rank")]
+        public string Rank { get; set; }
+
         [Display(Name = "Dojo")]
         public int? DojoId { get; set; }
+
+        [Display(Name = "Dojo")]
+        public string Dojo { get; set; }
 
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
