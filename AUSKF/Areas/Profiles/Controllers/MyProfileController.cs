@@ -3,19 +3,20 @@
     using Domain.Entities;
     using Models;
     using Domain.Providers.Identity;
-    using Microsoft.AspNet.Identity.Owin; 
+    using Microsoft.AspNet.Identity.Owin;
     using System.Linq;
     using System.Threading.Tasks;
     using System.Web;
     using System.Web.Mvc;
-    using Domain.Data; 
-    using System.Data.Entity; 
-
+    using Domain.Data;
+    using System.Data.Entity;
+    using Domain.Providers.Interfaces;
+    using NLog;
 
     [Authorize]
     public class MyProfileController : Controller
     {
-
+        private static readonly Logger logger = LogManager.GetLogger("MyProfileController");
         private ApplicationUserManager userManager;
         public ApplicationUserManager UserManager
         {
@@ -29,18 +30,27 @@
             }
         }
 
-        public MyProfileController(ApplicationUserManager userManager)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MyProfileController"/> class.
+        /// </summary>
+        /// <param name="userManager">
+        /// The user manager.
+        /// </param>  
+        public MyProfileController(IApplicationUserManager userManager)
         {
-            UserManager = userManager;
+            if (logger != null)
+            {
+                logger.Info("MyProfileController created.");
+            }
+            this.UserManager = (ApplicationUserManager)userManager; 
         }
 
-        // GET: MyProfile
-        [ValidateAntiForgeryToken]
+        // GET: MyProfile 
         public async Task<ActionResult> Index()
         {
             var userId = User.Identity.GetUserIdAsInt();
             var user = await UserManager.FindByIdAsync(userId);
-              
+            
             MyProfileViewModel model = new MyProfileViewModel()
             {
                 FirstName = user.FirstName,
@@ -49,14 +59,14 @@
                 DateOfBirth = user.DateOfBirth,
                 Gender = user.Gender,
                 Telephone = user.PhoneNumber,
-                Email = user.Email,
-                DojoId = user.Profile.DojoId,
-                RankId = user.Profile.RankId,
-                AddressLine1 = user.Profile.Address != null ? user.Profile.Address.AddressLine1 : string.Empty,
-                AddressLine2 = user.Profile.Address != null ? user.Profile.Address.AddressLine2 : string.Empty,
-                City = user.Profile.Address != null ? user.Profile.Address.City : string.Empty,
-                State = user.Profile.Address != null ? user.Profile.Address.State : string.Empty,
-                ZipCode = user.Profile.Address != null ? user.Profile.Address.ZipCode : string.Empty
+                Email = user.Email, 
+                DojoId = user.Profile != null ? user.Profile.DojoId : 0,
+                RankId = user.Profile != null ? user.Profile.RankId : 0,
+                AddressLine1 = user.Profile != null && user.Profile.Address != null ? user.Profile.Address.AddressLine1 : string.Empty,
+                AddressLine2 = user.Profile != null && user.Profile.Address != null ? user.Profile.Address.AddressLine2 : string.Empty,
+                City = user.Profile != null && user.Profile.Address != null ? user.Profile.Address.City : string.Empty,
+                State = user.Profile != null && user.Profile.Address != null ? user.Profile.Address.State : string.Empty,
+                ZipCode = user.Profile != null && user.Profile.Address != null ? user.Profile.Address.ZipCode : string.Empty
             };
 
             using (var context = new DataContext())

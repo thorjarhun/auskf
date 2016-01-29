@@ -223,6 +223,6 @@
         public string FileAs { get; set; }
 
         [MaxLength(256)]
-        public string Attachements { get; set; }
+        public string Attachments { get; set; }
     }
 }
