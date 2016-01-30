@@ -45,18 +45,14 @@
             {
                 var user = await (from u in context.Users
                     .Include(u => u.Promotions)
+                    .Include(u => u.Profile)
+                    .Include(u => u.Roles)
+                    .Include(u => u.Claims)
+                    .Include(u => u.Logins)
                                   where u.Id == userId
                                   select u)
-                    //.Include(u => u.Promotions)
-                    //.Include(u => u.Roles)
-                    //.Include(u => u.Claims)
-                    //.Include(u => u.Logins)
                     .FirstOrDefaultAsync();
-
-                //var promotions = await (from p in context.Promotions
-                //                        where p.UserId == user.Id
-                //                        select p).ToListAsync();
-
+                user.Promotions.Sort();
                 return View(user);
             }
         }

@@ -209,7 +209,7 @@
         [NotMapped]
         public override bool PhoneNumberConfirmed { get; set; }
 
-        public virtual ICollection<Promotion> Promotions { get; set; }
+        public virtual List<Promotion> Promotions { get; set; }
 
 
         /// <summary>

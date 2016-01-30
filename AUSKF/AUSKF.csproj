@@ -279,6 +279,7 @@
     <Content Include="Content\font-awesome\css\font-awesome.min.css" />
     <Content Include="Content\font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Images\Men.png" />
     <Content Include="Content\Images\2006.jpg" />
     <Content Include="Content\Images\armor.jpg" />
     <Content Include="Content\Images\banner1.jpg" />
@@ -286,6 +287,7 @@
     <Content Include="Content\Images\bogu.jpg" />
     <Content Include="Content\Images\copyright.gif" />
     <Content Include="Content\Images\logo.gif" />
+    <Content Include="Content\Images\Muga-Kendo-Helmet.png" />
     <Content Include="Content\Images\newsletter.jpg" />
     <Content Include="Content\Site.min.css">
       <DependentUpon>Site.css</DependentUpon>
@@ -654,6 +656,8 @@
     <Content Include="Views\Home\Introduction.cshtml" />
     <Content Include="Areas\Profiles\Views\MyProfile\Index.cshtml" />
     <Content Include="Views\Shared\_PageLinks.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\ShortDateTime.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Age.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

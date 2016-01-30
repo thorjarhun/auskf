@@ -1,0 +1,13 @@
+﻿@model System.DateTime
+
+@Model.ToShortDateString()
+
+@{
+    int age = DateTime.Now.Year - Model.Year;
+
+    if (Model > DateTime.Now.AddYears(-age))
+    {
+        age--;
+    }
+}
+<span class="birth-age"> - @age years old</span>

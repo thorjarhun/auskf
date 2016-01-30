@@ -156,6 +156,7 @@
     <Compile Include="Entities\Comment.cs" />
     <Compile Include="Entities\Configurations\UserConfiguration.cs" />
     <Compile Include="Entities\Division.cs" />
+    <Compile Include="Entities\DivisionWinner.cs" />
     <Compile Include="Entities\Dojo.cs" />
     <Compile Include="Entities\EntityBase.cs" />
     <Compile Include="Entities\Event.cs" />
