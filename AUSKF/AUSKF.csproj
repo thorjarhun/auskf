@@ -227,6 +227,7 @@
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Areas\Forms\Controllers\HomeController.cs" />
@@ -523,6 +524,8 @@
     <Content Include="Areas\Profiles\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Profiles\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Profiles\Views\FederationRegistration\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Dashboard\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Details.cshtml" />
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
     </None>

@@ -211,6 +211,7 @@
 
         public virtual ICollection<Promotion> Promotions { get; set; }
 
+
         /// <summary>
         /// Generates the user identity asynchronous.
         /// </summary>

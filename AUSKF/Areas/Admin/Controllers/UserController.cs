@@ -31,5 +31,22 @@
                 return View(users);
             }
         }
+
+        [HttpGet]
+        public async Task<ActionResult> Details(int userId)
+        {
+            using (var context = new DataContext())
+            {
+                var user = await context.Users
+                    .Include(u => u.Profile.Dojo)
+                    .Include(u => u.Promotions)
+                    .Include(u => u.Roles)
+                    .Include(u => u.Claims)
+                    .Include(u => u.Logins)
+                    .FirstOrDefaultAsync();
+
+                return View(user);
+            }
+        }
     }
 }

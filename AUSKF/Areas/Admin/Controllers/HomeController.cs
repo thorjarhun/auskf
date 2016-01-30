@@ -4,7 +4,7 @@
 
     public class HomeController : Controller
     {
-        [Authorize(Roles="Admin")]
+        //[Authorize(Roles="Admin")]
         public ActionResult Index()
         {
             return View();
