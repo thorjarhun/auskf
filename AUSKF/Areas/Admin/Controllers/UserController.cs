@@ -1,6 +1,7 @@
 ﻿namespace AUSKF.Areas.Admin.Controllers
 {
     using System.Data.Entity;
+    using System.Linq;
     using System.Threading.Tasks;
     using System.Web.Mvc;
     using Domain.Collections;
@@ -12,7 +13,7 @@
 
         // TODO Require login/roles etc
         [HttpGet]
-        public async Task<ActionResult> Index(string page = null)
+        public async Task<ActionResult> Index(string page = null, string sort = "Id")
         {
             int pageNumber = 1;
 
@@ -25,8 +26,13 @@
             // TODO repository, caching etc.
             using (var context = new DataContext())
             {
-                var userList = await context.Users.Include(u => u.Profile.Dojo)
-                    .Include(u => u.Promotions).ToArrayAsync();
+                var userList = await (from x in context.Users
+                                          .Include(u => u.Profile.Dojo)
+                                      orderby sort
+                                      select x
+                    ).ToArrayAsync();
+
+
                 var users = new SerializablePagination<User>(userList, pageNumber);
                 return View(users);
             }
@@ -37,13 +43,19 @@
         {
             using (var context = new DataContext())
             {
-                var user = await context.Users
-                    .Include(u => u.Profile.Dojo)
+                var user = await (from u in context.Users
                     .Include(u => u.Promotions)
-                    .Include(u => u.Roles)
-                    .Include(u => u.Claims)
-                    .Include(u => u.Logins)
+                                  where u.Id == userId
+                                  select u)
+                    //.Include(u => u.Promotions)
+                    //.Include(u => u.Roles)
+                    //.Include(u => u.Claims)
+                    //.Include(u => u.Logins)
                     .FirstOrDefaultAsync();
+
+                //var promotions = await (from p in context.Promotions
+                //                        where p.UserId == user.Id
+                //                        select p).ToListAsync();
 
                 return View(user);
             }

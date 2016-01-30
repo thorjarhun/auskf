@@ -535,6 +535,7 @@
     <Content Include="Areas\Admin\Views\User\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Events\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Logs\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -658,7 +659,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Scripts\" />
-    <Folder Include="Areas\Admin\Views\Home\" />
     <Folder Include="Areas\Forms\Models\" />
     <Folder Include="Areas\Forms\Views\Forms\" />
     <Folder Include="Areas\Forms\Views\Shared\" />

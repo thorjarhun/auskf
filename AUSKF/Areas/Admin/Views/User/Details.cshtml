@@ -179,6 +179,17 @@
         </dd>
 
     </dl>
+
+
+</div>
+<div class="row">
+    @foreach (var item in Model.Promotions)
+    {
+        <div class="col-xs-8">
+            Promotion Date:  @item.RankDate
+            Rank: @item.RankListed
+        </div>
+    }
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |

@@ -66,17 +66,22 @@
         /// <exception cref="System.ArgumentNullException">other</exception>
         public int CompareTo(Promotion other)
         {
-            if ((other == null) || (other.RankDate == null))
+            if (other == null || other.RankDate == null)
             {
                 return -1;
             }
 
-            if (this.RankDate == null)
+            if (this.RankDate == null || this.RankDate.Value < other.RankDate.Value)
             {
                 return 1;
             }
-  
-            return this.RankDate.Value.CompareTo(other.RankDate.Value);
+
+            if (this.RankDate.Value == other.RankDate.Value)
+            {
+                return 0;
+            }
+
+            return -1;
         }
     }
 }
