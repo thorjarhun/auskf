@@ -238,6 +238,7 @@
     <Compile Include="Areas\Officers\Controllers\HomeController.cs" />
     <Compile Include="Areas\Officers\OfficersAreaRegistration.cs" />
     <Compile Include="Areas\Profiles\Controllers\FederationRegistrationController.cs" />
+    <Compile Include="Areas\Profiles\Models\FederationRegistrationViewModel.cs" />
     <Compile Include="Areas\Profiles\Models\MyProfileViewModel.cs" />
     <Compile Include="Areas\Profiles\ProfilesAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />

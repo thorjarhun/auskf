@@ -46,7 +46,7 @@
             var userId = User.Identity.GetUserIdAsInt();
             var user = await UserManager.FindByIdAsync(userId);
 
-            MyProfileViewModel model = new MyProfileViewModel()
+            FederationRegistrationViewModel model = new FederationRegistrationViewModel()
             {
                 FirstName = user.FirstName,
                 MiddleName = user.MiddleName,
