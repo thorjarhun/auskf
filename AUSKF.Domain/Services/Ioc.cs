@@ -10,6 +10,7 @@
     using Castle.Core.Internal;
     using Castle.MicroKernel;
     using Castle.MicroKernel.Registration;
+    using Castle.MicroKernel.Resolvers;
     using Castle.Windsor;
     using Factories;
     using Factories.Interfaces;
@@ -680,10 +681,7 @@
             if (!this.initialized)
             {
                 this.WindsorContainer = new WindsorContainer();
-
-                //windsorContainer.Register(
-                //    Component.For(typeof(IContainer)).Activator<ContainerActivator>()
-                //    .ImplementedBy(typeof(Ioc)).Named("Ioc").LifeStyle.Is(LifestyleType.Singleton));
+                this.WindsorContainer.Register(Component.For<ILazyComponentLoader>().ImplementedBy<LazyOfTComponentLoader>());
 
                 foreach (var component in registeredComponents)
                 {

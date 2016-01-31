@@ -1,6 +1,7 @@
 ﻿namespace AUSKF.Areas.Admin.Controllers
 {
     using System.Data.Entity;
+    using System.Linq;
     using System.Threading.Tasks;
     using System.Web.Mvc;
     using Domain.Collections;
@@ -12,7 +13,7 @@
 
         // TODO Require login/roles etc
         [HttpGet]
-        public async Task<ActionResult> Index(string page = null)
+        public async Task<ActionResult> Index(string page = null, string sort = "Id")
         {
             int pageNumber = 1;
 
@@ -25,10 +26,34 @@
             // TODO repository, caching etc.
             using (var context = new DataContext())
             {
-                var userList = await context.Users.Include(u => u.Profile.Dojo)
-                    .Include(u => u.Promotions).ToArrayAsync();
+                var userList = await (from x in context.Users
+                                          .Include(u => u.Profile.Dojo)
+                                      orderby sort
+                                      select x
+                    ).ToArrayAsync();
+
+
                 var users = new SerializablePagination<User>(userList, pageNumber);
                 return View(users);
+            }
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> Details(int userId)
+        {
+            using (var context = new DataContext())
+            {
+                var user = await (from u in context.Users
+                    .Include(u => u.Promotions)
+                    .Include(u => u.Profile)
+                    .Include(u => u.Roles)
+                    .Include(u => u.Claims)
+                    .Include(u => u.Logins)
+                                  where u.Id == userId
+                                  select u)
+                    .FirstOrDefaultAsync();
+                user.Promotions.Sort();
+                return View(user);
             }
         }
     }

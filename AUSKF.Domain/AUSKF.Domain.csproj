@@ -155,6 +155,8 @@
     <Compile Include="Entities\Address.cs" />
     <Compile Include="Entities\Comment.cs" />
     <Compile Include="Entities\Configurations\UserConfiguration.cs" />
+    <Compile Include="Entities\Division.cs" />
+    <Compile Include="Entities\DivisionWinner.cs" />
     <Compile Include="Entities\Dojo.cs" />
     <Compile Include="Entities\EntityBase.cs" />
     <Compile Include="Entities\Event.cs" />
@@ -166,10 +168,13 @@
     <Compile Include="Entities\Identity\UserLogin.cs" />
     <Compile Include="Entities\Identity\UserProfile.cs" />
     <Compile Include="Entities\Identity\UserRole.cs" />
+    <Compile Include="Entities\Location.cs" />
     <Compile Include="Entities\Promotion.cs" />
     <Compile Include="Entities\Rank.cs" />
     <Compile Include="Entities\Log.cs" />
     <Compile Include="Entities\OfficerRole.cs" />
+    <Compile Include="Entities\Sex.cs" />
+    <Compile Include="Entities\Tournament.cs" />
     <Compile Include="Exceptions\ParameterNullException.cs" />
     <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="Extensions\EventExtensions.cs" />

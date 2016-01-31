@@ -90,8 +90,10 @@
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.FirstName)
-                        @Html.DisplayFor(modelItem => item.LastName)
+                        <a href="~/Admin/User/Details?userId=@item.Id">
+                            @Html.DisplayFor(modelItem => item.FirstName)
+                            @Html.DisplayFor(modelItem => item.LastName)
+                        </a>
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.AuskfId)
