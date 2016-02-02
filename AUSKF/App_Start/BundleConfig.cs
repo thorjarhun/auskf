@@ -35,6 +35,12 @@ namespace AUSKF
                  "~/Areas/Admin/Content/styles/plugins/morris.css",
                  "~/Content/font-awesome/css/font-awesome.css"));
 
+            bundles.Add(new ScriptBundle("~/bundles/admin-angular").Include(
+                "~/Areas/Admin/Scripts/auskf.admin.module.js",
+                "~/Areas/Admin/Scripts/auskf.admin.layout.controller.js"
+
+            ));
+
             bundles.Add(new ScriptBundle("~/bundles/admin").Include(
                 "~/Scripts/libraries/bootstrap/plugins/flot/excanvas.min.js",
                 "~/Scripts/libraries/bootstrap/plugins/flot/flot-data.js",
