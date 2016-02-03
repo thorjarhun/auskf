@@ -1,4 +1,5 @@
-﻿@model AUSKF.Domain.Collections.SerializablePagination<AUSKF.Domain.Entities.Identity.User>
+﻿@using AUSKF.Domain
+@model AUSKF.Domain.Collections.SerializablePagination<AUSKF.Domain.Entities.Identity.User>
 
 @{
     ViewBag.Title = "User management";
@@ -79,41 +80,23 @@
             <table class="table table-bordered table-hover">
 
                 <tr>
-                    <th>
-                        FirstName LastName
-                        @*@Html.DisplayNameFor(model => model.CurrentPage[0].FirstName)
-                            @Html.DisplayNameFor(model => model.CurrentPage[0].LastName)*@
-                    </th>
-                    <th>
-                        AUSKFID
-                        @*@Html.DisplayNameFor(model => model.CurrentPage[0].AuskfId)*@
-                    </th>
-                    <th>
-                        Is Active
-                        @*@Html.DisplayNameFor(model => model.CurrentPage[0].Active)*@
-                    </th>
+                    <th>@Common.FirstName - @Common.LastName</th>
+                    <th>@Common.AuskfId </th>
+                    <th>@Common.Active</th>
                 </tr>
+                <tr ng-repeat="item in userList.currentPage">
+                    <td>
+                        <a ng-href="~/Admin/User/Details?userId={{item.id}}">
+                            {{item.firstName}} {{item.lastName}}
+                        </a>
+                    </td>
+                    <td>
+                        {{ item.auskfId }}
+                    <td>
+                        {{item.isActive}}
+                    </td>
 
-                @*@foreach (var item in Model.CurrentPage)
-                {*@
-                    <tr ng-repeat="item in userList.currentPage">
-                        <td>
-                            <a ng-href="~/Admin/User/Details?userId={{item.id}}">
-                                {{item.firstName}} {{item.lastName}}
-                                @*@Html.DisplayFor(modelItem => item.FirstName)
-                                @Html.DisplayFor(modelItem => item.LastName)*@
-                            </a>
-                        </td>
-                        <td>
-                            {{ item.auskfId }}
-                            @*@Html.DisplayFor(modelItem => item.AuskfId)*@
-
-                        <td>
-                            {{item.isActive}}
-                            @*@Html.DisplayFor(modelItem => item.Active)*@
-                        </td>
-
-                    </tr>
+                </tr>
                 @*}*@
 
             </table>
@@ -121,7 +104,6 @@
 
     </div>
     <div class="row" style="margin:5px 20px;padding-left:20px;">
-
         @Html.Partial("_PageLinks", Model)
     </div>
 </div>

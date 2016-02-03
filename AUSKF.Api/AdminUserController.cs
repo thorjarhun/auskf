@@ -52,7 +52,7 @@
                     pageNumber,
                     pageSize)
                 {
-                    BaseUrl = "Admin/User",
+                    BaseUrl = "User",
                     SortBy = sort,
                     SortDirection = ParseSort(sortDirection)
                 };
