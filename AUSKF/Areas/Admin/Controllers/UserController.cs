@@ -36,6 +36,7 @@
 
 
                 var users = new SerializablePagination<User>(userList, pageNumber);
+                ViewBag.PageHeader = "User List ";
                 return View(users);
             }
         }
@@ -44,6 +45,8 @@
         public async Task<ActionResult> Details(int userId)
         {
             var user = await GetUser(userId);
+            ViewBag.PageHeader = "Details " + user.UserName;
+            
             return View(user);
         }
 
@@ -51,6 +54,8 @@
         public async Task<ActionResult> Edit(int userId)
         {
             var user = await GetUser(userId);
+            ViewBag.PageHeader = "Editing " + user.UserName;
+
             return View(user);
         }
 
@@ -76,6 +81,7 @@
                     user.DateOfBirth = (DateTime) SqlDateTime.MinValue;
                     await context.SaveChangesAsync();
                 }
+
                 return user;
             }
         }

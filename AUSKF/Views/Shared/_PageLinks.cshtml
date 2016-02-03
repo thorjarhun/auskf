@@ -2,29 +2,14 @@
 <div class="row">
     <div class="page-nation">
         <ul class="pagination pagination-large">
-            @{
-                if (Model.HasPreviousPage)
-                {
-                    var previous = Model.PageNumber - 1;
-                    <li><a href="@Model.BaseUrl?page=@previous">prev</a></li>
-                }
-                foreach (var page in Model.PageArray)
-                {
-                    if (page == Model.PageNumber.ToString())
-                    {
-                        <li class="active"><a href="@Model.BaseUrl?page=@page">@page</a></li>
-                    }
-                    else
-                    {
-                        <li><a href="@Model.BaseUrl?page=@page">@page</a></li>
-                    }
-                }
-                if (Model.HasNextPage)
-                {
-                    var next = Model.PageNumber + 1;
-                    <li><a href="@Model.BaseUrl?page=@next">next</a></li>
-                }
-            }
+
+            <li ng-show="userList.hasPreviousPage"><a ng-href="{{userList.BaseUrl}}?page={{ userList.pageNumber - 1 }}">prev</a></li>
+
+            <li ng-repeat="page in userList.pageArray" ng-class="getclass(page, userList.pageNumber)">
+                <a ng-href="{{userList.baseUrl}}?page={{page}}">{{page}}</a>
+            </li>
+
+            <li ng-show="userList.hasNextPage"><a ng-href="{{userList.baseUrl}}?page={{ userList.pageNumber + 1 }}">prev</a></li>
         </ul>
     </div>
 </div>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mvcSiteMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0"
+            xsi:schemaLocation="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0 MvcSiteMapSchema.xsd">
+
+  <mvcSiteMapNode title="Home" controller="Home" action="Index">
+    
+    <mvcSiteMapNode title="About" controller="Home" action="About"/>
+    
+    <mvcSiteMapNode title="News" controller="News" action="Index">
+      <mvcSiteMapNode title="Sports News" controller="News" action="Sports"/>
+    </mvcSiteMapNode>
+
+    <mvcSiteMapNode title="Admin Home" area="Admin" controller="Home" action="Index" preservedRouteParameters="culture">
+      <mvcSiteMapNode title="Users" area="Admin" controller="User" action="Index" preservedRouteParameters="culture">
+        <mvcSiteMapNode title="User Details" area="Admin" controller="User" action="Details" preservedRouteParameters="culture" />
+      </mvcSiteMapNode>
+    </mvcSiteMapNode>
+
+
+    </mvcSiteMapNode>
+  
+</mvcSiteMap>

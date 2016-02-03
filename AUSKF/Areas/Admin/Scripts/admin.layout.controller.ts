@@ -2,8 +2,12 @@
 module auskf.admin {
     "use strict";
 
+    import userInfoViewModel = AUSKF.Domain.Models.Account.UserInfoViewModel;
 
     interface ILayoutScope extends ng.IScope {
+        userMail: string;
+        userModel: userInfoViewModel;
+        validationMessage: string;
     }
 
     export class AdminLayoutController {
@@ -15,8 +19,13 @@ module auskf.admin {
             this.getLoggedInUser();
         }
 
-        getLoggedInUser(): ng.IHttpPromise<Array<Event>> {
-            return this.$http.get(this.serviceUri);
+        getLoggedInUser(): any {
+            this.$http.get(this.serviceUri).success(data => {
+                this.$scope.userModel = <AUSKF.Domain.Models.Account.UserInfoViewModel>(data);
+            }).error(error => {
+                this.$scope.validationMessage = error.exceptionMessage;
+            });
+
         };
     }
 

@@ -37,8 +37,8 @@ namespace AUSKF
 
             bundles.Add(new ScriptBundle("~/bundles/admin-angular").Include(
                 "~/Areas/Admin/Scripts/auskf.admin.module.js",
-                "~/Areas/Admin/Scripts/auskf.admin.layout.controller.js"
-
+                "~/Areas/Admin/Scripts/admin.layout.controller.js",
+                "~/Areas/Admin/Scripts/admin.user.controller.js"
             ));
 
             bundles.Add(new ScriptBundle("~/bundles/admin").Include(
