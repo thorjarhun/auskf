@@ -7,7 +7,7 @@
     using Domain.Models.Account;
     using Microsoft.AspNet.Identity;
 
-    [Authorize]
+    //[Authorize]
     [RoutePrefix("api/v1/account")]
     public class AccountController : ApiController
     {
@@ -44,12 +44,13 @@
         {
             ExternalLoginData externalLogin = ExternalLoginData.FromIdentity(User.Identity as ClaimsIdentity);
 
-            return new UserInfoViewModel
+            var model = new UserInfoViewModel
             {
                 Email = User.Identity.GetUserName(),
                 HasRegistered = externalLogin == null,
                 LoginProvider = externalLogin != null ? externalLogin.LoginProvider : null
             };
+            return model;
         }
 
         //// POST api/Account/Logout

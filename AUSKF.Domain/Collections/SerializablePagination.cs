@@ -6,14 +6,14 @@
     using System.Runtime.Serialization;
     using Exceptions;
     using Factories;
+    using Interfaces;
     using Newtonsoft.Json;
 
     /// <summary></summary>
     /// <typeparam name="T"></typeparam>
     [DataContract(Namespace = "")]
-    public sealed class SerializablePagination<T> : BasePagination
+    public class SerializablePagination<T> : BasePagination
     {
-
         [NonSerialized, JsonIgnore]
         private readonly IList<T> dataSource;
         private string[] pageArray;
@@ -65,6 +65,7 @@
             {
                 throw new TypeInitializationException(this.GetType().ToString(), new ParameterNullException("dataSource"));
             }
+            this.SortDirection = SortDirection.Descending;
             this.CurrentPage = new List<T>();
             this.dataSource = dataSource.ToList();
             this.TotalItems = this.dataSource.Count();
@@ -76,6 +77,49 @@
             this.SetupCurrentPage();
             this.HasNextPage = this.PageNumber < this.TotalPages;
             this.HasPreviousPage = this.PageNumber > 1;
+
+            // make sure that array of links (not the number of links per page, but the number of links to pages
+            // ie 1 _ 2 _ 3 _ 4  shown on the bottom for paging, is not greater than our total pages.
+            this.pageArraySize = this.TotalPages > 11 ? 11 : this.TotalPages;
+
+            this.EnsurePageArrayBuilder();
+
+            this.BuildPageArray();
+            // ReSharper restore DoNotCallOverridableMethodsInConstructor
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SerializablePagination{T}" /> class.
+        /// </summary>
+        /// <param name="dataSource">The data source.</param>
+        /// <param name="totalNumberOfItems">The total number of items.</param>
+        /// <param name="pageNumber">The page number.</param>
+        /// <param name="pageSize">Size of the page.</param>
+        /// <param name="sortDirection">The sort direction.</param>
+        /// <exception cref="System.TypeInitializationException">new ParameterNullException(dataSource)</exception>
+        /// <exception cref="ParameterNullException">dataSource</exception>
+        public SerializablePagination(ICollection<T> dataSource, int totalNumberOfItems, int pageNumber, int pageSize, SortDirection sortDirection = SortDirection.Descending)
+        {
+            // ReSharper disable DoNotCallOverridableMethodsInConstructor
+            // NOTE we don't check for an empty collection to allow for a default parameterless constructor
+            if (dataSource == null)
+            {
+                throw new TypeInitializationException(this.GetType().ToString(), new ParameterNullException("dataSource"));
+            }
+            // not sure if this is the best way to go, we'll see
+            this.SortDirection = sortDirection;
+            this.CurrentPage = new List<T>();
+            this.dataSource = dataSource.ToList();
+            this.TotalItems = totalNumberOfItems;
+
+            // DO NOT CHANGE THIS ORDER
+            this.pageSize = this.ValidatePageSize(pageSize, this.TotalItems);
+            this.TotalPages = this.CalculateTotalPages();
+            this.PageNumber = this.ValidatePageNumber(pageNumber);
+            this.CurrentPage.AddRange(dataSource);
+            this.HasNextPage = this.PageNumber < this.TotalPages;
+            this.HasPreviousPage = this.PageNumber > 1;
+
             // make sure that array of links (not the number of links per page, but the number of links to pages
             // ie 1 _ 2 _ 3 _ 4  shown on the bottom for paging, is not greater than our total pages.
             this.pageArraySize = this.TotalPages > 11 ? 11 : this.TotalPages;
@@ -257,7 +301,14 @@
         [DataMember]
         public bool HasNextPage { get; set; }
 
+        [DataMember]
         public string BaseUrl { get; set; }
+
+        [DataMember]
+        public SortDirection SortDirection { get; set; }
+
+        [DataMember]
+        public string SortBy { get; set; }
 
         /// <summary>
         ///   Ensures the page array.
@@ -280,7 +331,7 @@
             return this.pageArrayBuilder.BuildPageArray().ToArray();
         }
 
-        // only need to do this if pagesize changes.
+        // only need to do this if page size changes.
         private int CalculateTotalPages()
         {
             // avoid divide by zero

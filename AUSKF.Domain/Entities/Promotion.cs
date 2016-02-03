@@ -3,52 +3,68 @@
     using System;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Runtime.Serialization;
     using Identity;
+    using Newtonsoft.Json;
 
     // Promotion cannot inherit from entity base as we need to do 
     // an initial data import
-
+    [DataContract(Namespace="")]
     public class Promotion : IComparable<Promotion>
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DataMember]
         public int PromotionId { get; set; }
 
         [ForeignKey("User")]
+        [JsonIgnore]
         public int? UserId { get; set; }
 
+        [JsonIgnore]
         public User User { get; set; }
 
+        [JsonIgnore]
         public int? ContactId { get; set; }
 
         // this is superfluous but we'll leave it for now
+        [JsonIgnore]        
         public int? AuskfId { get; set; }
 
         // this is superfluous but we'll leave it for now
         [MaxLength(255)]
+        [JsonIgnore]
         public string FirstName { get; set; }
 
         // this is superfluous but we'll leave it for now
         [MaxLength(255)]
+        [JsonIgnore]
         public string LastName { get; set; }
 
+        [DataMember]
         public bool Verified { get; set; }
 
+        [DataMember]
         public DateTime? RankDate { get; set; }
 
         // this needs to be mapped still in legacy data
         [ForeignKey("Rank")]
+        [JsonIgnore]
         public int? RankId { get; set; }
 
+        [DataMember]
         public Rank Rank { get; set; }
 
         [MaxLength(20)]
+        [DataMember]
         public string RankType { get; set; }
 
         [MaxLength(20)]
+        [DataMember]
         public string RankListed { get; set; }
 
         [MaxLength(255)]
+        [DataMember]
         public string TestingFederationLocation { get; set; }
 
         /// <summary>

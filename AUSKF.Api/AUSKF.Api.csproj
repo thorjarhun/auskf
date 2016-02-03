@@ -79,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountController.cs" />
+    <Compile Include="AdminUserController.cs" />
     <Compile Include="DojoController.cs" />
     <Compile Include="DojoMembershipController.cs" />
     <Compile Include="EventsController.cs" />

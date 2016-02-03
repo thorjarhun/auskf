@@ -58,6 +58,7 @@ declare module AUSKF.Domain.Entities.Identity {
         homePage: string;
     }
 }
+
 declare module Microsoft.AspNet.Identity.EntityFramework {
     interface IdentityUser<TKey, TLogin, TRole, TClaim> {
         email: string;
@@ -92,7 +93,6 @@ declare module Microsoft.AspNet.Identity.EntityFramework {
         userId: TKey;
     }
 }
-
 
 declare module AUSKF.Domain.Entities {
     import User = Domain.Entities.Identity.User;
@@ -130,5 +130,32 @@ declare module AUSKF.Domain.Entities {
         description: string;
         createdBy: User;
         id: System.Guid;
+    }
+}
+declare module AUSKF.Domain.Collections{
+    interface SerializablePagination<T> extends AUSKF.Domain.Collections.BasePagination {
+        startingIndex: number;
+        pageArray: string[];
+        pageArraySize: number;
+        pageNumber: number;
+        currentPage: T[];
+        pageSize: number;
+        totalItems: number;
+        totalPages: number;
+        hasPreviousPage: boolean;
+        hasNextPage: boolean;
+        baseUrl: string;
+    }
+    interface BasePagination {
+        totalPages: number;
+        pageArraySize: number;
+        pageNumber: number;
+    }
+}
+declare module AUSKF.Domain.Models.Account {
+    interface UserInfoViewModel {
+        email: string;
+        hasRegistered: boolean;
+        loginProvider: string;
     }
 }

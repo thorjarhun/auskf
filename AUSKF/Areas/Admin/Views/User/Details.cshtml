@@ -25,7 +25,9 @@
                                 </tr>
                                 <tr>
                                     <td>AUSKFID</td>
-                                    <td>@Html.DisplayFor(model => model.AuskfId)</td>
+                                    <td>
+                                        @Html.DisplayFor(model => model.AuskfId)
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>Date of Birth</td>
@@ -35,7 +37,12 @@
                                     }
                                     else
                                     {
-                                        <td>@Html.DisplayFor(model => model.DateOfBirth, "Age")</td>
+                                        <td>
+                                            <input class="form-control" name="registration_date" id="registration-date" type="date"
+                                                   value="@Model.DateOfBirth.Value.ToShortDateString()">
+
+                                            @Html.DisplayFor(model => model.DateOfBirth, "Age")
+                                        </td>
                                     }
                                 </tr>
 

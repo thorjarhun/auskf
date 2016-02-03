@@ -191,6 +191,7 @@
     <Content Include="Migrations\201601120239140_M1_011116.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Compile Include="Interfaces\SortDirection.cs" />
     <Compile Include="Migrations\201601120239140_M1_011116.Designer.cs">
       <DependentUpon>201601120239140_M1_011116.cs</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
