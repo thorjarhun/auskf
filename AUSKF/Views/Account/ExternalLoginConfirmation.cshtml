@@ -1,4 +1,5 @@
-﻿@model AUSKF.Domain.Models.Account.ExternalLoginConfirmationViewModel
+﻿@using AUSKF.Domain.Models.Account
+@model ExternalLoginConfirmationViewModel
 @{
     ViewBag.Title = "Register";
 }
@@ -11,6 +12,9 @@
 
     <h4>Association Form</h4>
     <hr />
+
+    @Html.Partial("_RegisteringUserAccountLinkingPartial", new AccountLinkingInfoViewModel())
+
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <p class="text-info">
         You've successfully authenticated with <strong>@ViewBag.LoginProvider</strong>.

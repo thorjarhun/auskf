@@ -659,6 +659,7 @@
     <Content Include="Views\Shared\_PageLinks.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\ShortDateTime.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Age.cshtml" />
+    <Content Include="Views\Account\_RegisteringUserAccountLinkingPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -710,6 +711,7 @@
     <TypeScriptCompile Include="Scripts\typings\auskf\auskf.federation-registrations.ts" />
     <TypeScriptCompile Include="Scripts\typings\auskf\auskf.federations.controller.ts" />
     <TypeScriptCompile Include="Scripts\typings\auskf\auskf.federations.ts" />
+    <TypeScriptCompile Include="Scripts\typings\auskf\auskf.user-lookup.directive.ts" />
     <TypeScriptCompile Include="Scripts\typings\auskf\auskt.federations.service.ts" />
     <TypeScriptCompile Include="Scripts\typings\auskf\entities.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\ckeditor\ckeditor.d.ts" />

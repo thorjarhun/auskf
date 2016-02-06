@@ -1,6 +1,7 @@
 ﻿namespace AUSKF.Controllers
 {
     using System;
+    using System.Data.Entity;
     using System.Linq;
     using System.Threading.Tasks;
     using System.Web;
@@ -16,7 +17,7 @@
     using Domain.Models.Account;
     using Domain.Providers.Identity;
     using Domain.Providers.Interfaces;
-
+    using Domain.Data;
 
     /// <summary>
     /// The account controller.
@@ -259,7 +260,19 @@
                     UserName = model.Email,
                     Email = model.Email
                 };
-                var result = await this.UserManager.CreateAsync(user, model.Password);
+
+                IdentityResult result;
+
+                //if (model.AuskfId > 0)
+                //{
+                //    user.Email = model.Email;
+                //    user.Password = model.Password;
+                //    result = await this.UserManager.UpdateAsync(user); 
+                //}
+                //else
+                //{
+                result = await this.UserManager.CreateAsync(user, model.Password);
+                //}
 
                 if (result.Succeeded)
                 {
@@ -607,7 +620,7 @@
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl)
+        public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, AccountLinkingInfoViewModel accountLinkingModel, string returnUrl)
         {
             if (this.User.Identity.IsAuthenticated)
             {
@@ -623,20 +636,41 @@
                     return this.View("ExternalLoginFailure");
                 }
 
-                // TODO This should not be created here, move to factory
-                var user = new User
-                {
-                    UserName = model.Email,
-                    Email = model.Email,
-                    JoinedDate = DateTime.Now,
-                    PasswordLastChangedDate = DateTime.Now,
-                    LastLogin = DateTime.Now,
-                    Active = true,
-                    Profile = new UserProfile()
-                };
+                User user;
+                IdentityResult result = null;
+                bool isSuccessful = true;
 
-                var result = await this.UserManager.CreateAsync(user);
-                if (result.Succeeded)
+                if (accountLinkingModel.AuskfId > 0)
+                {
+                    //Find user by auskf id if it is provided
+                    using (var context = new DataContext())
+                    {
+                        user = (from x in context.Users.Include(u => u.Profile)
+                                where x.AuskfId == accountLinkingModel.AuskfId
+                                select x).FirstOrDefault();
+                        user.UserName = model.Email;
+                    }
+                }
+                else
+                {
+                    // TODO This should not be created here, move to factory
+                    user = new User { Profile = new UserProfile() };
+                }
+
+                user.UserName = model.Email;
+                user.Email = model.Email;
+                user.JoinedDate = DateTime.Now;
+                user.PasswordLastChangedDate = DateTime.Now;
+                user.LastLogin = DateTime.Now;
+                user.Active = true;
+
+                if (accountLinkingModel.AuskfId == 0)
+                {
+                    result = await this.UserManager.CreateAsync(user);
+                    isSuccessful = result.Succeeded;
+                }
+
+                if (isSuccessful)
                 {
                     result = await this.UserManager.AddLoginAsync(user.Id, info.Login);
                     if (result.Succeeded)

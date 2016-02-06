@@ -196,6 +196,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Content Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Account\AccountLinkingInfoViewModel.cs" />
     <Compile Include="Models\Account\AddExternalLoginBindingModel.cs" />
     <Compile Include="Models\Account\ChangePasswordBindingModel.cs" />
     <Compile Include="Models\Account\ExternalLoginConfirmationViewModel.cs" />
