@@ -1,6 +1,8 @@
 ﻿namespace AUSKF.Areas.Admin.Controllers
 {
+    using System;
     using System.Data.Entity;
+    using System.Data.SqlTypes;
     using System.Linq;
     using System.Threading.Tasks;
     using System.Web.Mvc;
@@ -34,12 +36,30 @@
 
 
                 var users = new SerializablePagination<User>(userList, pageNumber);
+                ViewBag.PageHeader = "User List ";
                 return View(users);
             }
         }
 
         [HttpGet]
         public async Task<ActionResult> Details(int userId)
+        {
+            var user = await GetUser(userId);
+            ViewBag.PageHeader = "Details " + user.UserName;
+            
+            return View(user);
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> Edit(int userId)
+        {
+            var user = await GetUser(userId);
+            ViewBag.PageHeader = "Editing " + user.UserName;
+
+            return View(user);
+        }
+
+        private async Task<User> GetUser(int userId)
         {
             using (var context = new DataContext())
             {
@@ -49,11 +69,20 @@
                     .Include(u => u.Roles)
                     .Include(u => u.Claims)
                     .Include(u => u.Logins)
-                                  where u.Id == userId
-                                  select u)
+                    .Include(u => u.Profile.Federation)
+                    .Include(u => u.Profile.Dojo)
+                    where u.Id == userId
+                    select u)
                     .FirstOrDefaultAsync();
                 user.Promotions.Sort();
-                return View(user);
+
+                if (user.DateOfBirth == null)
+                {
+                    user.DateOfBirth = (DateTime) SqlDateTime.MinValue;
+                    await context.SaveChangesAsync();
+                }
+
+                return user;
             }
         }
     }

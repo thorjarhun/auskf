@@ -61,6 +61,24 @@ namespace AUSKF.Domain {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Active.
+        /// </summary>
+        public static string Active {
+            get {
+                return ResourceManager.GetString("Active", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AUSKFID.
+        /// </summary>
+        public static string AuskfId {
+            get {
+                return ResourceManager.GetString("AuskfId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Contact.
         /// </summary>
         public static string ContactUs {
@@ -233,6 +251,15 @@ namespace AUSKF.Domain {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to First name.
+        /// </summary>
+        public static string FirstName {
+            get {
+                return ResourceManager.GetString("FirstName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Site Disclaimer: This website is posted as a service to the All United States Kendo Federation. Information on this website is posted from many different sources and every effort is made to post accurate information. Errors may occur and users use this site without warranties of any sort implied and at their own risk.&apos;.
         /// </summary>
         public static string FooterText {
@@ -328,6 +355,15 @@ namespace AUSKF.Domain {
         public static string KendoFederation {
             get {
                 return ResourceManager.GetString("KendoFederation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last name.
+        /// </summary>
+        public static string LastName {
+            get {
+                return ResourceManager.GetString("LastName", resourceCulture);
             }
         }
         

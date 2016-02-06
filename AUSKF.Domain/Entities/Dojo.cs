@@ -3,27 +3,37 @@
     using Identity;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Runtime.Serialization;
+    using Newtonsoft.Json;
 
     [Table("Dojos")]
+    [DataContract(Namespace="")]
     public class Dojo : EntityBase
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DataMember]
         public int DojoId { get; set; }
 
         [ForeignKey("Federation")]
+        [DataMember]
         public int? FederationId { get; set; }
-
+        
+        [JsonIgnore]
         public Federation Federation { get; set; }
 
         [ForeignKey("Address")]
+        [DataMember]
         public int? AddressId { get; set; }
 
+        [DataMember]
         public Address Address { get; set; }
 
         [ForeignKey("PrimaryContact")]
+        [JsonIgnore]
         public int? PrimaryContactId { get; set; }
 
+        [JsonIgnore]
         public User PrimaryContact { get; set; }
 
         [Required, MaxLength(256)]
@@ -35,12 +45,13 @@
         [MaxLength(512)]
         public string WebsiteUrl { get; set; }
 
-        // TODO - NEVER expose an email address on the internet! 
-        // TODO - We'll create a contact form and send a request on behalf
+
         [MaxLength(512)]
+        [DataMember]
         public string EmailAddress { get; set; }
 
         [MaxLength(1024)]
+        [DataMember]
         public string Notes { get; set; }
     }
 }

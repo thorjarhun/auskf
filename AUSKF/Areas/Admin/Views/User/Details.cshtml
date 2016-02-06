@@ -1,4 +1,5 @@
-﻿@model AUSKF.Domain.Entities.Identity.User
+﻿@using System.Data.SqlTypes
+@model AUSKF.Domain.Entities.Identity.User
 
 @{
     ViewBag.Title = "Details";
@@ -24,19 +25,31 @@
                                 </tr>
                                 <tr>
                                     <td>AUSKFID</td>
-                                    <td>@Html.DisplayFor(model => model.AuskfId)</td>
+                                    <td>
+                                        @Html.DisplayFor(model => model.AuskfId)
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>Date of Birth</td>
-                                    <td>@Html.DisplayFor(model => model.DateOfBirth, "Age")</td>
+                                    @if (Model.DateOfBirth == (DateTime)SqlDateTime.MinValue)
+                                    {
+                                        <td>Not listed.</td>
+                                    }
+                                    else
+                                    {
+                                        <td>
+                                            <input class="form-control" name="registration_date" id="registration-date" type="date"
+                                                   value="@Model.DateOfBirth.Value.ToShortDateString()">
+
+                                            @Html.DisplayFor(model => model.DateOfBirth, "Age")
+                                        </td>
+                                    }
                                 </tr>
 
                                 <tr>
                                     <td>Phone Number:</td>
                                     <td>@Html.DisplayFor(model => model.PhoneNumber)</td>
                                 </tr>
-
-
                             </tbody>
                         </table>
 
@@ -46,9 +59,13 @@
                 </div>
             </div>
             <div class="panel-footer">
-                <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
+                <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary">
+                    <i class="glyphicon glyphicon-envelope"></i>
+                </a>
                 <span class="pull-right">
-                    <a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+                    <a href="~/Admin/User/Edit?userId=@Model.Id" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning">
+                        <i class="glyphicon glyphicon-edit"></i>
+                    </a>
                     <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
                 </span>
             </div>
@@ -62,12 +79,12 @@
             </div>
             <div class="panel-body">
                 @foreach (var item in Model.Promotions)
-            {
+                {
                     <div class="col-xs-8">
                         Promotion Date: @Html.DisplayFor(model => item.RankDate, "ShortDateTime")
                         Rank: @item.RankListed
                     </div>
-            }
+                }
             </div>
 
             <div class="panel-footer">

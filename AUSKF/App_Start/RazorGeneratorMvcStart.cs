@@ -4,11 +4,14 @@ using System.Web.WebPages;
 using RazorGenerator.Mvc;
 
 [assembly: WebActivatorEx.PostApplicationStartMethod(typeof(AUSKF.RazorGeneratorMvcStart), "Start")]
-
-namespace AUSKF {
-    public static class RazorGeneratorMvcStart {
-        public static void Start() {
-            var engine = new PrecompiledMvcEngine(typeof(RazorGeneratorMvcStart).Assembly) {
+namespace AUSKF
+{
+    public static class RazorGeneratorMvcStart
+    {
+        public static void Start()
+        {
+            var engine = new PrecompiledMvcEngine(typeof(RazorGeneratorMvcStart).Assembly)
+            {
                 UsePhysicalViewsIfNewer = HttpContext.Current.Request.IsLocal
             };
 

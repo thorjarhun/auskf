@@ -6,22 +6,26 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Diagnostics.CodeAnalysis;
+    using System.Runtime.Serialization;
     using System.Security.Claims;
     using System.Threading.Tasks;
     using System.Web.Mvc;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
+    using Newtonsoft.Json;
     using Providers.Interfaces;
 
     /// <summary>
     /// </summary>
     [Table("Users")]
-
+    [DataContract(Namespace="")]
     public class User : IdentityUser<int, UserLogin, UserRole, UserClaim>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="User" /> class.
         /// </summary>
+        [SuppressMessage("ReSharper", "VirtualMemberCallInContructor")]
         public User()
         {
             this.Active = true;
@@ -30,6 +34,7 @@
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DataMember]
         public override int Id { get; set; }
         
         /// <summary>
@@ -39,6 +44,7 @@
         /// The user profile identifier.
         /// </value>
         [ForeignKey("Profile")]
+        [DataMember]
         public int UserProfileId { get; set; }
 
         /// <summary>
@@ -47,6 +53,7 @@
         /// <value>
         /// The profile.
         /// </value>
+        [DataMember]
         public UserProfile Profile { get; set; }
 
         /// <summary>
@@ -56,6 +63,7 @@
         /// The name of the user.
         /// </value>
         [MaxLength(20)]
+        [DataMember]
         public override string UserName { get; set; }
 
         /// <summary>
@@ -65,41 +73,48 @@
         /// The display name.
         /// </value>
         [MaxLength(20)]
+        [DataMember]
         public string DisplayName { get; set; }
 
         /// <summary>
         /// First Name
         /// </summary>
         [MaxLength(20)]
+        [DataMember]
         public string FirstName { get; set; }
 
         /// <summary>
         /// Middle Name
         /// </summary>
         [MaxLength(20)]
+        [DataMember]
         public string MiddleName { get; set; }
 
         /// <summary>
         /// Last Name
         /// </summary>
         [MaxLength(20)]
+        [DataMember]
         public string LastName { get; set; }
 
         /// <summary>
         /// M for male. F for femail.
         /// </summary>
-        [MaxLength(1)] 
+        [MaxLength(1)]
+        [DataMember]
         public string Gender { get; set; }
 
         /// <summary>
         /// Date of Birth
         /// </summary>
         [DataType(DataType.DateTime)]
+        [DataMember]
         public DateTime? DateOfBirth { get; set; }
 
         /// <summary>
         /// Unique ID number
         /// </summary>
+        [DataMember]
         public int AuskfId { get; set; }
 
         /// <summary>
@@ -110,6 +125,7 @@
         /// </value>
         [StringLength(256)]
         [DataType(DataType.Password)]
+        [DataMember]
         public string Password { get; set; }
 
         /// <summary>
@@ -119,6 +135,7 @@
         /// The password last changed date.
         /// </value>
         [DataType(DataType.Date)]
+        [DataMember]
         public DateTime PasswordLastChangedDate { get; set; }
 
         /// <summary>
@@ -128,6 +145,7 @@
         /// The maximum days between password change.
         /// </value>
         [HiddenInput(DisplayValue = false)]
+        [DataMember]
         public int MaximumDaysBetweenPasswordChange { get; set; }
 
         /// <summary>
@@ -138,6 +156,7 @@
         /// </value>
         [StringLength(256)]
         [DataType(DataType.EmailAddress)]
+        [DataMember]
         public override string Email { get; set; }
 
         /// <summary>
@@ -147,6 +166,7 @@
         /// The location.
         /// </value>
         [StringLength(80)]
+        [DataMember]
         public string Location { get; set; }
 
         /// <summary>
@@ -156,6 +176,7 @@
         /// The last search.
         /// </value>
         [MaxLength(256)]
+        [DataMember]
         public string LastSearch { get; set; }
          
         /// <summary>
@@ -165,6 +186,7 @@
         /// The joined date.
         /// </value>
         [DataType(DataType.Date)]
+        [DataMember]
         public DateTime JoinedDate { get; set; }
 
         /// <summary>
@@ -174,6 +196,7 @@
         /// The last login.
         /// </value>
         [DataType(DataType.Date)]
+        [DataMember]
         public DateTime LastLogin { get; set; }
 
         /// <summary>
@@ -183,6 +206,7 @@
         ///   <c>true</c> if active; otherwise, <c>false</c>.
         /// </value>
         [Required]
+        [DataMember]
         public bool Active { get; set; }
 
         /// <summary>
@@ -192,6 +216,7 @@
         /// The row version.
         /// </value>
         [Timestamp]
+        [JsonIgnore]
         public byte[] RowVersion { get; set; }
 
         /// <summary>
@@ -201,6 +226,7 @@
         /// The notes.
         /// </value>
         [StringLength(512)]
+        [DataMember]
         public string Notes { get; set; }
 
         [NotMapped]

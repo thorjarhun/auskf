@@ -1,11 +1,20 @@
 ﻿namespace AUSKF.Api
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Security.Claims;
     using System.Web.Http;
+    using Domain.Models.Account;
+    using Microsoft.AspNet.Identity;
 
-    [Authorize]
-    [RoutePrefix("api/Account")]
+    //[Authorize]
+    [RoutePrefix("api/v1/account")]
     public class AccountController : ApiController
     {
+
+
+    
+
         //private const string LocalLoginProvider = "Local";
         //private ApplicationUserManager userManager;
 
@@ -28,20 +37,21 @@
 
         //public ISecureDataFormat<AuthenticationTicket> AccessTokenFormat { get; private set; }
 
-        //// GET api/Account/UserInfo
-        //[HostAuthentication(DefaultAuthenticationTypes.ExternalBearer)]
-        //[Route("UserInfo")]
-        //public UserInfoViewModel GetUserInfo()
-        //{
-        //    ExternalLoginData externalLogin = ExternalLoginData.FromIdentity(User.Identity as ClaimsIdentity);
+        // GET api/Account/UserInfo
+       //[HostAuthentication(DefaultAuthenticationTypes.ExternalBearer)]
+        [Route("userInfo")]
+        public UserInfoViewModel GetUserInfo()
+        {
+            ExternalLoginData externalLogin = ExternalLoginData.FromIdentity(User.Identity as ClaimsIdentity);
 
-        //    return new UserInfoViewModel
-        //    {
-        //        Email = User.Identity.GetUserName(),
-        //        HasRegistered = externalLogin == null,
-        //        LoginProvider = externalLogin != null ? externalLogin.LoginProvider : null
-        //    };
-        //}
+            var model = new UserInfoViewModel
+            {
+                Email = User.Identity.GetUserName(),
+                HasRegistered = externalLogin == null,
+                LoginProvider = externalLogin != null ? externalLogin.LoginProvider : null
+            };
+            return model;
+        }
 
         //// POST api/Account/Logout
         //[Route("Logout")]
@@ -397,53 +407,53 @@
         //    return null;
         //}
 
-        //private class ExternalLoginData
-        //{
-        //    public string LoginProvider { get; set; }
-        //    public string ProviderKey { get; set; }
-        //    public string UserName { get; set; }
+        public class ExternalLoginData
+        {
+            public string LoginProvider { get; set; }
+            public string ProviderKey { get; set; }
+            public string UserName { get; set; }
 
-        //    public IList<Claim> GetClaims()
-        //    {
-        //        IList<Claim> claims = new List<Claim>();
-        //        claims.Add(new Claim(ClaimTypes.NameIdentifier, ProviderKey, null, LoginProvider));
+            public IList<Claim> GetClaims()
+            {
+                IList<Claim> claims = new List<Claim>();
+                claims.Add(new Claim(ClaimTypes.NameIdentifier, ProviderKey, null, LoginProvider));
 
-        //        if (UserName != null)
-        //        {
-        //            claims.Add(new Claim(ClaimTypes.Name, UserName, null, LoginProvider));
-        //        }
+                if (UserName != null)
+                {
+                    claims.Add(new Claim(ClaimTypes.Name, UserName, null, LoginProvider));
+                }
 
-        //        return claims;
-        //    }
+                return claims;
+            }
 
-        //    public static ExternalLoginData FromIdentity(ClaimsIdentity identity)
-        //    {
-        //        if (identity == null)
-        //        {
-        //            return null;
-        //        }
+            public static ExternalLoginData FromIdentity(ClaimsIdentity identity)
+            {
+                if (identity == null)
+                {
+                    return null;
+                }
 
-        //        Claim providerKeyClaim = identity.FindFirst(ClaimTypes.NameIdentifier);
+                Claim providerKeyClaim = identity.FindFirst(ClaimTypes.NameIdentifier);
 
-        //        if (providerKeyClaim == null || String.IsNullOrEmpty(providerKeyClaim.Issuer)
-        //            || String.IsNullOrEmpty(providerKeyClaim.Value))
-        //        {
-        //            return null;
-        //        }
+                if (providerKeyClaim == null || String.IsNullOrEmpty(providerKeyClaim.Issuer)
+                    || String.IsNullOrEmpty(providerKeyClaim.Value))
+                {
+                    return null;
+                }
 
-        //        if (providerKeyClaim.Issuer == ClaimsIdentity.DefaultIssuer)
-        //        {
-        //            return null;
-        //        }
+                if (providerKeyClaim.Issuer == ClaimsIdentity.DefaultIssuer)
+                {
+                    return null;
+                }
 
-        //        return new ExternalLoginData
-        //        {
-        //            LoginProvider = providerKeyClaim.Issuer,
-        //            ProviderKey = providerKeyClaim.Value,
-        //            UserName = identity.FindFirstValue(ClaimTypes.Name)
-        //        };
-        //    }
-        //}
+                return new ExternalLoginData
+                {
+                    LoginProvider = providerKeyClaim.Issuer,
+                    ProviderKey = providerKeyClaim.Value,
+                    UserName = identity.FindFirstValue(ClaimTypes.Name)
+                };
+            }
+        }
 
         //private static class RandomOAuthStateGenerator
         //{

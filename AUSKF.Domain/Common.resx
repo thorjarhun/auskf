@@ -283,4 +283,16 @@
   <data name="MyProfile" xml:space="preserve">
     <value>My Profile</value>
   </data>
+  <data name="Active" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="AuskfId" xml:space="preserve">
+    <value>AUSKFID</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>First name</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Last name</value>
+  </data>
 </root>
