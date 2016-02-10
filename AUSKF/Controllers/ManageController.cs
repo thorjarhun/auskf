@@ -332,16 +332,7 @@ namespace AUSKF.Controllers
             if (loginInfo == null)
             {
                 return RedirectToAction("ManageLogins", new { Message = ManageMessageId.Error });
-            }
-             
-            //Find user by auskf id if it is provided
-            //using (var context = new DataContext())
-            //{
-            //    var user = (from x in context.Users
-            //                where x.AuskfId == 0 
-            //                select x).FirstOrDefault();
-                  
-            //}
+            } 
              
             var result = await UserManager.AddLoginAsync(User.Identity.GetUserIdAsInt(), loginInfo.Login); 
             return result.Succeeded ? RedirectToAction("ManageLogins") : RedirectToAction("ManageLogins", new { Message = ManageMessageId.Error });

@@ -62,7 +62,7 @@
         /// <value>
         /// The name of the user.
         /// </value>
-        [MaxLength(20)]
+        [MaxLength(256)]
         [DataMember]
         public override string UserName { get; set; }
 

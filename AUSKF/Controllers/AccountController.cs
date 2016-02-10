@@ -251,50 +251,77 @@
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public async Task<ActionResult> Register(RegisterViewModel model, AccountLinkingInfoViewModel accountLinkingModel)
         {
-            if (this.ModelState.IsValid)
+            try
             {
-                var user = new User
+                if (this.ModelState.IsValid)
                 {
-                    UserName = model.Email,
-                    Email = model.Email
-                };
+                    User user;
+                    IdentityResult result;
 
-                IdentityResult result;
-
-                //if (model.AuskfId > 0)
-                //{
-                //    user.Email = model.Email;
-                //    user.Password = model.Password;
-                //    result = await this.UserManager.UpdateAsync(user); 
-                //}
-                //else
-                //{
-                result = await this.UserManager.CreateAsync(user, model.Password);
-                //}
-
-                if (result.Succeeded)
-                {
-                    var code = await this.UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    var url = this.Request.Url;
-                    if (url != null)
+                    if (accountLinkingModel.AuskfId > 0)
                     {
-                        var callbackUrl = this.Url.Action("ConfirmEmail", "Account", new
+                        using (var context = new DataContext())
                         {
-                            userId = user.Id,
-                            code
-                        }, url.Scheme);
-
-                        await this.UserManager.SendEmailAsync(user.Id, "Confirm your account",
-                                "Please confirm your account by clicking this link: <a href=\"" + callbackUrl + "\">link</a>");
-                        this.ViewBag.Link = callbackUrl;
+                            user = (from x in context.Users.Include(u => u.Profile)
+                                    where x.AuskfId == accountLinkingModel.AuskfId
+                                    select x).FirstOrDefault();
+                        }
+                        user.UserName = model.Email;
+                        user.Email = model.Email;
+                        user.Password = model.Password;
+                        result = await this.UserManager.UpdateAsync(user);
                     }
-                    return this.View("DisplayEmail");
-                }
+                    else
+                    {
+                        user = new User
+                        {
+                            UserName = model.Email,
+                            Email = model.Email
+                        };
+                        result = await this.UserManager.CreateAsync(user, model.Password);
+                    }
 
-                this.AddErrors(result);
+                    if (result.Succeeded)
+                    {
+                        var code = await this.UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                        var url = this.Request.Url;
+                        if (url != null)
+                        {
+                            var callbackUrl = this.Url.Action("ConfirmEmail", "Account", new
+                            {
+                                userId = user.Id,
+                                code
+                            }, url.Scheme);
+
+                            await this.UserManager.SendEmailAsync(user.Id, "Confirm your account",
+                                    "Please confirm your account by clicking this link: <a href=\"" + callbackUrl + "\">link</a>");
+                            this.ViewBag.Link = callbackUrl;
+                        }
+                        return this.View("DisplayEmail");
+                    }
+
+                    this.AddErrors(result);
+                }
             }
+            catch (System.Data.Entity.Validation.DbEntityValidationException e)
+            {
+                foreach (var eve in e.EntityValidationErrors)
+                {
+                    Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                        eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                    foreach (var ve in eve.ValidationErrors)
+                    {
+                        Console.WriteLine("- Property: \"{0}\", Value: \"{1}\", Error: \"{2}\"",
+                            ve.PropertyName,
+                            eve.Entry.CurrentValues.GetValue<object>(ve.PropertyName),
+                            ve.ErrorMessage);
+                    }
+                }
+                throw;
+            }
+
 
             // If we got this far, something failed, redisplay form
             return this.View(model);
@@ -653,14 +680,23 @@
                 }
                 else
                 {
-                    // TODO This should not be created here, move to factory
-                    user = new User { Profile = new UserProfile() };
+                    using (var context = new DataContext())
+                    {
+                        int auskfId = (from x in context.Users
+                                       select x.AuskfId).Max();
+                        // TODO This should not be created here, move to factory
+                        user = new User {
+                            Profile = new UserProfile(),
+                            AuskfId = auskfId
+                        };
+                    }
                 }
 
                 user.UserName = model.Email;
-                user.Email = model.Email;
-                user.JoinedDate = DateTime.Now;
                 user.PasswordLastChangedDate = DateTime.Now;
+                user.MaximumDaysBetweenPasswordChange = 180;
+                user.Email = model.Email;
+                user.JoinedDate = DateTime.Now; 
                 user.LastLogin = DateTime.Now;
                 user.Active = true;
 
