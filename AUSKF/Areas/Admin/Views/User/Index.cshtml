@@ -18,7 +18,7 @@
                     <form class="form-inline" role="form">
                         <div class="form-group">
                             <label class="filter-col" style="margin-right: 0;" for="pref-perpage">Rows per page:</label>
-                            <select id="pref-perpage" class="form-control">
+                            <select id="pref-perpage" class="form-control" ng-model="searchValues.pageSize">
                                 <option value="2">2</option>
                                 <option value="3">3</option>
                                 <option value="4">4</option>
@@ -40,10 +40,10 @@
                                 <option value="500">500</option>
                                 <option value="1000">1000</option>
                             </select>
-                        </div> <!-- form group [rows] -->
+                        </div>
                         <div class="form-group">
                             <label class="filter-col" style="margin-right: 0;" for="pref-search">Search:</label>
-                            <input type="text" class="form-control input-sm" id="pref-search">
+                            <input type="text" class="form-control input-sm" id="pref-search" ng-model="searchValues.query">
                         </div><!-- form group [search] -->
                         <div class="form-group">
                             <label class="filter-col" style="margin-right: 0;" for="pref-orderby">Order by:</label>
@@ -58,10 +58,11 @@
                             <div class="checkbox" style="margin-left: 10px; margin-right: 10px;">
                                 <label><input type="checkbox"> Automated</label>
                             </div>
-                            <button type="submit" class="btn btn-default filter-col">
-                                <span class="glyphicon glyphicon-record"></span> Save Settings
+                            <button ng-click="getUsersBySearch()" class="btn btn-default filter-col">
+                                <span class="glyphicon glyphicon-record"></span>Search
                             </button>
                         </div>
+                        <input type="hidden" ng-model="searchValues.page" value="1" />
                     </form>
                 </div>
             </div>

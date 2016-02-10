@@ -10,6 +10,7 @@
     using Domain.Data;
     using Domain.Entities.Identity;
     using Domain.Interfaces;
+    using Domain.Models;
 
     [RoutePrefix("api/v1/admin/user")]
     public class AdminUserController : ApiController
@@ -61,6 +62,43 @@
         }
 
 
+        [HttpGet]
+        [Route("", Name = "AdminUsersV1-a")]
+        [ResponseType(typeof(SerializablePagination<User>))]
+        public async Task<IHttpActionResult> PostSearch([FromUri]SearchValues searchValues)
+        {
+            int totalItemCount;
+            int skip = (searchValues.Page - 1) * searchValues.PageSize;
+            List<User> userList;
+
+            // TODO repository, caching etc.
+            using (var context = new DataContext())
+            {
+                context.Configuration.ProxyCreationEnabled = false;
+                totalItemCount = context.Users.Count();
+
+                userList = await (from x in context.Users
+                                         .Include(u => u.Profile)
+                                  orderby searchValues.OrderBy 
+                                  select x
+                   ).Skip(skip).Take(searchValues.PageSize).ToListAsync();
+            }
+
+
+            var model = new SerializablePagination<User>(
+                userList.ToList(),
+                totalItemCount,
+                searchValues.Page,
+                searchValues.PageSize)
+            {
+                BaseUrl = "User",
+                SortBy = searchValues.OrderBy,
+                SortDirection =searchValues.SortDirection
+            };
+
+            return await Task.FromResult((IHttpActionResult)this.Ok(model));
+        }
+
         private SortDirection ParseSort(string sortDirection)
         {
             if (string.IsNullOrWhiteSpace(sortDirection))
@@ -72,4 +110,6 @@
 
         }
     }
+
+
 }

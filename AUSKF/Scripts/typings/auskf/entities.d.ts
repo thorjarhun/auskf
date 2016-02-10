@@ -133,7 +133,7 @@ declare module AUSKF.Domain.Entities {
     }
 }
 declare module AUSKF.Domain.Collections{
-    interface SerializablePagination<T> extends AUSKF.Domain.Collections.BasePagination {
+    interface SerializablePagination<T> extends BasePagination {
         startingIndex: number;
         pageArray: string[];
         pageArraySize: number;
@@ -152,10 +152,26 @@ declare module AUSKF.Domain.Collections{
         pageNumber: number;
     }
 }
+declare module AUSKF.Domain.Interfaces {
+    enum SortDirection {
+        Ascending,
+        Descending
+    }
+}
+
 declare module AUSKF.Domain.Models.Account {
+
     interface UserInfoViewModel {
         email: string;
         hasRegistered: boolean;
         loginProvider: string;
+    }
+
+    interface SearchValues {
+        page: number;
+        pageSize: number;
+        sortDirection: Interfaces.SortDirection;
+        orderBy: string;
+        query: string;
     }
 }
