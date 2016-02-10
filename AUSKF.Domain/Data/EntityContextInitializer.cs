@@ -45,10 +45,10 @@
             var promotionsTableSqlFile = File.ReadAllText(importDirectory + "dbo.Promotions.Table.sql");
             context.Database.ExecuteSqlCommand(promotionsTableSqlFile);
             
-            this.AddUsers(context);
+            //this.AddUsers(context);
             this.AddFederations(context);
             this.AddDojos(context);
-            this.AddEvents(context);
+            //this.AddEvents(context);
         }
 
         private void AddAddresses(DataContext context)

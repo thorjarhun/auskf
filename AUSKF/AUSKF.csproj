@@ -549,6 +549,7 @@
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\Views\User\Edit.cshtml" />
     <Content Include="Mvc.sitemap" />
+    <Content Include="Areas\Profiles\Views\MyProfile\Edit.cshtml" />
     <None Include="MvcSiteMapSchema.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -680,6 +681,7 @@
     <Content Include="Views\Shared\DisplayTemplates\MetaRobotsHelperModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\MenuHelperModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\CanonicalHelperModel.cshtml" />
+    <Content Include="Views\Account\_RegisteringUserAccountLinkingPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -733,6 +735,7 @@
     <TypeScriptCompile Include="Scripts\typings\auskf\auskf.federation-registrations.ts" />
     <TypeScriptCompile Include="Scripts\typings\auskf\auskf.federations.controller.ts" />
     <TypeScriptCompile Include="Scripts\typings\auskf\auskf.federations.ts" />
+    <TypeScriptCompile Include="Scripts\typings\auskf\auskf.user-lookup.directive.ts" />
     <TypeScriptCompile Include="Scripts\typings\auskf\auskt.federations.service.ts" />
     <TypeScriptCompile Include="Scripts\typings\auskf\entities.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\ckeditor\ckeditor.d.ts" />

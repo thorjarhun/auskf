@@ -1,0 +1,17 @@
+﻿@model AUSKF.Domain.Models.Account.AccountLinkingInfoViewModel
+
+<label>If you are already a registered AUSKF member with an AUSKF Id please enter it here:</label>
+<br />
+<br />
+
+<div class="form-group">
+    @Html.LabelFor(m => m.AuskfId, new { @class = "col-md-2 control-label" })
+    <div class="col-md-10">
+        @Html.TextBoxFor(m => m.AuskfId, new { @Value = "", @class = "form-control", Attribute = "UserFinder" })
+        <label ng-bind="UserFullName"></label>
+    </div>
+</div>
+ 
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

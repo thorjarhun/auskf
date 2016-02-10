@@ -7,127 +7,121 @@
 <h4>Please verify your information:</h4>
 <br />
 
-<div class="form-group">
-    @Html.LabelFor(m => m.FirstName, new { @class = "col-md-2 control-label" })
+<div>
+    @Html.LabelFor(m => m.FirstName)
     <div>
-        @Model.FirstName Travis
+        @Html.DisplayFor(m => m.FirstName)
     </div>
 </div>
 
-<div class="form-group">
-    @Html.LabelFor(m => m.MiddleName, new { @class = "col-md-2 control-label" })
+<div>
+    @Html.LabelFor(m => m.MiddleName)
     <div>
-        @Model.MiddleName Lee
+        @Html.DisplayFor(m => m.MiddleName)
     </div>
 </div>
 
-<div class="form-group">
-    @Html.LabelFor(m => m.LastName, new { @class = "col-md-2 control-label" })
+<div>
+    @Html.LabelFor(m => m.LastName)
     <div>
-        @Model.LastName Stronach
+        @Html.DisplayFor(m => m.LastName)
     </div>
 </div>
 
-<div class="form-group">
-    @Html.LabelFor(m => m.Gender, new { @class = "col-md-2 control-label" })
+<div>
+    @Html.LabelFor(m => m.Gender)
     <div>
-        @Model.Gender Male
+        @Html.DisplayFor(m => m.Gender)
     </div>
 </div>
 
-<div class="form-group">
-    @Html.LabelFor(m => m.DateOfBirth, new { @class = "col-md-2 control-label" })
+<div>
+    @Html.LabelFor(m => m.DateOfBirth)
     <div>
-        @Model.DateOfBirth 02/06/1982
+        @Html.DisplayFor(m => m.DateOfBirth)
     </div>
 </div>
 
-<br />
 <h4>Kendo Information:</h4>
 <hr />
 
-<div class="form-group">
-    @Html.LabelFor(m => m.AuskfIdNumber, new { @class = "col-md-2 control-label" })
+<div>
+    @Html.LabelFor(m => m.AuskfIdNumber)
     <div>
-        @Model.AuskfIdNumber 6035
+        @Html.DisplayFor(m => m.AuskfIdNumber)
     </div>
 </div>
 
-<div class="form-group">
-    @Html.LabelFor(m => m.Dojo, new { @class = "col-md-2 control-label" })
+<div>
+    @Html.LabelFor(m => m.Dojo)
     <div>
-        @Model.Dojo Minnehaha Kendo Dojo
+        @Html.DisplayFor(m => m.Dojo)
     </div>
 </div>
 
-<div class="form-group">
-    @Html.LabelFor(m => m.Rank, new { @class = "col-md-2 control-label" })
+<div>
+    @Html.LabelFor(m => m.Rank)
     <div>
-        @Model.Rank godan
+        @Html.DisplayFor(m => m.Rank)
     </div>
 </div>
-
-<br />
+ 
 <h4>Contact</h4>
 <hr />
 
-<div class="form-group">
-    @Html.LabelFor(m => m.Telephone, new { @class = "col-md-2 control-label" })
+<div>
+    @Html.LabelFor(m => m.Telephone)
     <div>
-        @Model.Telephone 608-217-7270
+        @Html.DisplayFor(m => m.Telephone)
     </div>
 </div>
 
-<div class="form-group">
-    @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+<div>
+    @Html.LabelFor(m => m.Email)
     <div>
-        @Model.Email  aasdfasdf
-    </div>
-</div>
-   
-<br />
-<h4>Personal Address:</h4>
-<hr />
-
-<div class="form-group">
-    @Html.LabelFor(m => m.AddressLine1, new { @class = "col-md-2 control-label" })
-    <div>
-        @Model.AddressLine1 3226 E 53rd St
+        @Html.DisplayFor(m => m.Email)
     </div>
 </div>
 
-<div class="form-group">
-    @Html.LabelFor(m => m.AddressLine2, new { @class = "col-md-2 control-label" })
+<div>
+    @Html.LabelFor(m => m.AddressLine1)
     <div>
-        @Model.AddressLine2 131
+        @Html.DisplayFor(m => m.AddressLine1)
     </div>
 </div>
 
-<div class="form-group">
-    @Html.LabelFor(m => m.City, new { @class = "col-md-2 control-label" })
+<div>
+    @Html.LabelFor(m => m.AddressLine2)
     <div>
-        @Model.City Minneapolis
+        @Html.DisplayFor(m => m.AddressLine2)
     </div>
 </div>
 
-<div class="form-group">
-    @Html.LabelFor(m => m.State, new { @class = "col-md-2 control-label" })
+<div>
+    @Html.LabelFor(m => m.City)
     <div>
-        @Model.State MN
+        @Html.DisplayFor(m => m.City)
     </div>
 </div>
 
-<div class="form-group">
-    @Html.LabelFor(m => m.ZipCode, new { @class = "col-md-2 control-label" })
+<div>
+    @Html.LabelFor(m => m.State)
     <div>
-        @Model.ZipCode 55417
+        @Html.DisplayFor(m => m.State)
     </div>
 </div>
+
+<div>
+    @Html.LabelFor(m => m.ZipCode)
+    <div>
+        @Html.DisplayFor(m => m.ZipCode)
+    </div>
+</div> 
 
 <br />
 
 <span>
-    If any of the above is incorrect please update it via this @Html.ActionLink("link", "index", "MyProfile")
+    If any of the above is incorrect please update it via this @Html.ActionLink("link", "Edit", "MyProfile")
 </span>
 
 <hr /> 

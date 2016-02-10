@@ -13,7 +13,7 @@ namespace AUSKF.Controllers
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.Owin;
     using Microsoft.Owin.Security;
-
+    using Domain.Data;
 
     [Authorize]
     public class ManageController : Controller
@@ -332,8 +332,9 @@ namespace AUSKF.Controllers
             if (loginInfo == null)
             {
                 return RedirectToAction("ManageLogins", new { Message = ManageMessageId.Error });
-            }
-            var result = await UserManager.AddLoginAsync(User.Identity.GetUserIdAsInt(), loginInfo.Login);
+            } 
+             
+            var result = await UserManager.AddLoginAsync(User.Identity.GetUserIdAsInt(), loginInfo.Login); 
             return result.Succeeded ? RedirectToAction("ManageLogins") : RedirectToAction("ManageLogins", new { Message = ManageMessageId.Error });
         }
 

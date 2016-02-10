@@ -1,4 +1,5 @@
-﻿@model AUSKF.Domain.Models.Account.RegisterViewModel
+﻿@using AUSKF.Domain.Models.Account
+@model RegisterViewModel
 @{
     ViewBag.Title = "Register";
 }
@@ -10,7 +11,11 @@
     @Html.AntiForgeryToken()
     <h4>Create a new account.</h4>
     <hr />
+      
     @Html.ValidationSummary("", new { @class = "text-danger" })
+
+    @Html.Partial("_RegisteringUserAccountLinkingPartial", new AccountLinkingInfoViewModel())
+
     <div class="form-group">
         @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
