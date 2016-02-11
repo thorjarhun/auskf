@@ -11,54 +11,69 @@
     using Domain.Entities.Identity;
     using Domain.Interfaces;
     using Domain.Models;
+    using Domain.Repositories.Interfaces;
+    using Domain.Services.Interfaces;
 
-    [RoutePrefix("api/v1/admin/user")]
+    [RoutePrefix("api/v1/admin/users")]
     public class AdminUserController : ApiController
     {
-        [HttpGet]
-        [Route("{page}/{sort}", Name = "AdminUsersV1")]
-        [ResponseType(typeof(SerializablePagination<User>))]
-        public async Task<IHttpActionResult> Get(string page = null,
-            string sort = "Id", string sortDirection = "descending")
-        {
-            int pageNumber = 1;
+        
+        private readonly ICacheService cacheService;
+        private readonly ICachingRepository<User, int> userRepository;
 
-            if (!string.IsNullOrWhiteSpace(page))
+        public AdminUserController(ICacheService cacheService,
+            ICachingRepository<User, int> userRepository)
+        {
+            this.cacheService = cacheService;
+            this.userRepository = userRepository;
+        }
+
+        [HttpGet]
+        [Route("{page}", Name = "AdminUsersV1")]
+        [ResponseType(typeof(SerializablePagination<User>))]
+        public async Task<IHttpActionResult> Get(int page = 1, int pagesize = 20,
+            string sortdirection = "ascending", string sortby = "Active", string query = null)
+        {
+            int skip = (pagesize * (page - 1));
+            var totalUsers = this.userRepository.GetCount();
+            
+            string cacheKey = User.GetType().FullName + "Profile.Dojo" + "skip:" + skip + "take:" + pagesize;
+            ICollection<User> userList;
+
+            if (this.cacheService.Contains(cacheKey))
             {
-                int.TryParse(page, out pageNumber);
+                userList = (ICollection<User>) this.cacheService[cacheKey];
+            }
+            else
+            {
+                userList = await GetUserList(pagesize, sortby, skip);
+                this.cacheService.Add(cacheKey, userList);
             }
 
-            int totalItemCount;
-            int pageSize = 20;
-            int skip = (pageNumber - 1) * pageSize;
-            List<User> userList;
+            var users = new SerializablePagination<User>(userList, totalUsers, page, pagesize)
+            {
+                BaseUrl = "users",
+                SortBy = sortby,
+                SortDirection = ParseSort(sortdirection)
+            };
+            return await Task.FromResult((IHttpActionResult)this.Ok(users));
+        }
 
-            // TODO repository, caching etc.
+        private async Task<ICollection<User>> GetUserList(int pagesize, string sortby, int skip)
+        {
             using (var context = new DataContext())
             {
                 context.Configuration.ProxyCreationEnabled = false;
-                totalItemCount = context.Users.Count();
 
-                userList = await (from x in context.Users
-                                         .Include(u => u.Profile)
-                                  orderby sort
-                                  select x
-                   ).Skip(skip).Take(pageSize).ToListAsync();
+                var userList = await (from x in context.Users
+                    .Include(u => u.Profile.Dojo)
+                                      orderby "Active", sortby
+                                      select x)
+                    .Skip(skip)
+                    .Take(pagesize)
+                    .ToArrayAsync();
+                return userList;
             }
-
-            
-                var model = new SerializablePagination<User>(
-                    userList.ToList(),
-                    totalItemCount,
-                    pageNumber,
-                    pageSize)
-                {
-                    BaseUrl = "User",
-                    SortBy = sort,
-                    SortDirection = ParseSort(sortDirection)
-                };
-
-            return await Task.FromResult((IHttpActionResult) this.Ok(model));
         }
 
 

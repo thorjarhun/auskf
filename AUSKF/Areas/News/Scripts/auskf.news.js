@@ -4,7 +4,6 @@ var auskf;
     var news;
     (function (news) {
         "use strict";
-        alert("Test1");
         angular.module("auskf.news", [
             'angular.filter'
         ]);

@@ -1,5 +1,5 @@
 ﻿@using AUSKF.Domain
-@model AUSKF.Domain.Collections.SerializablePagination<AUSKF.Domain.Entities.Identity.User>
+@model System.Object
 
 @{
     ViewBag.Title = "User management";
@@ -10,82 +10,86 @@
         padding-right: 10px;
     }
 </style>
-<div ng-controller="adminUserController">
-    <div class="row" style="margin:5px 20px;">
-        <div id="filter-panel" class="collapse filter-panel">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <form class="form-inline" role="form">
-                        <div class="form-group">
-                            <label class="filter-col" style="margin-right: 0;" for="pref-perpage">Rows per page:</label>
-                            <select id="pref-perpage" class="form-control" ng-model="searchValues.pageSize">
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option selected="selected" value="10">10</option>
-                                <option value="15">15</option>
-                                <option value="20">20</option>
-                                <option value="30">30</option>
-                                <option value="40">40</option>
-                                <option value="50">50</option>
-                                <option value="100">100</option>
-                                <option value="200">200</option>
-                                <option value="300">300</option>
-                                <option value="400">400</option>
-                                <option value="500">500</option>
-                                <option value="1000">1000</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label class="filter-col" style="margin-right: 0;" for="pref-search">Search:</label>
-                            <input type="text" class="form-control input-sm" id="pref-search" ng-model="searchValues.query">
-                        </div><!-- form group [search] -->
-                        <div class="form-group">
-                            <label class="filter-col" style="margin-right: 0;" for="pref-orderby">Order by:</label>
-                            <select id="pref-orderby" class="form-control">
-                                <option>Descendent</option>
-                            </select>
-                        </div> <!-- form group [order by] -->
-                        <div class="form-group">
-                            <div class="checkbox" style="margin-left: 10px; margin-right: 10px;">
+<div ng-controller="adminUserController" ng-cloak>
+    <div class="row" style="margin: 5px 20px;">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form class="form-inline" role="form">
+                    <div class="form-group">
+                        <label class="filter-col" style="margin-right: 0;" for="pref-perpage">Rows per page:</label>
+                        <select id="pref-perpage" class="form-control" ng-model="searchValues.pageSize">
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                            <option value="20">20</option>
+                            <option value="30">30</option>
+                            <option value="40">40</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                            <option value="200">200</option>
+                            <option value="300">300</option>
+                            <option value="400">400</option>
+                            <option value="500">500</option>
+                            <option value="1000">1000</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="filter-col" style="margin-right: 0;" for="pref-search">Search:</label>
+                        <input type="text" class="form-control input-sm" id="pref-search" ng-model="searchValues.query">
+                    </div><!-- form group [search] -->
+                    <div class="form-group">
+                        <label class="filter-col" style="margin-right: 0;" for="pref-orderby">Order by:</label>
+                        <select id="pref-orderby" class="form-control">
+                            <option>Descendent</option>
+                        </select>
+                    </div> <!-- form group [order by] -->
+                    <div class="form-group">
+                        @*<div class="checkbox" style="margin-left: 10px; margin-right: 10px;">
                                 <label><input type="checkbox"> Ingested</label>
-                            </div>
-                            <div class="checkbox" style="margin-left: 10px; margin-right: 10px;">
-                                <label><input type="checkbox"> Automated</label>
-                            </div>
-                            <button ng-click="getUsersBySearch()" class="btn btn-default filter-col">
-                                <span class="glyphicon glyphicon-record"></span>Search
-                            </button>
+                            </div>*@
+                        <div class="checkbox" style="margin-left: 10px; margin-right: 10px;">
+                            <label><input type="checkbox"> active</label>
                         </div>
-                        <input type="hidden" ng-model="searchValues.page" value="1" />
-                    </form>
-                </div>
+                        <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#filter-panel">
+                            <span class="glyphicon glyphicon-cog"></span> Advanced Search
+                        </button>
+                    </div>
+                    <input type="hidden" ng-model="searchValues.page" value="1" />
+                </form>
             </div>
         </div>
-
-        <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#filter-panel">
-            <span class="glyphicon glyphicon-cog"></span> Advanced Search
-        </button>
     </div>
-    <div class="row" style="margin:5px 20px;padding-left:20px;">
+    <div class="row" style="margin: 10px; padding-left: 25px;">
+        <div>page {{userList.pageNumber}} of {{ userList.totalPages }} pages.</div>
+        <div>there are {{userList.totalItems}} users registered</div>
+    </div>
+    <div class="row" style="margin: 10px; padding-left: 25px;">
         @Html.Partial("_PageLinks", Model)
     </div>
+
     <div class="row" style="margin: 0 20px;">
 
         <div class="table-responsive">
             <table class="table table-bordered table-hover">
 
                 <tr>
+                    <th style="width:20px;"></th>
                     <th>@Common.FirstName - @Common.LastName</th>
                     <th>@Common.AuskfId </th>
-                    <th>@Common.Active</th>
+
                 </tr>
                 <tr ng-repeat="item in userList.currentPage">
+                    <td>
+
+                        <span><i ng-show="{{item.active}}" class="fa fa-check-circle"></i></span>
+                    </td>
                     <td>
                         <a ng-href="~/Admin/User/Details?userId={{item.id}}">
                             {{item.firstName}} {{item.lastName}}

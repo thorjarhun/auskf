@@ -1,6 +1,7 @@
 ﻿namespace AUSKF.Areas.Admin.Controllers
 {
     using System;
+    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.SqlTypes;
     using System.Linq;
@@ -9,35 +10,60 @@
     using Domain.Collections;
     using Domain.Data;
     using Domain.Entities.Identity;
+    using Domain.Repositories.Interfaces;
+    using Domain.Services.Interfaces;
 
     public class UserController : Controller
     {
+        private readonly ICacheService cacheService;
+        private readonly ICachingRepository<User, int> userRepository;
+
+        public UserController(ICacheService cacheService,
+            ICachingRepository<User, int> userRepository)
+        {
+            this.cacheService = cacheService;
+            this.userRepository = userRepository;
+        }
 
         // TODO Require login/roles etc
         [HttpGet]
-        public async Task<ActionResult> Index(string page = null, string sort = "Id")
+        public async Task<ActionResult> Index(int page = 1, int pagesize = 20,
+            string sortdirection = "ascending", string sortby = "Active", string query = null)
         {
-            int pageNumber = 1;
-
-            if (!string.IsNullOrWhiteSpace(page))
-            {
-                int.TryParse(page, out pageNumber);
-            }
+            //int skip = (pagesize * (page - 1));
+            //var totalUsers = this.userRepository.GetCount();
             ViewBag.CurrentBreadCrumb = "User Dashboard";
+            
+            //string cacheKey = User.GetType().FullName + "Profile.Dojo" + "skip:" + skip + "take:" + pagesize;
+            //ICollection<User> userList;
 
-            // TODO repository, caching etc.
+            //if (this.cacheService.Contains(cacheKey))
+            //{
+            //    userList = (ICollection<User>) this.cacheService[cacheKey];
+            //}
+            //else
+            //{
+            //    userList = await GetUserList(pagesize, sortby, skip);
+            //    this.cacheService.Add(cacheKey, userList);
+            //}
+
+            //var users = new SerializablePagination<User>(userList, totalUsers, page, pagesize);
+            ViewBag.PageHeader = "User List ";
+            return View();
+        }
+
+        private async Task<ICollection<User>> GetUserList(int pagesize, string sortby, int skip)
+        {
             using (var context = new DataContext())
             {
                 var userList = await (from x in context.Users
-                                          .Include(u => u.Profile.Dojo)
-                                      orderby sort
-                                      select x
-                    ).ToArrayAsync();
-
-
-                var users = new SerializablePagination<User>(userList, pageNumber);
-                ViewBag.PageHeader = "User List ";
-                return View(users);
+                    .Include(u => u.Profile.Dojo)
+                                      orderby "Active", sortby
+                                      select x)
+                    .Skip(skip)
+                    .Take(pagesize)
+                    .ToArrayAsync();
+                return userList;
             }
         }
 
@@ -46,7 +72,7 @@
         {
             var user = await GetUser(userId);
             ViewBag.PageHeader = "Details " + user.UserName;
-            
+
             return View(user);
         }
 
@@ -71,14 +97,14 @@
                     .Include(u => u.Logins)
                     .Include(u => u.Profile.Federation)
                     .Include(u => u.Profile.Dojo)
-                    where u.Id == userId
-                    select u)
+                                  where u.Id == userId
+                                  select u)
                     .FirstOrDefaultAsync();
                 user.Promotions.Sort();
 
                 if (user.DateOfBirth == null)
                 {
-                    user.DateOfBirth = (DateTime) SqlDateTime.MinValue;
+                    user.DateOfBirth = (DateTime)SqlDateTime.MinValue;
                     await context.SaveChangesAsync();
                 }
 

@@ -237,7 +237,9 @@
     <Compile Include="Providers\Interfaces\IApplicationUserManager.cs" />
     <Compile Include="Providers\Interfaces\IUserStoreProvider.cs" />
     <Compile Include="Providers\UserStoreProvider.cs" />
+    <Compile Include="Repositories\CachingRepository.cs" />
     <Compile Include="Repositories\EntityRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ICachingRepository.cs" />
     <Compile Include="Repositories\Interfaces\IEntityRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Results\ChallengeResult.cs" />

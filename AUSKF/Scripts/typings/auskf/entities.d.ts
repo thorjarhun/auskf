@@ -170,7 +170,7 @@ declare module AUSKF.Domain.Models.Account {
     interface SearchValues {
         page: number;
         pageSize: number;
-        sortDirection: Interfaces.SortDirection;
+        sortDirection: string;
         orderBy: string;
         query: string;
     }

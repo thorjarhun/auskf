@@ -348,23 +348,9 @@
             {
                 return Task.FromResult((T)this.cache[key]);
             }
-            var tcs = new TaskCompletionSource<T>();
-            serviceFunc.BeginInvoke(t1, iar =>
-            {
-                try
-                {
-                    tcs.TrySetResult(serviceFunc.EndInvoke(iar));
-                }
-                catch (OperationCanceledException)
-                {
-                    tcs.TrySetCanceled();
-                }
-                catch (Exception e)
-                {
-                    tcs.TrySetException(e);
-                }
-            }, null);
-            return tcs.Task;
+
+            return Task<T>.Factory.FromAsync<T1>(serviceFunc.BeginInvoke, serviceFunc.EndInvoke,t1, null).ContinueWith(tt => tt.Result);
+
         }
 
         /// <summary>

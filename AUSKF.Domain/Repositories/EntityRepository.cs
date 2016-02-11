@@ -84,6 +84,37 @@
         }
 
         /// <summary>
+        /// Gets the specified filter.
+        /// </summary>
+        /// <param name="filter">The filter.</param>
+        /// <param name="orderBy">The order by.</param>
+        /// <param name="skip">The skip.</param>
+        /// <param name="take">The take.</param>
+        /// <param name="includeProperties">The include properties.</param>
+        /// <returns></returns>
+        public virtual IEnumerable<TEntity> Get(Expression<Func<TEntity, bool>> filter = null, Func<IQueryable<TEntity>,
+            IOrderedQueryable<TEntity>> orderBy = null, int skip = 0, int? take = null, string includeProperties = "")
+        {
+            IQueryable<TEntity> query = this.dataContext.SetEntity<TEntity>();
+
+            if (filter != null)
+            {
+                query = query.Where(filter);
+            }
+
+            if (!string.IsNullOrEmpty(includeProperties))
+            {
+                foreach (var includeProperty in includeProperties.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    query = query.Include(includeProperty);
+                }
+            }
+
+            var queryResult =  orderBy != null ? orderBy.Invoke(query) : query;
+            return take.HasValue ? queryResult.Skip(skip).Take(take.Value).ToList() : queryResult.ToList();
+        }
+
+        /// <summary>
         /// Gets the asynchronous.
         /// </summary>
         /// <param name="filter">The filter.</param>
@@ -236,7 +267,7 @@
         /// <exception cref="DbEntityValidationException">
         ///             The save was aborted because validation of entity property values failed.
         ///             </exception>
-        public TEntity Update(TEntity updated, TK key)
+        public virtual TEntity Update(TEntity updated, TK key)
         {
             if (updated == null)
             {
@@ -267,7 +298,7 @@
         ///             The save was aborted because validation of entity property values failed.
         ///             </exception>
         /// <exception cref="DbUpdateException">An error occurred sending updates to the database.</exception>
-        public async Task<TEntity> UpdateAsync(TEntity updated, TK key)
+        public virtual async Task<TEntity> UpdateAsync(TEntity updated, TK key)
         {
             if (updated == null)
             {
@@ -296,7 +327,7 @@
         /// Enumerable of Entities matching the conditions
         /// </returns>
         /// <exception cref="System.ArgumentNullException"></exception>
-        public IEnumerable<TEntity> GetPagedElements<TKey>(
+        public virtual IEnumerable<TEntity> GetPagedElements<TKey>(
             int pageIndex, int pageCount, Expression<Func<TEntity, TKey>> orderByExpression, bool orderby = true)
         {
             if (pageIndex < 1)
@@ -348,7 +379,7 @@
         /// List of Entity
         /// </returns>
         /// <exception cref="ArgumentNullException">The value of 'sqlQuery' cannot be null. </exception>
-        public IEnumerable<TEntity> GetFromDatabaseWithQuery(string sqlQuery, params object[] parameters)
+        public virtual IEnumerable<TEntity> GetFromDatabaseWithQuery(string sqlQuery, params object[] parameters)
         {
             if (string.IsNullOrEmpty(sqlQuery))
             {
@@ -368,7 +399,7 @@
         /// <param name="parameters">The parameters</param>
         /// <returns>integer representing the sql code</returns>
         /// <exception cref="ArgumentNullException">The value of 'parameters' cannot be null. </exception>
-        public int ExecuteInDatabaseByQuery(string sqlCommand, params object[] parameters)
+        public virtual int ExecuteInDatabaseByQuery(string sqlCommand, params object[] parameters)
         {
             if (parameters == null)
             {
@@ -385,7 +416,7 @@
         /// Get count of Entities
         /// </summary>
         /// <returns></returns>
-        public int GetCount()
+        public virtual int GetCount()
         {
             return this.dataContext.SetEntity<TEntity>().Count();
         }

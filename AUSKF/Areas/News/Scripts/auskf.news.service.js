@@ -1,4 +1,3 @@
-alert("Test abc");
 // ReSharper disable once InconsistentNaming
 var auskf;
 (function (auskf) {
@@ -8,10 +7,8 @@ var auskf;
             this.$http = $http;
             this.$q = $q;
             this.serviceUri = "/api/v1/event";
-            alert("Test news service constructor");
         }
         NewsService.prototype.getNews = function () {
-            alert("Test service getNews");
             return this.$http.get(this.serviceUri);
         };
         return NewsService;

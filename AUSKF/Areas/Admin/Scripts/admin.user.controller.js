@@ -3,16 +3,18 @@ var auskf;
     var admin;
     (function (admin) {
         "use strict";
-        var SortDirection = AUSKF.Domain.Interfaces.SortDirection;
         var AdminUserController = (function () {
             function AdminUserController($scope, $http, $q) {
                 var _this = this;
                 this.$scope = $scope;
                 this.$http = $http;
                 this.$q = $q;
-                //https://localhost:44300/api/v1/admin/user/1/id
-                this.serviceUri = "/api/v1/admin/user/";
+                this.serviceUri = "/api/v1/admin/users/";
                 this.getUsers(1, 20, 'id');
+                $scope.searchValues = {
+                    page: 1,
+                    pageSize: 20
+                };
                 $scope.getClass = function (page, current) {
                     if (page === current) {
                         return "active";
@@ -24,7 +26,7 @@ var auskf;
                         _this.$scope.searchValues.page = 1;
                     }
                     if (!_this.$scope.searchValues.sortDirection) {
-                        _this.$scope.searchValues.sortDirection = SortDirection.Ascending;
+                        _this.$scope.searchValues.sortDirection = "Ascending";
                     }
                     if (!_this.$scope.searchValues.orderBy) {
                         _this.$scope.searchValues.orderBy = "auskfid";
@@ -33,11 +35,19 @@ var auskf;
                         _this.$scope.searchValues.query = "";
                     }
                     _this.$http.get(_this.serviceUri +
-                        "?Page=" + _this.$scope.searchValues.page +
-                        "&PageSize=" + _this.$scope.searchValues.pageSize +
-                        "&SortDirection=" + _this.$scope.searchValues.sortDirection +
-                        "&OrderBy=" + _this.$scope.searchValues.orderBy +
-                        "&Query=" + _this.$scope.searchValues.query).success(function (data) {
+                        "?page=" + _this.$scope.searchValues.page +
+                        "&pagesize=" + _this.$scope.searchValues.pageSize +
+                        "&sortdirection=" + _this.$scope.searchValues.sortDirection +
+                        "&orderby=" + _this.$scope.searchValues.orderBy +
+                        "&query=" + _this.$scope.searchValues.query).success(function (data) {
+                        _this.$scope.userList = (data);
+                    }).error(function (error) {
+                        _this.$scope.validationMessage = error.exceptionMessage;
+                    });
+                };
+                $scope.getUsers = function (page) {
+                    _this.$scope.searchValues.page = page;
+                    _this.$http.get(_this.serviceUri + page).success(function (data) {
                         _this.$scope.userList = (data);
                     }).error(function (error) {
                         _this.$scope.validationMessage = error.exceptionMessage;
@@ -46,7 +56,7 @@ var auskf;
             }
             AdminUserController.prototype.getUsers = function (page, pageSize, sort) {
                 var _this = this;
-                this.$http.get(this.serviceUri + page + "/" + sort).success(function (data) {
+                this.$http.get(this.serviceUri + page + "/?sortby=" + sort).success(function (data) {
                     _this.$scope.userList = (data);
                 }).error(function (error) {
                     _this.$scope.validationMessage = error.exceptionMessage;

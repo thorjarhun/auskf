@@ -45,6 +45,8 @@
         private static void RegisterRepositories()
         {
             Ioc.Instance.AddComponentWithLifestyle("IUserRepository", typeof(IEntityRepository<User, int>), typeof(EntityRepository<User, int>), LifestyleType.PerWebRequest);
+            Ioc.Instance.AddComponentWithLifestyle("ICachingUserRepository", typeof(ICachingRepository<User, int>), typeof(CachingRepository<User, int>), LifestyleType.PerWebRequest);
+
             Ioc.Instance.AddComponentWithLifestyle("IAddressRepository", typeof(IEntityRepository<Address, int>), typeof(EntityRepository<Address, int>), LifestyleType.PerWebRequest);
             Ioc.Instance.AddComponentWithLifestyle("IPromotionRepository", typeof(IEntityRepository<Promotion, Guid>), typeof(EntityRepository<Promotion, Guid>), LifestyleType.PerWebRequest);
             Ioc.Instance.AddComponentWithLifestyle("IUserClaimRepository", typeof(IEntityRepository<UserClaim, Guid>), typeof(EntityRepository<UserClaim, Guid>), LifestyleType.PerWebRequest);
