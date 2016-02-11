@@ -142,6 +142,7 @@
     <Compile Include="Collections\IgnoredAssemblies.cs" />
     <Compile Include="Collections\IPagination.cs" />
     <Compile Include="Collections\SerializablePagination.cs" />
+    <Compile Include="Collections\UserPagination.cs" />
     <Compile Include="Common.Designer.cs">
       <DependentUpon>Common.resx</DependentUpon>
       <AutoGen>True</AutoGen>

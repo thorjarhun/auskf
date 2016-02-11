@@ -11,7 +11,7 @@
                 <a href="#" ng-click="getUsers(page,20,'id')">{{page}}</a>
             </li>
 
-            <li ng-show="userList.hasNextPage"><a ng-href="{{userList.baseUrl}}?page={{ userList.pageNumber + 1 }}">next</a></li>
+            <li ng-show="userList.hasNextPage"><a href="#" ng-click="getUsers(searchValues.page+1,searchValues.pageSize,searchValues.orderBy)">next</a></li>
         </ul>
         <div>
             <input type="number" name="selectedPage" id="selectedPage" ng-model="searchValues.page" />

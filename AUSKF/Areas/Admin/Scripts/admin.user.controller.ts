@@ -9,13 +9,14 @@ module auskf.admin {
     import SearchValues = AUSKF.Domain.Models.Account.SearchValues;
 
 
-    interface IUserScope extends ng.IScope {
+    export interface IUserScope extends ng.IScope {
         userList: SerializablePagination<User>;
         validationMessage: string;
         getUsersBySearch: Function;
         getClass: Function;
         getUsers: Function;
         searchValues: SearchValues;
+
     }
 
     export class AdminUserController {
@@ -27,21 +28,22 @@ module auskf.admin {
             private $http: ng.IHttpService,
             private $q: ng.IQService) {
 
-            this.getUsers(1, 20, 'id');
-
-            $scope.searchValues = <SearchValues>{
+            this.$scope.searchValues = <SearchValues>{
                 page: 1,
-                pageSize: 20
+                pageSize: 20,
+                orderBy: 'active, id',
+                sortDirection: 'ascending',
+                onlyShowActive: true
             };
 
-            $scope.getClass = (page: number, current: number) => {
+            this.$scope.getClass = (page: number, current: number) => {
                 if (page === current) {
                     return "active";
                 }
                 return "";
             };
-            
-            $scope.getUsersBySearch = () => {
+
+            this.$scope.getUsersBySearch = () => {
 
                 if (!this.$scope.searchValues.page) {
                     this.$scope.searchValues.page = 1;
@@ -71,29 +73,78 @@ module auskf.admin {
                     });
             };
 
-            $scope.getUsers = (page: number) => {
+            this.$scope.getUsers = (page: number, pageSize: number, sort: string, sortdirection: string) => {
 
                 this.$scope.searchValues.page = page;
+                this.$scope.searchValues.pageSize = pageSize ? pageSize : 20;
+                this.$scope.searchValues.orderBy = sort ? sort : "active, id";
+                this.$scope.searchValues.sortDirection = sortdirection ? sortdirection : "ascending";
 
-                this.$http.get(this.serviceUri + page).success(data => {
-                    this.$scope.userList = <any>(data);
+                window.location.replace(this.parseLocation());
+                this.$http.get(this.serviceUri + page +
+                    "/?pagesize=" + this.$scope.searchValues.pageSize +
+                    "&sortdirection=" + this.$scope.searchValues.sortDirection +
+                    "&sortby=" + this.$scope.searchValues.orderBy +
+                    "&onlyShowActive=" + this.$scope.searchValues.onlyShowActive +
+                    "&query=" + this.$scope.searchValues.query)
+                    .success(data => {
+                        this.$scope.userList = <any>(data);
+                    }).error(error => {
+                        this.$scope.validationMessage = error.exceptionMessage;
+                    });
+            }
 
-                }).error(error => {
-                    this.$scope.validationMessage = error.exceptionMessage;
-
-                });
-            };
+            this.$scope.getUsers(1, 20, 'id', 'ascending');
         }
 
-        getUsers(page: number, pageSize: number, sort: string): any {
-            this.$http.get(this.serviceUri + page + "/?sortby=" + sort).success(data => {
-                this.$scope.userList = <any>(data);
-            }).error(error => {
-                this.$scope.validationMessage = error.exceptionMessage;
-            });
-        };
+        parseLocation(): string {
+            var location = "/Admin/User/#" + this.$scope.searchValues.page;
 
+            location += this.$scope.searchValues.orderBy ?
+                "/?sortby=" + this.$scope.searchValues.orderBy : "";
 
+            location += this.$scope.searchValues.pageSize ?
+                "&pagesize=" + this.$scope.searchValues.pageSize : "";
+
+            location += this.$scope.searchValues.sortDirection ?
+                "&sortdirection=" + this.$scope.searchValues.sortDirection : "";
+
+            return location;
+        }
+
+        //getUsers(page: number, pageSize: number, sort: string, sortdirection: string): any {
+
+        //    this.$scope.searchValues.page = page;
+        //    this.$scope.searchValues.pageSize = pageSize ? pageSize : 20;
+        //    this.$scope.searchValues.orderBy = sort ? sort : "active, id";
+        //    this.$scope.searchValues.sortDirection = sortdirection ? sortdirection : "ascending";
+
+        //    window.location.replace(this.parseLocation());
+        //    this.$http.get(this.serviceUri + page +
+        //        "/?pagesize=" + this.$scope.searchValues.pageSize +
+        //        "&sortdirection=" + this.$scope.searchValues.sortDirection +
+        //        "&sortby=" + this.$scope.searchValues.orderBy +
+        //        "&onlyShowActive=" + this.$scope.searchValues.onlyShowActive +
+        //        "&query=" + this.$scope.searchValues.query)
+        //        .success(data => {
+        //            this.$scope.userList = <any>(data);
+        //        }).error(error => {
+        //            this.$scope.validationMessage = error.exceptionMessage;
+        //        });
+        //};
+
+        processAjaxData(response: any, urlPath: string): void {
+            document.getElementById("content").innerHTML = response.html;
+            document.title = response.pageTitle;
+            window.history.pushState(
+                {
+                    "html": response.html,
+                    "pageTitle": response.pageTitle
+                },
+                "",
+                urlPath
+                );
+        }
 
     }
 

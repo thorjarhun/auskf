@@ -10,18 +10,20 @@ var auskf;
                 this.$http = $http;
                 this.$q = $q;
                 this.serviceUri = "/api/v1/admin/users/";
-                this.getUsers(1, 20, 'id');
-                $scope.searchValues = {
+                this.$scope.searchValues = {
                     page: 1,
-                    pageSize: 20
+                    pageSize: 20,
+                    orderBy: 'active, id',
+                    sortDirection: 'ascending',
+                    onlyShowActive: true
                 };
-                $scope.getClass = function (page, current) {
+                this.$scope.getClass = function (page, current) {
                     if (page === current) {
                         return "active";
                     }
                     return "";
                 };
-                $scope.getUsersBySearch = function () {
+                this.$scope.getUsersBySearch = function () {
                     if (!_this.$scope.searchValues.page) {
                         _this.$scope.searchValues.page = 1;
                     }
@@ -45,24 +47,62 @@ var auskf;
                         _this.$scope.validationMessage = error.exceptionMessage;
                     });
                 };
-                $scope.getUsers = function (page) {
+                this.$scope.getUsers = function (page, pageSize, sort, sortdirection) {
                     _this.$scope.searchValues.page = page;
-                    _this.$http.get(_this.serviceUri + page).success(function (data) {
+                    _this.$scope.searchValues.pageSize = pageSize ? pageSize : 20;
+                    _this.$scope.searchValues.orderBy = sort ? sort : "active, id";
+                    _this.$scope.searchValues.sortDirection = sortdirection ? sortdirection : "ascending";
+                    window.location.replace(_this.parseLocation());
+                    _this.$http.get(_this.serviceUri + page +
+                        "/?pagesize=" + _this.$scope.searchValues.pageSize +
+                        "&sortdirection=" + _this.$scope.searchValues.sortDirection +
+                        "&sortby=" + _this.$scope.searchValues.orderBy +
+                        "&onlyShowActive=" + _this.$scope.searchValues.onlyShowActive +
+                        "&query=" + _this.$scope.searchValues.query)
+                        .success(function (data) {
                         _this.$scope.userList = (data);
                     }).error(function (error) {
                         _this.$scope.validationMessage = error.exceptionMessage;
                     });
                 };
+                this.$scope.getUsers(1, 20, 'id', 'ascending');
             }
-            AdminUserController.prototype.getUsers = function (page, pageSize, sort) {
-                var _this = this;
-                this.$http.get(this.serviceUri + page + "/?sortby=" + sort).success(function (data) {
-                    _this.$scope.userList = (data);
-                }).error(function (error) {
-                    _this.$scope.validationMessage = error.exceptionMessage;
-                });
+            AdminUserController.prototype.parseLocation = function () {
+                var location = "/Admin/User/#" + this.$scope.searchValues.page;
+                location += this.$scope.searchValues.orderBy ?
+                    "/?sortby=" + this.$scope.searchValues.orderBy : "";
+                location += this.$scope.searchValues.pageSize ?
+                    "&pagesize=" + this.$scope.searchValues.pageSize : "";
+                location += this.$scope.searchValues.sortDirection ?
+                    "&sortdirection=" + this.$scope.searchValues.sortDirection : "";
+                return location;
             };
-            ;
+            //getUsers(page: number, pageSize: number, sort: string, sortdirection: string): any {
+            //    this.$scope.searchValues.page = page;
+            //    this.$scope.searchValues.pageSize = pageSize ? pageSize : 20;
+            //    this.$scope.searchValues.orderBy = sort ? sort : "active, id";
+            //    this.$scope.searchValues.sortDirection = sortdirection ? sortdirection : "ascending";
+            //    window.location.replace(this.parseLocation());
+            //    this.$http.get(this.serviceUri + page +
+            //        "/?pagesize=" + this.$scope.searchValues.pageSize +
+            //        "&sortdirection=" + this.$scope.searchValues.sortDirection +
+            //        "&sortby=" + this.$scope.searchValues.orderBy +
+            //        "&onlyShowActive=" + this.$scope.searchValues.onlyShowActive +
+            //        "&query=" + this.$scope.searchValues.query)
+            //        .success(data => {
+            //            this.$scope.userList = <any>(data);
+            //        }).error(error => {
+            //            this.$scope.validationMessage = error.exceptionMessage;
+            //        });
+            //};
+            AdminUserController.prototype.processAjaxData = function (response, urlPath) {
+                document.getElementById("content").innerHTML = response.html;
+                document.title = response.pageTitle;
+                window.history.pushState({
+                    "html": response.html,
+                    "pageTitle": response.pageTitle
+                }, "", urlPath);
+            };
             AdminUserController.$inject = ["$scope", "$http", "$q"];
             return AdminUserController;
         })();

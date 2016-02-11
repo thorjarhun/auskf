@@ -173,5 +173,6 @@ declare module AUSKF.Domain.Models.Account {
         sortDirection: string;
         orderBy: string;
         query: string;
+        onlyShowActive: boolean;
     }
 }

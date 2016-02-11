@@ -17,7 +17,7 @@
     [RoutePrefix("api/v1/admin/users")]
     public class AdminUserController : ApiController
     {
-        
+
         private readonly ICacheService cacheService;
         private readonly ICachingRepository<User, int> userRepository;
 
@@ -30,48 +30,72 @@
 
         [HttpGet]
         [Route("{page}", Name = "AdminUsersV1")]
-        [ResponseType(typeof(SerializablePagination<User>))]
-        public async Task<IHttpActionResult> Get(int page = 1, int pagesize = 20,
-            string sortdirection = "ascending", string sortby = "Active", string query = null)
+        [ResponseType(typeof(UserPagination))]
+        public async Task<IHttpActionResult> Get(int page = 1, int pagesize = 20, string sortdirection = "ascending",
+            string sortby = "Active", bool onlyShowActive = false, string query = null)
         {
             int skip = (pagesize * (page - 1));
+
             var totalUsers = this.userRepository.GetCount();
+            var activeCount = this.cacheService.TryGet("ActiveUserCount", GetActiveCount, null);
+
+            string cacheKey = User.GetType().FullName  + ":skip:" + 
+                skip + ":take:" + pagesize + ":active:" + onlyShowActive;
             
-            string cacheKey = User.GetType().FullName + "Profile.Dojo" + "skip:" + skip + "take:" + pagesize;
             ICollection<User> userList;
 
             if (this.cacheService.Contains(cacheKey))
             {
-                userList = (ICollection<User>) this.cacheService[cacheKey];
+                userList = (ICollection<User>)this.cacheService[cacheKey];
             }
             else
             {
-                userList = await GetUserList(pagesize, sortby, skip);
+                userList = await GetUserList(pagesize, sortby, skip, onlyShowActive);
                 this.cacheService.Add(cacheKey, userList);
             }
 
-            var users = new SerializablePagination<User>(userList, totalUsers, page, pagesize)
+            var users = new UserPagination(userList, totalUsers, page, pagesize, 
+                activeCount, ParseSort(sortdirection))
             {
                 BaseUrl = "users",
-                SortBy = sortby,
-                SortDirection = ParseSort(sortdirection)
+                SortBy = sortby
             };
             return await Task.FromResult((IHttpActionResult)this.Ok(users));
         }
 
-        private async Task<ICollection<User>> GetUserList(int pagesize, string sortby, int skip)
+        private int GetActiveCount()
+        {
+            return  (from u in ((DataContext) this.userRepository.Context).Users
+                where u.Active
+                select u).Count();
+        }
+
+        private async Task<ICollection<User>> GetUserList(int pagesize, string sortby, int skip, bool onlyShowActive)
         {
             using (var context = new DataContext())
             {
                 context.Configuration.ProxyCreationEnabled = false;
+                User[] userList;
 
-                var userList = await (from x in context.Users
-                    .Include(u => u.Profile.Dojo)
+                if (onlyShowActive)
+                {
+                    userList = await (from x in context.Users
+                                      where x.Active
+                                      orderby "Active", sortby
+                                      select x)
+                        .Skip(skip)
+                        .Take(pagesize)
+                        .ToArrayAsync();
+                }
+                else
+                {
+                    userList = await (from x in context.Users
                                       orderby "Active", sortby
                                       select x)
                     .Skip(skip)
                     .Take(pagesize)
                     .ToArrayAsync();
+                }
                 return userList;
             }
         }
@@ -94,7 +118,7 @@
 
                 userList = await (from x in context.Users
                                          .Include(u => u.Profile)
-                                  orderby searchValues.OrderBy 
+                                  orderby searchValues.OrderBy
                                   select x
                    ).Skip(skip).Take(searchValues.PageSize).ToListAsync();
             }
@@ -108,7 +132,7 @@
             {
                 BaseUrl = "User",
                 SortBy = searchValues.OrderBy,
-                SortDirection =searchValues.SortDirection
+                SortDirection = searchValues.SortDirection
             };
 
             return await Task.FromResult((IHttpActionResult)this.Ok(model));

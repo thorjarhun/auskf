@@ -66,10 +66,16 @@
             </div>
         </div>
     </div>
-    <div class="row" style="margin: 10px; padding-left: 25px;">
-        <div>page {{userList.pageNumber}} of {{ userList.totalPages }} pages.</div>
-        <div>there are {{userList.totalItems}} users registered</div>
+
+    <div class="row" style="margin: 10px; padding-left: 25px; color: #606060;font-size: smaller">
+
+        <div ng-cloak>page {{userList.pageNumber}} of {{ userList.totalPages }} pages.</div>
+        <div ng-cloak>there are {{userList.totalItems}} users registered</div>
+        <div>
+            <input type="checkbox" name="onlyshowactive" ng-model="searchValues.onlyShowActive"/> <em> <i class="fa fa-question"></i> Only show active accounts</em>
+        </div>
     </div>
+
     <div class="row" style="margin: 10px; padding-left: 25px;">
         @Html.Partial("_PageLinks", Model)
     </div>
@@ -87,8 +93,8 @@
                 </tr>
                 <tr ng-repeat="item in userList.currentPage">
                     <td>
-
-                        <span><i ng-show="{{item.active}}" class="fa fa-check-circle"></i></span>
+                        <i ng-show="{{item.active}}" style="color: green" class="fa fa-check-circle" data-toggle="tooltip" title="user account active"></i>
+                        <i ng-show="{{item.active === false}}" style="color: crimson" class="fa fa-minus-circle" data-toggle="tooltip" title="user account not active"></i>
                     </td>
                     <td>
                         <a ng-href="~/Admin/User/Details?userId={{item.id}}">
@@ -97,12 +103,9 @@
                     </td>
                     <td>
                         {{ item.auskfId }}
-                    <td>
-                        {{item.isActive}}
                     </td>
 
                 </tr>
-                @*}*@
 
             </table>
         </div>
