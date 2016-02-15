@@ -48,9 +48,9 @@ namespace AUSKF
                 //"~/Scripts/libraries/bootstrap/plugins/flot/jquery.flot.pie.js",
                 //"~/Scripts/libraries/bootstrap/plugins/flot/jquery.flot.resize.js",
                 //"~/Scripts/libraries/bootstrap/plugins/flot/jquery.flot.tooltip.min.js",
-                "~/Scripts/libraries/bootstrap/plugins/morris/morris-data.js",
-                "~/Scripts/libraries/bootstrap/plugins/morris/morris.js",
-                "~/Scripts/libraries/bootstrap/plugins/morris/raphael.min.js"
+                //"~/Scripts/libraries/bootstrap/plugins/morris/morris-data.js",
+                //"~/Scripts/libraries/bootstrap/plugins/morris/morris.js",
+                //"~/Scripts/libraries/bootstrap/plugins/morris/raphael.min.js"
             ));
 
             // Angular 

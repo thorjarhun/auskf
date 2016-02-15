@@ -15275,3 +15275,1708 @@ Error Number:515,State:2,Class:16
 2016-02-11 09:17:23.2950 Debug Warn => database
 2016-02-11 09:17:23.9805 Debug Error => database
 2016-02-11 09:17:24.6600 Debug Fatal => database
+2016-02-11 09:42:29.7251 Info Shutting down logging...
+2016-02-11 09:42:30.3974 Info Stopping file watching for path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config'
+2016-02-11 09:42:31.0537 Info Closing old configuration.
+2016-02-11 09:42:31.7256 Debug Closing logging configuration...
+2016-02-11 09:42:32.3959 Debug Finished closing logging configuration.
+2016-02-11 14:45:10.6388 Debug ScanAssembly('NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c')
+2016-02-11 14:45:11.3855 Debug Start auto loading, location: C:\dev\AUSKF\AUSKF\bin
+2016-02-11 14:45:12.0730 Debug Auto loading done
+2016-02-11 14:45:12.7585 Debug Setting 'DatabaseTarget.name' to 'database'
+2016-02-11 14:45:13.4430 Debug Setting 'DatabaseTarget.dbprovider' to 'mssql'
+2016-02-11 14:45:14.1315 Debug Setting 'DatabaseTarget.dbhost' to 'localhost'
+2016-02-11 14:45:14.8129 Debug Setting 'DatabaseTarget.dbdatabase' to 'AUSKF'
+2016-02-11 14:45:15.5024 Debug Setting 'DatabaseTarget.dbusername' to 'sa'
+2016-02-11 14:45:16.1959 Debug Setting 'DatabaseTarget.dbpassword' to 'xo2Die5l'
+2016-02-11 14:45:16.8864 Debug Setting 'DatabaseTarget.commandText' to '
+        insert into LogTable(LogLevel, Logger,Message, MessageId, WindowsUserName, CallSite, ThreadId, Exception, StackTrace)
+        values( @level, @logger, @message,@msgid, @user_name, @call_site, @threadid, @log_exception, @stacktrace);
+      '
+2016-02-11 14:45:17.5759 Debug Setting 'DatabaseParameterInfo.name' to '@time_stamp'
+2016-02-11 14:45:18.2674 Debug Setting 'DatabaseParameterInfo.layout' to '${longdate}'
+2016-02-11 14:45:19.0231 Debug Setting 'DatabaseParameterInfo.name' to '@level'
+2016-02-11 14:45:19.7316 Debug Setting 'DatabaseParameterInfo.layout' to '${level}'
+2016-02-11 14:45:20.4381 Debug Setting 'DatabaseParameterInfo.name' to '@logger'
+2016-02-11 14:45:21.1295 Debug Setting 'DatabaseParameterInfo.layout' to '${logger}'
+2016-02-11 14:45:21.8471 Debug Setting 'DatabaseParameterInfo.name' to '@message'
+2016-02-11 14:45:22.5475 Debug Setting 'DatabaseParameterInfo.layout' to '${message}'
+2016-02-11 14:45:23.2530 Debug Setting 'DatabaseParameterInfo.name' to '@msgid'
+2016-02-11 14:45:23.9365 Debug Setting 'DatabaseParameterInfo.layout' to '${event-context:item=UniqueCode}'
+2016-02-11 14:45:24.6210 Debug Setting 'EventContextLayoutRenderer.item' to 'UniqueCode'
+2016-02-11 14:45:25.3085 Debug Setting 'DatabaseParameterInfo.name' to '@user_name'
+2016-02-11 14:45:25.9980 Debug Setting 'DatabaseParameterInfo.layout' to '${windows-identity:domain=true}'
+2016-02-11 14:45:26.6835 Debug Setting 'WindowsIdentityLayoutRenderer.domain' to 'true'
+2016-02-11 14:45:27.3690 Debug Setting 'DatabaseParameterInfo.name' to '@call_site'
+2016-02-11 14:45:28.0524 Debug Setting 'DatabaseParameterInfo.layout' to '${callsite:filename=true}'
+2016-02-11 14:45:28.7389 Debug Setting 'CallSiteLayoutRenderer.filename' to 'true'
+2016-02-11 14:45:29.4274 Debug Setting 'DatabaseParameterInfo.name' to '@threadid'
+2016-02-11 14:45:30.1159 Debug Setting 'DatabaseParameterInfo.layout' to '${threadid}'
+2016-02-11 14:45:30.8004 Debug Setting 'DatabaseParameterInfo.name' to '@log_exception'
+2016-02-11 14:45:31.5189 Debug Setting 'DatabaseParameterInfo.layout' to '${exception}'
+2016-02-11 14:45:32.2124 Debug Setting 'DatabaseParameterInfo.name' to '@stacktrace'
+2016-02-11 14:45:32.9079 Debug Setting 'DatabaseParameterInfo.layout' to '${stacktrace}'
+2016-02-11 14:45:33.6224 Info Adding target Database Target[database]
+2016-02-11 14:45:34.3319 Debug Registering target database: NLog.Targets.DatabaseTarget
+2016-02-11 14:45:35.0264 Info Configured from an XML element in C:\dev\AUSKF\AUSKF\NLog.config...
+2016-02-11 14:45:35.7279 Debug --- NLog configuration dump ---
+2016-02-11 14:45:36.4224 Debug Targets:
+2016-02-11 14:45:37.1059 Debug Database Target[database]
+2016-02-11 14:45:37.8133 Debug Rules:
+2016-02-11 14:45:38.5138 Debug logNamePattern: (:All) levels: [ ] appendTo: [ database ]
+2016-02-11 14:45:39.2114 Debug --- End of NLog configuration dump ---
+2016-02-11 14:45:39.9542 Info Watching path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config' for changes.
+2016-02-11 14:45:40.6537 Info Found 42 configuration items
+2016-02-11 14:45:41.3872 Info Configuration initialized.
+2016-02-11 14:45:42.0815 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.2.3.1371. Product version: 4.2.3.
+2016-02-11 14:45:42.7800 Debug Targets for ControllerFactory by level:
+2016-02-11 14:45:43.4685 Debug Trace =>
+2016-02-11 14:45:44.1580 Debug Debug => database
+2016-02-11 14:45:44.8525 Debug Info => database
+2016-02-11 14:45:45.5409 Debug Warn => database
+2016-02-11 14:45:46.2284 Debug Error => database
+2016-02-11 14:45:46.9149 Debug Fatal => database
+2016-02-11 14:45:47.9104 Debug Targets for AUSKF.Startup by level:
+2016-02-11 14:45:48.6149 Debug Trace =>
+2016-02-11 14:45:49.3013 Debug Debug => database
+2016-02-11 14:45:49.9868 Debug Info => database
+2016-02-11 14:45:50.6703 Debug Warn => database
+2016-02-11 14:45:51.3578 Debug Error => database
+2016-02-11 14:45:52.0483 Debug Fatal => database
+2016-02-11 14:45:53.0360 Debug Targets for DataContext by level:
+2016-02-11 14:45:53.7465 Debug Trace =>
+2016-02-11 14:45:54.4430 Debug Debug => database
+2016-02-11 14:45:55.1285 Debug Info => database
+2016-02-11 14:45:55.8150 Debug Warn => database
+2016-02-11 14:45:56.5125 Debug Error => database
+2016-02-11 14:45:57.2050 Debug Fatal => database
+2016-02-11 14:45:57.9395 Debug Targets for AUSKF.Domain.Providers.Identity.ApplicationUserManager by level:
+2016-02-11 14:45:58.6350 Debug Trace =>
+2016-02-11 14:45:59.3335 Debug Debug => database
+2016-02-11 14:46:00.0325 Debug Info => database
+2016-02-11 14:46:00.7270 Debug Warn => database
+2016-02-11 14:46:01.4205 Debug Error => database
+2016-02-11 14:46:02.1150 Debug Fatal => database
+2016-02-11 14:46:02.8235 Debug Targets for AUSKF.Domain.Providers.Identity.ApplicationClaimsIdentityFactory by level:
+2016-02-11 14:46:03.5240 Debug Trace =>
+2016-02-11 14:46:04.2265 Debug Debug => database
+2016-02-11 14:46:04.9390 Debug Info => database
+2016-02-11 14:46:05.6395 Debug Warn => database
+2016-02-11 14:46:06.3270 Debug Error => database
+2016-02-11 14:46:07.0204 Debug Fatal => database
+2016-02-11 14:52:12.9678 Info Shutting down logging...
+2016-02-11 14:52:13.6867 Info Stopping file watching for path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config'
+2016-02-11 14:52:14.4032 Info Closing old configuration.
+2016-02-11 14:52:15.1219 Debug Closing logging configuration...
+2016-02-11 14:52:16.2470 Debug Finished closing logging configuration.
+2016-02-11 14:52:17.0212 Info Logger has been shut down.
+2016-02-11 14:52:19.8591 Debug Trace =>
+2016-02-11 14:52:20.5546 Debug Debug => database
+2016-02-11 14:52:21.2631 Debug Info => database
+2016-02-11 14:52:21.9666 Debug Warn => database
+2016-02-11 14:52:22.6611 Debug Error => database
+2016-02-11 14:52:23.3536 Debug Fatal => database
+2016-02-11 14:52:24.0811 Debug Targets for AUSKF.Domain.Providers.Identity.ApplicationUserManager by level:
+2016-02-11 14:52:24.7756 Debug Trace =>
+2016-02-11 14:52:25.4661 Debug Debug => database
+2016-02-11 14:52:26.1596 Debug Info => database
+2016-02-11 14:52:26.8561 Debug Warn => database
+2016-02-11 14:52:27.5486 Debug Error => database
+2016-02-11 14:52:28.2431 Debug Fatal => database
+2016-02-11 14:52:28.9476 Debug Targets for AUSKF.Domain.Providers.Identity.ApplicationClaimsIdentityFactory by level:
+2016-02-11 14:52:29.6451 Debug Trace =>
+2016-02-11 14:52:30.3415 Debug Debug => database
+2016-02-11 14:52:31.0380 Debug Info => database
+2016-02-11 14:52:31.7295 Debug Warn => database
+2016-02-11 14:52:32.4260 Debug Error => database
+2016-02-11 14:52:33.1205 Debug Fatal => database
+2016-02-11 14:52:41.6861 Debug Targets for AccountController by level:
+2016-02-11 14:52:42.3966 Debug Trace =>
+2016-02-11 14:52:43.0980 Debug Debug => database
+2016-02-11 14:52:43.7996 Debug Info => database
+2016-02-11 14:52:44.4980 Debug Warn => database
+2016-02-11 14:52:45.1935 Debug Error => database
+2016-02-11 14:52:45.8940 Debug Fatal => database
+2016-02-11 14:52:46.8812 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'LogId', table 'AUSKF.dbo.LogTable'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:d3d69c71-a716-463d-b533-f35077fb4a06
+Error Number:515,State:2,Class:16
+2016-02-11 14:52:52.3582 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'LogId', table 'AUSKF.dbo.LogTable'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:d3d69c71-a716-463d-b533-f35077fb4a06
+Error Number:515,State:2,Class:16
+2016-02-11 14:52:56.8255 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'LogId', table 'AUSKF.dbo.LogTable'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:d3d69c71-a716-463d-b533-f35077fb4a06
+Error Number:515,State:2,Class:16
+2016-02-11 14:53:00.4521 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'LogId', table 'AUSKF.dbo.LogTable'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:d3d69c71-a716-463d-b533-f35077fb4a06
+Error Number:515,State:2,Class:16
+2016-02-11 14:53:01.2987 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'LogId', table 'AUSKF.dbo.LogTable'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:d3d69c71-a716-463d-b533-f35077fb4a06
+Error Number:515,State:2,Class:16
+2016-02-11 14:53:02.1986 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'LogId', table 'AUSKF.dbo.LogTable'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:d3d69c71-a716-463d-b533-f35077fb4a06
+Error Number:515,State:2,Class:16
+2016-02-11 14:53:07.2349 Debug Targets for MyProfileController by level:
+2016-02-11 14:53:07.9525 Debug Trace =>
+2016-02-11 14:53:08.6680 Debug Debug => database
+2016-02-11 14:53:09.3845 Debug Info => database
+2016-02-11 14:53:10.0950 Debug Warn => database
+2016-02-11 14:53:10.8085 Debug Error => database
+2016-02-11 14:53:11.5230 Debug Fatal => database
+2016-02-11 14:53:12.4219 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'LogId', table 'AUSKF.dbo.LogTable'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:d3d69c71-a716-463d-b533-f35077fb4a06
+Error Number:515,State:2,Class:16
+2016-02-11 14:53:23.0160 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'LogId', table 'AUSKF.dbo.LogTable'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:d3d69c71-a716-463d-b533-f35077fb4a06
+Error Number:515,State:2,Class:16
+2016-02-11 15:06:53.0334 Info Shutting down logging...
+2016-02-11 15:06:53.7990 Info Stopping file watching for path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config'
+2016-02-11 15:06:54.5611 Info Closing old configuration.
+2016-02-11 15:06:55.2798 Debug Closing logging configuration...
+2016-02-11 15:06:55.9891 Debug Finished closing logging configuration.
+2016-02-11 15:06:56.6610 Info Logger has been shut down.
+2016-02-11 15:15:41.0796 Debug ScanAssembly('NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c')
+2016-02-11 15:15:41.8031 Debug Start auto loading, location: C:\dev\AUSKF\AUSKF\bin
+2016-02-11 15:15:42.5216 Debug Auto loading done
+2016-02-11 15:15:43.2471 Debug Setting 'DatabaseTarget.name' to 'database'
+2016-02-11 15:15:43.9676 Debug Setting 'DatabaseTarget.dbprovider' to 'mssql'
+2016-02-11 15:15:44.6811 Debug Setting 'DatabaseTarget.dbhost' to 'localhost'
+2016-02-11 15:15:45.3896 Debug Setting 'DatabaseTarget.dbdatabase' to 'AUSKF'
+2016-02-11 15:15:46.1072 Debug Setting 'DatabaseTarget.dbusername' to 'sa'
+2016-02-11 15:15:46.8247 Debug Setting 'DatabaseTarget.dbpassword' to 'xo2Die5l'
+2016-02-11 15:15:47.5411 Debug Setting 'DatabaseTarget.commandText' to '
+        insert into LogTable(LogLevel, Logger,Message, MessageId, WindowsUserName, CallSite, ThreadId, Exception, StackTrace)
+        values( @level, @logger, @message,@msgid, @user_name, @call_site, @threadid, @log_exception, @stacktrace);
+      '
+2016-02-11 15:15:48.2527 Debug Setting 'DatabaseParameterInfo.name' to '@time_stamp'
+2016-02-11 15:15:48.9662 Debug Setting 'DatabaseParameterInfo.layout' to '${longdate}'
+2016-02-11 15:15:49.6847 Debug Setting 'DatabaseParameterInfo.name' to '@level'
+2016-02-11 15:15:50.3916 Debug Setting 'DatabaseParameterInfo.layout' to '${level}'
+2016-02-11 15:15:51.1071 Debug Setting 'DatabaseParameterInfo.name' to '@logger'
+2016-02-11 15:15:51.8136 Debug Setting 'DatabaseParameterInfo.layout' to '${logger}'
+2016-02-11 15:15:52.5221 Debug Setting 'DatabaseParameterInfo.name' to '@message'
+2016-02-11 15:15:53.2236 Debug Setting 'DatabaseParameterInfo.layout' to '${message}'
+2016-02-11 15:15:53.9311 Debug Setting 'DatabaseParameterInfo.name' to '@msgid'
+2016-02-11 15:15:54.6426 Debug Setting 'DatabaseParameterInfo.layout' to '${event-context:item=UniqueCode}'
+2016-02-11 15:15:55.3441 Debug Setting 'EventContextLayoutRenderer.item' to 'UniqueCode'
+2016-02-11 15:15:56.0456 Debug Setting 'DatabaseParameterInfo.name' to '@user_name'
+2016-02-11 15:15:56.7561 Debug Setting 'DatabaseParameterInfo.layout' to '${windows-identity:domain=true}'
+2016-02-11 15:15:57.4596 Debug Setting 'WindowsIdentityLayoutRenderer.domain' to 'true'
+2016-02-11 15:15:58.1691 Debug Setting 'DatabaseParameterInfo.name' to '@call_site'
+2016-02-11 15:15:58.8756 Debug Setting 'DatabaseParameterInfo.layout' to '${callsite:filename=true}'
+2016-02-11 15:15:59.5761 Debug Setting 'CallSiteLayoutRenderer.filename' to 'true'
+2016-02-11 15:16:00.2870 Debug Setting 'DatabaseParameterInfo.name' to '@threadid'
+2016-02-11 15:16:00.9955 Debug Setting 'DatabaseParameterInfo.layout' to '${threadid}'
+2016-02-11 15:16:01.7000 Debug Setting 'DatabaseParameterInfo.name' to '@log_exception'
+2016-02-11 15:16:02.4135 Debug Setting 'DatabaseParameterInfo.layout' to '${exception}'
+2016-02-11 15:16:03.1591 Debug Setting 'DatabaseParameterInfo.name' to '@stacktrace'
+2016-02-11 15:16:03.8836 Debug Setting 'DatabaseParameterInfo.layout' to '${stacktrace}'
+2016-02-11 15:16:04.6111 Info Adding target Database Target[database]
+2016-02-11 15:16:05.3356 Debug Registering target database: NLog.Targets.DatabaseTarget
+2016-02-11 15:16:06.0661 Info Configured from an XML element in C:\dev\AUSKF\AUSKF\NLog.config...
+2016-02-11 15:16:06.7839 Debug --- NLog configuration dump ---
+2016-02-11 15:16:07.5004 Debug Targets:
+2016-02-11 15:16:08.2069 Debug Database Target[database]
+2016-02-11 15:16:08.9094 Debug Rules:
+2016-02-11 15:16:09.6199 Debug logNamePattern: (:All) levels: [ ] appendTo: [ database ]
+2016-02-11 15:16:10.3214 Debug --- End of NLog configuration dump ---
+2016-02-11 15:16:11.0329 Info Watching path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config' for changes.
+2016-02-11 15:16:11.7414 Info Found 42 configuration items
+2016-02-11 15:16:12.4569 Info Configuration initialized.
+2016-02-11 15:16:13.1604 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.2.3.1371. Product version: 4.2.3.
+2016-02-11 15:16:13.8659 Debug Targets for ControllerFactory by level:
+2016-02-11 15:16:14.5654 Debug Trace =>
+2016-02-11 15:16:15.2749 Debug Debug => database
+2016-02-11 15:16:15.9854 Debug Info => database
+2016-02-11 15:16:16.6949 Debug Warn => database
+2016-02-11 15:16:17.3934 Debug Error => database
+2016-02-11 15:16:18.1069 Debug Fatal => database
+2016-02-11 15:16:18.8424 Debug Targets for AUSKF.Startup by level:
+2016-02-11 15:16:19.5519 Debug Trace =>
+2016-02-11 15:16:20.2584 Debug Debug => database
+2016-02-11 15:16:20.9699 Debug Info => database
+2016-02-11 15:16:21.6824 Debug Warn => database
+2016-02-11 15:16:22.3940 Debug Error => database
+2016-02-11 15:16:23.1054 Debug Fatal => database
+2016-02-11 15:16:23.9848 Debug Targets for DataContext by level:
+2016-02-11 15:16:24.7143 Debug Trace =>
+2016-02-11 15:16:25.4238 Debug Debug => database
+2016-02-11 15:16:26.1333 Debug Info => database
+2016-02-11 15:16:26.8428 Debug Warn => database
+2016-02-11 15:16:27.5543 Debug Error => database
+2016-02-11 15:16:28.2568 Debug Fatal => database
+2016-02-11 15:16:28.9863 Debug Targets for AUSKF.Domain.Providers.Identity.ApplicationUserManager by level:
+2016-02-11 15:16:29.6928 Debug Trace =>
+2016-02-11 15:16:30.4033 Debug Debug => database
+2016-02-11 15:16:31.1188 Debug Info => database
+2016-02-11 15:16:31.8274 Debug Warn => database
+2016-02-11 15:16:32.5379 Debug Error => database
+2016-02-11 15:16:33.2484 Debug Fatal => database
+2016-02-11 15:16:33.9608 Debug Targets for AUSKF.Domain.Providers.Identity.ApplicationClaimsIdentityFactory by level:
+2016-02-11 15:16:34.6643 Debug Trace =>
+2016-02-11 15:16:35.3729 Debug Debug => database
+2016-02-11 15:16:36.0803 Debug Info => database
+2016-02-11 15:16:36.7919 Debug Warn => database
+2016-02-11 15:16:37.5014 Debug Error => database
+2016-02-11 15:16:38.2139 Debug Fatal => database
+2016-02-11 15:41:09.0270 Info Shutting down logging...
+2016-02-11 15:41:09.7554 Info Stopping file watching for path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config'
+2016-02-11 15:41:10.4560 Info Closing old configuration.
+2016-02-11 15:41:11.1634 Debug Closing logging configuration...
+2016-02-11 15:41:11.8599 Debug Finished closing logging configuration.
+2016-02-11 16:27:18.5173 Debug ScanAssembly('NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c')
+2016-02-11 16:27:19.2718 Debug Start auto loading, location: C:\dev\AUSKF\AUSKF\bin
+2016-02-11 16:27:20.0193 Debug Auto loading done
+2016-02-11 16:27:20.7739 Debug Setting 'DatabaseTarget.name' to 'database'
+2016-02-11 16:27:21.5114 Debug Setting 'DatabaseTarget.dbprovider' to 'mssql'
+2016-02-11 16:27:22.2509 Debug Setting 'DatabaseTarget.dbhost' to 'localhost'
+2016-02-11 16:27:22.9684 Debug Setting 'DatabaseTarget.dbdatabase' to 'AUSKF'
+2016-02-11 16:27:23.7109 Debug Setting 'DatabaseTarget.dbusername' to 'sa'
+2016-02-11 16:27:24.4225 Debug Setting 'DatabaseTarget.dbpassword' to 'xo2Die5l'
+2016-02-11 16:27:25.1420 Debug Setting 'DatabaseTarget.commandText' to '
+        insert into LogTable(LogLevel, Logger,Message, MessageId, WindowsUserName, CallSite, ThreadId, Exception, StackTrace)
+        values( @level, @logger, @message,@msgid, @user_name, @call_site, @threadid, @log_exception, @stacktrace);
+      '
+2016-02-11 16:27:25.8615 Debug Setting 'DatabaseParameterInfo.name' to '@time_stamp'
+2016-02-11 16:27:26.5800 Debug Setting 'DatabaseParameterInfo.layout' to '${longdate}'
+2016-02-11 16:27:27.3075 Debug Setting 'DatabaseParameterInfo.name' to '@level'
+2016-02-11 16:27:28.0210 Debug Setting 'DatabaseParameterInfo.layout' to '${level}'
+2016-02-11 16:27:28.7355 Debug Setting 'DatabaseParameterInfo.name' to '@logger'
+2016-02-11 16:27:29.4560 Debug Setting 'DatabaseParameterInfo.layout' to '${logger}'
+2016-02-11 16:27:30.1725 Debug Setting 'DatabaseParameterInfo.name' to '@message'
+2016-02-11 16:27:30.8870 Debug Setting 'DatabaseParameterInfo.layout' to '${message}'
+2016-02-11 16:27:31.6024 Debug Setting 'DatabaseParameterInfo.name' to '@msgid'
+2016-02-11 16:27:32.2891 Debug Setting 'DatabaseParameterInfo.layout' to '${event-context:item=UniqueCode}'
+2016-02-11 16:27:32.9891 Debug Setting 'EventContextLayoutRenderer.item' to 'UniqueCode'
+2016-02-11 16:27:33.6949 Debug Setting 'DatabaseParameterInfo.name' to '@user_name'
+2016-02-11 16:27:34.3750 Debug Setting 'DatabaseParameterInfo.layout' to '${windows-identity:domain=true}'
+2016-02-11 16:27:35.0469 Debug Setting 'WindowsIdentityLayoutRenderer.domain' to 'true'
+2016-02-11 16:27:35.7425 Debug Setting 'DatabaseParameterInfo.name' to '@call_site'
+2016-02-11 16:27:36.4089 Debug Setting 'DatabaseParameterInfo.layout' to '${callsite:filename=true}'
+2016-02-11 16:27:37.0964 Debug Setting 'CallSiteLayoutRenderer.filename' to 'true'
+2016-02-11 16:27:37.8049 Debug Setting 'DatabaseParameterInfo.name' to '@threadid'
+2016-02-11 16:27:38.4967 Debug Setting 'DatabaseParameterInfo.layout' to '${threadid}'
+2016-02-11 16:27:39.1896 Debug Setting 'DatabaseParameterInfo.name' to '@log_exception'
+2016-02-11 16:27:39.8771 Debug Setting 'DatabaseParameterInfo.layout' to '${exception}'
+2016-02-11 16:27:40.6182 Debug Setting 'DatabaseParameterInfo.name' to '@stacktrace'
+2016-02-11 16:27:41.3163 Debug Setting 'DatabaseParameterInfo.layout' to '${stacktrace}'
+2016-02-11 16:27:42.0311 Info Adding target Database Target[database]
+2016-02-11 16:27:42.7267 Debug Registering target database: NLog.Targets.DatabaseTarget
+2016-02-11 16:27:43.4686 Info Configured from an XML element in C:\dev\AUSKF\AUSKF\NLog.config...
+2016-02-11 16:27:44.1830 Debug --- NLog configuration dump ---
+2016-02-11 16:27:44.9158 Debug Targets:
+2016-02-11 16:27:45.6263 Debug Database Target[database]
+2016-02-11 16:27:46.3489 Debug Rules:
+2016-02-11 16:27:47.0825 Debug logNamePattern: (:All) levels: [ ] appendTo: [ database ]
+2016-02-11 16:27:47.8144 Debug --- End of NLog configuration dump ---
+2016-02-11 16:27:48.5430 Info Watching path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config' for changes.
+2016-02-11 16:27:49.2956 Info Found 42 configuration items
+2016-02-11 16:27:50.0421 Info Configuration initialized.
+2016-02-11 16:27:50.7582 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.2.3.1371. Product version: 4.2.3.
+2016-02-11 16:27:51.4759 Debug Targets for ControllerFactory by level:
+2016-02-11 16:27:52.1634 Debug Trace =>
+2016-02-11 16:27:52.8665 Debug Debug => database
+2016-02-11 16:27:53.5540 Debug Info => database
+2016-02-11 16:27:54.2411 Debug Warn => database
+2016-02-11 16:27:54.9442 Debug Error => database
+2016-02-11 16:27:55.6377 Debug Fatal => database
+2016-02-11 16:27:56.4502 Debug Targets for AUSKF.Startup by level:
+2016-02-11 16:27:57.1377 Debug Trace =>
+2016-02-11 16:27:57.8564 Debug Debug => database
+2016-02-11 16:27:58.5752 Debug Info => database
+2016-02-11 16:27:59.2783 Debug Warn => database
+2016-02-11 16:27:59.9658 Debug Error => database
+2016-02-11 16:28:00.6623 Debug Fatal => database
+2016-02-11 16:28:01.6211 Debug Targets for DataContext by level:
+2016-02-11 16:28:02.3086 Debug Trace =>
+2016-02-11 16:28:02.9961 Debug Debug => database
+2016-02-11 16:28:03.7087 Debug Info => database
+2016-02-11 16:28:04.3962 Debug Warn => database
+2016-02-11 16:28:05.0993 Debug Error => database
+2016-02-11 16:28:05.7955 Debug Fatal => database
+2016-02-11 16:28:06.4987 Debug Targets for AUSKF.Domain.Providers.Identity.ApplicationUserManager by level:
+2016-02-11 16:28:07.2018 Debug Trace =>
+2016-02-11 16:28:07.9049 Debug Debug => database
+2016-02-11 16:28:08.6237 Debug Info => database
+2016-02-11 16:28:09.3706 Debug Warn => database
+2016-02-11 16:28:10.0886 Debug Error => database
+2016-02-11 16:28:10.8209 Debug Fatal => database
+2016-02-11 16:28:11.5672 Debug Targets for AUSKF.Domain.Providers.Identity.ApplicationClaimsIdentityFactory by level:
+2016-02-11 16:28:12.2662 Debug Trace =>
+2016-02-11 16:28:12.9756 Debug Debug => database
+2016-02-11 16:28:13.6991 Debug Info => database
+2016-02-11 16:28:14.4125 Debug Warn => database
+2016-02-11 16:28:15.1408 Debug Error => database
+2016-02-11 16:28:15.8623 Debug Fatal => database
+2016-02-11 16:28:35.3314 Debug Targets for AccountController by level:
+2016-02-11 16:28:36.0659 Debug Trace =>
+2016-02-11 16:28:36.7874 Debug Debug => database
+2016-02-11 16:28:37.5149 Debug Info => database
+2016-02-11 16:28:38.2374 Debug Warn => database
+2016-02-11 16:28:38.9619 Debug Error => database
+2016-02-11 16:28:39.6885 Debug Fatal => database
+2016-02-11 16:28:40.4470 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'LogId', table 'AUSKF.dbo.LogTable'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:c24ca2aa-5437-4f6c-a33a-0be6d50cf27d
+Error Number:515,State:2,Class:16
+2016-02-11 16:28:43.3858 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'LogId', table 'AUSKF.dbo.LogTable'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:c24ca2aa-5437-4f6c-a33a-0be6d50cf27d
+Error Number:515,State:2,Class:16
+2016-02-11 16:28:45.2540 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'LogId', table 'AUSKF.dbo.LogTable'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:c24ca2aa-5437-4f6c-a33a-0be6d50cf27d
+Error Number:515,State:2,Class:16
+2016-02-11 16:31:59.9080 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'LogId', table 'AUSKF.dbo.LogTable'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:c24ca2aa-5437-4f6c-a33a-0be6d50cf27d
+Error Number:515,State:2,Class:16
+2016-02-11 16:32:00.7908 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'LogId', table 'AUSKF.dbo.LogTable'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:c24ca2aa-5437-4f6c-a33a-0be6d50cf27d
+Error Number:515,State:2,Class:16
+2016-02-11 16:37:53.1848 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'LogId', table 'AUSKF.dbo.LogTable'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:a207f50a-f35c-4712-a3cf-00c2d78cec4d
+Error Number:515,State:2,Class:16
+2016-02-11 16:37:55.5307 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'LogId', table 'AUSKF.dbo.LogTable'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:a207f50a-f35c-4712-a3cf-00c2d78cec4d
+Error Number:515,State:2,Class:16
+2016-02-11 16:38:00.1178 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'LogId', table 'AUSKF.dbo.LogTable'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:a207f50a-f35c-4712-a3cf-00c2d78cec4d
+Error Number:515,State:2,Class:16
+2016-02-11 16:38:00.9064 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'LogId', table 'AUSKF.dbo.LogTable'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:a207f50a-f35c-4712-a3cf-00c2d78cec4d
+Error Number:515,State:2,Class:16
+2016-02-11 16:38:01.6589 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'LogId', table 'AUSKF.dbo.LogTable'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:a207f50a-f35c-4712-a3cf-00c2d78cec4d
+Error Number:515,State:2,Class:16
+2016-02-11 16:38:02.4054 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'LogId', table 'AUSKF.dbo.LogTable'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:a207f50a-f35c-4712-a3cf-00c2d78cec4d
+Error Number:515,State:2,Class:16
+2016-02-11 16:41:53.1459 Debug Targets for MyProfileController by level:
+2016-02-11 16:41:53.8924 Debug Trace =>
+2016-02-11 16:41:54.6399 Debug Debug => database
+2016-02-11 16:41:55.3814 Debug Info => database
+2016-02-11 16:41:56.1240 Debug Warn => database
+2016-02-11 16:41:56.8705 Debug Error => database
+2016-02-11 16:41:57.6200 Debug Fatal => database
+2016-02-11 16:41:58.3686 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'LogId', table 'AUSKF.dbo.LogTable'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:a207f50a-f35c-4712-a3cf-00c2d78cec4d
+Error Number:515,State:2,Class:16
+2016-02-11 17:04:19.1687 Info Shutting down logging...
+2016-02-11 17:04:19.9187 Info Stopping file watching for path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config'
+2016-02-11 17:04:20.6218 Info Closing old configuration.
+2016-02-11 17:04:21.3250 Debug Closing logging configuration...
+2016-02-11 17:04:22.0437 Debug Finished closing logging configuration.
+2016-02-12 08:35:55.5133 Debug ScanAssembly('NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c')
+2016-02-12 08:35:56.2633 Debug Start auto loading, location: C:\dev\AUSKF\AUSKF\bin
+2016-02-12 08:35:56.9664 Debug Auto loading done
+2016-02-12 08:35:57.7008 Debug Setting 'DatabaseTarget.name' to 'database'
+2016-02-12 08:35:58.4040 Debug Setting 'DatabaseTarget.dbprovider' to 'mssql'
+2016-02-12 08:35:59.1227 Debug Setting 'DatabaseTarget.dbhost' to 'localhost'
+2016-02-12 08:35:59.8571 Debug Setting 'DatabaseTarget.dbdatabase' to 'AUSKF'
+2016-02-12 08:36:00.5715 Debug Setting 'DatabaseTarget.dbusername' to 'sa'
+2016-02-12 08:36:01.2746 Debug Setting 'DatabaseTarget.dbpassword' to 'xo2Die5l'
+2016-02-12 08:36:01.9934 Debug Setting 'DatabaseTarget.commandText' to '
+        insert into LogTable(LogLevel, Logger,Message, MessageId, WindowsUserName, CallSite, ThreadId, Exception, StackTrace)
+        values( @level, @logger, @message,@msgid, @user_name, @call_site, @threadid, @log_exception, @stacktrace);
+      '
+2016-02-12 08:36:02.6965 Debug Setting 'DatabaseParameterInfo.name' to '@time_stamp'
+2016-02-12 08:36:03.4153 Debug Setting 'DatabaseParameterInfo.layout' to '${longdate}'
+2016-02-12 08:36:04.1340 Debug Setting 'DatabaseParameterInfo.name' to '@level'
+2016-02-12 08:36:04.8371 Debug Setting 'DatabaseParameterInfo.layout' to '${level}'
+2016-02-12 08:36:05.5559 Debug Setting 'DatabaseParameterInfo.name' to '@logger'
+2016-02-12 08:36:06.2903 Debug Setting 'DatabaseParameterInfo.layout' to '${logger}'
+2016-02-12 08:36:07.0091 Debug Setting 'DatabaseParameterInfo.name' to '@message'
+2016-02-12 08:36:07.7122 Debug Setting 'DatabaseParameterInfo.layout' to '${message}'
+2016-02-12 08:36:08.4153 Debug Setting 'DatabaseParameterInfo.name' to '@msgid'
+2016-02-12 08:36:09.1341 Debug Setting 'DatabaseParameterInfo.layout' to '${event-context:item=UniqueCode}'
+2016-02-12 08:36:09.8841 Debug Setting 'EventContextLayoutRenderer.item' to 'UniqueCode'
+2016-02-12 08:36:10.6028 Debug Setting 'DatabaseParameterInfo.name' to '@user_name'
+2016-02-12 08:36:11.3060 Debug Setting 'DatabaseParameterInfo.layout' to '${windows-identity:domain=true}'
+2016-02-12 08:36:12.0091 Debug Setting 'WindowsIdentityLayoutRenderer.domain' to 'true'
+2016-02-12 08:36:12.7122 Debug Setting 'DatabaseParameterInfo.name' to '@call_site'
+2016-02-12 08:36:13.4310 Debug Setting 'DatabaseParameterInfo.layout' to '${callsite:filename=true}'
+2016-02-12 08:36:14.1341 Debug Setting 'CallSiteLayoutRenderer.filename' to 'true'
+2016-02-12 08:36:14.8529 Debug Setting 'DatabaseParameterInfo.name' to '@threadid'
+2016-02-12 08:36:15.5560 Debug Setting 'DatabaseParameterInfo.layout' to '${threadid}'
+2016-02-12 08:36:16.2591 Debug Setting 'DatabaseParameterInfo.name' to '@log_exception'
+2016-02-12 08:36:16.9623 Debug Setting 'DatabaseParameterInfo.layout' to '${exception}'
+2016-02-12 08:36:17.6654 Debug Setting 'DatabaseParameterInfo.name' to '@stacktrace'
+2016-02-12 08:36:18.3842 Debug Setting 'DatabaseParameterInfo.layout' to '${stacktrace}'
+2016-02-12 08:36:19.1029 Info Adding target Database Target[database]
+2016-02-12 08:36:19.8060 Debug Registering target database: NLog.Targets.DatabaseTarget
+2016-02-12 08:36:20.5330 Info Configured from an XML element in C:\dev\AUSKF\AUSKF\NLog.config...
+2016-02-12 08:36:21.2986 Debug --- NLog configuration dump ---
+2016-02-12 08:36:22.0018 Debug Targets:
+2016-02-12 08:36:22.7361 Debug Database Target[database]
+2016-02-12 08:36:23.4393 Debug Rules:
+2016-02-12 08:36:24.1581 Debug logNamePattern: (:All) levels: [ ] appendTo: [ database ]
+2016-02-12 08:36:24.8768 Debug --- End of NLog configuration dump ---
+2016-02-12 08:36:25.5799 Info Watching path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config' for changes.
+2016-02-12 08:36:26.2987 Info Found 42 configuration items
+2016-02-12 08:36:27.0487 Info Configuration initialized.
+2016-02-12 08:36:27.7987 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.2.3.1371. Product version: 4.2.3.
+2016-02-12 08:36:28.5174 Debug Targets for ControllerFactory by level:
+2016-02-12 08:36:29.2362 Debug Trace =>
+2016-02-12 08:36:29.9403 Debug Debug => database
+2016-02-12 08:36:30.6434 Debug Info => database
+2016-02-12 08:36:31.3465 Debug Warn => database
+2016-02-12 08:36:32.0497 Debug Error => database
+2016-02-12 08:36:32.7528 Debug Fatal => database
+2016-02-12 08:36:33.5966 Debug Targets for AUSKF.Startup by level:
+2016-02-12 08:36:34.3622 Debug Trace =>
+2016-02-12 08:36:35.0809 Debug Debug => database
+2016-02-12 08:36:35.8153 Debug Info => database
+2016-02-12 08:36:36.5184 Debug Warn => database
+2016-02-12 08:36:37.2841 Debug Error => database
+2016-02-12 08:36:37.9872 Debug Fatal => database
+2016-02-12 08:36:44.3697 Debug Targets for DataContext by level:
+2016-02-12 08:36:45.6986 Debug Trace =>
+2016-02-12 08:36:46.5803 Debug Debug => database
+2016-02-12 08:36:47.3438 Debug Info => database
+2016-02-12 08:36:48.0843 Debug Warn => database
+2016-02-12 08:36:48.8278 Debug Error => database
+2016-02-12 08:36:49.5714 Debug Fatal => database
+2016-02-12 08:36:50.3589 Debug Targets for AUSKF.Domain.Providers.Identity.ApplicationUserManager by level:
+2016-02-12 08:36:51.1534 Debug Trace =>
+2016-02-12 08:36:51.8910 Debug Debug => database
+2016-02-12 08:36:52.6415 Debug Info => database
+2016-02-12 08:36:53.3748 Debug Warn => database
+2016-02-12 08:36:54.1188 Debug Error => database
+2016-02-12 08:36:54.8549 Debug Fatal => database
+2016-02-12 08:36:55.5989 Debug Targets for AUSKF.Domain.Providers.Identity.ApplicationClaimsIdentityFactory by level:
+2016-02-12 08:36:56.3350 Debug Trace =>
+2016-02-12 08:36:57.0630 Debug Debug => database
+2016-02-12 08:36:57.8031 Debug Info => database
+2016-02-12 08:36:58.5351 Debug Warn => database
+2016-02-12 08:36:59.2672 Debug Error => database
+2016-02-12 08:36:59.9992 Debug Fatal => database
+2016-02-12 08:40:49.0385 Debug Targets for AccountController by level:
+2016-02-12 08:40:49.7745 Debug Trace =>
+2016-02-12 08:40:50.5026 Debug Debug => database
+2016-02-12 08:40:51.2346 Debug Info => database
+2016-02-12 08:40:51.9627 Debug Warn => database
+2016-02-12 08:40:52.6867 Debug Error => database
+2016-02-12 08:40:53.4107 Debug Fatal => database
+2016-02-12 08:40:54.6140 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'LogId', table 'AUSKF.dbo.LogTable'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:7dffce87-78dd-4ec0-acf2-9587feaa0608
+Error Number:515,State:2,Class:16
+2016-02-12 09:29:20.6649 Debug ScanAssembly('NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c')
+2016-02-12 09:29:21.3837 Debug Start auto loading, location: C:\dev\AUSKF\AUSKF\bin
+2016-02-12 09:29:22.1025 Debug Auto loading done
+2016-02-12 09:29:22.8212 Debug Setting 'DatabaseTarget.name' to 'database'
+2016-02-12 09:29:23.5556 Debug Setting 'DatabaseTarget.dbprovider' to 'mssql'
+2016-02-12 09:29:24.2900 Debug Setting 'DatabaseTarget.dbhost' to 'localhost'
+2016-02-12 09:29:25.0088 Debug Setting 'DatabaseTarget.dbdatabase' to 'AUSKF'
+2016-02-12 09:29:25.7275 Debug Setting 'DatabaseTarget.dbusername' to 'sa'
+2016-02-12 09:29:26.4463 Debug Setting 'DatabaseTarget.dbpassword' to 'xo2Die5l'
+2016-02-12 09:29:27.1494 Debug Setting 'DatabaseTarget.commandText' to '
+        insert into LogTable(LogLevel, Logger,Message, MessageId, WindowsUserName, CallSite, ThreadId, Exception, StackTrace)
+        values( @level, @logger, @message,@msgid, @user_name, @call_site, @threadid, @log_exception, @stacktrace);
+      '
+2016-02-12 09:29:27.8682 Debug Setting 'DatabaseParameterInfo.name' to '@time_stamp'
+2016-02-12 09:29:28.5758 Debug Setting 'DatabaseParameterInfo.layout' to '${longdate}'
+2016-02-12 09:29:29.2946 Debug Setting 'DatabaseParameterInfo.name' to '@level'
+2016-02-12 09:29:30.0133 Debug Setting 'DatabaseParameterInfo.layout' to '${level}'
+2016-02-12 09:29:30.7321 Debug Setting 'DatabaseParameterInfo.name' to '@logger'
+2016-02-12 09:29:31.4352 Debug Setting 'DatabaseParameterInfo.layout' to '${logger}'
+2016-02-12 09:29:32.1540 Debug Setting 'DatabaseParameterInfo.name' to '@message'
+2016-02-12 09:29:32.8571 Debug Setting 'DatabaseParameterInfo.layout' to '${message}'
+2016-02-12 09:29:33.5759 Debug Setting 'DatabaseParameterInfo.name' to '@msgid'
+2016-02-12 09:29:34.2946 Debug Setting 'DatabaseParameterInfo.layout' to '${event-context:item=UniqueCode}'
+2016-02-12 09:29:35.0134 Debug Setting 'EventContextLayoutRenderer.item' to 'UniqueCode'
+2016-02-12 09:29:35.7321 Debug Setting 'DatabaseParameterInfo.name' to '@user_name'
+2016-02-12 09:29:36.4353 Debug Setting 'DatabaseParameterInfo.layout' to '${windows-identity:domain=true}'
+2016-02-12 09:29:37.1540 Debug Setting 'WindowsIdentityLayoutRenderer.domain' to 'true'
+2016-02-12 09:29:37.8572 Debug Setting 'DatabaseParameterInfo.name' to '@call_site'
+2016-02-12 09:29:38.5759 Debug Setting 'DatabaseParameterInfo.layout' to '${callsite:filename=true}'
+2016-02-12 09:29:39.2947 Debug Setting 'CallSiteLayoutRenderer.filename' to 'true'
+2016-02-12 09:29:40.0135 Debug Setting 'DatabaseParameterInfo.name' to '@threadid'
+2016-02-12 09:29:40.7322 Debug Setting 'DatabaseParameterInfo.layout' to '${threadid}'
+2016-02-12 09:29:41.4441 Debug Setting 'DatabaseParameterInfo.name' to '@log_exception'
+2016-02-12 09:29:42.1472 Debug Setting 'DatabaseParameterInfo.layout' to '${exception}'
+2016-02-12 09:29:42.8659 Debug Setting 'DatabaseParameterInfo.name' to '@stacktrace'
+2016-02-12 09:29:43.5847 Debug Setting 'DatabaseParameterInfo.layout' to '${stacktrace}'
+2016-02-12 09:29:44.3034 Info Adding target Database Target[database]
+2016-02-12 09:29:45.0066 Debug Registering target database: NLog.Targets.DatabaseTarget
+2016-02-12 09:29:45.7254 Info Configured from an XML element in C:\dev\AUSKF\AUSKF\NLog.config...
+2016-02-12 09:29:46.4441 Debug --- NLog configuration dump ---
+2016-02-12 09:29:47.1472 Debug Targets:
+2016-02-12 09:29:47.8660 Debug Database Target[database]
+2016-02-12 09:29:48.5691 Debug Rules:
+2016-02-12 09:29:49.2879 Debug logNamePattern: (:All) levels: [ ] appendTo: [ database ]
+2016-02-12 09:29:49.9910 Debug --- End of NLog configuration dump ---
+2016-02-12 09:29:50.7098 Info Watching path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config' for changes.
+2016-02-12 09:29:51.4285 Info Found 42 configuration items
+2016-02-12 09:29:52.1942 Info Configuration initialized.
+2016-02-12 09:29:52.9129 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.2.3.1371. Product version: 4.2.3.
+2016-02-12 09:29:53.6317 Debug Targets for ControllerFactory by level:
+2016-02-12 09:29:54.3505 Debug Trace =>
+2016-02-12 09:29:55.1630 Debug Debug => database
+2016-02-12 09:29:55.8661 Debug Info => database
+2016-02-12 09:29:56.5848 Debug Warn => database
+2016-02-12 09:29:57.2880 Debug Error => database
+2016-02-12 09:29:58.0067 Debug Fatal => database
+2016-02-12 09:29:58.8192 Debug Targets for AUSKF.Startup by level:
+2016-02-12 09:29:59.5849 Debug Trace =>
+2016-02-12 09:30:00.2997 Debug Debug => database
+2016-02-12 09:30:01.0230 Debug Info => database
+2016-02-12 09:30:01.7262 Debug Warn => database
+2016-02-12 09:30:02.4449 Debug Error => database
+2016-02-12 09:30:03.1949 Debug Fatal => database
+2016-02-12 09:30:08.9242 Debug Targets for DataContext by level:
+2016-02-12 09:30:09.8909 Debug Trace =>
+2016-02-12 09:30:10.6875 Debug Debug => database
+2016-02-12 09:30:11.4370 Debug Info => database
+2016-02-12 09:30:12.1856 Debug Warn => database
+2016-02-12 09:30:12.9291 Debug Error => database
+2016-02-12 09:30:13.7196 Debug Fatal => database
+2016-02-12 09:30:14.5393 Debug Targets for AUSKF.Domain.Providers.Identity.ApplicationUserManager by level:
+2016-02-12 09:30:15.3408 Debug Trace =>
+2016-02-12 09:30:16.0904 Debug Debug => database
+2016-02-12 09:30:16.8409 Debug Info => database
+2016-02-12 09:30:17.5834 Debug Warn => database
+2016-02-12 09:30:18.3635 Debug Error => database
+2016-02-12 09:30:19.1115 Debug Fatal => database
+2016-02-12 09:30:19.8676 Debug Targets for AUSKF.Domain.Providers.Identity.ApplicationClaimsIdentityFactory by level:
+2016-02-12 09:30:20.6086 Debug Trace =>
+2016-02-12 09:30:21.3447 Debug Debug => database
+2016-02-12 09:30:22.0887 Debug Info => database
+2016-02-12 09:30:22.8408 Debug Warn => database
+2016-02-12 09:30:23.6008 Debug Error => database
+2016-02-12 09:30:24.3529 Debug Fatal => database
+2016-02-12 09:30:32.8694 Debug Targets for AUSKF.Api.DojoController by level:
+2016-02-12 09:30:33.5899 Debug Trace =>
+2016-02-12 09:30:34.3182 Debug Debug => database
+2016-02-12 09:30:35.0370 Debug Info => database
+2016-02-12 09:30:35.7714 Debug Warn => database
+2016-02-12 09:30:36.5214 Debug Error => database
+2016-02-12 09:30:37.3026 Debug Fatal => database
+2016-02-12 09:53:54.7467 Info Shutting down logging...
+2016-02-12 09:53:55.5280 Info Stopping file watching for path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config'
+2016-02-12 09:53:56.2936 Info Closing old configuration.
+2016-02-12 09:53:57.3405 Debug Closing logging configuration...
+2016-02-12 09:53:58.2638 Debug Debug => database
+2016-02-12 09:53:59.1439 Debug Info => database
+2016-02-12 09:53:59.8879 Debug Warn => database
+2016-02-12 09:54:00.6315 Debug Error => database
+2016-02-12 09:54:01.3715 Debug Fatal => database
+2016-02-12 09:54:02.1276 Debug Targets for AUSKF.Domain.Providers.Identity.ApplicationClaimsIdentityFactory by level:
+2016-02-12 09:54:02.8676 Debug Trace =>
+2016-02-12 09:54:03.6077 Debug Debug => database
+2016-02-12 09:54:04.3877 Debug Info => database
+2016-02-12 09:54:05.1798 Debug Warn => database
+2016-02-12 09:54:05.9278 Debug Error => database
+2016-02-12 09:54:06.7079 Debug Fatal => database
+2016-02-12 09:55:55.8203 Debug Targets for AUSKF.Api.DojoController by level:
+2016-02-12 09:55:56.5678 Debug Trace =>
+2016-02-12 09:55:57.2973 Debug Debug => database
+2016-02-12 09:55:58.0238 Debug Info => database
+2016-02-12 09:55:58.7550 Debug Warn => database
+2016-02-12 09:55:59.4805 Debug Error => database
+2016-02-12 09:56:00.2103 Debug Fatal => database
+2016-02-12 10:06:55.3442 Info Shutting down logging...
+2016-02-12 10:06:56.1441 Info Stopping file watching for path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config'
+2016-02-12 10:06:57.0691 Info Closing old configuration.
+2016-02-12 10:06:57.9388 Debug Closing logging configuration...
+2016-02-12 10:06:58.7148 Debug Finished closing logging configuration.
+2016-02-12 10:06:59.5229 Info Logger has been shut down.
+2016-02-12 10:07:03.7298 Debug Targets for AUSKF.Api.DojoController by level:
+2016-02-12 10:07:04.4898 Debug Trace =>
+2016-02-12 10:07:05.2103 Debug Debug => database
+2016-02-12 10:07:05.9291 Debug Info => database
+2016-02-12 10:07:06.6479 Debug Warn => database
+2016-02-12 10:07:07.3979 Debug Error => database
+2016-02-12 10:07:08.1166 Debug Fatal => database
+2016-02-12 10:19:27.8998 Info Shutting down logging...
+2016-02-12 10:19:28.7123 Info Stopping file watching for path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config'
+2016-02-12 10:19:29.5560 Info Closing old configuration.
+2016-02-12 10:19:30.3685 Debug Closing logging configuration...
+2016-02-12 10:19:31.3163 Debug Trace =>
+2016-02-12 10:19:32.0963 Debug Debug => database
+2016-02-12 10:19:32.8604 Debug Info => database
+2016-02-12 10:19:33.6324 Debug Warn => database
+2016-02-12 10:19:34.4325 Debug Error => database
+2016-02-12 10:19:35.1966 Debug Fatal => database
+2016-02-12 10:19:35.9806 Debug Targets for AUSKF.Domain.Providers.Identity.ApplicationUserManager by level:
+2016-02-12 10:19:36.7447 Debug Trace =>
+2016-02-12 10:19:37.5007 Debug Debug => database
+2016-02-12 10:19:38.3008 Debug Info => database
+2016-02-12 10:19:39.1488 Debug Warn => database
+2016-02-12 10:19:39.8889 Debug Error => database
+2016-02-12 10:19:40.6449 Debug Fatal => database
+2016-02-12 10:19:41.4425 Debug Targets for AUSKF.Domain.Providers.Identity.ApplicationClaimsIdentityFactory by level:
+2016-02-12 10:19:42.2265 Debug Trace =>
+2016-02-12 10:19:42.9746 Debug Debug => database
+2016-02-12 10:19:43.7226 Debug Info => database
+2016-02-12 10:19:44.4707 Debug Warn => database
+2016-02-12 10:19:45.2147 Debug Error => database
+2016-02-12 10:19:45.9588 Debug Fatal => database
+2016-02-12 10:24:10.1261 Info Shutting down logging...
+2016-02-12 10:24:10.9386 Info Stopping file watching for path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config'
+2016-02-12 10:24:11.7979 Info Closing old configuration.
+2016-02-12 10:24:12.5792 Debug Closing logging configuration...
+2016-02-12 10:24:13.5312 Debug Trace =>
+2016-02-12 10:24:14.3833 Debug Debug => database
+2016-02-12 10:24:15.1353 Debug Info => database
+2016-02-12 10:24:15.8834 Debug Warn => database
+2016-02-12 10:24:16.6274 Debug Error => database
+2016-02-12 10:24:17.3915 Debug Fatal => database
+2016-02-12 10:24:18.1755 Debug Targets for AUSKF.Domain.Providers.Identity.ApplicationUserManager by level:
+2016-02-12 10:24:18.9276 Debug Trace =>
+2016-02-12 10:24:19.6996 Debug Debug => database
+2016-02-12 10:24:20.5403 Debug Info => database
+2016-02-12 10:24:21.3323 Debug Warn => database
+2016-02-12 10:24:22.1044 Debug Error => database
+2016-02-12 10:24:22.8644 Debug Fatal => database
+2016-02-12 10:24:23.6685 Debug Targets for AUSKF.Domain.Providers.Identity.ApplicationClaimsIdentityFactory by level:
+2016-02-12 10:24:24.4285 Debug Trace =>
+2016-02-12 10:24:25.1846 Debug Debug => database
+2016-02-12 10:24:25.9486 Debug Info => database
+2016-02-12 10:24:26.6967 Debug Warn => database
+2016-02-12 10:24:27.4487 Debug Error => database
+2016-02-12 10:24:28.2008 Debug Fatal => database
+2016-02-12 10:25:22.8250 Debug Targets for AUSKF.Api.DojoController by level:
+2016-02-12 10:25:23.5846 Debug Trace =>
+2016-02-12 10:25:24.4833 Debug Debug => database
+2016-02-12 10:25:25.3183 Debug Info => database
+2016-02-12 10:25:26.2494 Debug Warn => database
+2016-02-12 10:25:27.0016 Debug Error => database
+2016-02-12 10:25:27.8174 Debug Fatal => database
+2016-02-12 10:33:11.4928 Info Shutting down logging...
+2016-02-12 10:33:12.3335 Info Stopping file watching for path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config'
+2016-02-12 10:33:13.1080 Info Closing old configuration.
+2016-02-12 10:33:13.8736 Debug Closing logging configuration...
+2016-02-12 10:33:14.7662 Debug Trace =>
+2016-02-12 10:33:15.5743 Debug Debug => database
+2016-02-12 10:33:16.3624 Debug Info => database
+2016-02-12 10:33:17.1104 Debug Warn => database
+2016-02-12 10:33:17.8625 Debug Error => database
+2016-02-12 10:33:18.6105 Debug Fatal => database
+2016-02-12 10:33:19.4746 Debug Targets for AUSKF.Domain.Providers.Identity.ApplicationUserManager by level:
+2016-02-12 10:33:20.2226 Debug Trace =>
+2016-02-12 10:33:20.9835 Debug Debug => database
+2016-02-12 10:33:21.7356 Debug Info => database
+2016-02-12 10:33:22.4876 Debug Warn => database
+2016-02-12 10:33:23.2357 Debug Error => database
+2016-02-12 10:33:23.9837 Debug Fatal => database
+2016-02-12 10:33:24.7798 Debug Targets for AUSKF.Domain.Providers.Identity.ApplicationClaimsIdentityFactory by level:
+2016-02-12 10:33:25.5318 Debug Trace =>
+2016-02-12 10:33:26.2839 Debug Debug => database
+2016-02-12 10:33:27.0719 Debug Info => database
+2016-02-12 10:33:27.8280 Debug Warn => database
+2016-02-12 10:33:28.5760 Debug Error => database
+2016-02-12 10:33:29.3281 Debug Fatal => database
+2016-02-12 10:34:48.3391 Debug Targets for AUSKF.Api.DojoController by level:
+2016-02-12 10:34:49.1065 Debug Trace =>
+2016-02-12 10:34:49.8593 Debug Debug => database
+2016-02-12 10:34:50.6261 Debug Info => database
+2016-02-12 10:34:51.3788 Debug Warn => database
+2016-02-12 10:34:52.1300 Debug Error => database
+2016-02-12 10:34:52.8617 Debug Fatal => database
+2016-02-12 10:58:03.1308 Info Shutting down logging...
+2016-02-12 10:58:03.9120 Info Stopping file watching for path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config'
+2016-02-12 10:58:04.6464 Info Closing old configuration.
+2016-02-12 10:58:05.4285 Debug Closing logging configuration...
+2016-02-12 10:58:06.1473 Debug Finished closing logging configuration.
+2016-02-12 10:58:06.8817 Info Logger has been shut down.
+2016-02-12 11:01:39.1458 Debug ScanAssembly('NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c')
+2016-02-12 11:01:39.8629 Debug Start auto loading, location: C:\dev\AUSKF\AUSKF\bin
+2016-02-12 11:01:40.5973 Debug Auto loading done
+2016-02-12 11:01:41.3251 Debug Setting 'DatabaseTarget.name' to 'database'
+2016-02-12 11:01:42.0595 Debug Setting 'DatabaseTarget.dbprovider' to 'mssql'
+2016-02-12 11:01:42.7782 Debug Setting 'DatabaseTarget.dbhost' to 'localhost'
+2016-02-12 11:01:43.5126 Debug Setting 'DatabaseTarget.dbdatabase' to 'AUSKF'
+2016-02-12 11:01:44.2439 Debug Setting 'DatabaseTarget.dbusername' to 'sa'
+2016-02-12 11:01:44.9889 Debug Setting 'DatabaseTarget.dbpassword' to 'xo2Die5l'
+2016-02-12 11:01:45.7077 Debug Setting 'DatabaseTarget.commandText' to '
+        insert into LogTable(LogLevel, Logger,Message, MessageId, WindowsUserName, CallSite, ThreadId, Exception, StackTrace)
+        values( @level, @logger, @message,@msgid, @user_name, @call_site, @threadid, @log_exception, @stacktrace);
+      '
+2016-02-12 11:01:46.4421 Debug Setting 'DatabaseParameterInfo.name' to '@time_stamp'
+2016-02-12 11:01:47.1765 Debug Setting 'DatabaseParameterInfo.layout' to '${longdate}'
+2016-02-12 11:01:47.8998 Debug Setting 'DatabaseParameterInfo.name' to '@level'
+2016-02-12 11:01:48.6342 Debug Setting 'DatabaseParameterInfo.layout' to '${level}'
+2016-02-12 11:01:49.3686 Debug Setting 'DatabaseParameterInfo.name' to '@logger'
+2016-02-12 11:01:50.0873 Debug Setting 'DatabaseParameterInfo.layout' to '${logger}'
+2016-02-12 11:01:50.8530 Debug Setting 'DatabaseParameterInfo.name' to '@message'
+2016-02-12 11:01:51.5873 Debug Setting 'DatabaseParameterInfo.layout' to '${message}'
+2016-02-12 11:01:52.3061 Debug Setting 'DatabaseParameterInfo.name' to '@msgid'
+2016-02-12 11:01:53.0405 Debug Setting 'DatabaseParameterInfo.layout' to '${event-context:item=UniqueCode}'
+2016-02-12 11:01:53.7749 Debug Setting 'EventContextLayoutRenderer.item' to 'UniqueCode'
+2016-02-12 11:01:54.5093 Debug Setting 'DatabaseParameterInfo.name' to '@user_name'
+2016-02-12 11:01:55.2436 Debug Setting 'DatabaseParameterInfo.layout' to '${windows-identity:domain=true}'
+2016-02-12 11:01:55.9780 Debug Setting 'WindowsIdentityLayoutRenderer.domain' to 'true'
+2016-02-12 11:01:56.7280 Debug Setting 'DatabaseParameterInfo.name' to '@call_site'
+2016-02-12 11:01:57.5249 Debug Setting 'DatabaseParameterInfo.layout' to '${callsite:filename=true}'
+2016-02-12 11:01:58.2749 Debug Setting 'CallSiteLayoutRenderer.filename' to 'true'
+2016-02-12 11:01:59.0405 Debug Setting 'DatabaseParameterInfo.name' to '@threadid'
+2016-02-12 11:01:59.8101 Debug Setting 'DatabaseParameterInfo.layout' to '${threadid}'
+2016-02-12 11:02:00.5334 Debug Setting 'DatabaseParameterInfo.name' to '@log_exception'
+2016-02-12 11:02:01.2990 Debug Setting 'DatabaseParameterInfo.layout' to '${exception}'
+2016-02-12 11:02:02.0334 Debug Setting 'DatabaseParameterInfo.name' to '@stacktrace'
+2016-02-12 11:02:02.7678 Debug Setting 'DatabaseParameterInfo.layout' to '${stacktrace}'
+2016-02-12 11:02:03.4866 Info Adding target Database Target[database]
+2016-02-12 11:02:04.2209 Debug Registering target database: NLog.Targets.DatabaseTarget
+2016-02-12 11:02:04.9553 Info Configured from an XML element in C:\dev\AUSKF\AUSKF\NLog.config...
+2016-02-12 11:02:05.6897 Debug --- NLog configuration dump ---
+2016-02-12 11:02:06.4241 Debug Targets:
+2016-02-12 11:02:07.1585 Debug Database Target[database]
+2016-02-12 11:02:07.8857 Debug Rules:
+2016-02-12 11:02:08.6135 Debug logNamePattern: (:All) levels: [ ] appendTo: [ database ]
+2016-02-12 11:02:09.3478 Debug --- End of NLog configuration dump ---
+2016-02-12 11:02:10.0822 Info Watching path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config' for changes.
+2016-02-12 11:02:10.8166 Info Found 42 configuration items
+2016-02-12 11:02:11.5510 Info Configuration initialized.
+2016-02-12 11:02:12.3252 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.2.3.1371. Product version: 4.2.3.
+2016-02-12 11:02:13.0752 Debug Targets for ControllerFactory by level:
+2016-02-12 11:02:13.8096 Debug Trace =>
+2016-02-12 11:02:14.5530 Debug Debug => database
+2016-02-12 11:02:15.2742 Debug Info => database
+2016-02-12 11:02:16.0085 Debug Warn => database
+2016-02-12 11:02:16.7429 Debug Error => database
+2016-02-12 11:02:17.4773 Debug Fatal => database
+2016-02-12 11:02:18.2273 Debug Targets for AUSKF.Startup by level:
+2016-02-12 11:02:18.9623 Debug Trace =>
+2016-02-12 11:02:19.6967 Debug Debug => database
+2016-02-12 11:02:20.4712 Debug Info => database
+2016-02-12 11:02:21.1899 Debug Warn => database
+2016-02-12 11:02:21.9243 Debug Error => database
+2016-02-12 11:02:22.6743 Debug Fatal => database
+2016-02-12 11:02:24.9914 Debug Targets for DataContext by level:
+2016-02-12 11:02:25.7754 Debug Trace =>
+2016-02-12 11:02:26.5715 Debug Debug => database
+2016-02-12 11:02:27.3355 Debug Info => database
+2016-02-12 11:02:28.0876 Debug Warn => database
+2016-02-12 11:02:28.8437 Debug Error => database
+2016-02-12 11:02:29.5997 Debug Fatal => database
+2016-02-12 11:02:30.3717 Debug Targets for AUSKF.Domain.Providers.Identity.ApplicationUserManager by level:
+2016-02-12 11:02:31.1678 Debug Trace =>
+2016-02-12 11:02:31.9238 Debug Debug => database
+2016-02-12 11:02:32.7199 Debug Info => database
+2016-02-12 11:02:33.4800 Debug Warn => database
+2016-02-12 11:02:34.2360 Debug Error => database
+2016-02-12 11:02:35.0081 Debug Fatal => database
+2016-02-12 11:02:35.7761 Debug Targets for AUSKF.Domain.Providers.Identity.ApplicationClaimsIdentityFactory by level:
+2016-02-12 11:02:36.5321 Debug Trace =>
+2016-02-12 11:02:37.2882 Debug Debug => database
+2016-02-12 11:02:38.0523 Debug Info => database
+2016-02-12 11:02:38.8123 Debug Warn => database
+2016-02-12 11:02:39.5724 Debug Error => database
+2016-02-12 11:02:40.3604 Debug Fatal => database
+2016-02-12 11:02:44.4163 Debug ScanAssembly('NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c')
+2016-02-12 11:02:45.2083 Debug Start auto loading, location: C:\dev\AUSKF\AUSKF\bin
+2016-02-12 11:02:45.9724 Debug Auto loading done
+2016-02-12 11:02:46.7484 Debug Setting 'DatabaseTarget.name' to 'database'
+2016-02-12 11:02:47.5165 Debug Setting 'DatabaseTarget.dbprovider' to 'mssql'
+2016-02-12 11:02:48.2805 Debug Setting 'DatabaseTarget.dbhost' to 'localhost'
+2016-02-12 11:02:49.0406 Debug Setting 'DatabaseTarget.dbdatabase' to 'AUSKF'
+2016-02-12 11:02:49.8046 Debug Setting 'DatabaseTarget.dbusername' to 'sa'
+2016-02-12 11:02:50.5727 Debug Setting 'DatabaseTarget.dbpassword' to 'xo2Die5l'
+2016-02-12 11:02:51.3367 Debug Setting 'DatabaseTarget.commandText' to '
+        insert into LogTable(LogLevel, Logger,Message, MessageId, WindowsUserName, CallSite, ThreadId, Exception, StackTrace)
+        values( @level, @logger, @message,@msgid, @user_name, @call_site, @threadid, @log_exception, @stacktrace);
+      '
+2016-02-12 11:02:52.1008 Debug Setting 'DatabaseParameterInfo.name' to '@time_stamp'
+2016-02-12 11:02:52.8688 Debug Setting 'DatabaseParameterInfo.layout' to '${longdate}'
+2016-02-12 11:02:53.7209 Debug Setting 'DatabaseParameterInfo.name' to '@level'
+2016-02-12 11:02:54.5329 Debug Setting 'DatabaseParameterInfo.layout' to '${level}'
+2016-02-12 11:02:55.3010 Debug Setting 'DatabaseParameterInfo.name' to '@logger'
+2016-02-12 11:02:56.0651 Debug Setting 'DatabaseParameterInfo.layout' to '${logger}'
+2016-02-12 11:02:56.8291 Debug Setting 'DatabaseParameterInfo.name' to '@message'
+2016-02-12 11:02:57.5932 Debug Setting 'DatabaseParameterInfo.layout' to '${message}'
+2016-02-12 11:02:58.3612 Debug Setting 'DatabaseParameterInfo.name' to '@msgid'
+2016-02-12 11:02:59.1373 Debug Setting 'DatabaseParameterInfo.layout' to '${event-context:item=UniqueCode}'
+2016-02-12 11:02:59.9053 Debug Setting 'EventContextLayoutRenderer.item' to 'UniqueCode'
+2016-02-12 11:03:00.6689 Debug Setting 'DatabaseParameterInfo.name' to '@user_name'
+2016-02-12 11:03:01.4370 Debug Setting 'DatabaseParameterInfo.layout' to '${windows-identity:domain=true}'
+2016-02-12 11:03:02.2450 Debug Setting 'WindowsIdentityLayoutRenderer.domain' to 'true'
+2016-02-12 11:03:03.0171 Debug Setting 'DatabaseParameterInfo.name' to '@call_site'
+2016-02-12 11:03:03.7931 Debug Setting 'DatabaseParameterInfo.layout' to '${callsite:filename=true}'
+2016-02-12 11:03:04.5612 Debug Setting 'CallSiteLayoutRenderer.filename' to 'true'
+2016-02-12 11:03:05.3332 Debug Setting 'DatabaseParameterInfo.name' to '@threadid'
+2016-02-12 11:03:06.1013 Debug Setting 'DatabaseParameterInfo.layout' to '${threadid}'
+2016-02-12 11:03:06.8733 Debug Setting 'DatabaseParameterInfo.name' to '@log_exception'
+2016-02-12 11:03:07.6374 Debug Setting 'DatabaseParameterInfo.layout' to '${exception}'
+2016-02-12 11:03:08.4454 Debug Setting 'DatabaseParameterInfo.name' to '@stacktrace'
+2016-02-12 11:03:09.2175 Debug Setting 'DatabaseParameterInfo.layout' to '${stacktrace}'
+2016-02-12 11:03:09.9895 Info Adding target Database Target[database]
+2016-02-12 11:03:10.7736 Debug Registering target database: NLog.Targets.DatabaseTarget
+2016-02-12 11:03:11.5576 Info Configured from an XML element in C:\dev\AUSKF\AUSKF\NLog.config...
+2016-02-12 11:03:12.3337 Debug --- NLog configuration dump ---
+2016-02-12 11:03:13.1418 Debug Targets:
+2016-02-12 11:03:13.9058 Debug Database Target[database]
+2016-02-12 11:03:14.7139 Debug Rules:
+2016-02-12 11:03:15.4859 Debug logNamePattern: (:All) levels: [ ] appendTo: [ database ]
+2016-02-12 11:03:16.2540 Debug --- End of NLog configuration dump ---
+2016-02-12 11:03:17.0220 Info Watching path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config' for changes.
+2016-02-12 11:03:17.7981 Info Found 42 configuration items
+2016-02-12 11:03:18.5821 Info Configuration initialized.
+2016-02-12 11:03:19.3502 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.2.3.1371. Product version: 4.2.3.
+2016-02-12 11:03:20.1862 Debug Targets for ControllerFactory by level:
+2016-02-12 11:03:20.9546 Debug Trace =>
+2016-02-12 11:03:21.7266 Debug Debug => database
+2016-02-12 11:03:22.4947 Debug Info => database
+2016-02-12 11:03:23.2627 Debug Warn => database
+2016-02-12 11:03:24.0908 Debug Error => database
+2016-02-12 11:03:24.8628 Debug Fatal => database
+2016-02-12 11:03:25.7469 Debug Targets for AUSKF.Startup by level:
+2016-02-12 11:03:26.5869 Debug Trace =>
+2016-02-12 11:03:27.3590 Debug Debug => database
+2016-02-12 11:03:28.1270 Debug Info => database
+2016-02-12 11:03:28.8991 Debug Warn => database
+2016-02-12 11:03:29.7071 Debug Error => database
+2016-02-12 11:03:30.4752 Debug Fatal => database
+2016-02-12 11:03:31.4512 Debug Targets for DataContext by level:
+2016-02-12 11:03:32.2593 Debug Trace =>
+2016-02-12 11:03:33.0234 Debug Debug => database
+2016-02-12 11:03:33.7834 Debug Info => database
+2016-02-12 11:03:34.5475 Debug Warn => database
+2016-02-12 11:03:35.3115 Debug Error => database
+2016-02-12 11:03:36.0796 Debug Fatal => database
+2016-02-12 11:03:36.8516 Debug Targets for AUSKF.Domain.Providers.Identity.ApplicationUserManager by level:
+2016-02-12 11:03:37.6557 Debug Trace =>
+2016-02-12 11:03:38.4197 Debug Debug => database
+2016-02-12 11:03:39.1798 Debug Info => database
+2016-02-12 11:03:39.9358 Debug Warn => database
+2016-02-12 11:03:40.6999 Debug Error => database
+2016-02-12 11:03:41.4648 Debug Fatal => database
+2016-02-12 11:03:42.2368 Debug Targets for AUSKF.Domain.Providers.Identity.ApplicationClaimsIdentityFactory by level:
+2016-02-12 11:03:43.0049 Debug Trace =>
+2016-02-12 11:03:43.7689 Debug Debug => database
+2016-02-12 11:03:44.5330 Debug Info => database
+2016-02-12 11:03:45.2930 Debug Warn => database
+2016-02-12 11:03:46.0611 Debug Error => database
+2016-02-12 11:03:46.8291 Debug Fatal => database
+2016-02-12 11:06:00.1966 Debug Targets for AUSKF.Api.DojoController by level:
+2016-02-12 11:06:00.9750 Debug Trace =>
+2016-02-12 11:06:01.7156 Debug Debug => database
+2016-02-12 11:06:02.4500 Debug Info => database
+2016-02-12 11:06:03.1844 Debug Warn => database
+2016-02-12 11:06:03.9188 Debug Error => database
+2016-02-12 11:06:04.6532 Debug Fatal => database
+2016-02-12 11:26:45.0828 Info Shutting down logging...
+2016-02-12 11:26:45.8640 Info Stopping file watching for path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config'
+2016-02-12 11:26:46.5984 Info Closing old configuration.
+2016-02-12 11:26:47.3797 Debug Closing logging configuration...
+2016-02-12 11:26:48.1422 Debug Finished closing logging configuration.
+2016-02-12 11:27:40.8462 Debug ScanAssembly('NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c')
+2016-02-12 11:27:41.6503 Debug Start auto loading, location: C:\dev\AUSKF\AUSKF\bin
+2016-02-12 11:27:42.4253 Debug Auto loading done
+2016-02-12 11:27:43.2494 Debug Setting 'DatabaseTarget.name' to 'database'
+2016-02-12 11:27:44.0315 Debug Setting 'DatabaseTarget.dbprovider' to 'mssql'
+2016-02-12 11:27:44.8431 Debug Setting 'DatabaseTarget.dbhost' to 'localhost'
+2016-02-12 11:27:45.6110 Debug Setting 'DatabaseTarget.dbdatabase' to 'AUSKF'
+2016-02-12 11:27:46.3780 Debug Setting 'DatabaseTarget.dbusername' to 'sa'
+2016-02-12 11:27:47.1454 Debug Setting 'DatabaseTarget.dbpassword' to 'xo2Die5l'
+2016-02-12 11:27:47.9843 Debug Setting 'DatabaseTarget.commandText' to '
+        insert into LogTable(LogLevel, Logger,Message, MessageId, WindowsUserName, CallSite, ThreadId, Exception, StackTrace)
+        values( @level, @logger, @message,@msgid, @user_name, @call_site, @threadid, @log_exception, @stacktrace);
+      '
+2016-02-12 11:27:48.7827 Debug Setting 'DatabaseParameterInfo.name' to '@time_stamp'
+2016-02-12 11:27:49.5530 Debug Setting 'DatabaseParameterInfo.layout' to '${longdate}'
+2016-02-12 11:27:50.3177 Debug Setting 'DatabaseParameterInfo.name' to '@level'
+2016-02-12 11:27:51.0892 Debug Setting 'DatabaseParameterInfo.layout' to '${level}'
+2016-02-12 11:27:51.9204 Debug Setting 'DatabaseParameterInfo.name' to '@logger'
+2016-02-12 11:27:52.7696 Debug Setting 'DatabaseParameterInfo.layout' to '${logger}'
+2016-02-12 11:27:53.5736 Debug Setting 'DatabaseParameterInfo.name' to '@message'
+2016-02-12 11:27:54.3373 Debug Setting 'DatabaseParameterInfo.layout' to '${message}'
+2016-02-12 11:27:55.1364 Debug Setting 'DatabaseParameterInfo.name' to '@msgid'
+2016-02-12 11:27:55.8974 Debug Setting 'DatabaseParameterInfo.layout' to '${event-context:item=UniqueCode}'
+2016-02-12 11:27:56.6616 Debug Setting 'EventContextLayoutRenderer.item' to 'UniqueCode'
+2016-02-12 11:27:57.5424 Debug Setting 'DatabaseParameterInfo.name' to '@user_name'
+2016-02-12 11:27:58.4141 Debug Setting 'DatabaseParameterInfo.layout' to '${windows-identity:domain=true}'
+2016-02-12 11:27:59.2177 Debug Setting 'WindowsIdentityLayoutRenderer.domain' to 'true'
+2016-02-12 11:27:59.9695 Debug Setting 'DatabaseParameterInfo.name' to '@call_site'
+2016-02-12 11:28:00.7539 Debug Setting 'DatabaseParameterInfo.layout' to '${callsite:filename=true}'
+2016-02-12 11:28:01.5494 Debug Setting 'CallSiteLayoutRenderer.filename' to 'true'
+2016-02-12 11:28:02.3133 Debug Setting 'DatabaseParameterInfo.name' to '@threadid'
+2016-02-12 11:28:03.0735 Debug Setting 'DatabaseParameterInfo.layout' to '${threadid}'
+2016-02-12 11:28:03.8854 Debug Setting 'DatabaseParameterInfo.name' to '@log_exception'
+2016-02-12 11:28:04.6521 Debug Setting 'DatabaseParameterInfo.layout' to '${exception}'
+2016-02-12 11:28:05.4189 Debug Setting 'DatabaseParameterInfo.name' to '@stacktrace'
+2016-02-12 11:28:06.1815 Debug Setting 'DatabaseParameterInfo.layout' to '${stacktrace}'
+2016-02-12 11:28:06.9522 Info Adding target Database Target[database]
+2016-02-12 11:28:07.7160 Debug Registering target database: NLog.Targets.DatabaseTarget
+2016-02-12 11:28:08.5223 Info Configured from an XML element in C:\dev\AUSKF\AUSKF\NLog.config...
+2016-02-12 11:28:09.2857 Debug --- NLog configuration dump ---
+2016-02-12 11:28:10.0883 Debug Targets:
+2016-02-12 11:28:10.8510 Debug Database Target[database]
+2016-02-12 11:28:11.6539 Debug Rules:
+2016-02-12 11:28:12.4213 Debug logNamePattern: (:All) levels: [ ] appendTo: [ database ]
+2016-02-12 11:28:13.1949 Debug --- End of NLog configuration dump ---
+2016-02-12 11:28:14.0037 Info Watching path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config' for changes.
+2016-02-12 11:28:14.7772 Info Found 42 configuration items
+2016-02-12 11:28:15.5628 Info Configuration initialized.
+2016-02-12 11:28:16.3547 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.2.3.1371. Product version: 4.2.3.
+2016-02-12 11:28:17.1794 Debug Targets for ControllerFactory by level:
+2016-02-12 11:28:17.9545 Debug Trace =>
+2016-02-12 11:28:18.7243 Debug Debug => database
+2016-02-12 11:28:19.4777 Debug Info => database
+2016-02-12 11:28:20.2277 Debug Warn => database
+2016-02-12 11:28:20.9712 Debug Error => database
+2016-02-12 11:28:21.7213 Debug Fatal => database
+2016-02-12 11:28:22.5650 Debug Targets for AUSKF.Startup by level:
+2016-02-12 11:28:23.3150 Debug Trace =>
+2016-02-12 11:28:24.0494 Debug Debug => database
+2016-02-12 11:28:24.7994 Debug Info => database
+2016-02-12 11:28:25.5424 Debug Warn => database
+2016-02-12 11:28:26.2924 Debug Error => database
+2016-02-12 11:28:27.0268 Debug Fatal => database
+2016-02-12 11:28:27.9643 Debug Targets for DataContext by level:
+2016-02-12 11:28:28.6987 Debug Trace =>
+2016-02-12 11:28:29.4643 Debug Debug => database
+2016-02-12 11:28:30.1987 Debug Info => database
+2016-02-12 11:28:30.9487 Debug Warn => database
+2016-02-12 11:28:31.7397 Debug Error => database
+2016-02-12 11:28:32.4741 Debug Fatal => database
+2016-02-12 11:28:33.2241 Debug Targets for AUSKF.Domain.Providers.Identity.ApplicationUserManager by level:
+2016-02-12 11:28:33.9741 Debug Trace =>
+2016-02-12 11:28:34.7241 Debug Debug => database
+2016-02-12 11:28:35.4585 Debug Info => database
+2016-02-12 11:28:36.2085 Debug Warn => database
+2016-02-12 11:28:36.9429 Debug Error => database
+2016-02-12 11:28:37.7241 Debug Fatal => database
+2016-02-12 11:28:38.4741 Debug Targets for AUSKF.Domain.Providers.Identity.ApplicationClaimsIdentityFactory by level:
+2016-02-12 11:28:39.2241 Debug Trace =>
+2016-02-12 11:28:39.9585 Debug Debug => database
+2016-02-12 11:28:40.7085 Debug Info => database
+2016-02-12 11:28:41.4520 Debug Warn => database
+2016-02-12 11:28:42.2020 Debug Error => database
+2016-02-12 11:28:42.9364 Debug Fatal => database
+2016-02-12 12:45:57.3089 Info Shutting down logging...
+2016-02-12 12:45:58.1055 Info Stopping file watching for path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config'
+2016-02-12 12:45:58.9130 Info Closing old configuration.
+2016-02-12 12:45:59.7690 Debug Info => database
+2016-02-12 12:46:00.5617 Debug Warn => database
+2016-02-12 12:46:01.3492 Debug Error => database
+2016-02-12 12:46:02.1388 Debug Fatal => database
+2016-02-12 12:46:02.9374 Debug Targets for AUSKF.Domain.Providers.Identity.ApplicationClaimsIdentityFactory by level:
+2016-02-12 12:46:03.7680 Debug Trace =>
+2016-02-12 12:46:04.5535 Debug Debug => database
+2016-02-12 12:46:05.3391 Debug Info => database
+2016-02-12 12:46:06.1296 Debug Warn => database
+2016-02-12 12:46:06.9172 Debug Error => database
+2016-02-12 12:46:07.7007 Debug Fatal => database
+2016-02-12 12:49:35.9308 Debug Targets for AUSKF.Api.DojoController by level:
+2016-02-12 12:49:36.7223 Debug Trace =>
+2016-02-12 12:49:37.5129 Debug Debug => database
+2016-02-12 12:49:38.2984 Debug Info => database
+2016-02-12 12:49:39.0890 Debug Warn => database
+2016-02-12 12:49:39.8756 Debug Error => database
+2016-02-12 12:49:40.6621 Debug Fatal => database
+2016-02-13 21:23:24.0410 Info Shutting down logging...
+2016-02-13 21:23:24.8535 Info Stopping file watching for path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config'
+2016-02-13 21:23:25.6191 Info Closing old configuration.
+2016-02-13 21:23:26.4317 Debug Closing logging configuration...
+2016-02-13 21:23:27.2286 Debug Finished closing logging configuration.
+2016-02-13 21:23:28.3218 Info Logger has been shut down.
+2016-02-13 21:23:29.3825 Debug Warn => database
+2016-02-13 21:23:30.2321 Debug Error => database
+2016-02-13 21:23:31.0477 Debug Fatal => database
+2016-02-13 21:23:31.8333 Debug Targets for AUSKF.Domain.Providers.Identity.ApplicationClaimsIdentityFactory by level:
+2016-02-13 21:23:32.6208 Debug Trace =>
+2016-02-13 21:23:33.4024 Debug Debug => database
+2016-02-13 21:23:34.1939 Debug Info => database
+2016-02-13 21:23:34.9755 Debug Warn => database
+2016-02-13 21:23:35.7610 Debug Error => database
+2016-02-13 21:23:36.5516 Debug Fatal => database
+2016-02-13 21:24:34.1573 Debug Targets for AUSKF.Api.DojoController by level:
+2016-02-13 21:24:34.9245 Debug Trace =>
+2016-02-13 21:24:35.7199 Debug Debug => database
+2016-02-13 21:24:36.4954 Debug Info => database
+2016-02-13 21:24:37.2454 Debug Warn => database
+2016-02-13 21:24:37.9954 Debug Error => database
+2016-02-13 21:24:38.7298 Debug Fatal => database
+2016-02-13 21:27:42.6616 Debug Targets for AccountController by level:
+2016-02-13 21:27:43.5097 Debug Trace =>
+2016-02-13 21:27:44.3017 Debug Debug => database
+2016-02-13 21:27:45.0818 Debug Info => database
+2016-02-13 21:27:45.8658 Debug Warn => database
+2016-02-13 21:27:46.6419 Debug Error => database
+2016-02-13 21:27:47.4179 Debug Fatal => database
+2016-02-13 21:27:48.5091 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'LogId', table 'AUSKF.dbo.LogTable'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:cfdccce7-12dd-4ee2-bc29-eb9372ac6be0
+Error Number:515,State:2,Class:16
+2016-02-13 21:28:50.6341 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'LogId', table 'AUSKF.dbo.LogTable'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:cfdccce7-12dd-4ee2-bc29-eb9372ac6be0
+Error Number:515,State:2,Class:16
+2016-02-13 21:29:53.2273 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'LogId', table 'AUSKF.dbo.LogTable'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:cfdccce7-12dd-4ee2-bc29-eb9372ac6be0
+Error Number:515,State:2,Class:16
+2016-02-13 21:30:53.9208 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'LogId', table 'AUSKF.dbo.LogTable'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:cfdccce7-12dd-4ee2-bc29-eb9372ac6be0
+Error Number:515,State:2,Class:16
+2016-02-13 21:31:21.3019 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'LogId', table 'AUSKF.dbo.LogTable'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:cfdccce7-12dd-4ee2-bc29-eb9372ac6be0
+Error Number:515,State:2,Class:16
+2016-02-13 21:31:29.0804 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'LogId', table 'AUSKF.dbo.LogTable'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:cfdccce7-12dd-4ee2-bc29-eb9372ac6be0
+Error Number:515,State:2,Class:16
+2016-02-13 21:31:42.1537 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'LogId', table 'AUSKF.dbo.LogTable'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:cfdccce7-12dd-4ee2-bc29-eb9372ac6be0
+Error Number:515,State:2,Class:16
+2016-02-13 21:35:08.9256 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'LogId', table 'AUSKF.dbo.LogTable'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:cfdccce7-12dd-4ee2-bc29-eb9372ac6be0
+Error Number:515,State:2,Class:16
+2016-02-13 21:35:17.3434 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'LogId', table 'AUSKF.dbo.LogTable'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:cfdccce7-12dd-4ee2-bc29-eb9372ac6be0
+Error Number:515,State:2,Class:16
+2016-02-13 21:35:19.0277 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'LogId', table 'AUSKF.dbo.LogTable'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:cfdccce7-12dd-4ee2-bc29-eb9372ac6be0
+Error Number:515,State:2,Class:16
+2016-02-13 21:35:20.2660 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'LogId', table 'AUSKF.dbo.LogTable'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:cfdccce7-12dd-4ee2-bc29-eb9372ac6be0
+Error Number:515,State:2,Class:16
+2016-02-13 21:35:21.5037 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'LogId', table 'AUSKF.dbo.LogTable'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:cfdccce7-12dd-4ee2-bc29-eb9372ac6be0
+Error Number:515,State:2,Class:16
+2016-02-13 21:40:25.5897 Debug Targets for MyProfileController by level:
+2016-02-13 21:40:26.3897 Debug Trace =>
+2016-02-13 21:40:27.1898 Debug Debug => database
+2016-02-13 21:40:27.9898 Debug Info => database
+2016-02-13 21:40:28.7979 Debug Warn => database
+2016-02-13 21:40:29.6099 Debug Error => database
+2016-02-13 21:40:30.4140 Debug Fatal => database
+2016-02-13 21:40:31.5720 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'LogId', table 'AUSKF.dbo.LogTable'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:586731de-7544-45ee-9fc4-727d567c0d57
+Error Number:515,State:2,Class:16
+2016-02-13 21:40:32.7893 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'LogId', table 'AUSKF.dbo.LogTable'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:586731de-7544-45ee-9fc4-727d567c0d57
+Error Number:515,State:2,Class:16
+2016-02-13 21:42:07.6755 Debug Targets for FederationRegistrationController by level:
+2016-02-13 21:42:08.4836 Debug Trace =>
+2016-02-13 21:42:09.2836 Debug Debug => database
+2016-02-13 21:42:10.0877 Debug Info => database
+2016-02-13 21:42:10.8918 Debug Warn => database
+2016-02-13 21:42:11.6918 Debug Error => database
+2016-02-13 21:42:12.4919 Debug Fatal => database
+2016-02-13 21:42:13.6199 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'LogId', table 'AUSKF.dbo.LogTable'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:586731de-7544-45ee-9fc4-727d567c0d57
+Error Number:515,State:2,Class:16
+2016-02-13 21:43:01.4670 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'LogId', table 'AUSKF.dbo.LogTable'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:586731de-7544-45ee-9fc4-727d567c0d57
+Error Number:515,State:2,Class:16
+2016-02-13 21:43:06.0361 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'LogId', table 'AUSKF.dbo.LogTable'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:586731de-7544-45ee-9fc4-727d567c0d57
+Error Number:515,State:2,Class:16
+2016-02-13 21:53:52.4136 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'LogId', table 'AUSKF.dbo.LogTable'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:471f7d44-c8b5-475a-995f-8b8fb963b72d
+Error Number:515,State:2,Class:16
+2016-02-13 22:09:13.1738 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'LogId', table 'AUSKF.dbo.LogTable'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:584066b6-ca17-4771-803a-3490f1d36879
+Error Number:515,State:2,Class:16
+2016-02-13 22:09:14.2549 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'LogId', table 'AUSKF.dbo.LogTable'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:584066b6-ca17-4771-803a-3490f1d36879
+Error Number:515,State:2,Class:16
+2016-02-13 22:09:19.5232 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'LogId', table 'AUSKF.dbo.LogTable'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:584066b6-ca17-4771-803a-3490f1d36879
+Error Number:515,State:2,Class:16
+2016-02-13 22:09:25.5264 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'LogId', table 'AUSKF.dbo.LogTable'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:584066b6-ca17-4771-803a-3490f1d36879
+Error Number:515,State:2,Class:16
+2016-02-13 22:09:26.5155 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'LogId', table 'AUSKF.dbo.LogTable'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:584066b6-ca17-4771-803a-3490f1d36879
+Error Number:515,State:2,Class:16
+2016-02-13 22:09:27.4755 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'LogId', table 'AUSKF.dbo.LogTable'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:584066b6-ca17-4771-803a-3490f1d36879
+Error Number:515,State:2,Class:16
+2016-02-13 22:09:28.4156 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'LogId', table 'AUSKF.dbo.LogTable'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:584066b6-ca17-4771-803a-3490f1d36879
+Error Number:515,State:2,Class:16
+2016-02-13 22:09:29.6157 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'LogId', table 'AUSKF.dbo.LogTable'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:584066b6-ca17-4771-803a-3490f1d36879
+Error Number:515,State:2,Class:16
+2016-02-13 22:09:47.8004 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'LogId', table 'AUSKF.dbo.LogTable'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:584066b6-ca17-4771-803a-3490f1d36879
+Error Number:515,State:2,Class:16
+2016-02-13 22:29:55.0648 Info Shutting down logging...
+2016-02-13 22:29:55.9085 Info Stopping file watching for path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config'
+2016-02-13 22:29:56.7054 Info Closing old configuration.
+2016-02-13 22:29:57.5179 Debug Closing logging configuration...
+2016-02-13 22:29:58.9554 Debug ScanAssembly('NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c')
+2016-02-13 22:29:59.7836 Debug Start auto loading, location: C:\dev\AUSKF\AUSKF\bin
+2016-02-13 22:30:00.6235 Debug Auto loading done
+2016-02-13 22:30:01.4204 Debug Setting 'DatabaseTarget.name' to 'database'
+2016-02-13 22:30:02.2329 Debug Setting 'DatabaseTarget.dbprovider' to 'mssql'
+2016-02-13 22:30:03.0298 Debug Setting 'DatabaseTarget.dbhost' to 'localhost'
+2016-02-13 22:30:03.8267 Debug Setting 'DatabaseTarget.dbdatabase' to 'AUSKF'
+2016-02-13 22:30:04.6236 Debug Setting 'DatabaseTarget.dbusername' to 'sa'
+2016-02-13 22:30:05.4205 Debug Setting 'DatabaseTarget.dbpassword' to 'xo2Die5l'
+2016-02-13 22:30:06.2173 Debug Setting 'DatabaseTarget.commandText' to '
+        insert into LogTable(LogLevel, Logger,Message, MessageId, WindowsUserName, CallSite, ThreadId, Exception, StackTrace)
+        values( @level, @logger, @message,@msgid, @user_name, @call_site, @threadid, @log_exception, @stacktrace);
+      '
+2016-02-13 22:30:07.0298 Debug Setting 'DatabaseParameterInfo.name' to '@time_stamp'
+2016-02-13 22:30:07.8267 Debug Setting 'DatabaseParameterInfo.layout' to '${longdate}'
+2016-02-13 22:30:08.6392 Debug Setting 'DatabaseParameterInfo.name' to '@level'
+2016-02-13 22:30:09.4361 Debug Setting 'DatabaseParameterInfo.layout' to '${level}'
+2016-02-13 22:30:10.2330 Debug Setting 'DatabaseParameterInfo.name' to '@logger'
+2016-02-13 22:30:11.0299 Debug Setting 'DatabaseParameterInfo.layout' to '${logger}'
+2016-02-13 22:30:11.8268 Debug Setting 'DatabaseParameterInfo.name' to '@message'
+2016-02-13 22:30:12.6236 Debug Setting 'DatabaseParameterInfo.layout' to '${message}'
+2016-02-13 22:30:13.4205 Debug Setting 'DatabaseParameterInfo.name' to '@msgid'
+2016-02-13 22:30:14.2174 Debug Setting 'DatabaseParameterInfo.layout' to '${event-context:item=UniqueCode}'
+2016-02-13 22:30:15.0143 Debug Setting 'EventContextLayoutRenderer.item' to 'UniqueCode'
+2016-02-13 22:30:15.8112 Debug Setting 'DatabaseParameterInfo.name' to '@user_name'
+2016-02-13 22:30:16.6081 Debug Setting 'DatabaseParameterInfo.layout' to '${windows-identity:domain=true}'
+2016-02-13 22:30:17.4049 Debug Setting 'WindowsIdentityLayoutRenderer.domain' to 'true'
+2016-02-13 22:30:18.2024 Debug Setting 'DatabaseParameterInfo.name' to '@call_site'
+2016-02-13 22:30:18.9992 Debug Setting 'DatabaseParameterInfo.layout' to '${callsite:filename=true}'
+2016-02-13 22:30:19.7961 Debug Setting 'CallSiteLayoutRenderer.filename' to 'true'
+2016-02-13 22:30:20.5863 Debug Setting 'DatabaseParameterInfo.name' to '@threadid'
+2016-02-13 22:30:21.3832 Debug Setting 'DatabaseParameterInfo.layout' to '${threadid}'
+2016-02-13 22:30:22.1772 Debug Setting 'DatabaseParameterInfo.name' to '@log_exception'
+2016-02-13 22:30:22.9740 Debug Setting 'DatabaseParameterInfo.layout' to '${exception}'
+2016-02-13 22:30:23.7709 Debug Setting 'DatabaseParameterInfo.name' to '@stacktrace'
+2016-02-13 22:30:24.5991 Debug Setting 'DatabaseParameterInfo.layout' to '${stacktrace}'
+2016-02-13 22:30:25.3808 Info Adding target Database Target[database]
+2016-02-13 22:30:26.1777 Debug Registering target database: NLog.Targets.DatabaseTarget
+2016-02-13 22:30:26.9836 Info Configured from an XML element in C:\dev\AUSKF\AUSKF\NLog.config...
+2016-02-13 22:30:27.7961 Debug --- NLog configuration dump ---
+2016-02-13 22:30:28.5930 Debug Targets:
+2016-02-13 22:30:29.3742 Debug Database Target[database]
+2016-02-13 22:30:30.1711 Debug Rules:
+2016-02-13 22:30:30.9680 Debug logNamePattern: (:All) levels: [ ] appendTo: [ database ]
+2016-02-13 22:30:31.7649 Debug --- End of NLog configuration dump ---
+2016-02-13 22:30:32.5618 Info Watching path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config' for changes.
+2016-02-13 22:30:33.3899 Info Found 42 configuration items
+2016-02-13 22:30:34.2024 Info Configuration initialized.
+2016-02-13 22:30:34.9837 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.2.3.1371. Product version: 4.2.3.
+2016-02-13 22:30:35.7962 Debug Targets for ControllerFactory by level:
+2016-02-13 22:30:36.5931 Debug Trace =>
+2016-02-13 22:30:37.3900 Debug Debug => database
+2016-02-13 22:30:38.1869 Debug Info => database
+2016-02-13 22:30:38.9837 Debug Warn => database
+2016-02-13 22:30:39.7806 Debug Error => database
+2016-02-13 22:30:40.6087 Debug Fatal => database
+2016-02-13 22:30:41.5551 Debug Targets for AUSKF.Startup by level:
+2016-02-13 22:30:42.3520 Debug Trace =>
+2016-02-13 22:30:43.1488 Debug Debug => database
+2016-02-13 22:30:43.9457 Debug Info => database
+2016-02-13 22:30:44.7426 Debug Warn => database
+2016-02-13 22:30:45.5239 Debug Error => database
+2016-02-13 22:30:46.3676 Debug Fatal => database

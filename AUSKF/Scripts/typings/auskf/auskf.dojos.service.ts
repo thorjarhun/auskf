@@ -3,13 +3,16 @@
 // ReSharper disable once InconsistentNaming
 
 module auskf {
+    import Dojo = AUSKF.Domain.Entities.Dojo;
+    import Tuple = System.Tuple;
+    import SerializablePagination = AUSKF.Domain.Collections.SerializablePagination;
     "use strict";
 
     export interface IDojosService {
-        getDojos(page): ng.IHttpPromise<Array<Event>>;
-        getDojosByState(page, stateSelect): ng.IHttpPromise<Array<Event>>;
-        getDojosByFederation(page, federationSelect): ng.IHttpPromise<Array<Event>>;
-        getDojoStates(): ng.IHttpPromise<Array<Event>>;
+        getDojos(page): ng.IHttpPromise<SerializablePagination<Dojo>>;
+        getDojosByState(page, stateSelect): ng.IHttpPromise<SerializablePagination<Dojo>>;
+        getDojosByFederation(page, federationSelect): ng.IHttpPromise<SerializablePagination<Dojo>>;
+        getDojoStates(): ng.IHttpPromise<Array<Tuple<string, string>>>;
     }
 
 
@@ -20,19 +23,19 @@ module auskf {
             this.getDojos(1);
         }
 
-        getDojos(page): ng.IHttpPromise<Array<Event>> {
+        getDojos(page): ng.IHttpPromise<SerializablePagination<Dojo>> {
             return this.$http.get(this.serviceUri + "/paged/" + page);
         } 
 
-        getDojosByState(page, stateSelect): ng.IHttpPromise<Array<Event>> {
+        getDojosByState(page, stateSelect): ng.IHttpPromise<SerializablePagination<Dojo>> {
             return this.$http.get(this.serviceUri + "dojos/paged/" + page + "?federationId=&state=" + stateSelect);
         }
 
-        getDojosByFederation(page, federationSelect): ng.IHttpPromise<Array<Event>> {
+        getDojosByFederation(page, federationSelect): ng.IHttpPromise<SerializablePagination<Dojo>> {
             return this.$http.get(this.serviceUri + "dojos/paged/" + page + "?federationId=" + federationSelect + "&state=");
         }
 
-        getDojoStates(): ng.IHttpPromise<Array<Event>> {
+        getDojoStates(): ng.IHttpPromise<Array<Tuple<string, string>>> {
             return this.$http.get(this.serviceUri + "/states");
         }  
     }

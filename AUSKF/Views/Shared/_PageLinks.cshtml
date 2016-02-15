@@ -3,14 +3,10 @@
     <div class="page-nation">
         <ul class="pagination pagination-large">
 
-            <li ng-show="userList.hasPreviousPage"><a ng-href="{{userList.BaseUrl}}?page={{ userList.pageNumber - 1 }}">prev</a></li>
-
+            <li ng-show="userList.hasNextPage"><a href="#" ng-click="getUsers(searchValues.page-1,searchValues.pageSize,searchValues.orderBy)">prev</a></li>
             <li ng-repeat="page in userList.pageArray" ng-class="getclass(page, userList.pageNumber)">
-                @*<a ng-href="{{userList.baseUrl}}?page={{page}}">{{page}}</a>*@
-
                 <a href="#" ng-click="getUsers(page,20,'id')">{{page}}</a>
             </li>
-
             <li ng-show="userList.hasNextPage"><a href="#" ng-click="getUsers(searchValues.page+1,searchValues.pageSize,searchValues.orderBy)">next</a></li>
         </ul>
         <div>

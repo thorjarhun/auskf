@@ -2,13 +2,18 @@
 module auskf {
     "use strict";
 
-    interface IDojoScope extends ng.IScope {
+    import Dojo = AUSKF.Domain.Entities.Dojo;
+    import Tuple = System.Tuple;
+    import SerializablePagination = AUSKF.Domain.Collections.SerializablePagination;
+    import SearchValues = AUSKF.Domain.Models.Account.SearchValues;
+
+    export interface IDojoScope extends ng.IScope {
         validationMessage: any;
-        dojolist: Array<Event>;
-        stateslist: Array<Event>;
+        dojoList: SerializablePagination<Dojo>;
+        stateslist: Array<Tuple<string, string>>;
         federationSelect: string;
         stateSelect: string;
-        page: string;
+        searchValues: SearchValues;
     }
 
     export class DojosController {
@@ -16,13 +21,21 @@ module auskf {
 
         constructor(private $scope: IDojoScope,
             private dojosService: IDojosService) {
-            this.getDojos($scope.page); 
+            this.getDojos($scope.searchValues.page); 
             this.getDojoStates();
+
+            this.$scope.searchValues = <SearchValues>{
+                page: 1,
+                pageSize: 10,
+                orderBy: 'dojoIId',
+                sortDirection: 'ascending',
+                onlyShowActive: true
+            };
         }
 
         getDojos(page) {
             this.dojosService.getDojos(page).success(data => {
-                this.$scope.dojolist = data;
+                this.$scope.dojoList = data;
                 this.$scope.federationSelect = "";
                 this.$scope.stateSelect = "";
             }).error(error => {
@@ -32,7 +45,7 @@ module auskf {
 
         getDojosByState(page, stateSelect) {
             this.dojosService.getDojosByState(page, stateSelect).success(data => {
-                this.$scope.dojolist = data;
+                this.$scope.dojoList = data;
                 this.$scope.federationSelect = ""; 
             }).error(error => {
                 this.$scope.validationMessage = error.exceptionMessage;
@@ -41,7 +54,7 @@ module auskf {
 
         getDojosByFederation(page, federationSelect) {
             this.dojosService.getDojosByFederation(page, federationSelect).success(data => {
-                this.$scope.dojolist = data; 
+                this.$scope.dojoList = data; 
                 this.$scope.stateSelect = "";
             }).error(error => {
                 this.$scope.validationMessage = error.exceptionMessage;

@@ -77,24 +77,6 @@ var auskf;
                     "&sortdirection=" + this.$scope.searchValues.sortDirection : "";
                 return location;
             };
-            //getUsers(page: number, pageSize: number, sort: string, sortdirection: string): any {
-            //    this.$scope.searchValues.page = page;
-            //    this.$scope.searchValues.pageSize = pageSize ? pageSize : 20;
-            //    this.$scope.searchValues.orderBy = sort ? sort : "active, id";
-            //    this.$scope.searchValues.sortDirection = sortdirection ? sortdirection : "ascending";
-            //    window.location.replace(this.parseLocation());
-            //    this.$http.get(this.serviceUri + page +
-            //        "/?pagesize=" + this.$scope.searchValues.pageSize +
-            //        "&sortdirection=" + this.$scope.searchValues.sortDirection +
-            //        "&sortby=" + this.$scope.searchValues.orderBy +
-            //        "&onlyShowActive=" + this.$scope.searchValues.onlyShowActive +
-            //        "&query=" + this.$scope.searchValues.query)
-            //        .success(data => {
-            //            this.$scope.userList = <any>(data);
-            //        }).error(error => {
-            //            this.$scope.validationMessage = error.exceptionMessage;
-            //        });
-            //};
             AdminUserController.prototype.processAjaxData = function (response, urlPath) {
                 document.getElementById("content").innerHTML = response.html;
                 document.title = response.pageTitle;

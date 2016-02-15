@@ -84,7 +84,7 @@
 
         [HttpGet]
         [Route("paged/{pagenumber}", Name = "DojosV1")]
-        [ResponseType(typeof(SerializablePagination<User>))]
+        [ResponseType(typeof(SerializablePagination<Dojo>))]
         public async Task<IHttpActionResult> Get(int? pagenumber, [FromUri]int? federationId = null, [FromUri]string state = "")
         {
             try
@@ -104,7 +104,7 @@
 
                     if (!string.IsNullOrEmpty(state))
                     {
-                        dojos = dojos.Where<Dojo>(d => d.Address.State == state);
+                        dojos = dojos.Where<Dojo>(d => d.Address != null && d.Address.State == state);
                     }
 
                     var dojoArray = dojos as Dojo[] ?? dojos.ToArray();
@@ -117,8 +117,10 @@
 
                     pagenumber = pagenumber.HasValue ? pagenumber : 0;
 
-                    return await Task.FromResult((IHttpActionResult)
+                    var result = await Task.FromResult((IHttpActionResult)
                         this.Ok(new SerializablePagination<Dojo>(dojoArray.ToList(), (int)pagenumber)));
+
+                    return result;
                 }
                 return await Task.FromResult((IHttpActionResult)this.NotFound());
             }
@@ -131,7 +133,7 @@
 
         [HttpGet]
         [Route("states", Name = "DojoStatesV1")]
-        [ResponseType(typeof(SerializablePagination<User>))]
+        [ResponseType(typeof(SerializablePagination<Dojo>))]
         public async Task<IHttpActionResult> Get()
         {
             try
@@ -154,10 +156,15 @@
                         return await Task.FromResult(this.Ok());
                     }
 
-                    var dojoStates = dojos.Select(d => d.Address.State).Distinct().ToList();
+                    var dojoStates = dojos.Where(d => d.Address != null).Select(d => d.Address.State).Distinct().ToList();
+                    var statesList = states;
 
-                    return await Task.FromResult((IHttpActionResult)
-                        this.Ok(states.Where(s => dojoStates.Contains(s.Item2)).ToList()));
+                    if (dojoStates.Count > 0)
+                    {
+                        statesList = states.Where(s => dojoStates.Contains(s.Item2)).ToList();
+                    }
+
+                    return await Task.FromResult((IHttpActionResult)this.Ok(statesList));
                 }
                 return await Task.FromResult((IHttpActionResult)this.NotFound());
             }

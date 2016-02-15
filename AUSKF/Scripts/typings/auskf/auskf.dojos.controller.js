@@ -6,13 +6,20 @@ var auskf;
         function DojosController($scope, dojosService) {
             this.$scope = $scope;
             this.dojosService = dojosService;
-            this.getDojos($scope.page);
+            this.getDojos($scope.searchValues.page);
             this.getDojoStates();
+            this.$scope.searchValues = {
+                page: 1,
+                pageSize: 10,
+                orderBy: 'dojoIId',
+                sortDirection: 'ascending',
+                onlyShowActive: true
+            };
         }
         DojosController.prototype.getDojos = function (page) {
             var _this = this;
             this.dojosService.getDojos(page).success(function (data) {
-                _this.$scope.dojolist = data;
+                _this.$scope.dojoList = data;
                 _this.$scope.federationSelect = "";
                 _this.$scope.stateSelect = "";
             }).error(function (error) {
@@ -22,7 +29,7 @@ var auskf;
         DojosController.prototype.getDojosByState = function (page, stateSelect) {
             var _this = this;
             this.dojosService.getDojosByState(page, stateSelect).success(function (data) {
-                _this.$scope.dojolist = data;
+                _this.$scope.dojoList = data;
                 _this.$scope.federationSelect = "";
             }).error(function (error) {
                 _this.$scope.validationMessage = error.exceptionMessage;
@@ -31,7 +38,7 @@ var auskf;
         DojosController.prototype.getDojosByFederation = function (page, federationSelect) {
             var _this = this;
             this.dojosService.getDojosByFederation(page, federationSelect).success(function (data) {
-                _this.$scope.dojolist = data;
+                _this.$scope.dojoList = data;
                 _this.$scope.stateSelect = "";
             }).error(function (error) {
                 _this.$scope.validationMessage = error.exceptionMessage;
