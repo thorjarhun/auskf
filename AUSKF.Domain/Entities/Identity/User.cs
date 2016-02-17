@@ -230,11 +230,13 @@
         public string Notes { get; set; }
 
         [NotMapped]
+        [DataMember]
         public override string PhoneNumber { get; set; }
 
         [NotMapped]
         public override bool PhoneNumberConfirmed { get; set; }
 
+        [DataMember]
         public virtual List<Promotion> Promotions { get; set; }
 
 

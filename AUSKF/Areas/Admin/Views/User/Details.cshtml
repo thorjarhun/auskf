@@ -9,29 +9,42 @@
         <div class="col-md-6">
             <div class="panel panel-info">
                 <div class="panel-heading">
-                    <h3 class="panel-title" ng-cloak>{{firstName}} {{lastName}}</h3>
+                    <h3 class="panel-title" ng-cloak>
+                        <b>{{user.firstName}} {{user.lastName}} </b>
+                    </h3>
                 </div>
                 <div class="panel-body">
                     <div class="row">
-                        <div class="col-md-3 col-lg-3 " align="center">
+                        <div class="col-md-3 col-lg-3" align="center">
                             <img alt="User Pic" src="~/Content/Images/Muga-Kendo-Helmet.png" height="300" width="400" class="img-circle img-responsive">
                         </div>
-
                         <div class=" col-md-9 col-lg-9 ">
                             <table class="table table-user-information">
                                 <tbody>
                                     <tr>
+                                        <td colspan="2" class="alert alert-danger" style="font-size: small;">
+                                            TODO: Link to Dojo Admin page
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            member of: <a ng-href="~/Admin/Dojo/{{ user.profile.dojoId }}">
+                                                {{ user.profile.dojo.dojoName }}
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
                                         <td>Email:</td>
-                                        <td>@Html.DisplayFor(model => model.Email)</td>
+                                        <td><input type="text" value="{{ user.email }}"/></td>
                                     </tr>
                                     <tr>
                                         <td>AUSKFID</td>
                                         <td>
-                                            @Html.DisplayFor(model => model.AuskfId)
+                                            <input type="text" value="{{ user.auskfId }}"/>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Date of Birth</td>
+                                        <td>Date of Birth<br/><span style="font-size: xx-small; color: #303030">TODO this doesn't work</span></td>
                                         @if (Model.DateOfBirth == (DateTime)SqlDateTime.MinValue)
                                         {
                                             <td>Not listed.</td>
@@ -40,22 +53,18 @@
                                         {
                                             <td>
                                                 <input class="form-control" name="registration_date" id="registration-date" type="date"
-                                                       value="@Model.DateOfBirth.Value.ToShortDateString()">
-
-                                                @Html.DisplayFor(model => model.DateOfBirth, "Age")
+                                                       value="{{user.displayDate}}">
+                                                {{ user.displayDate }}
                                             </td>
                                         }
                                     </tr>
 
                                     <tr>
                                         <td>Phone Number:</td>
-                                        <td>@Html.DisplayFor(model => model.PhoneNumber)</td>
+                                        <td><input type="text" value="{{user.phoneNumber}}"/></td>
                                     </tr>
                                 </tbody>
                             </table>
-
-                            @*<a href="#" class="btn btn-primary">My Sales Performance</a>
-                                <a href="#" class="btn btn-primary">Team Sales Performance</a>*@
                         </div>
                     </div>
                 </div>
@@ -79,18 +88,34 @@
                     <h3 class="panel-title">Promotions</h3>
                 </div>
                 <div class="panel-body">
-                    @foreach (var item in Model.Promotions)
-                    {
-                        <div class="col-xs-8">
-                            Promotion Date: @Html.DisplayFor(model => item.RankDate, "ShortDateTime")
-                            Rank: @item.RankListed
+                    <div class="col-xs-8 top-buffer" ng-repeat="promotion in user.promotions">
+                        Promotion Date:
+                        <a ng-href="~/Admin/Promotions/{{promotion.promotionId}}">
+                            {{promotion.displayDate}}
+                        </a>
+                        Rank:
+                        <a ng-href="~/Admin/Ranks/{{promotion.rankListed}}">
+                            {{ promotion.rankListed }}
+                        </a>
+                        <div ng-if="angular.isObject(promotion.event)">
+                            {{promotion.event.eventTitle}}
                         </div>
-                    }
+                        <div ng-if="!promotion.event" style="font-size: xx-small; color: #303030;">
+                            Event data not available for this promotion.
+                        </div>
+                    </div>
                 </div>
 
                 <div class="panel-footer">
+                    <div class="row" style="padding-right:10px;">
+                        <span class="pull-right">
+                            <a href="~/Admin/Promotions/Add/{{user.id}}" type="button"
+                               data-original-title="Edit this user" data-toggle="tooltip" class="btn btn-sm btn-warning">
+                                <i class="glyphicon glyphicon-edit"></i>
+                            </a>
+                        </span>
+                    </div>
                 </div>
-
             </div>
         </div>
     </div>

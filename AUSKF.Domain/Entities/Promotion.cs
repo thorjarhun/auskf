@@ -18,7 +18,7 @@
         public int PromotionId { get; set; }
 
         [ForeignKey("User")]
-        [JsonIgnore]
+        [DataMember]
         public int? UserId { get; set; }
 
         [JsonIgnore]
@@ -28,7 +28,7 @@
         public int? ContactId { get; set; }
 
         // this is superfluous but we'll leave it for now
-        [JsonIgnore]        
+        [DataMember]        
         public int? AuskfId { get; set; }
 
         // this is superfluous but we'll leave it for now
@@ -45,7 +45,7 @@
         public bool Verified { get; set; }
 
         [ForeignKey("Event")]
-        [JsonIgnore]
+        [DataMember]
         public int? EventIdentity { get; set; }
 
         [DataMember]

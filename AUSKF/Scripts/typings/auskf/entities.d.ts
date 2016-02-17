@@ -16,6 +16,9 @@ declare module AUSKF.Domain.Entities.Identity {
         displayName: string;
         password: string;
         passwordLastChangedDate: Date;
+        dateOfBirth: Date;
+        displayDate: string;
+        auskfId: number;
         maximumDaysBetweenPasswordChange: number;
         postCount: number;
         topicCount: number;
@@ -32,6 +35,7 @@ declare module AUSKF.Domain.Entities.Identity {
         rowVersion: number[];
         notes: string;
         userProfileId: number;
+        promotions: Promotion[];
         profile: AUSKF.Domain.Entities.Identity.UserProfile;
     }
     interface UserRole extends Microsoft.AspNet.Identity.EntityFramework.IdentityUserRole<number> {
@@ -131,6 +135,30 @@ declare module AUSKF.Domain.Entities {
         createdBy: User;
         id: System.Guid;
     }
+
+    interface Rank{}
+
+
+    interface Promotion {
+        promotionId: number;
+        userId: number;
+        user: User;
+        contactId: number;
+        auskfId: number;
+        firstName: string;
+        lastName: string;
+        verified: boolean;
+        eventIdentity: number;
+        event: Event;
+        rankDate: Date;
+        displayDate: string;
+        rankId: number;
+        rank: Rank;
+        rankType: string;
+        rankListed: string;
+        testingFederationLocation: string;
+    }
+
 }
 declare module AUSKF.Domain.Collections{
     interface SerializablePagination<T> extends BasePagination {
