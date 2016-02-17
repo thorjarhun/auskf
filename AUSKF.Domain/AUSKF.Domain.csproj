@@ -175,7 +175,7 @@
     <Compile Include="Entities\Log.cs" />
     <Compile Include="Entities\OfficerRole.cs" />
     <Compile Include="Entities\Sex.cs" />
-    <Compile Include="Entities\Tournament.cs" />
+    <Compile Include="Entities\Taikai.cs" />
     <Compile Include="Exceptions\ParameterNullException.cs" />
     <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="Extensions\EventExtensions.cs" />

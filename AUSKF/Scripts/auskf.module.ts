@@ -1,8 +1,8 @@
-﻿module auskf {
+﻿// ReSharper disable once InconsistentNaming
+module auskf {
     'use strict';
 
     angular.module('auskf', [
-        //'textAngular',
         'angular.filter'
     ]);
 }

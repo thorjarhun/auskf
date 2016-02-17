@@ -44,6 +44,13 @@
         [DataMember]
         public bool Verified { get; set; }
 
+        [ForeignKey("Event")]
+        [JsonIgnore]
+        public int? EventIdentity { get; set; }
+
+        [DataMember]
+        public Event Event { get; set; }
+
         [DataMember]
         public DateTime? RankDate { get; set; }
 

@@ -37,14 +37,16 @@
         public User PrimaryContact { get; set; }
 
         [Required, MaxLength(256)]
+        [DataMember]
         public string DojoName { get; set; }
 
         [MaxLength(13), DataType(DataType.PhoneNumber)]
+        [DataMember]
         public string Phone { get; set; }
 
         [MaxLength(512)]
+        [DataMember]
         public string WebsiteUrl { get; set; }
-
 
         [MaxLength(512)]
         [DataMember]

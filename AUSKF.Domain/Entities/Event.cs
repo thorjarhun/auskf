@@ -4,32 +4,42 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Runtime.Serialization;
     using Exceptions;
     using Identity;
 
+    [DataContract(Namespace="")]
     public class Event : EntityBase, IComparable<Event>
     {
         [Key]
+        [DataMember]
         //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid EventId { get; set; }
+        public int EventId { get; set; }
 
         [Required, DataType(DataType.DateTime)]
+        [DataMember]
         public DateTime EventDate { get; set; }
         
         [Required, MaxLength(256)]
+        [DataMember]
         public string Title { get; set; }
 
         [Required, MaxLength(5000)]
+        [DataMember]
         public string EventText { get; set; }
 
         [MaxLength(512)]
+        [DataMember]
         public string Description { get; set; }
 
+        [DataMember]
         public User CreatedBy { get; set; }
 
         [Required, ForeignKey("CreatedBy")]
+        [DataMember]
         public int? Id { get; set; }
 
+        [DataMember]
         public virtual ICollection<Comment> Comments { get; set; }
 
         /// <summary>

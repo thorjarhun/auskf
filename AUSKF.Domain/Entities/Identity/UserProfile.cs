@@ -2,6 +2,7 @@
 {
     // Can't inherit from entity base if used in aspnet identity 
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Runtime.Serialization;
@@ -12,6 +13,11 @@
     [DataContract(Namespace="")]
     public class UserProfile
     {
+        public UserProfile()
+        {
+            this.Events = new List<Event>();
+        }
+
         /// <summary>
         /// Gets or sets the user profile identifier.
         /// </summary>
@@ -61,7 +67,7 @@
         /// <summary>
         /// M for male. F for femail.
         /// </summary>
-        [StringLength(1)]
+
         [DataMember]
         public string Gender { get; set; }
           
@@ -267,5 +273,7 @@
         [MaxLength(256)]
         [JsonIgnore]
         public string Attachments { get; set; }
+
+        public virtual ICollection<Event> Events { get; set; }
     }
 }

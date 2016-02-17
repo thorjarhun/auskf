@@ -16980,3 +16980,1368 @@ Error Number:515,State:2,Class:16
 2016-02-13 22:30:44.7426 Debug Warn => database
 2016-02-13 22:30:45.5239 Debug Error => database
 2016-02-13 22:30:46.3676 Debug Fatal => database
+2016-02-15 17:31:56.8139 Info Shutting down logging...
+2016-02-15 17:31:57.6733 Info Stopping file watching for path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config'
+2016-02-15 17:31:58.5795 Info Closing old configuration.
+2016-02-15 17:31:59.4389 Debug Closing logging configuration...
+2016-02-15 17:32:00.3152 Debug Finished closing logging configuration.
+2016-02-15 17:32:01.1277 Info Logger has been shut down.
+2016-02-16 17:39:07.5814 Debug ScanAssembly('NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c')
+2016-02-16 17:39:08.5658 Debug Start auto loading, location: C:\dev\AUSKF\AUSKF\bin
+2016-02-16 17:39:09.5189 Debug Auto loading done
+2016-02-16 17:39:10.4720 Debug Setting 'DatabaseTarget.name' to 'database'
+2016-02-16 17:39:11.3939 Debug Setting 'DatabaseTarget.dbprovider' to 'mssql'
+2016-02-16 17:39:12.3158 Debug Setting 'DatabaseTarget.dbhost' to 'localhost'
+2016-02-16 17:39:13.3314 Debug Setting 'DatabaseTarget.dbdatabase' to 'AUSKF'
+2016-02-16 17:39:14.3002 Debug Setting 'DatabaseTarget.dbusername' to 'sa'
+2016-02-16 17:39:15.3002 Debug Setting 'DatabaseTarget.dbpassword' to 'xo2Die5l'
+2016-02-16 17:39:16.2846 Debug Setting 'DatabaseTarget.commandText' to '
+        insert into LogTable(LogLevel, Logger,Message, MessageId, WindowsUserName, CallSite, ThreadId, Exception, StackTrace)
+        values( @level, @logger, @message,@msgid, @user_name, @call_site, @threadid, @log_exception, @stacktrace);
+      '
+2016-02-16 17:39:17.2534 Debug Setting 'DatabaseParameterInfo.name' to '@time_stamp'
+2016-02-16 17:39:18.2377 Debug Setting 'DatabaseParameterInfo.layout' to '${longdate}'
+2016-02-16 17:39:19.1909 Debug Setting 'DatabaseParameterInfo.name' to '@level'
+2016-02-16 17:39:20.1596 Debug Setting 'DatabaseParameterInfo.layout' to '${level}'
+2016-02-16 17:39:21.1290 Debug Setting 'DatabaseParameterInfo.name' to '@logger'
+2016-02-16 17:39:22.0822 Debug Setting 'DatabaseParameterInfo.layout' to '${logger}'
+2016-02-16 17:39:23.0509 Debug Setting 'DatabaseParameterInfo.name' to '@message'
+2016-02-16 17:39:24.0115 Debug Setting 'DatabaseParameterInfo.layout' to '${message}'
+2016-02-16 17:39:24.9959 Debug Setting 'DatabaseParameterInfo.name' to '@msgid'
+2016-02-16 17:39:25.9903 Debug Setting 'DatabaseParameterInfo.layout' to '${event-context:item=UniqueCode}'
+2016-02-16 17:39:26.9747 Debug Setting 'EventContextLayoutRenderer.item' to 'UniqueCode'
+2016-02-16 17:39:27.9747 Debug Setting 'DatabaseParameterInfo.name' to '@user_name'
+2016-02-16 17:39:28.9434 Debug Setting 'DatabaseParameterInfo.layout' to '${windows-identity:domain=true}'
+2016-02-16 17:39:29.9122 Debug Setting 'WindowsIdentityLayoutRenderer.domain' to 'true'
+2016-02-16 17:39:30.8497 Debug Setting 'DatabaseParameterInfo.name' to '@call_site'
+2016-02-16 17:39:31.7872 Debug Setting 'DatabaseParameterInfo.layout' to '${callsite:filename=true}'
+2016-02-16 17:39:32.8029 Debug Setting 'CallSiteLayoutRenderer.filename' to 'true'
+2016-02-16 17:39:34.6284 Debug Setting 'DatabaseParameterInfo.name' to '@threadid'
+2016-02-16 17:39:35.7011 Debug Setting 'DatabaseParameterInfo.layout' to '${threadid}'
+2016-02-16 17:39:36.6406 Debug Setting 'DatabaseParameterInfo.name' to '@log_exception'
+2016-02-16 17:39:37.6632 Debug Setting 'DatabaseParameterInfo.layout' to '${exception}'
+2016-02-16 17:39:38.7149 Debug Setting 'DatabaseParameterInfo.name' to '@stacktrace'
+2016-02-16 17:39:39.6228 Debug Setting 'DatabaseParameterInfo.layout' to '${stacktrace}'
+2016-02-16 17:39:40.5773 Info Adding target Database Target[database]
+2016-02-16 17:39:41.5798 Debug Registering target database: NLog.Targets.DatabaseTarget
+2016-02-16 17:39:42.5275 Info Configured from an XML element in C:\dev\AUSKF\AUSKF\NLog.config...
+2016-02-16 17:39:43.8894 Debug --- NLog configuration dump ---
+2016-02-16 17:39:45.3215 Debug Targets:
+2016-02-16 17:39:47.0147 Debug Database Target[database]
+2016-02-16 17:39:48.2615 Debug Rules:
+2016-02-16 17:39:49.6685 Debug logNamePattern: (:All) levels: [ ] appendTo: [ database ]
+2016-02-16 17:39:50.8124 Debug --- End of NLog configuration dump ---
+2016-02-16 17:39:51.7904 Info Watching path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config' for changes.
+2016-02-16 17:39:52.7149 Info Found 42 configuration items
+2016-02-16 17:39:53.7027 Info Configuration initialized.
+2016-02-16 17:39:54.6331 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.2.3.1371. Product version: 4.2.3.
+2016-02-16 17:39:55.6126 Debug Targets for ControllerFactory by level:
+2016-02-16 17:39:56.5655 Debug Trace =>
+2016-02-16 17:39:57.4874 Debug Debug => database
+2016-02-16 17:39:58.4214 Debug Info => database
+2016-02-16 17:39:59.3702 Debug Warn => database
+2016-02-16 17:40:00.3161 Debug Error => database
+2016-02-16 17:40:01.2668 Debug Fatal => database
+2016-02-16 17:40:02.2888 Debug Targets for AUSKF.Startup by level:
+2016-02-16 17:40:03.2498 Debug Trace =>
+2016-02-16 17:40:04.1807 Debug Debug => database
+2016-02-16 17:40:05.1101 Debug Info => database
+2016-02-16 17:40:06.0755 Debug Warn => database
+2016-02-16 17:40:06.9756 Debug Error => database
+2016-02-16 17:40:07.9208 Debug Fatal => database
+2016-02-16 17:40:19.3425 Info Shutting down logging...
+2016-02-16 17:40:20.4862 Info Stopping file watching for path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config'
+2016-02-16 17:40:21.8437 Info Closing old configuration.
+2016-02-16 17:40:22.9819 Debug Warn => database
+2016-02-16 17:40:23.8868 Debug Error => database
+2016-02-16 17:40:24.7845 Debug Fatal => database
+2016-02-16 17:40:25.7281 Debug Targets for AUSKF.Domain.Providers.Identity.ApplicationClaimsIdentityFactory by level:
+2016-02-16 17:40:26.6208 Debug Trace =>
+2016-02-16 17:40:27.6055 Debug Debug => database
+2016-02-16 17:40:28.4771 Debug Info => database
+2016-02-16 17:40:29.3578 Debug Warn => database
+2016-02-16 17:40:30.2594 Debug Error => database
+2016-02-16 17:40:31.1800 Debug Fatal => database
+2016-02-16 17:40:39.3703 Debug Targets for AccountController by level:
+2016-02-16 17:40:40.2319 Debug Trace =>
+2016-02-16 17:40:41.1345 Debug Debug => database
+2016-02-16 17:40:42.0312 Debug Info => database
+2016-02-16 17:40:42.9678 Debug Warn => database
+2016-02-16 17:40:43.8775 Debug Error => database
+2016-02-16 17:40:44.7161 Debug Fatal => database
+2016-02-16 17:40:45.9538 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'LogId', table 'AUSKF.dbo.LogTable'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:3bd6536a-cab1-4aa9-9a47-efd6db0a1a4d
+Error Number:515,State:2,Class:16
+2016-02-16 17:40:51.0354 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'LogId', table 'AUSKF.dbo.LogTable'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:3bd6536a-cab1-4aa9-9a47-efd6db0a1a4d
+Error Number:515,State:2,Class:16
+2016-02-16 17:40:53.1929 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'LogId', table 'AUSKF.dbo.LogTable'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:3bd6536a-cab1-4aa9-9a47-efd6db0a1a4d
+Error Number:515,State:2,Class:16
+2016-02-16 17:42:01.8612 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'LogId', table 'AUSKF.dbo.LogTable'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:3bd6536a-cab1-4aa9-9a47-efd6db0a1a4d
+Error Number:515,State:2,Class:16
+2016-02-16 17:43:23.4900 Info Shutting down logging...
+2016-02-16 17:43:24.5369 Info Stopping file watching for path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config'
+2016-02-16 17:43:25.5681 Info Closing old configuration.
+2016-02-16 17:43:26.5715 Debug Closing logging configuration...
+2016-02-16 17:43:27.5412 Debug Finished closing logging configuration.
+2016-02-16 17:43:28.5568 Info Logger has been shut down.
+2016-02-16 17:44:00.6015 Debug ScanAssembly('NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c')
+2016-02-16 17:44:01.6171 Debug Start auto loading, location: C:\dev\AUSKF\AUSKF\bin
+2016-02-16 17:44:02.6483 Debug Auto loading done
+2016-02-16 17:44:03.6920 Debug Setting 'DatabaseTarget.name' to 'database'
+2016-02-16 17:44:04.6406 Debug Setting 'DatabaseTarget.dbprovider' to 'mssql'
+2016-02-16 17:44:05.6249 Debug Setting 'DatabaseTarget.dbhost' to 'localhost'
+2016-02-16 17:44:06.6250 Debug Setting 'DatabaseTarget.dbdatabase' to 'AUSKF'
+2016-02-16 17:44:07.6093 Debug Setting 'DatabaseTarget.dbusername' to 'sa'
+2016-02-16 17:44:08.6094 Debug Setting 'DatabaseTarget.dbpassword' to 'xo2Die5l'
+2016-02-16 17:44:09.6250 Debug Setting 'DatabaseTarget.commandText' to '
+        insert into LogTable(LogLevel, Logger,Message, MessageId, WindowsUserName, CallSite, ThreadId, Exception, StackTrace)
+        values( @level, @logger, @message,@msgid, @user_name, @call_site, @threadid, @log_exception, @stacktrace);
+      '
+2016-02-16 17:44:10.6005 Debug Setting 'DatabaseParameterInfo.name' to '@time_stamp'
+2016-02-16 17:44:11.5849 Debug Setting 'DatabaseParameterInfo.layout' to '${longdate}'
+2016-02-16 17:44:12.5693 Debug Setting 'DatabaseParameterInfo.name' to '@level'
+2016-02-16 17:44:13.5693 Debug Setting 'DatabaseParameterInfo.layout' to '${level}'
+2016-02-16 17:44:14.5224 Debug Setting 'DatabaseParameterInfo.name' to '@logger'
+2016-02-16 17:44:15.4912 Debug Setting 'DatabaseParameterInfo.layout' to '${logger}'
+2016-02-16 17:44:16.4443 Debug Setting 'DatabaseParameterInfo.name' to '@message'
+2016-02-16 17:44:17.4287 Debug Setting 'DatabaseParameterInfo.layout' to '${message}'
+2016-02-16 17:44:18.4287 Debug Setting 'DatabaseParameterInfo.name' to '@msgid'
+2016-02-16 17:44:19.3897 Debug Setting 'DatabaseParameterInfo.layout' to '${event-context:item=UniqueCode}'
+2016-02-16 17:44:20.3835 Debug Setting 'EventContextLayoutRenderer.item' to 'UniqueCode'
+2016-02-16 17:44:21.3747 Debug Setting 'DatabaseParameterInfo.name' to '@user_name'
+2016-02-16 17:44:22.3341 Debug Setting 'DatabaseParameterInfo.layout' to '${windows-identity:domain=true}'
+2016-02-16 17:44:23.2872 Debug Setting 'WindowsIdentityLayoutRenderer.domain' to 'true'
+2016-02-16 17:44:24.2687 Debug Setting 'DatabaseParameterInfo.name' to '@call_site'
+2016-02-16 17:44:25.2062 Debug Setting 'DatabaseParameterInfo.layout' to '${callsite:filename=true}'
+2016-02-16 17:44:26.1890 Debug Setting 'CallSiteLayoutRenderer.filename' to 'true'
+2016-02-16 17:44:27.1577 Debug Setting 'DatabaseParameterInfo.name' to '@threadid'
+2016-02-16 17:44:28.1786 Debug Setting 'DatabaseParameterInfo.layout' to '${threadid}'
+2016-02-16 17:44:29.1474 Debug Setting 'DatabaseParameterInfo.name' to '@log_exception'
+2016-02-16 17:44:30.0693 Debug Setting 'DatabaseParameterInfo.layout' to '${exception}'
+2016-02-16 17:44:31.0380 Debug Setting 'DatabaseParameterInfo.name' to '@stacktrace'
+2016-02-16 17:44:31.9755 Debug Setting 'DatabaseParameterInfo.layout' to '${stacktrace}'
+2016-02-16 17:44:32.9443 Info Adding target Database Target[database]
+2016-02-16 17:44:33.9131 Debug Registering target database: NLog.Targets.DatabaseTarget
+2016-02-16 17:44:34.8604 Info Configured from an XML element in C:\dev\AUSKF\AUSKF\NLog.config...
+2016-02-16 17:44:35.8090 Debug --- NLog configuration dump ---
+2016-02-16 17:44:36.7706 Debug Targets:
+2016-02-16 17:44:37.7613 Debug Database Target[database]
+2016-02-16 17:44:38.7145 Debug Rules:
+2016-02-16 17:44:39.6989 Debug logNamePattern: (:All) levels: [ ] appendTo: [ database ]
+2016-02-16 17:44:40.6920 Debug --- End of NLog configuration dump ---
+2016-02-16 17:44:41.6601 Info Watching path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config' for changes.
+2016-02-16 17:44:42.6132 Info Found 42 configuration items
+2016-02-16 17:44:43.5820 Info Configuration initialized.
+2016-02-16 17:44:44.5507 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.2.3.1371. Product version: 4.2.3.
+2016-02-16 17:44:45.4882 Debug Targets for ControllerFactory by level:
+2016-02-16 17:44:46.4726 Debug Trace =>
+2016-02-16 17:44:47.4258 Debug Debug => database
+2016-02-16 17:44:48.3880 Debug Info => database
+2016-02-16 17:44:49.3565 Debug Warn => database
+2016-02-16 17:44:50.3097 Debug Error => database
+2016-02-16 17:44:51.2784 Debug Fatal => database
+2016-02-16 17:44:52.2472 Debug Targets for AUSKF.Startup by level:
+2016-02-16 17:44:53.2225 Debug Trace =>
+2016-02-16 17:44:54.1886 Debug Debug => database
+2016-02-16 17:44:55.1261 Debug Info => database
+2016-02-16 17:44:56.0793 Debug Warn => database
+2016-02-16 17:44:57.0168 Debug Error => database
+2016-02-16 17:44:57.9699 Debug Fatal => database
+2016-02-16 17:45:00.5856 Debug Targets for DataContext by level:
+2016-02-16 17:45:01.6029 Debug Trace =>
+2016-02-16 17:45:02.5166 Debug Debug => database
+2016-02-16 17:45:03.4312 Debug Info => database
+2016-02-16 17:45:04.3319 Debug Warn => database
+2016-02-16 17:45:05.2565 Debug Error => database
+2016-02-16 17:45:06.1752 Debug Fatal => database
+2016-02-16 17:45:07.1041 Debug Targets for AUSKF.Domain.Providers.Identity.ApplicationUserManager by level:
+2016-02-16 17:45:07.9786 Debug Trace =>
+2016-02-16 17:45:08.8332 Debug Debug => database
+2016-02-16 17:45:09.7408 Debug Info => database
+2016-02-16 17:45:10.5944 Debug Warn => database
+2016-02-16 17:45:11.4429 Debug Error => database
+2016-02-16 17:45:12.2964 Debug Fatal => database
+2016-02-16 17:45:13.1751 Debug Targets for AUSKF.Domain.Providers.Identity.ApplicationClaimsIdentityFactory by level:
+2016-02-16 17:45:14.0397 Debug Trace =>
+2016-02-16 17:45:14.9143 Debug Debug => database
+2016-02-16 17:45:15.9020 Debug Info => database
+2016-02-16 17:45:16.7726 Debug Warn => database
+2016-02-16 17:45:17.6282 Debug Error => database
+2016-02-16 17:45:18.4958 Debug Fatal => database
+2016-02-16 17:52:44.8442 Debug Targets for AccountController by level:
+2016-02-16 17:52:45.7979 Debug Trace =>
+2016-02-16 17:52:46.7786 Debug Debug => database
+2016-02-16 17:52:47.6953 Debug Info => database
+2016-02-16 17:52:48.6029 Debug Warn => database
+2016-02-16 17:52:49.5316 Debug Error => database
+2016-02-16 17:52:50.4422 Debug Fatal => database
+2016-02-16 17:53:01.9989 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot open database "AUSKF" requested by the login. The login failed.
+Login failed for user 'sa'.
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString)
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:7911ec0d-069c-423b-b562-9bde0efc79ec
+Error Number:4060,State:1,Class:11
+2016-02-16 17:57:00.1132 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot open database "AUSKF" requested by the login. The login failed.
+Login failed for user 'sa'.
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString)
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:8e735b19-a86e-404a-8c9a-59a60a0d7d8a
+Error Number:4060,State:1,Class:11
+2016-02-16 17:57:12.4056 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot open database "AUSKF" requested by the login. The login failed.
+Login failed for user 'sa'.
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString)
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:e43ce59d-50e9-4811-9893-49f501a7f2e6
+Error Number:4060,State:1,Class:11
+2016-02-16 17:57:50.1521 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot open database "AUSKF" requested by the login. The login failed.
+Login failed for user 'sa'.
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString)
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:2a7c312e-1c4e-4e9d-8477-4069820edf3f
+Error Number:4060,State:1,Class:11
+2016-02-16 17:59:56.2789 Info Shutting down logging...
+2016-02-16 17:59:57.2008 Info Stopping file watching for path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config'
+2016-02-16 17:59:58.0757 Info Closing old configuration.
+2016-02-16 17:59:58.9906 Debug Closing logging configuration...
+2016-02-16 18:00:00.0323 Debug Error => database
+2016-02-16 18:00:00.9239 Debug Fatal => database
+2016-02-16 18:00:01.8136 Debug Targets for AUSKF.Domain.Providers.Identity.ApplicationClaimsIdentityFactory by level:
+2016-02-16 18:00:02.6792 Debug Trace =>
+2016-02-16 18:00:03.5508 Debug Debug => database
+2016-02-16 18:00:04.4294 Debug Info => database
+2016-02-16 18:00:05.2930 Debug Warn => database
+2016-02-16 18:00:06.1646 Debug Error => database
+2016-02-16 18:00:07.0303 Debug Fatal => database
+2016-02-16 18:00:52.0534 Debug Targets for AccountController by level:
+2016-02-16 18:00:52.9393 Debug Trace =>
+2016-02-16 18:00:53.8410 Debug Debug => database
+2016-02-16 18:00:54.7116 Debug Info => database
+2016-02-16 18:00:55.5802 Debug Warn => database
+2016-02-16 18:00:56.4488 Debug Error => database
+2016-02-16 18:00:57.3224 Debug Fatal => database
+2016-02-16 18:01:08.7983 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot open database "AUSKF" requested by the login. The login failed.
+Login failed for user 'sa'.
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString)
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:d06fa3f1-233a-41a2-9b19-6b887c31962f
+Error Number:4060,State:1,Class:11
+2016-02-16 18:01:12.8386 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot open database "AUSKF" requested by the login. The login failed.
+Login failed for user 'sa'.
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString)
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:d06fa3f1-233a-41a2-9b19-6b887c31962f
+Error Number:4060,State:1,Class:11
+2016-02-16 18:01:25.1716 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot open database "AUSKF" requested by the login. The login failed.
+Login failed for user 'sa'.
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString)
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:ea71ce78-55e3-4d3a-b04f-916391c58dc4
+Error Number:4060,State:1,Class:11
+2016-02-16 18:01:54.4793 Error Error when writing to database System.Data.SqlClient.SqlException (0x80131904): Cannot open database "AUSKF" requested by the login. The login failed.
+Login failed for user 'sa'.
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString)
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:072b0991-8278-423b-b70b-99a7dccdab88
+Error Number:4060,State:1,Class:11
+2016-02-16 18:08:30.6269 Info Shutting down logging...
+2016-02-16 18:08:31.5487 Info Stopping file watching for path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config'
+2016-02-16 18:08:32.4550 Info Closing old configuration.
+2016-02-16 18:08:33.3769 Debug Closing logging configuration...
+2016-02-16 18:08:34.3966 Debug Finished closing logging configuration.
+2016-02-16 18:08:35.3072 Info Logger has been shut down.
+2016-02-16 18:11:24.3796 Info Shutting down logging...
+2016-02-16 18:11:25.2702 Info Stopping file watching for path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config'
+2016-02-16 18:11:26.1499 Info Closing old configuration.
+2016-02-16 18:11:27.1548 Debug Closing logging configuration...
+2016-02-16 18:11:28.1936 Debug Debug => database
+2016-02-16 18:11:29.1402 Debug Info => database
+2016-02-16 18:11:30.0098 Debug Warn => database
+2016-02-16 18:11:30.8754 Debug Error => database
+2016-02-16 18:11:31.7823 Debug Fatal => database
+2016-02-16 18:12:38.3754 Info Shutting down logging...
+2016-02-16 18:12:39.2371 Info Stopping file watching for path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config'
+2016-02-16 18:12:40.1197 Info Closing old configuration.
+2016-02-16 18:12:41.0539 Debug Closing logging configuration...
+2016-02-16 18:12:42.0326 Debug Info => database
+2016-02-16 18:12:42.9332 Debug Warn => database
+2016-02-16 18:12:43.8347 Debug Error => database
+2016-02-16 18:12:44.7172 Debug Fatal => database
+2016-02-16 18:15:12.0158 Info Shutting down logging...
+2016-02-16 18:15:12.9533 Info Stopping file watching for path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config'
+2016-02-16 18:15:13.8752 Info Closing old configuration.
+2016-02-16 18:15:14.7347 Debug Closing logging configuration...
+2016-02-16 18:15:15.5628 Debug Finished closing logging configuration.
+2016-02-16 18:15:16.4066 Info Logger has been shut down.
+2016-02-16 18:16:45.1873 Debug ScanAssembly('NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c')
+2016-02-16 18:16:46.0286 Debug Start auto loading, location: C:\dev\AUSKF\AUSKF\bin
+2016-02-16 18:16:46.8723 Debug Auto loading done
+2016-02-16 18:16:47.7270 Debug Setting 'DatabaseTarget.name' to 'database'
+2016-02-16 18:16:48.5864 Debug Setting 'DatabaseTarget.dbprovider' to 'mssql'
+2016-02-16 18:16:49.4612 Debug Setting 'DatabaseTarget.dbhost' to 'localhost'
+2016-02-16 18:16:50.3052 Debug Setting 'DatabaseTarget.dbdatabase' to 'AUSKF'
+2016-02-16 18:16:51.1489 Debug Setting 'DatabaseTarget.dbusername' to 'sa'
+2016-02-16 18:16:51.9927 Debug Setting 'DatabaseTarget.dbpassword' to 'xo2Die5l'
+2016-02-16 18:16:52.8364 Debug Setting 'DatabaseTarget.commandText' to '
+        insert into LogTable(LogLevel, Logger,Message, MessageId, WindowsUserName, CallSite, ThreadId, Exception, StackTrace)
+        values( @level, @logger, @message,@msgid, @user_name, @call_site, @threadid, @log_exception, @stacktrace);
+      '
+2016-02-16 18:16:53.6802 Debug Setting 'DatabaseParameterInfo.name' to '@time_stamp'
+2016-02-16 18:16:54.5552 Debug Setting 'DatabaseParameterInfo.layout' to '${longdate}'
+2016-02-16 18:16:55.3990 Debug Setting 'DatabaseParameterInfo.name' to '@level'
+2016-02-16 18:16:56.2433 Debug Setting 'DatabaseParameterInfo.layout' to '${level}'
+2016-02-16 18:16:57.0790 Debug Setting 'DatabaseParameterInfo.name' to '@logger'
+2016-02-16 18:16:57.9228 Debug Setting 'DatabaseParameterInfo.layout' to '${logger}'
+2016-02-16 18:16:58.7665 Debug Setting 'DatabaseParameterInfo.name' to '@message'
+2016-02-16 18:16:59.5947 Debug Setting 'DatabaseParameterInfo.layout' to '${message}'
+2016-02-16 18:17:00.4712 Debug Setting 'DatabaseParameterInfo.name' to '@msgid'
+2016-02-16 18:17:01.3462 Debug Setting 'DatabaseParameterInfo.layout' to '${event-context:item=UniqueCode}'
+2016-02-16 18:17:02.2212 Debug Setting 'EventContextLayoutRenderer.item' to 'UniqueCode'
+2016-02-16 18:17:03.0962 Debug Setting 'DatabaseParameterInfo.name' to '@user_name'
+2016-02-16 18:17:04.0232 Debug Setting 'DatabaseParameterInfo.layout' to '${windows-identity:domain=true}'
+2016-02-16 18:17:04.9022 Debug Setting 'WindowsIdentityLayoutRenderer.domain' to 'true'
+2016-02-16 18:17:05.8036 Debug Setting 'DatabaseParameterInfo.name' to '@call_site'
+2016-02-16 18:17:06.6946 Debug Setting 'DatabaseParameterInfo.layout' to '${callsite:filename=true}'
+2016-02-16 18:17:07.5791 Debug Setting 'CallSiteLayoutRenderer.filename' to 'true'
+2016-02-16 18:17:08.4984 Debug Setting 'DatabaseParameterInfo.name' to '@threadid'
+2016-02-16 18:17:09.3851 Debug Setting 'DatabaseParameterInfo.layout' to '${threadid}'
+2016-02-16 18:17:10.2696 Debug Setting 'DatabaseParameterInfo.name' to '@log_exception'
+2016-02-16 18:17:11.1545 Debug Setting 'DatabaseParameterInfo.layout' to '${exception}'
+2016-02-16 18:17:12.0456 Debug Setting 'DatabaseParameterInfo.name' to '@stacktrace'
+2016-02-16 18:17:12.9277 Debug Setting 'DatabaseParameterInfo.layout' to '${stacktrace}'
+2016-02-16 18:17:13.8135 Info Adding target Database Target[database]
+2016-02-16 18:17:14.6971 Debug Registering target database: NLog.Targets.DatabaseTarget
+2016-02-16 18:17:15.5836 Info Configured from an XML element in C:\dev\AUSKF\AUSKF\NLog.config...
+2016-02-16 18:17:16.4825 Debug --- NLog configuration dump ---
+2016-02-16 18:17:17.3717 Debug Targets:
+2016-02-16 18:17:18.2565 Debug Database Target[database]
+2016-02-16 18:17:19.1426 Debug Rules:
+2016-02-16 18:17:20.0318 Debug logNamePattern: (:All) levels: [ ] appendTo: [ database ]
+2016-02-16 18:17:20.9156 Debug --- End of NLog configuration dump ---
+2016-02-16 18:17:21.8206 Info Watching path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config' for changes.
+2016-02-16 18:17:22.7125 Info Found 42 configuration items
+2016-02-16 18:17:23.6137 Info Configuration initialized.
+2016-02-16 18:17:24.4995 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.2.3.1371. Product version: 4.2.3.
+2016-02-16 18:17:25.3915 Debug Targets for ControllerFactory by level:
+2016-02-16 18:17:26.2752 Debug Trace =>
+2016-02-16 18:17:27.1494 Debug Debug => database
+2016-02-16 18:17:28.0327 Debug Info => database
+2016-02-16 18:17:28.9335 Debug Warn => database
+2016-02-16 18:17:29.8208 Debug Error => database
+2016-02-16 18:17:30.7066 Debug Fatal => database
+2016-02-16 18:17:31.6337 Debug Targets for AUSKF.Startup by level:
+2016-02-16 18:17:32.5296 Debug Trace =>
+2016-02-16 18:17:33.3913 Debug Debug => database
+2016-02-16 18:17:34.2509 Debug Info => database
+2016-02-16 18:17:35.1103 Debug Warn => database
+2016-02-16 18:17:35.9696 Debug Error => database
+2016-02-16 18:17:36.8134 Debug Fatal => database
+2016-02-16 18:17:37.8915 Debug Targets for DataContext by level:
+2016-02-16 18:17:38.7666 Debug Trace =>
+2016-02-16 18:17:39.7026 Debug Debug => database
+2016-02-16 18:17:40.5852 Debug Info => database
+2016-02-16 18:17:41.4799 Debug Warn => database
+2016-02-16 18:17:42.3545 Debug Error => database
+2016-02-16 18:17:43.2391 Debug Fatal => database
+2016-02-16 18:17:44.1337 Debug Targets for AUSKF.Domain.Providers.Identity.ApplicationUserManager by level:
+2016-02-16 18:17:45.0114 Debug Trace =>
+2016-02-16 18:17:45.9000 Debug Debug => database
+2016-02-16 18:17:46.7696 Debug Info => database
+2016-02-16 18:17:47.6542 Debug Warn => database
+2016-02-16 18:17:48.5389 Debug Error => database
+2016-02-16 18:17:49.4285 Debug Fatal => database
+2016-02-16 18:17:50.3501 Debug Targets for AUSKF.Domain.Providers.Identity.ApplicationClaimsIdentityFactory by level:
+2016-02-16 18:17:51.2372 Debug Trace =>
+2016-02-16 18:17:52.1165 Debug Debug => database
+2016-02-16 18:17:52.9724 Debug Info => database
+2016-02-16 18:17:53.8742 Debug Warn => database
+2016-02-16 18:17:54.7665 Debug Error => database
+2016-02-16 18:17:55.6883 Debug Fatal => database
+2016-02-16 18:19:36.2930 Info Shutting down logging...
+2016-02-16 18:19:37.1654 Info Stopping file watching for path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config'
+2016-02-16 18:19:38.0091 Info Closing old configuration.
+2016-02-16 18:19:38.8685 Debug Closing logging configuration...
+2016-02-16 18:19:39.7123 Debug Finished closing logging configuration.
+2016-02-16 18:19:40.5523 Info Logger has been shut down.
+2016-02-16 18:20:46.3223 Debug ScanAssembly('NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c')
+2016-02-16 18:20:47.1816 Debug Start auto loading, location: C:\dev\AUSKF\AUSKF\bin
+2016-02-16 18:20:48.0410 Debug Auto loading done
+2016-02-16 18:20:48.9004 Debug Setting 'DatabaseTarget.name' to 'database'
+2016-02-16 18:20:49.7442 Debug Setting 'DatabaseTarget.dbprovider' to 'mssql'
+2016-02-16 18:20:50.5882 Debug Setting 'DatabaseTarget.dbhost' to 'localhost'
+2016-02-16 18:20:51.4476 Debug Setting 'DatabaseTarget.dbdatabase' to 'AUSKF'
+2016-02-16 18:20:52.3226 Debug Setting 'DatabaseTarget.dbusername' to 'sa'
+2016-02-16 18:20:53.1664 Debug Setting 'DatabaseTarget.dbpassword' to 'xo2Die5l'
+2016-02-16 18:20:54.0258 Debug Setting 'DatabaseTarget.commandText' to '
+        insert into LogTable(LogLevel, Logger,Message, MessageId, WindowsUserName, CallSite, ThreadId, Exception, StackTrace)
+        values( @level, @logger, @message,@msgid, @user_name, @call_site, @threadid, @log_exception, @stacktrace);
+      '
+2016-02-16 18:20:54.8695 Debug Setting 'DatabaseParameterInfo.name' to '@time_stamp'
+2016-02-16 18:20:55.7140 Debug Setting 'DatabaseParameterInfo.layout' to '${longdate}'
+2016-02-16 18:20:56.5577 Debug Setting 'DatabaseParameterInfo.name' to '@level'
+2016-02-16 18:20:57.4171 Debug Setting 'DatabaseParameterInfo.layout' to '${level}'
+2016-02-16 18:20:58.2765 Debug Setting 'DatabaseParameterInfo.name' to '@logger'
+2016-02-16 18:20:59.1203 Debug Setting 'DatabaseParameterInfo.layout' to '${logger}'
+2016-02-16 18:20:59.9796 Debug Setting 'DatabaseParameterInfo.name' to '@message'
+2016-02-16 18:21:00.8229 Debug Setting 'DatabaseParameterInfo.layout' to '${message}'
+2016-02-16 18:21:01.6669 Debug Setting 'DatabaseParameterInfo.name' to '@msgid'
+2016-02-16 18:21:02.5106 Debug Setting 'DatabaseParameterInfo.layout' to '${event-context:item=UniqueCode}'
+2016-02-16 18:21:03.3751 Debug Setting 'EventContextLayoutRenderer.item' to 'UniqueCode'
+2016-02-16 18:21:04.2189 Debug Setting 'DatabaseParameterInfo.name' to '@user_name'
+2016-02-16 18:21:05.0626 Debug Setting 'DatabaseParameterInfo.layout' to '${windows-identity:domain=true}'
+2016-02-16 18:21:05.9064 Debug Setting 'WindowsIdentityLayoutRenderer.domain' to 'true'
+2016-02-16 18:21:06.7547 Debug Setting 'DatabaseParameterInfo.name' to '@call_site'
+2016-02-16 18:21:07.6510 Debug Setting 'DatabaseParameterInfo.layout' to '${callsite:filename=true}'
+2016-02-16 18:21:08.5104 Debug Setting 'CallSiteLayoutRenderer.filename' to 'true'
+2016-02-16 18:21:09.3542 Debug Setting 'DatabaseParameterInfo.name' to '@threadid'
+2016-02-16 18:21:10.1980 Debug Setting 'DatabaseParameterInfo.layout' to '${threadid}'
+2016-02-16 18:21:11.0573 Debug Setting 'DatabaseParameterInfo.name' to '@log_exception'
+2016-02-16 18:21:11.9160 Debug Setting 'DatabaseParameterInfo.layout' to '${exception}'
+2016-02-16 18:21:12.8336 Debug Setting 'DatabaseParameterInfo.name' to '@stacktrace'
+2016-02-16 18:21:13.7623 Debug Setting 'DatabaseParameterInfo.layout' to '${stacktrace}'
+2016-02-16 18:21:14.6565 Info Adding target Database Target[database]
+2016-02-16 18:21:15.5442 Debug Registering target database: NLog.Targets.DatabaseTarget
+2016-02-16 18:21:16.4253 Info Configured from an XML element in C:\dev\AUSKF\AUSKF\NLog.config...
+2016-02-16 18:21:17.3239 Debug --- NLog configuration dump ---
+2016-02-16 18:21:18.2206 Debug Targets:
+2016-02-16 18:21:19.0977 Debug Database Target[database]
+2016-02-16 18:21:19.9894 Debug Rules:
+2016-02-16 18:21:20.8870 Debug logNamePattern: (:All) levels: [ ] appendTo: [ database ]
+2016-02-16 18:21:21.7881 Debug --- End of NLog configuration dump ---
+2016-02-16 18:21:22.6882 Info Watching path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config' for changes.
+2016-02-16 18:21:23.5863 Info Found 42 configuration items
+2016-02-16 18:21:24.4910 Info Configuration initialized.
+2016-02-16 18:21:25.3511 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.2.3.1371. Product version: 4.2.3.
+2016-02-16 18:21:26.2234 Debug Targets for ControllerFactory by level:
+2016-02-16 18:21:27.1298 Debug Trace =>
+2016-02-16 18:21:28.0249 Debug Debug => database
+2016-02-16 18:21:28.9012 Debug Info => database
+2016-02-16 18:21:29.7762 Debug Warn => database
+2016-02-16 18:21:30.6200 Debug Error => database
+2016-02-16 18:21:31.4784 Debug Fatal => database
+2016-02-16 18:21:32.4471 Debug Targets for AUSKF.Startup by level:
+2016-02-16 18:21:33.3221 Debug Trace =>
+2016-02-16 18:21:34.1760 Debug Debug => database
+2016-02-16 18:21:35.0198 Debug Info => database
+2016-02-16 18:21:35.8635 Debug Warn => database
+2016-02-16 18:21:36.7334 Debug Error => database
+2016-02-16 18:21:37.5771 Debug Fatal => database
+2016-02-16 18:21:40.0065 Debug Targets for DataContext by level:
+2016-02-16 18:21:40.9512 Debug Trace =>
+2016-02-16 18:21:41.8468 Debug Debug => database
+2016-02-16 18:21:42.7465 Debug Info => database
+2016-02-16 18:21:43.6361 Debug Warn => database
+2016-02-16 18:21:44.5318 Debug Error => database
+2016-02-16 18:21:45.4264 Debug Fatal => database
+2016-02-16 18:21:46.3520 Debug Targets for AUSKF.Domain.Providers.Identity.ApplicationUserManager by level:
+2016-02-16 18:21:47.2537 Debug Trace =>
+2016-02-16 18:21:48.1443 Debug Debug => database
+2016-02-16 18:21:49.0369 Debug Info => database
+2016-02-16 18:21:49.9326 Debug Warn => database
+2016-02-16 18:21:50.8282 Debug Error => database
+2016-02-16 18:21:51.7238 Debug Fatal => database
+2016-02-16 18:21:52.6305 Debug Targets for AUSKF.Domain.Providers.Identity.ApplicationClaimsIdentityFactory by level:
+2016-02-16 18:21:53.5291 Debug Trace =>
+2016-02-16 18:21:54.4328 Debug Debug => database
+2016-02-16 18:21:55.3414 Debug Info => database
+2016-02-16 18:21:56.2450 Debug Warn => database
+2016-02-16 18:21:57.1676 Debug Error => database
+2016-02-16 18:21:58.0366 Debug Fatal => database
+2016-02-16 18:27:02.2849 Info Shutting down logging...
+2016-02-16 18:27:03.2035 Info Stopping file watching for path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config'
+2016-02-16 18:27:04.1410 Info Closing old configuration.
+2016-02-16 18:27:05.2246 Debug Info => database
+2016-02-16 18:27:06.1412 Debug Warn => database
+2016-02-16 18:27:07.0428 Debug Error => database
+2016-02-16 18:27:07.9455 Debug Fatal => database
+2016-02-16 18:27:08.8851 Debug Targets for AUSKF.Domain.Providers.Identity.ApplicationUserManager by level:
+2016-02-16 18:27:09.7918 Debug Trace =>
+2016-02-16 18:27:10.6924 Debug Debug => database
+2016-02-16 18:27:11.5901 Debug Info => database
+2016-02-16 18:27:12.4887 Debug Warn => database
+2016-02-16 18:27:13.3893 Debug Error => database
+2016-02-16 18:27:14.2829 Debug Fatal => database
+2016-02-16 18:27:15.2026 Debug Targets for AUSKF.Domain.Providers.Identity.ApplicationClaimsIdentityFactory by level:
+2016-02-16 18:27:16.1163 Debug Trace =>
+2016-02-16 18:27:17.0359 Debug Debug => database
+2016-02-16 18:27:17.9616 Debug Info => database
+2016-02-16 18:27:18.8872 Debug Warn => database
+2016-02-16 18:27:19.7999 Debug Error => database
+2016-02-16 18:27:20.7101 Debug Fatal => database
+2016-02-16 18:30:54.2302 Info Shutting down logging...
+2016-02-16 18:30:55.1373 Info Stopping file watching for path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config'
+2016-02-16 18:30:56.0116 Info Closing old configuration.
+2016-02-16 18:30:56.8860 Debug Closing logging configuration...
+2016-02-16 18:30:57.7610 Debug Finished closing logging configuration.
+2016-02-16 18:30:58.6986 Info Logger has been shut down.
+2016-02-16 18:54:48.2189 Debug ScanAssembly('NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c')
+2016-02-16 18:54:49.0783 Debug Start auto loading, location: C:\dev\AUSKF\AUSKF\bin
+2016-02-16 18:54:49.9377 Debug Auto loading done
+2016-02-16 18:54:50.7971 Debug Setting 'DatabaseTarget.name' to 'database'
+2016-02-16 18:54:51.6565 Debug Setting 'DatabaseTarget.dbprovider' to 'mssql'
+2016-02-16 18:54:52.5158 Debug Setting 'DatabaseTarget.dbhost' to 'localhost'
+2016-02-16 18:54:53.3658 Debug Setting 'DatabaseTarget.dbdatabase' to 'AUSKF'
+2016-02-16 18:54:54.2370 Debug Setting 'DatabaseTarget.dbusername' to 'sa'
+2016-02-16 18:54:55.0964 Debug Setting 'DatabaseTarget.dbpassword' to 'xo2Die5l'
+2016-02-16 18:54:55.9558 Debug Setting 'DatabaseTarget.commandText' to '
+        insert into LogTable(LogLevel, Logger,Message, MessageId, WindowsUserName, CallSite, ThreadId, Exception, StackTrace)
+        values( @level, @logger, @message,@msgid, @user_name, @call_site, @threadid, @log_exception, @stacktrace);
+      '
+2016-02-16 18:54:56.8219 Debug Setting 'DatabaseParameterInfo.name' to '@time_stamp'
+2016-02-16 18:54:57.6656 Debug Setting 'DatabaseParameterInfo.layout' to '${longdate}'
+2016-02-16 18:54:58.5365 Debug Setting 'DatabaseParameterInfo.name' to '@level'
+2016-02-16 18:54:59.3878 Debug Setting 'DatabaseParameterInfo.layout' to '${level}'
+2016-02-16 18:55:00.2554 Debug Setting 'DatabaseParameterInfo.name' to '@logger'
+2016-02-16 18:55:01.1148 Debug Setting 'DatabaseParameterInfo.layout' to '${logger}'
+2016-02-16 18:55:01.9633 Debug Setting 'DatabaseParameterInfo.name' to '@message'
+2016-02-16 18:55:02.8227 Debug Setting 'DatabaseParameterInfo.layout' to '${message}'
+2016-02-16 18:55:03.6832 Debug Setting 'DatabaseParameterInfo.name' to '@msgid'
+2016-02-16 18:55:04.5582 Debug Setting 'DatabaseParameterInfo.layout' to '${event-context:item=UniqueCode}'
+2016-02-16 18:55:05.4218 Debug Setting 'EventContextLayoutRenderer.item' to 'UniqueCode'
+2016-02-16 18:55:06.2812 Debug Setting 'DatabaseParameterInfo.name' to '@user_name'
+2016-02-16 18:55:07.1541 Debug Setting 'DatabaseParameterInfo.layout' to '${windows-identity:domain=true}'
+2016-02-16 18:55:08.0135 Debug Setting 'WindowsIdentityLayoutRenderer.domain' to 'true'
+2016-02-16 18:55:08.8729 Debug Setting 'DatabaseParameterInfo.name' to '@call_site'
+2016-02-16 18:55:09.7479 Debug Setting 'DatabaseParameterInfo.layout' to '${callsite:filename=true}'
+2016-02-16 18:55:10.6073 Debug Setting 'CallSiteLayoutRenderer.filename' to 'true'
+2016-02-16 18:55:11.4667 Debug Setting 'DatabaseParameterInfo.name' to '@threadid'
+2016-02-16 18:55:12.3261 Debug Setting 'DatabaseParameterInfo.layout' to '${threadid}'
+2016-02-16 18:55:13.1855 Debug Setting 'DatabaseParameterInfo.name' to '@log_exception'
+2016-02-16 18:55:14.0449 Debug Setting 'DatabaseParameterInfo.layout' to '${exception}'
+2016-02-16 18:55:14.9255 Debug Setting 'DatabaseParameterInfo.name' to '@stacktrace'
+2016-02-16 18:55:15.8005 Debug Setting 'DatabaseParameterInfo.layout' to '${stacktrace}'
+2016-02-16 18:55:16.6599 Info Adding target Database Target[database]
+2016-02-16 18:55:17.5235 Debug Registering target database: NLog.Targets.DatabaseTarget
+2016-02-16 18:55:18.3896 Info Configured from an XML element in C:\dev\AUSKF\AUSKF\NLog.config...
+2016-02-16 18:55:19.2646 Debug --- NLog configuration dump ---
+2016-02-16 18:55:20.1396 Debug Targets:
+2016-02-16 18:55:21.0146 Debug Database Target[database]
+2016-02-16 18:55:21.8740 Debug Rules:
+2016-02-16 18:55:22.7646 Debug logNamePattern: (:All) levels: [ ] appendTo: [ database ]
+2016-02-16 18:55:23.6396 Debug --- End of NLog configuration dump ---
+2016-02-16 18:55:24.4990 Info Watching path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config' for changes.
+2016-02-16 18:55:25.3607 Info Found 42 configuration items
+2016-02-16 18:55:26.2357 Info Configuration initialized.
+2016-02-16 18:55:27.0951 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.2.3.1371. Product version: 4.2.3.
+2016-02-16 18:55:27.9545 Debug Targets for ControllerFactory by level:
+2016-02-16 18:55:28.8139 Debug Trace =>
+2016-02-16 18:55:29.6732 Debug Debug => database
+2016-02-16 18:55:30.5326 Debug Info => database
+2016-02-16 18:55:31.3998 Debug Warn => database
+2016-02-16 18:55:32.2436 Debug Error => database
+2016-02-16 18:55:33.1030 Debug Fatal => database
+2016-02-16 18:55:34.0168 Debug Targets for AUSKF.Startup by level:
+2016-02-16 18:55:34.8762 Debug Trace =>
+2016-02-16 18:55:35.7407 Debug Debug => database
+2016-02-16 18:55:36.6070 Debug Info => database
+2016-02-16 18:55:37.4664 Debug Warn => database
+2016-02-16 18:55:38.3369 Debug Error => database
+2016-02-16 18:55:39.2119 Debug Fatal => database
+2016-02-16 18:55:41.1946 Debug Targets for DataContext by level:
+2016-02-16 18:55:42.1588 Debug Trace =>
+2016-02-16 18:55:43.0955 Debug Debug => database
+2016-02-16 18:55:44.0021 Debug Info => database
+2016-02-16 18:55:44.9007 Debug Warn => database
+2016-02-16 18:55:45.8104 Debug Error => database
+2016-02-16 18:55:46.7450 Debug Fatal => database
+2016-02-16 18:55:47.6877 Debug Targets for AUSKF.Domain.Providers.Identity.ApplicationUserManager by level:
+2016-02-16 18:55:48.6134 Debug Trace =>
+2016-02-16 18:55:49.5420 Debug Debug => database
+2016-02-16 18:55:50.4697 Debug Info => database
+2016-02-16 18:55:51.3795 Debug Warn => database
+2016-02-16 18:55:52.3122 Debug Error => database
+2016-02-16 18:55:53.2339 Debug Fatal => database
+2016-02-16 18:55:54.1695 Debug Targets for AUSKF.Domain.Providers.Identity.ApplicationClaimsIdentityFactory by level:
+2016-02-16 18:55:55.0802 Debug Trace =>
+2016-02-16 18:55:55.9858 Debug Debug => database
+2016-02-16 18:55:56.8995 Debug Info => database
+2016-02-16 18:55:57.8141 Debug Warn => database
+2016-02-16 18:55:58.7237 Debug Error => database
+2016-02-16 18:55:59.6294 Debug Fatal => database
+2016-02-16 19:16:46.7781 Info Shutting down logging...
+2016-02-16 19:16:47.6843 Info Stopping file watching for path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config'
+2016-02-16 19:16:48.5960 Info Closing old configuration.
+2016-02-16 19:16:49.4941 Debug Closing logging configuration...
+2016-02-16 19:20:42.8506 Debug ScanAssembly('NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c')
+2016-02-16 19:20:43.7823 Debug Start auto loading, location: C:\dev\AUSKF\AUSKF\bin
+2016-02-16 19:20:44.7129 Debug Auto loading done
+2016-02-16 19:20:45.6386 Debug Setting 'DatabaseTarget.name' to 'database'
+2016-02-16 19:20:46.5582 Debug Setting 'DatabaseTarget.dbprovider' to 'mssql'
+2016-02-16 19:20:47.4689 Debug Setting 'DatabaseTarget.dbhost' to 'localhost'
+2016-02-16 19:20:48.3825 Debug Setting 'DatabaseTarget.dbdatabase' to 'AUSKF'
+2016-02-16 19:20:49.3012 Debug Setting 'DatabaseTarget.dbusername' to 'sa'
+2016-02-16 19:20:50.2178 Debug Setting 'DatabaseTarget.dbpassword' to 'xo2Die5l'
+2016-02-16 19:20:51.1365 Debug Setting 'DatabaseTarget.commandText' to '
+        insert into LogTable(LogLevel, Logger,Message, MessageId, WindowsUserName, CallSite, ThreadId, Exception, StackTrace)
+        values( @level, @logger, @message,@msgid, @user_name, @call_site, @threadid, @log_exception, @stacktrace);
+      '
+2016-02-16 19:20:52.0481 Debug Setting 'DatabaseParameterInfo.name' to '@time_stamp'
+2016-02-16 19:20:52.9617 Debug Setting 'DatabaseParameterInfo.layout' to '${longdate}'
+2016-02-16 19:20:53.8794 Debug Setting 'DatabaseParameterInfo.name' to '@level'
+2016-02-16 19:20:54.7941 Debug Setting 'DatabaseParameterInfo.layout' to '${level}'
+2016-02-16 19:20:55.7087 Debug Setting 'DatabaseParameterInfo.name' to '@logger'
+2016-02-16 19:20:56.6173 Debug Setting 'DatabaseParameterInfo.layout' to '${logger}'
+2016-02-16 19:20:57.5240 Debug Setting 'DatabaseParameterInfo.name' to '@message'
+2016-02-16 19:20:58.4326 Debug Setting 'DatabaseParameterInfo.layout' to '${message}'
+2016-02-16 19:20:59.3383 Debug Setting 'DatabaseParameterInfo.name' to '@msgid'
+2016-02-16 19:21:00.2553 Debug Setting 'DatabaseParameterInfo.layout' to '${event-context:item=UniqueCode}'
+2016-02-16 19:21:01.1670 Debug Setting 'EventContextLayoutRenderer.item' to 'UniqueCode'
+2016-02-16 19:21:02.0806 Debug Setting 'DatabaseParameterInfo.name' to '@user_name'
+2016-02-16 19:21:02.9893 Debug Setting 'DatabaseParameterInfo.layout' to '${windows-identity:domain=true}'
+2016-02-16 19:21:03.9019 Debug Setting 'WindowsIdentityLayoutRenderer.domain' to 'true'
+2016-02-16 19:21:04.8145 Debug Setting 'DatabaseParameterInfo.name' to '@call_site'
+2016-02-16 19:21:05.7243 Debug Setting 'DatabaseParameterInfo.layout' to '${callsite:filename=true}'
+2016-02-16 19:21:06.6300 Debug Setting 'CallSiteLayoutRenderer.filename' to 'true'
+2016-02-16 19:21:07.5416 Debug Setting 'DatabaseParameterInfo.name' to '@threadid'
+2016-02-16 19:21:08.4542 Debug Setting 'DatabaseParameterInfo.layout' to '${threadid}'
+2016-02-16 19:21:09.3729 Debug Setting 'DatabaseParameterInfo.name' to '@log_exception'
+2016-02-16 19:21:10.2836 Debug Setting 'DatabaseParameterInfo.layout' to '${exception}'
+2016-02-16 19:21:11.2002 Debug Setting 'DatabaseParameterInfo.name' to '@stacktrace'
+2016-02-16 19:21:12.1149 Debug Setting 'DatabaseParameterInfo.layout' to '${stacktrace}'
+2016-02-16 19:21:13.0345 Info Adding target Database Target[database]
+2016-02-16 19:21:13.9602 Debug Registering target database: NLog.Targets.DatabaseTarget
+2016-02-16 19:21:14.8788 Info Configured from an XML element in C:\dev\AUSKF\AUSKF\NLog.config...
+2016-02-16 19:21:15.7894 Debug --- NLog configuration dump ---
+2016-02-16 19:21:16.7001 Debug Targets:
+2016-02-16 19:21:17.6187 Debug Database Target[database]
+2016-02-16 19:21:18.5434 Debug Rules:
+2016-02-16 19:21:19.4601 Debug logNamePattern: (:All) levels: [ ] appendTo: [ database ]
+2016-02-16 19:21:20.3767 Debug --- End of NLog configuration dump ---
+2016-02-16 19:21:21.2913 Info Watching path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config' for changes.
+2016-02-16 19:21:22.2180 Info Found 42 configuration items
+2016-02-16 19:21:23.1527 Info Configuration initialized.
+2016-02-16 19:21:24.0643 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.2.3.1371. Product version: 4.2.3.
+2016-02-16 19:21:24.9900 Debug Targets for ControllerFactory by level:
+2016-02-16 19:21:25.9096 Debug Trace =>
+2016-02-16 19:21:26.8143 Debug Debug => database
+2016-02-16 19:21:27.7339 Debug Info => database
+2016-02-16 19:21:28.6526 Debug Warn => database
+2016-02-16 19:21:29.5692 Debug Error => database
+2016-02-16 19:21:30.4869 Debug Fatal => database
+2016-02-16 19:21:31.4395 Debug Targets for AUSKF.Startup by level:
+2016-02-16 19:21:32.3572 Debug Trace =>
+2016-02-16 19:21:33.2888 Debug Debug => database
+2016-02-16 19:21:34.2085 Debug Info => database
+2016-02-16 19:21:35.1251 Debug Warn => database
+2016-02-16 19:21:36.0398 Debug Error => database
+2016-02-16 19:21:36.9574 Debug Fatal => database
+2016-02-16 19:21:38.0640 Debug Targets for DataContext by level:
+2016-02-16 19:21:38.9777 Debug Trace =>
+2016-02-16 19:21:39.8964 Debug Debug => database
+2016-02-16 19:21:40.8000 Debug Info => database
+2016-02-16 19:21:41.7106 Debug Warn => database
+2016-02-16 19:21:42.6303 Debug Error => database
+2016-02-16 19:21:43.5459 Debug Fatal => database
+2016-02-16 19:21:44.4746 Debug Targets for AUSKF.Domain.Providers.Identity.ApplicationUserManager by level:
+2016-02-16 19:21:45.3922 Debug Trace =>
+2016-02-16 19:21:46.3039 Debug Debug => database
+2016-02-16 19:21:47.2125 Debug Info => database
+2016-02-16 19:21:48.1282 Debug Warn => database
+2016-02-16 19:21:49.0438 Debug Error => database
+2016-02-16 19:21:49.9565 Debug Fatal => database
+2016-02-16 19:21:50.8821 Debug Targets for AUSKF.Domain.Providers.Identity.ApplicationClaimsIdentityFactory by level:
+2016-02-16 19:21:51.8058 Debug Trace =>
+2016-02-16 19:21:52.7144 Debug Debug => database
+2016-02-16 19:21:53.6341 Debug Info => database
+2016-02-16 19:21:54.5477 Debug Warn => database
+2016-02-16 19:21:55.4644 Debug Error => database
+2016-02-16 19:21:56.3820 Debug Fatal => database
+2016-02-16 19:24:59.7844 Info Shutting down logging...
+2016-02-16 19:25:00.7838 Info Stopping file watching for path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config'
+2016-02-16 19:25:01.7181 Info Closing old configuration.
+2016-02-16 19:25:02.6534 Debug Closing logging configuration...
+2016-02-16 19:25:03.5441 Debug Finished closing logging configuration.
+2016-02-16 19:25:04.4191 Info Logger has been shut down.
+2016-02-16 19:26:52.4314 Debug ScanAssembly('NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c')
+2016-02-16 19:26:53.3630 Debug Start auto loading, location: C:\dev\AUSKF\AUSKF\bin
+2016-02-16 19:26:54.2857 Debug Auto loading done
+2016-02-16 19:26:55.2184 Debug Setting 'DatabaseTarget.name' to 'database'
+2016-02-16 19:26:56.1410 Debug Setting 'DatabaseTarget.dbprovider' to 'mssql'
+2016-02-16 19:26:57.0647 Debug Setting 'DatabaseTarget.dbhost' to 'localhost'
+2016-02-16 19:26:57.9833 Debug Setting 'DatabaseTarget.dbdatabase' to 'AUSKF'
+2016-02-16 19:26:58.9020 Debug Setting 'DatabaseTarget.dbusername' to 'sa'
+2016-02-16 19:26:59.8146 Debug Setting 'DatabaseTarget.dbpassword' to 'xo2Die5l'
+2016-02-16 19:27:00.7402 Debug Setting 'DatabaseTarget.commandText' to '
+        insert into LogTable(LogLevel, Logger,Message, MessageId, WindowsUserName, CallSite, ThreadId, Exception, StackTrace)
+        values( @level, @logger, @message,@msgid, @user_name, @call_site, @threadid, @log_exception, @stacktrace);
+      '
+2016-02-16 19:27:01.6598 Debug Setting 'DatabaseParameterInfo.name' to '@time_stamp'
+2016-02-16 19:27:02.5825 Debug Setting 'DatabaseParameterInfo.layout' to '${longdate}'
+2016-02-16 19:27:03.5092 Debug Setting 'DatabaseParameterInfo.name' to '@level'
+2016-02-16 19:27:04.4278 Debug Setting 'DatabaseParameterInfo.layout' to '${level}'
+2016-02-16 19:27:05.3505 Debug Setting 'DatabaseParameterInfo.name' to '@logger'
+2016-02-16 19:27:06.2651 Debug Setting 'DatabaseParameterInfo.layout' to '${logger}'
+2016-02-16 19:27:07.1818 Debug Setting 'DatabaseParameterInfo.name' to '@message'
+2016-02-16 19:27:08.0984 Debug Setting 'DatabaseParameterInfo.layout' to '${message}'
+2016-02-16 19:27:09.0141 Debug Setting 'DatabaseParameterInfo.name' to '@msgid'
+2016-02-16 19:27:09.9347 Debug Setting 'DatabaseParameterInfo.layout' to '${event-context:item=UniqueCode}'
+2016-02-16 19:27:10.8594 Debug Setting 'EventContextLayoutRenderer.item' to 'UniqueCode'
+2016-02-16 19:27:11.7800 Debug Setting 'DatabaseParameterInfo.name' to '@user_name'
+2016-02-16 19:27:12.6997 Debug Setting 'DatabaseParameterInfo.layout' to '${windows-identity:domain=true}'
+2016-02-16 19:27:13.6153 Debug Setting 'WindowsIdentityLayoutRenderer.domain' to 'true'
+2016-02-16 19:27:14.5390 Debug Setting 'DatabaseParameterInfo.name' to '@call_site'
+2016-02-16 19:27:15.4556 Debug Setting 'DatabaseParameterInfo.layout' to '${callsite:filename=true}'
+2016-02-16 19:27:16.3733 Debug Setting 'CallSiteLayoutRenderer.filename' to 'true'
+2016-02-16 19:27:17.2919 Debug Setting 'DatabaseParameterInfo.name' to '@threadid'
+2016-02-16 19:27:18.2086 Debug Setting 'DatabaseParameterInfo.layout' to '${threadid}'
+2016-02-16 19:27:19.1302 Debug Setting 'DatabaseParameterInfo.name' to '@log_exception'
+2016-02-16 19:27:20.0499 Debug Setting 'DatabaseParameterInfo.layout' to '${exception}'
+2016-02-16 19:27:20.9715 Debug Setting 'DatabaseParameterInfo.name' to '@stacktrace'
+2016-02-16 19:27:21.8912 Debug Setting 'DatabaseParameterInfo.layout' to '${stacktrace}'
+2016-02-16 19:27:22.8068 Info Adding target Database Target[database]
+2016-02-16 19:27:23.7275 Debug Registering target database: NLog.Targets.DatabaseTarget
+2016-02-16 19:27:24.6571 Info Configured from an XML element in C:\dev\AUSKF\AUSKF\NLog.config...
+2016-02-16 19:27:25.5748 Debug --- NLog configuration dump ---
+2016-02-16 19:27:26.5035 Debug Targets:
+2016-02-16 19:27:27.4191 Debug Database Target[database]
+2016-02-16 19:27:28.3428 Debug Rules:
+2016-02-16 19:27:29.2664 Debug logNamePattern: (:All) levels: [ ] appendTo: [ database ]
+2016-02-16 19:27:30.1840 Debug --- End of NLog configuration dump ---
+2016-02-16 19:27:31.0997 Info Watching path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config' for changes.
+2016-02-16 19:27:32.0174 Info Found 42 configuration items
+2016-02-16 19:27:32.9540 Info Configuration initialized.
+2016-02-16 19:27:33.8747 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.2.3.1371. Product version: 4.2.3.
+2016-02-16 19:27:34.8003 Debug Targets for ControllerFactory by level:
+2016-02-16 19:27:35.7210 Debug Trace =>
+2016-02-16 19:27:36.6296 Debug Debug => database
+2016-02-16 19:27:37.5513 Debug Info => database
+2016-02-16 19:27:38.4709 Debug Warn => database
+2016-02-16 19:27:39.3906 Debug Error => database
+2016-02-16 19:27:40.3112 Debug Fatal => database
+2016-02-16 19:27:41.3279 Debug Targets for AUSKF.Startup by level:
+2016-02-16 19:27:42.2576 Debug Trace =>
+2016-02-16 19:27:43.1832 Debug Debug => database
+2016-02-16 19:27:44.1069 Debug Info => database
+2016-02-16 19:27:45.0286 Debug Warn => database
+2016-02-16 19:27:45.9422 Debug Error => database
+2016-02-16 19:27:46.8639 Debug Fatal => database
+2016-02-16 19:27:47.9532 Debug Targets for DataContext by level:
+2016-02-16 19:27:48.8739 Debug Trace =>
+2016-02-16 19:27:49.7955 Debug Debug => database
+2016-02-16 19:27:50.7152 Debug Info => database
+2016-02-16 19:27:51.6368 Debug Warn => database
+2016-02-16 19:27:52.5535 Debug Error => database
+2016-02-16 19:27:53.4771 Debug Fatal => database
+2016-02-16 19:27:54.4368 Debug Targets for AUSKF.Domain.Providers.Identity.ApplicationUserManager by level:
+2016-02-16 19:27:55.3504 Debug Trace =>
+2016-02-16 19:27:56.2751 Debug Debug => database
+2016-02-16 19:27:57.1917 Debug Info => database
+2016-02-16 19:27:58.1164 Debug Warn => database
+2016-02-16 19:27:59.0391 Debug Error => database
+2016-02-16 19:27:59.9667 Debug Fatal => database
+2016-02-16 19:28:00.8968 Debug Targets for AUSKF.Domain.Providers.Identity.ApplicationClaimsIdentityFactory by level:
+2016-02-16 19:28:01.8205 Debug Trace =>
+2016-02-16 19:28:02.7411 Debug Debug => database
+2016-02-16 19:28:03.6638 Debug Info => database
+2016-02-16 19:28:04.5884 Debug Warn => database
+2016-02-16 19:28:05.5151 Debug Error => database
+2016-02-16 19:28:06.4337 Debug Fatal => database
+2016-02-16 19:32:35.7566 Info Shutting down logging...
+2016-02-16 19:32:36.7566 Info Stopping file watching for path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config'
+2016-02-16 19:32:37.7409 Info Closing old configuration.
+2016-02-16 19:32:38.7105 Debug Closing logging configuration...
+2016-02-16 19:32:39.6039 Debug Finished closing logging configuration.
+2016-02-16 19:32:40.4945 Info Logger has been shut down.
+2016-02-16 19:32:55.8352 Debug ScanAssembly('NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c')
+2016-02-16 19:32:56.7688 Debug Start auto loading, location: C:\dev\AUSKF\AUSKF\bin
+2016-02-16 19:32:57.7055 Debug Auto loading done
+2016-02-16 19:32:58.6392 Debug Setting 'DatabaseTarget.name' to 'database'
+2016-02-16 19:32:59.5698 Debug Setting 'DatabaseTarget.dbprovider' to 'mssql'
+2016-02-16 19:33:00.5060 Debug Setting 'DatabaseTarget.dbhost' to 'localhost'
+2016-02-16 19:33:01.6058 Debug Setting 'DatabaseTarget.dbdatabase' to 'AUSKF'
+2016-02-16 19:33:02.5525 Debug Setting 'DatabaseTarget.dbusername' to 'sa'
+2016-02-16 19:33:03.4841 Debug Setting 'DatabaseTarget.dbpassword' to 'xo2Die5l'
+2016-02-16 19:33:04.4048 Debug Setting 'DatabaseTarget.commandText' to '
+        insert into LogTable(LogLevel, Logger,Message, MessageId, WindowsUserName, CallSite, ThreadId, Exception, StackTrace)
+        values( @level, @logger, @message,@msgid, @user_name, @call_site, @threadid, @log_exception, @stacktrace);
+      '
+2016-02-16 19:33:05.3345 Debug Setting 'DatabaseParameterInfo.name' to '@time_stamp'
+2016-02-16 19:33:06.2601 Debug Setting 'DatabaseParameterInfo.layout' to '${longdate}'
+2016-02-16 19:33:07.1908 Debug Setting 'DatabaseParameterInfo.name' to '@level'
+2016-02-16 19:33:08.1134 Debug Setting 'DatabaseParameterInfo.layout' to '${level}'
+2016-02-16 19:33:09.0561 Debug Setting 'DatabaseParameterInfo.name' to '@logger'
+2016-02-16 19:33:09.9808 Debug Setting 'DatabaseParameterInfo.layout' to '${logger}'
+2016-02-16 19:33:10.9064 Debug Setting 'DatabaseParameterInfo.name' to '@message'
+2016-02-16 19:33:11.8291 Debug Setting 'DatabaseParameterInfo.layout' to '${message}'
+2016-02-16 19:33:12.7597 Debug Setting 'DatabaseParameterInfo.name' to '@msgid'
+2016-02-16 19:33:13.6854 Debug Setting 'DatabaseParameterInfo.layout' to '${event-context:item=UniqueCode}'
+2016-02-16 19:33:14.6230 Debug Setting 'EventContextLayoutRenderer.item' to 'UniqueCode'
+2016-02-16 19:33:15.5497 Debug Setting 'DatabaseParameterInfo.name' to '@user_name'
+2016-02-16 19:33:16.4743 Debug Setting 'DatabaseParameterInfo.layout' to '${windows-identity:domain=true}'
+2016-02-16 19:33:17.4030 Debug Setting 'WindowsIdentityLayoutRenderer.domain' to 'true'
+2016-02-16 19:33:18.3297 Debug Setting 'DatabaseParameterInfo.name' to '@call_site'
+2016-02-16 19:33:19.2583 Debug Setting 'DatabaseParameterInfo.layout' to '${callsite:filename=true}'
+2016-02-16 19:33:20.1860 Debug Setting 'CallSiteLayoutRenderer.filename' to 'true'
+2016-02-16 19:33:21.1116 Debug Setting 'DatabaseParameterInfo.name' to '@threadid'
+2016-02-16 19:33:22.0403 Debug Setting 'DatabaseParameterInfo.layout' to '${threadid}'
+2016-02-16 19:33:22.9649 Debug Setting 'DatabaseParameterInfo.name' to '@log_exception'
+2016-02-16 19:33:23.8926 Debug Setting 'DatabaseParameterInfo.layout' to '${exception}'
+2016-02-16 19:33:24.8213 Debug Setting 'DatabaseParameterInfo.name' to '@stacktrace'
+2016-02-16 19:33:25.7579 Debug Setting 'DatabaseParameterInfo.layout' to '${stacktrace}'
+2016-02-16 19:33:26.6976 Info Adding target Database Target[database]
+2016-02-16 19:33:27.6312 Debug Registering target database: NLog.Targets.DatabaseTarget
+2016-02-16 19:33:28.5669 Info Configured from an XML element in C:\dev\AUSKF\AUSKF\NLog.config...
+2016-02-16 19:33:29.5076 Debug --- NLog configuration dump ---
+2016-02-16 19:33:30.4382 Debug Targets:
+2016-02-16 19:33:31.3759 Debug Database Target[database]
+2016-02-16 19:33:32.3086 Debug Rules:
+2016-02-16 19:33:33.2352 Debug logNamePattern: (:All) levels: [ ] appendTo: [ database ]
+2016-02-16 19:33:34.1719 Debug --- End of NLog configuration dump ---
+2016-02-16 19:33:35.1085 Info Watching path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config' for changes.
+2016-02-16 19:33:36.0362 Info Found 42 configuration items
+2016-02-16 19:33:36.9749 Info Configuration initialized.
+2016-02-16 19:33:37.9045 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.2.3.1371. Product version: 4.2.3.
+2016-02-16 19:33:38.8442 Debug Targets for ControllerFactory by level:
+2016-02-16 19:33:39.7729 Debug Trace =>
+2016-02-16 19:33:40.7085 Debug Debug => database
+2016-02-16 19:33:41.6452 Debug Info => database
+2016-02-16 19:33:42.5728 Debug Warn => database
+2016-02-16 19:33:43.5065 Debug Error => database
+2016-02-16 19:33:44.4392 Debug Fatal => database
+2016-02-16 19:33:45.4058 Debug Targets for AUSKF.Startup by level:
+2016-02-16 19:33:46.3405 Debug Trace =>
+2016-02-16 19:33:47.2782 Debug Debug => database
+2016-02-16 19:33:48.2038 Debug Info => database
+2016-02-16 19:33:49.1325 Debug Warn => database
+2016-02-16 19:33:50.0621 Debug Error => database
+2016-02-16 19:33:50.9898 Debug Fatal => database
+2016-02-16 19:33:52.0936 Debug Targets for DataContext by level:
+2016-02-16 19:33:53.0223 Debug Trace =>
+2016-02-16 19:33:53.9449 Debug Debug => database
+2016-02-16 19:33:54.8675 Debug Info => database
+2016-02-16 19:33:55.7932 Debug Warn => database
+2016-02-16 19:33:56.7219 Debug Error => database
+2016-02-16 19:33:57.6465 Debug Fatal => database
+2016-02-16 19:33:58.5932 Debug Targets for AUSKF.Domain.Providers.Identity.ApplicationUserManager by level:
+2016-02-16 19:33:59.5218 Debug Trace =>
+2016-02-16 19:34:00.4641 Debug Debug => database
+2016-02-16 19:34:01.3887 Debug Info => database
+2016-02-16 19:34:02.3184 Debug Warn => database
+2016-02-16 19:34:03.2460 Debug Error => database
+2016-02-16 19:34:04.1747 Debug Fatal => database
+2016-02-16 19:34:05.1164 Debug Targets for AUSKF.Domain.Providers.Identity.ApplicationClaimsIdentityFactory by level:
+2016-02-16 19:34:06.0450 Debug Trace =>
+2016-02-16 19:34:06.9687 Debug Debug => database
+2016-02-16 19:34:07.8923 Debug Info => database
+2016-02-16 19:34:08.8240 Debug Warn => database
+2016-02-16 19:34:09.7476 Debug Error => database
+2016-02-16 19:34:10.6773 Debug Fatal => database
+2016-02-16 19:37:28.1155 Info Shutting down logging...
+2016-02-16 19:37:29.1347 Info Stopping file watching for path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config'
+2016-02-16 19:37:30.0566 Info Closing old configuration.
+2016-02-16 19:37:31.0123 Debug Closing logging configuration...
+2016-02-16 19:37:31.9610 Debug Finished closing logging configuration.
+2016-02-16 19:37:32.8997 Info Logger has been shut down.
+2016-02-16 19:39:14.1900 Info Shutting down logging...
+2016-02-16 19:39:15.1118 Info Stopping file watching for path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config'
+2016-02-16 19:39:16.0180 Info Closing old configuration.
+2016-02-16 19:39:16.9243 Debug Closing logging configuration...
+2016-02-16 19:39:17.8273 Debug Finished closing logging configuration.
+2016-02-16 19:39:18.7636 Info Logger has been shut down.
+2016-02-16 19:43:53.5281 Debug ScanAssembly('NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c')
+2016-02-16 19:43:54.4988 Debug Start auto loading, location: C:\dev\AUSKF\AUSKF\bin
+2016-02-16 19:43:55.4324 Debug Auto loading done
+2016-02-16 19:43:56.3841 Debug Setting 'DatabaseTarget.name' to 'database'
+2016-02-16 19:43:57.3308 Debug Setting 'DatabaseTarget.dbprovider' to 'mssql'
+2016-02-16 19:43:58.2725 Debug Setting 'DatabaseTarget.dbhost' to 'localhost'
+2016-02-16 19:43:59.2021 Debug Setting 'DatabaseTarget.dbdatabase' to 'AUSKF'
+2016-02-16 19:44:00.1409 Debug Setting 'DatabaseTarget.dbusername' to 'sa'
+2016-02-16 19:44:01.0795 Debug Setting 'DatabaseTarget.dbpassword' to 'xo2Die5l'
+2016-02-16 19:44:02.0232 Debug Setting 'DatabaseTarget.commandText' to '
+        insert into LogTable(LogLevel, Logger,Message, MessageId, WindowsUserName, CallSite, ThreadId, Exception, StackTrace)
+        values( @level, @logger, @message,@msgid, @user_name, @call_site, @threadid, @log_exception, @stacktrace);
+      '
+2016-02-16 19:44:02.9709 Debug Setting 'DatabaseParameterInfo.name' to '@time_stamp'
+2016-02-16 19:44:03.9166 Debug Setting 'DatabaseParameterInfo.layout' to '${longdate}'
+2016-02-16 19:44:04.8622 Debug Setting 'DatabaseParameterInfo.name' to '@level'
+2016-02-16 19:44:05.8019 Debug Setting 'DatabaseParameterInfo.layout' to '${level}'
+2016-02-16 19:44:06.7305 Debug Setting 'DatabaseParameterInfo.name' to '@logger'
+2016-02-16 19:44:07.6602 Debug Setting 'DatabaseParameterInfo.layout' to '${logger}'
+2016-02-16 19:44:08.5999 Debug Setting 'DatabaseParameterInfo.name' to '@message'
+2016-02-16 19:44:09.5355 Debug Setting 'DatabaseParameterInfo.layout' to '${message}'
+2016-02-16 19:44:10.4702 Debug Setting 'DatabaseParameterInfo.name' to '@msgid'
+2016-02-16 19:44:11.4029 Debug Setting 'DatabaseParameterInfo.layout' to '${event-context:item=UniqueCode}'
+2016-02-16 19:44:12.3475 Debug Setting 'EventContextLayoutRenderer.item' to 'UniqueCode'
+2016-02-16 19:44:13.3092 Debug Setting 'DatabaseParameterInfo.name' to '@user_name'
+2016-02-16 19:44:14.2719 Debug Setting 'DatabaseParameterInfo.layout' to '${windows-identity:domain=true}'
+2016-02-16 19:44:15.2155 Debug Setting 'WindowsIdentityLayoutRenderer.domain' to 'true'
+2016-02-16 19:44:16.1662 Debug Setting 'DatabaseParameterInfo.name' to '@call_site'
+2016-02-16 19:44:17.1339 Debug Setting 'DatabaseParameterInfo.layout' to '${callsite:filename=true}'
+2016-02-16 19:44:18.0966 Debug Setting 'CallSiteLayoutRenderer.filename' to 'true'
+2016-02-16 19:44:19.0523 Debug Setting 'DatabaseParameterInfo.name' to '@threadid'
+2016-02-16 19:44:19.9889 Debug Setting 'DatabaseParameterInfo.layout' to '${threadid}'
+2016-02-16 19:44:20.9306 Debug Setting 'DatabaseParameterInfo.name' to '@log_exception'
+2016-02-16 19:44:21.8793 Debug Setting 'DatabaseParameterInfo.layout' to '${exception}'
+2016-02-16 19:44:22.8350 Debug Setting 'DatabaseParameterInfo.name' to '@stacktrace'
+2016-02-16 19:44:23.7787 Debug Setting 'DatabaseParameterInfo.layout' to '${stacktrace}'
+2016-02-16 19:44:24.7153 Info Adding target Database Target[database]
+2016-02-16 19:44:25.6589 Debug Registering target database: NLog.Targets.DatabaseTarget
+2016-02-16 19:44:26.5986 Info Configured from an XML element in C:\dev\AUSKF\AUSKF\NLog.config...
+2016-02-16 19:44:27.5413 Debug --- NLog configuration dump ---
+2016-02-16 19:44:28.4840 Debug Targets:
+2016-02-16 19:44:29.4236 Debug Database Target[database]
+2016-02-16 19:44:30.3573 Debug Rules:
+2016-02-16 19:44:31.3039 Debug logNamePattern: (:All) levels: [ ] appendTo: [ database ]
+2016-02-16 19:44:32.2466 Debug --- End of NLog configuration dump ---
+2016-02-16 19:44:33.1993 Info Watching path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config' for changes.
+2016-02-16 19:44:34.1590 Info Found 42 configuration items
+2016-02-16 19:44:35.1326 Info Configuration initialized.
+2016-02-16 19:44:36.1384 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.2.3.1371. Product version: 4.2.3.
+2016-02-16 19:44:37.1040 Debug Targets for ControllerFactory by level:
+2016-02-16 19:44:38.0467 Debug Trace =>
+2016-02-16 19:44:38.9834 Debug Debug => database
+2016-02-16 19:44:39.9301 Debug Info => database
+2016-02-16 19:44:40.8737 Debug Warn => database
+2016-02-16 19:44:41.8144 Debug Error => database
+2016-02-16 19:44:42.7551 Debug Fatal => database
+2016-02-16 19:44:43.7858 Debug Targets for AUSKF.Startup by level:
+2016-02-16 19:44:44.7235 Debug Trace =>
+2016-02-16 19:44:45.6701 Debug Debug => database
+2016-02-16 19:44:46.6178 Debug Info => database
+2016-02-16 19:44:47.5565 Debug Warn => database
+2016-02-16 19:44:48.4901 Debug Error => database
+2016-02-16 19:44:49.4398 Debug Fatal => database
+2016-02-16 19:44:50.5649 Debug Targets for DataContext by level:
+2016-02-16 19:44:51.5056 Debug Trace =>
+2016-02-16 19:44:52.4513 Debug Debug => database
+2016-02-16 19:44:53.3949 Debug Info => database
+2016-02-16 19:44:54.3296 Debug Warn => database
+2016-02-16 19:44:55.2693 Debug Error => database
+2016-02-16 19:44:56.2089 Debug Fatal => database
+2016-02-16 19:44:57.1666 Debug Targets for AUSKF.Domain.Providers.Identity.ApplicationUserManager by level:
+2016-02-16 19:44:58.1113 Debug Trace =>
+2016-02-16 19:44:59.0579 Debug Debug => database
+2016-02-16 19:45:00.0006 Debug Info => database
+2016-02-16 19:45:00.9500 Debug Warn => database
+2016-02-16 19:45:01.8876 Debug Error => database
+2016-02-16 19:45:02.8313 Debug Fatal => database
+2016-02-16 19:45:03.7900 Debug Targets for AUSKF.Domain.Providers.Identity.ApplicationClaimsIdentityFactory by level:
+2016-02-16 19:45:04.7346 Debug Trace =>
+2016-02-16 19:45:05.6813 Debug Debug => database
+2016-02-16 19:45:06.6350 Debug Info => database
+2016-02-16 19:45:07.5886 Debug Warn => database
+2016-02-16 19:45:08.5343 Debug Error => database
+2016-02-16 19:45:09.4790 Debug Fatal => database
+2016-02-16 19:50:39.8033 Info Shutting down logging...
+2016-02-16 19:50:40.7251 Info Stopping file watching for path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config'
+2016-02-16 19:50:41.6158 Info Closing old configuration.
+2016-02-16 19:50:42.5250 Debug Closing logging configuration...
+2016-02-16 19:50:43.4093 Debug Finished closing logging configuration.
+2016-02-16 19:50:44.3165 Info Logger has been shut down.
+2016-02-16 19:50:48.3274 Debug ScanAssembly('NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c')
+2016-02-16 19:50:49.2921 Debug Start auto loading, location: C:\dev\AUSKF\AUSKF\bin
+2016-02-16 19:50:50.2618 Debug Auto loading done
+2016-02-16 19:50:51.2124 Debug Setting 'DatabaseTarget.name' to 'database'
+2016-02-16 19:50:52.1571 Debug Setting 'DatabaseTarget.dbprovider' to 'mssql'
+2016-02-16 19:50:53.0958 Debug Setting 'DatabaseTarget.dbhost' to 'localhost'
+2016-02-16 19:50:54.0364 Debug Setting 'DatabaseTarget.dbdatabase' to 'AUSKF'
+2016-02-16 19:50:54.9841 Debug Setting 'DatabaseTarget.dbusername' to 'sa'
+2016-02-16 19:50:55.9298 Debug Setting 'DatabaseTarget.dbpassword' to 'xo2Die5l'
+2016-02-16 19:50:56.8705 Debug Setting 'DatabaseTarget.commandText' to '
+        insert into LogTable(LogLevel, Logger,Message, MessageId, WindowsUserName, CallSite, ThreadId, Exception, StackTrace)
+        values( @level, @logger, @message,@msgid, @user_name, @call_site, @threadid, @log_exception, @stacktrace);
+      '
+2016-02-16 19:50:57.8151 Debug Setting 'DatabaseParameterInfo.name' to '@time_stamp'
+2016-02-16 19:50:58.7518 Debug Setting 'DatabaseParameterInfo.layout' to '${longdate}'
+2016-02-16 19:50:59.7005 Debug Setting 'DatabaseParameterInfo.name' to '@level'
+2016-02-16 19:51:00.6463 Debug Setting 'DatabaseParameterInfo.layout' to '${level}'
+2016-02-16 19:51:01.5890 Debug Setting 'DatabaseParameterInfo.name' to '@logger'
+2016-02-16 19:51:02.5587 Debug Setting 'DatabaseParameterInfo.layout' to '${logger}'
+2016-02-16 19:51:03.5003 Debug Setting 'DatabaseParameterInfo.name' to '@message'
+2016-02-16 19:51:04.4440 Debug Setting 'DatabaseParameterInfo.layout' to '${message}'
+2016-02-16 19:51:05.3837 Debug Setting 'DatabaseParameterInfo.name' to '@msgid'
+2016-02-16 19:51:06.3233 Debug Setting 'DatabaseParameterInfo.layout' to '${event-context:item=UniqueCode}'
+2016-02-16 19:51:07.2770 Debug Setting 'EventContextLayoutRenderer.item' to 'UniqueCode'
+2016-02-16 19:51:08.2177 Debug Setting 'DatabaseParameterInfo.name' to '@user_name'
+2016-02-16 19:51:09.1553 Debug Setting 'DatabaseParameterInfo.layout' to '${windows-identity:domain=true}'
+2016-02-16 19:51:10.0980 Debug Setting 'WindowsIdentityLayoutRenderer.domain' to 'true'
+2016-02-16 19:51:11.0427 Debug Setting 'DatabaseParameterInfo.name' to '@call_site'
+2016-02-16 19:51:12.0384 Debug Setting 'DatabaseParameterInfo.layout' to '${callsite:filename=true}'
+2016-02-16 19:51:13.0211 Debug Setting 'CallSiteLayoutRenderer.filename' to 'true'
+2016-02-16 19:51:13.9618 Debug Setting 'DatabaseParameterInfo.name' to '@threadid'
+2016-02-16 19:51:14.9044 Debug Setting 'DatabaseParameterInfo.layout' to '${threadid}'
+2016-02-16 19:51:15.8431 Debug Setting 'DatabaseParameterInfo.name' to '@log_exception'
+2016-02-16 19:51:16.7827 Debug Setting 'DatabaseParameterInfo.layout' to '${exception}'
+2016-02-16 19:51:17.7414 Debug Setting 'DatabaseParameterInfo.name' to '@stacktrace'
+2016-02-16 19:51:18.6861 Debug Setting 'DatabaseParameterInfo.layout' to '${stacktrace}'
+2016-02-16 19:51:19.6287 Info Adding target Database Target[database]
+2016-02-16 19:51:20.5774 Debug Registering target database: NLog.Targets.DatabaseTarget
+2016-02-16 19:51:21.5301 Info Configured from an XML element in C:\dev\AUSKF\AUSKF\NLog.config...
+2016-02-16 19:51:22.4888 Debug --- NLog configuration dump ---
+2016-02-16 19:51:23.4425 Debug Targets:
+2016-02-16 19:51:24.3921 Debug Database Target[database]
+2016-02-16 19:51:25.3318 Debug Rules:
+2016-02-16 19:51:26.2815 Debug logNamePattern: (:All) levels: [ ] appendTo: [ database ]
+2016-02-16 19:51:27.2391 Debug --- End of NLog configuration dump ---
+2016-02-16 19:51:28.2058 Info Watching path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config' for changes.
+2016-02-16 19:51:29.1545 Info Found 42 configuration items
+2016-02-16 19:51:30.1122 Info Configuration initialized.
+2016-02-16 19:51:31.0528 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.2.3.1371. Product version: 4.2.3.
+2016-02-16 19:51:32.0075 Debug Targets for ControllerFactory by level:
+2016-02-16 19:51:32.9562 Debug Trace =>
+2016-02-16 19:51:33.8979 Debug Debug => database
+2016-02-16 19:51:34.8425 Debug Info => database
+2016-02-16 19:51:35.7852 Debug Warn => database
+2016-02-16 19:51:36.7299 Debug Error => database
+2016-02-16 19:51:37.6725 Debug Fatal => database
+2016-02-16 19:51:38.7783 Debug Targets for AUSKF.Startup by level:
+2016-02-16 19:51:39.7240 Debug Trace =>
+2016-02-16 19:51:40.6687 Debug Debug => database
+2016-02-16 19:51:41.6123 Debug Info => database
+2016-02-16 19:51:42.5590 Debug Warn => database
+2016-02-16 19:51:43.5057 Debug Error => database
+2016-02-16 19:51:44.4503 Debug Fatal => database
+2016-02-16 19:51:45.5911 Debug Targets for DataContext by level:
+2016-02-16 19:51:46.5448 Debug Trace =>
+2016-02-16 19:51:47.4925 Debug Debug => database
+2016-02-16 19:51:48.4342 Debug Info => database
+2016-02-16 19:51:49.3858 Debug Warn => database
+2016-02-16 19:51:50.3365 Debug Error => database
+2016-02-16 19:51:51.2832 Debug Fatal => database
+2016-02-16 19:51:52.2729 Debug Targets for AUSKF.Domain.Providers.Identity.ApplicationUserManager by level:
+2016-02-16 19:51:53.2236 Debug Trace =>
+2016-02-16 19:51:54.1772 Debug Debug => database
+2016-02-16 19:51:55.1319 Debug Info => database
+2016-02-16 19:51:56.0886 Debug Warn => database
+2016-02-16 19:51:57.0402 Debug Error => database
+2016-02-16 19:51:57.9919 Debug Fatal => database
+2016-02-16 19:51:58.9506 Debug Targets for AUSKF.Domain.Providers.Identity.ApplicationClaimsIdentityFactory by level:
+2016-02-16 19:51:59.8983 Debug Trace =>
+2016-02-16 19:52:00.8383 Debug Debug => database
+2016-02-16 19:52:01.7830 Debug Info => database
+2016-02-16 19:52:02.7326 Debug Warn => database
+2016-02-16 19:52:03.6653 Debug Error => database
+2016-02-16 19:52:04.6129 Debug Fatal => database
+2016-02-16 19:57:59.2532 Info Shutting down logging...
+2016-02-16 19:58:00.1741 Info Stopping file watching for path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config'
+2016-02-16 19:58:01.0807 Info Closing old configuration.
+2016-02-16 19:58:02.0026 Debug Closing logging configuration...
+2016-02-16 19:58:02.9089 Debug Finished closing logging configuration.
+2016-02-16 19:58:03.8464 Info Logger has been shut down.
+2016-02-16 19:58:13.6108 Debug ScanAssembly('NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c')
+2016-02-16 19:58:14.5845 Debug Start auto loading, location: C:\dev\AUSKF\AUSKF\bin
+2016-02-16 19:58:15.5401 Debug Auto loading done
+2016-02-16 19:58:16.4998 Debug Setting 'DatabaseTarget.name' to 'database'
+2016-02-16 19:58:17.4535 Debug Setting 'DatabaseTarget.dbprovider' to 'mssql'
+2016-02-16 19:58:18.4042 Debug Setting 'DatabaseTarget.dbhost' to 'localhost'
+2016-02-16 19:58:19.3618 Debug Setting 'DatabaseTarget.dbdatabase' to 'AUSKF'
+2016-02-16 19:58:20.3125 Debug Setting 'DatabaseTarget.dbusername' to 'sa'
+2016-02-16 19:58:21.2622 Debug Setting 'DatabaseTarget.dbpassword' to 'xo2Die5l'
+2016-02-16 19:58:22.2238 Debug Setting 'DatabaseTarget.commandText' to '
+        insert into LogTable(LogLevel, Logger,Message, MessageId, WindowsUserName, CallSite, ThreadId, Exception, StackTrace)
+        values( @level, @logger, @message,@msgid, @user_name, @call_site, @threadid, @log_exception, @stacktrace);
+      '
+2016-02-16 19:58:23.1795 Debug Setting 'DatabaseParameterInfo.name' to '@time_stamp'
+2016-02-16 19:58:24.1412 Debug Setting 'DatabaseParameterInfo.layout' to '${longdate}'
+2016-02-16 19:58:25.1059 Debug Setting 'DatabaseParameterInfo.name' to '@level'
+2016-02-16 19:58:26.0516 Debug Setting 'DatabaseParameterInfo.layout' to '${level}'
+2016-02-16 19:58:27.0022 Debug Setting 'DatabaseParameterInfo.name' to '@logger'
+2016-02-16 19:58:27.9499 Debug Setting 'DatabaseParameterInfo.layout' to '${logger}'
+2016-02-16 19:58:28.9036 Debug Setting 'DatabaseParameterInfo.name' to '@message'
+2016-02-16 19:58:29.8563 Debug Setting 'DatabaseParameterInfo.layout' to '${message}'
+2016-02-16 19:58:30.8089 Debug Setting 'DatabaseParameterInfo.name' to '@msgid'
+2016-02-16 19:58:31.7606 Debug Setting 'DatabaseParameterInfo.layout' to '${event-context:item=UniqueCode}'
+2016-02-16 19:58:32.7173 Debug Setting 'EventContextLayoutRenderer.item' to 'UniqueCode'
+2016-02-16 19:58:33.6609 Debug Setting 'DatabaseParameterInfo.name' to '@user_name'
+2016-02-16 19:58:34.6126 Debug Setting 'DatabaseParameterInfo.layout' to '${windows-identity:domain=true}'
+2016-02-16 19:58:35.5653 Debug Setting 'WindowsIdentityLayoutRenderer.domain' to 'true'
+2016-02-16 19:58:36.5190 Debug Setting 'DatabaseParameterInfo.name' to '@call_site'
+2016-02-16 19:58:37.4706 Debug Setting 'DatabaseParameterInfo.layout' to '${callsite:filename=true}'
+2016-02-16 19:58:38.4273 Debug Setting 'CallSiteLayoutRenderer.filename' to 'true'
+2016-02-16 19:58:39.3820 Debug Setting 'DatabaseParameterInfo.name' to '@threadid'
+2016-02-16 19:58:40.3337 Debug Setting 'DatabaseParameterInfo.layout' to '${threadid}'
+2016-02-16 19:58:41.2934 Debug Setting 'DatabaseParameterInfo.name' to '@log_exception'
+2016-02-16 19:58:42.2490 Debug Setting 'DatabaseParameterInfo.layout' to '${exception}'
+2016-02-16 19:58:43.2027 Debug Setting 'DatabaseParameterInfo.name' to '@stacktrace'
+2016-02-16 19:58:44.1614 Debug Setting 'DatabaseParameterInfo.layout' to '${stacktrace}'
+2016-02-16 19:58:45.1171 Info Adding target Database Target[database]
+2016-02-16 19:58:46.0757 Debug Registering target database: NLog.Targets.DatabaseTarget
+2016-02-16 19:58:47.0344 Info Configured from an XML element in C:\dev\AUSKF\AUSKF\NLog.config...
+2016-02-16 19:58:47.9951 Debug --- NLog configuration dump ---
+2016-02-16 19:58:48.9488 Debug Targets:
+2016-02-16 19:58:49.9024 Debug Database Target[database]
+2016-02-16 19:58:50.8581 Debug Rules:
+2016-02-16 19:58:51.8118 Debug logNamePattern: (:All) levels: [ ] appendTo: [ database ]
+2016-02-16 19:58:52.7675 Debug --- End of NLog configuration dump ---
+2016-02-16 19:58:53.7272 Info Watching path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config' for changes.
+2016-02-16 19:58:54.6848 Info Found 42 configuration items
+2016-02-16 19:58:55.6545 Info Configuration initialized.
+2016-02-16 19:58:56.6132 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.2.3.1371. Product version: 4.2.3.
+2016-02-16 19:58:57.5759 Debug Targets for ControllerFactory by level:
+2016-02-16 19:58:58.5336 Debug Trace =>
+2016-02-16 19:58:59.4883 Debug Debug => database
+2016-02-16 19:59:00.4450 Debug Info => database
+2016-02-16 19:59:01.4017 Debug Warn => database
+2016-02-16 19:59:02.3494 Debug Error => database
+2016-02-16 19:59:03.3070 Debug Fatal => database
+2016-02-16 19:59:04.3558 Debug Targets for AUSKF.Startup by level:
+2016-02-16 19:59:05.3135 Debug Trace =>
+2016-02-16 19:59:06.2671 Debug Debug => database
+2016-02-16 19:59:07.2228 Debug Info => database
+2016-02-16 19:59:08.1775 Debug Warn => database
+2016-02-16 19:59:09.1292 Debug Error => database
+2016-02-16 19:59:10.0878 Debug Fatal => database
+2016-02-16 19:59:11.2266 Debug Targets for DataContext by level:
+2016-02-16 19:59:12.1793 Debug Trace =>
+2016-02-16 19:59:13.1350 Debug Debug => database
+2016-02-16 19:59:14.0937 Debug Info => database
+2016-02-16 19:59:15.0434 Debug Warn => database
+2016-02-16 19:59:15.9990 Debug Error => database
+2016-02-16 19:59:16.9577 Debug Fatal => database
+2016-02-16 19:59:17.9324 Debug Targets for AUSKF.Domain.Providers.Identity.ApplicationUserManager by level:
+2016-02-16 19:59:18.8911 Debug Trace =>
+2016-02-16 19:59:19.8488 Debug Debug => database
+2016-02-16 19:59:20.8054 Debug Info => database
+2016-02-16 19:59:21.7601 Debug Warn => database
+2016-02-16 19:59:22.7238 Debug Error => database
+2016-02-16 19:59:23.6825 Debug Fatal => database
+2016-02-16 19:59:24.6482 Debug Targets for AUSKF.Domain.Providers.Identity.ApplicationClaimsIdentityFactory by level:
+2016-02-16 19:59:25.6107 Debug Trace =>
+2016-02-16 19:59:26.5634 Debug Debug => database
+2016-02-16 19:59:27.5151 Debug Info => database
+2016-02-16 19:59:28.4748 Debug Warn => database
+2016-02-16 19:59:29.4345 Debug Error => database
+2016-02-16 19:59:30.3971 Debug Fatal => database
+2016-02-16 20:00:35.8448 Info Shutting down logging...
+2016-02-16 20:00:36.7823 Info Stopping file watching for path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config'
+2016-02-16 20:00:37.7042 Info Closing old configuration.
+2016-02-16 20:00:38.6417 Debug Closing logging configuration...
+2016-02-16 20:00:39.5677 Debug Finished closing logging configuration.
+2016-02-16 20:00:40.4874 Info Logger has been shut down.
+2016-02-16 20:00:42.9603 Debug ScanAssembly('NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c')
+2016-02-16 20:00:43.9490 Debug Start auto loading, location: C:\dev\AUSKF\AUSKF\bin
+2016-02-16 20:00:44.9187 Debug Auto loading done
+2016-02-16 20:00:45.8964 Debug Setting 'DatabaseTarget.name' to 'database'
+2016-02-16 20:00:46.8681 Debug Setting 'DatabaseTarget.dbprovider' to 'mssql'
+2016-02-16 20:00:47.8468 Debug Setting 'DatabaseTarget.dbhost' to 'localhost'
+2016-02-16 20:00:48.8094 Debug Setting 'DatabaseTarget.dbdatabase' to 'AUSKF'
+2016-02-16 20:00:49.7801 Debug Setting 'DatabaseTarget.dbusername' to 'sa'
+2016-02-16 20:00:50.7618 Debug Setting 'DatabaseTarget.dbpassword' to 'xo2Die5l'
+2016-02-16 20:00:51.7345 Debug Setting 'DatabaseTarget.commandText' to '
+        insert into LogTable(LogLevel, Logger,Message, MessageId, WindowsUserName, CallSite, ThreadId, Exception, StackTrace)
+        values( @level, @logger, @message,@msgid, @user_name, @call_site, @threadid, @log_exception, @stacktrace);
+      '
+2016-02-16 20:00:52.7102 Debug Setting 'DatabaseParameterInfo.name' to '@time_stamp'
+2016-02-16 20:00:53.6839 Debug Setting 'DatabaseParameterInfo.layout' to '${longdate}'
+2016-02-16 20:00:54.7216 Debug Setting 'DatabaseParameterInfo.name' to '@level'
+2016-02-16 20:00:55.6953 Debug Setting 'DatabaseParameterInfo.layout' to '${level}'
+2016-02-16 20:00:56.6680 Debug Setting 'DatabaseParameterInfo.name' to '@logger'
+2016-02-16 20:00:57.6397 Debug Setting 'DatabaseParameterInfo.layout' to '${logger}'
+2016-02-16 20:00:58.6124 Debug Setting 'DatabaseParameterInfo.name' to '@message'
+2016-02-16 20:00:59.5831 Debug Setting 'DatabaseParameterInfo.layout' to '${message}'
+2016-02-16 20:01:00.5533 Debug Setting 'DatabaseParameterInfo.name' to '@msgid'
+2016-02-16 20:01:01.5210 Debug Setting 'DatabaseParameterInfo.layout' to '${event-context:item=UniqueCode}'
+2016-02-16 20:01:02.4957 Debug Setting 'EventContextLayoutRenderer.item' to 'UniqueCode'
+2016-02-16 20:01:03.4643 Debug Setting 'DatabaseParameterInfo.name' to '@user_name'
+2016-02-16 20:01:04.4330 Debug Setting 'DatabaseParameterInfo.layout' to '${windows-identity:domain=true}'
+2016-02-16 20:01:05.4027 Debug Setting 'WindowsIdentityLayoutRenderer.domain' to 'true'
+2016-02-16 20:01:06.3764 Debug Setting 'DatabaseParameterInfo.name' to '@call_site'
+2016-02-16 20:01:07.3461 Debug Setting 'DatabaseParameterInfo.layout' to '${callsite:filename=true}'
+2016-02-16 20:01:08.3158 Debug Setting 'CallSiteLayoutRenderer.filename' to 'true'
+2016-02-16 20:01:09.2855 Debug Setting 'DatabaseParameterInfo.name' to '@threadid'
+2016-02-16 20:01:10.2532 Debug Setting 'DatabaseParameterInfo.layout' to '${threadid}'
+2016-02-16 20:01:11.2279 Debug Setting 'DatabaseParameterInfo.name' to '@log_exception'
+2016-02-16 20:01:12.1995 Debug Setting 'DatabaseParameterInfo.layout' to '${exception}'
+2016-02-16 20:01:13.1662 Debug Setting 'DatabaseParameterInfo.name' to '@stacktrace'
+2016-02-16 20:01:14.1779 Debug Setting 'DatabaseParameterInfo.layout' to '${stacktrace}'
+2016-02-16 20:01:15.1616 Info Adding target Database Target[database]
+2016-02-16 20:01:16.1293 Debug Registering target database: NLog.Targets.DatabaseTarget
+2016-02-16 20:01:17.1150 Info Configured from an XML element in C:\dev\AUSKF\AUSKF\NLog.config...
+2016-02-16 20:01:18.0997 Debug --- NLog configuration dump ---
+2016-02-16 20:01:19.0664 Debug Targets:
+2016-02-16 20:01:20.0791 Debug Database Target[database]
+2016-02-16 20:01:21.1739 Debug Rules:
+2016-02-16 20:01:22.1846 Debug logNamePattern: (:All) levels: [ ] appendTo: [ database ]
+2016-02-16 20:01:23.1593 Debug --- End of NLog configuration dump ---
+2016-02-16 20:01:24.1290 Info Watching path 'C:\dev\AUSKF\AUSKF' filter 'NLog.config' for changes.
+2016-02-16 20:01:25.1067 Info Found 42 configuration items
+2016-02-16 20:01:26.0834 Info Configuration initialized.
+2016-02-16 20:01:27.0541 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.2.3.1371. Product version: 4.2.3.
+2016-02-16 20:01:28.0317 Debug Targets for ControllerFactory by level:
+2016-02-16 20:01:29.0094 Debug Trace =>
+2016-02-16 20:01:29.9811 Debug Debug => database
+2016-02-16 20:01:30.9518 Debug Info => database
+2016-02-16 20:01:31.9255 Debug Warn => database
+2016-02-16 20:01:32.8932 Debug Error => database
+2016-02-16 20:01:33.8729 Debug Fatal => database
+2016-02-16 20:01:35.0057 Debug Targets for AUSKF.Startup by level:
+2016-02-16 20:01:35.9874 Debug Trace =>
+2016-02-16 20:01:36.9631 Debug Debug => database
+2016-02-16 20:01:37.9338 Debug Info => database
+2016-02-16 20:01:38.8924 Debug Warn => database
+2016-02-16 20:01:39.8571 Debug Error => database
+2016-02-16 20:01:40.8238 Debug Fatal => database
+2016-02-16 20:01:41.9686 Debug Targets for DataContext by level:
+2016-02-16 20:01:42.9333 Debug Trace =>
+2016-02-16 20:01:43.8950 Debug Debug => database
+2016-02-16 20:01:44.8587 Debug Info => database
+2016-02-16 20:01:45.8223 Debug Warn => database
+2016-02-16 20:01:46.7870 Debug Error => database
+2016-02-16 20:01:47.7517 Debug Fatal => database
+2016-02-16 20:01:48.7524 Debug Targets for AUSKF.Domain.Providers.Identity.ApplicationUserManager by level:
+2016-02-16 20:01:49.7221 Debug Trace =>
+2016-02-16 20:01:50.6958 Debug Debug => database
+2016-02-16 20:01:51.6585 Debug Info => database
+2016-02-16 20:01:52.6282 Debug Warn => database
+2016-02-16 20:01:53.5918 Debug Error => database
+2016-02-16 20:01:54.5645 Debug Fatal => database
+2016-02-16 20:01:55.5442 Debug Targets for AUSKF.Domain.Providers.Identity.ApplicationClaimsIdentityFactory by level:
+2016-02-16 20:01:56.5289 Debug Trace =>
+2016-02-16 20:01:57.4986 Debug Debug => database
+2016-02-16 20:01:58.4713 Debug Info => database
+2016-02-16 20:01:59.4570 Debug Warn => database
+2016-02-16 20:02:00.4362 Debug Error => database
+2016-02-16 20:02:01.4078 Debug Fatal => database

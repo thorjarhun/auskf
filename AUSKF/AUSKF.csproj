@@ -713,6 +713,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="Areas\Admin\Scripts\admin.layout.controller.ts" />
     <TypeScriptCompile Include="Areas\Admin\Scripts\admin.user.controller.ts" />
+    <TypeScriptCompile Include="Areas\Admin\Scripts\admin.userdetail.controller.ts" />
     <TypeScriptCompile Include="Areas\Admin\Scripts\auskf.admin.module.ts" />
     <TypeScriptCompile Include="Areas\News\Scripts\auskf.news.ts" />
     <TypeScriptCompile Include="Areas\News\Scripts\auskf.news.controller.ts" />

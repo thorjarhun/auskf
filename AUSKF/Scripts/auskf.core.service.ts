@@ -1,5 +1,5 @@
 ﻿// ReSharper disable once InconsistentNaming
-module auskf.core {
+module auskf {
     "use strict";
 
     export interface ICoreService {
@@ -29,7 +29,7 @@ export class CoreService implements ICoreService {
         for (var property in parameters) {
             if (parameters.hasOwnProperty(property)) {
                 if (parameters[property] && parameters[property].constructor === Array) {
-                    angular.forEach(parameters[property], function (value) {
+                    angular.forEach(parameters[property], value => {
                         query += property + "=" + value + "&";
                     });
                 } else {
